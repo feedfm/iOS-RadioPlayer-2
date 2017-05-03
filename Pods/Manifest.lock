@@ -1,0 +1,28 @@
+PODS:
+  - FeedMedia (4.0.0-beta1):
+    - FeedMedia/UI (= 4.0.0-beta1)
+  - FeedMedia/UI (4.0.0-beta1):
+    - MarqueeLabel (~> 3.0.3)
+  - MarqueeLabel (3.0.4):
+    - MarqueeLabel/ObjC (= 3.0.4)
+  - MarqueeLabel/ObjC (3.0.4)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+
+DEPENDENCIES:
+  - FeedMedia (from `~/git/iOS-SDK-Core/FeedMedia`)
+  - SDWebImage (~> 3.8)
+
+EXTERNAL SOURCES:
+  FeedMedia:
+    :path: ~/git/iOS-SDK-Core/FeedMedia
+
+SPEC CHECKSUMS:
+  FeedMedia: 2989b2043978fc6423c753389a113a9f0821196a
+  MarqueeLabel: 9dbd9aeaa01dd73dbc4b986b2cc945007bb480d5
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+
+PODFILE CHECKSUM: 0135b59ad7bf8a463323f1ecce89bc661d749169
+
+COCOAPODS: 1.2.0
