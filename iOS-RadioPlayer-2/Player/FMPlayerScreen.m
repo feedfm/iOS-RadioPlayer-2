@@ -115,8 +115,6 @@
 }
 
 - (void) updateDisplay {
-    NSLog(@"updating the display!");
-    
     FMAudioPlayerPlaybackState state = _feedPlayer.playbackState;
     
     switch (state) {
