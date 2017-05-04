@@ -31,7 +31,7 @@
         <!--Player-->
         <scene sceneID="lGe-y4-emC">
             <objects>
-                <viewController storyboardIdentifier="playerViewController" id="adh-gK-nCU" userLabel="Player" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playerViewController" id="adh-gK-nCU" userLabel="Player" customClass="FMPlayerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Noh-eY-r0e"/>
                         <viewControllerLayoutGuide type="bottom" id="cll-t9-WgT"/>
@@ -53,12 +53,55 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-dA-UDD" userLabel="Player Controls View">
                                 <rect key="frame" x="0.0" y="556" width="414" height="180"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQz-4X-1Mg" customClass="FMPlayerScreen">
-                                        <rect key="frame" x="8" y="22" width="398" height="52"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQz-4X-1Mg" userLabel="Metadata Display" customClass="OAStackView">
+                                        <rect key="frame" x="8" y="31" width="398" height="38"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U00-an-N9u" userLabel="notice" customClass="MarqueeLabel">
+                                                <rect key="frame" x="59" y="15" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
+                                                <rect key="frame" x="178" y="14" width="38" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="format" value="%TRACK"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
+                                                <rect key="frame" x="301" y="14" width="31" height="15"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="format" value="%ARTIST on %ALBUM"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.83921568629999999" green="0.024116113179999999" blue="0.0058770810799999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="l96-Hn-tb4"/>
+                                            <constraint firstAttribute="height" constant="38" id="l96-Hn-tb4"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="axisValue">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="alignmentValue">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="distributionValue">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
                                         <rect key="frame" x="60" y="79" width="295" height="52"/>
@@ -196,7 +239,7 @@
                                     <constraint firstItem="e5Q-2b-nR4" firstAttribute="centerX" secondItem="ZV9-dA-UDD" secondAttribute="centerX" id="sBB-xd-NXL"/>
                                     <constraint firstItem="hQz-4X-1Mg" firstAttribute="left" secondItem="ZV9-dA-UDD" secondAttribute="leftMargin" id="wl8-nl-Ojt"/>
                                     <constraint firstAttribute="height" constant="180" id="xOK-pS-tbA"/>
-                                    <constraint firstItem="e5Q-2b-nR4" firstAttribute="top" secondItem="hQz-4X-1Mg" secondAttribute="bottom" constant="5" id="yZj-9X-m57"/>
+                                    <constraint firstItem="e5Q-2b-nR4" firstAttribute="top" secondItem="hQz-4X-1Mg" secondAttribute="bottom" constant="10" id="yZj-9X-m57"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -214,6 +257,11 @@
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="iHi-Lj-wgL" secondAttribute="bottom" id="yiM-Ks-HT5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noticeLabel" destination="U00-an-N9u" id="79f-GG-Rbc"/>
+                        <outlet property="trackLineOneLabel" destination="8DI-LC-N4h" id="0kB-g5-cv2"/>
+                        <outlet property="trackLineTwoLabel" destination="QYm-Od-Gur" id="xTl-Z4-eqp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tZ-oC-jT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
