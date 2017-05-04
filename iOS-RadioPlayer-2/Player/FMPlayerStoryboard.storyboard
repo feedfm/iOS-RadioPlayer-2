@@ -54,17 +54,10 @@
                                 <rect key="frame" x="0.0" y="556" width="414" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQz-4X-1Mg" userLabel="Metadata Display" customClass="OAStackView">
-                                        <rect key="frame" x="8" y="31" width="398" height="38"/>
+                                        <rect key="frame" x="8" y="21" width="398" height="38"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U00-an-N9u" userLabel="notice" customClass="MarqueeLabel">
-                                                <rect key="frame" x="59" y="15" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="178" y="14" width="38" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
+                                                <rect key="frame" x="180" y="9" width="67" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -73,8 +66,15 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%TRACK"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="301" y="14" width="31" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press play!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-8J-9Xn" customClass="MarqueeLabel">
+                                                <rect key="frame" x="36" y="8" width="105" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist/Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
+                                                <rect key="frame" x="272" y="11" width="59" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -239,7 +239,7 @@
                                     <constraint firstItem="e5Q-2b-nR4" firstAttribute="centerX" secondItem="ZV9-dA-UDD" secondAttribute="centerX" id="sBB-xd-NXL"/>
                                     <constraint firstItem="hQz-4X-1Mg" firstAttribute="left" secondItem="ZV9-dA-UDD" secondAttribute="leftMargin" id="wl8-nl-Ojt"/>
                                     <constraint firstAttribute="height" constant="180" id="xOK-pS-tbA"/>
-                                    <constraint firstItem="e5Q-2b-nR4" firstAttribute="top" secondItem="hQz-4X-1Mg" secondAttribute="bottom" constant="10" id="yZj-9X-m57"/>
+                                    <constraint firstItem="e5Q-2b-nR4" firstAttribute="top" secondItem="hQz-4X-1Mg" secondAttribute="bottom" constant="20" id="yZj-9X-m57"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -258,7 +258,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="noticeLabel" destination="U00-an-N9u" id="79f-GG-Rbc"/>
+                        <outlet property="noticeLabel" destination="1Hv-8J-9Xn" id="srl-HI-3WT"/>
                         <outlet property="trackLineOneLabel" destination="8DI-LC-N4h" id="0kB-g5-cv2"/>
                         <outlet property="trackLineTwoLabel" destination="QYm-Od-Gur" id="xTl-Z4-eqp"/>
                     </connections>
