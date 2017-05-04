@@ -6,12 +6,14 @@ PODS:
   - MarqueeLabel (3.0.4):
     - MarqueeLabel/ObjC (= 3.0.4)
   - MarqueeLabel/ObjC (3.0.4)
+  - OAStackView (1.0.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - FeedMedia (from `~/git/iOS-SDK-Core/FeedMedia`)
+  - OAStackView
   - SDWebImage (~> 3.8)
 
 EXTERNAL SOURCES:
@@ -21,8 +23,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FeedMedia: 2989b2043978fc6423c753389a113a9f0821196a
   MarqueeLabel: 9dbd9aeaa01dd73dbc4b986b2cc945007bb480d5
+  OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 0135b59ad7bf8a463323f1ecce89bc661d749169
+PODFILE CHECKSUM: 28245b96b1d0d699e33ada9052f69f477fe64a94
 
 COCOAPODS: 1.2.0
