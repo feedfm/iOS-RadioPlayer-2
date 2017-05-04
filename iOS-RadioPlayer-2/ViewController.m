@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "FMResources.h"
+#import "FMPlayerViewController.h"
 
 @interface ViewController ()
 
@@ -25,5 +27,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction) openPlayer: (id) sender {
+    NSLog(@"you clicked open playier!");
+    
+    UIStoryboard *sb = [FMResources playerStoryboard];
+//    UINavigationController *vc = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
+//    FMPlayerViewController *player = (FMPlayerViewController *) vc.topViewController;
+    
+//    player.title = @"My Radio";
+
+    FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
+    player.title = @"My Radio";
+
+    [self presentViewController:player animated:YES completion:nil];
+}
 
 @end
