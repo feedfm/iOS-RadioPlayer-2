@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import "FMResources.h"
 #import "FMPlayerViewController.h"
+#import <FeedMedia/FeedMedia.h>
 
 @interface ViewController ()
+
+@property (strong, nonatomic) IBOutlet UIButton *openButton;
 
 @end
 
@@ -19,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    _openButton.enabled = NO;
+    [[FMAudioPlayer sharedPlayer] whenAvailable:^{
+        NSLog(@"stations available!");
+        _openButton.enabled = YES;
+        
+    } notAvailable:^{
+        NSLog(@"not available!");
+        
+    }];
 }
 
 

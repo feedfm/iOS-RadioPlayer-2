@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet MarqueeLabel *noticeLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineOneLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineTwoLabel;
+@property (strong, nonatomic) IBOutlet UIScrollView *stationScroller;
+@property (strong, nonatomic) IBOutlet UIView *stationScrollerContent;
 
 @end
 
@@ -29,6 +31,62 @@
     _noticeLabel.translatesAutoresizingMaskIntoConstraints = NO;
     _trackLineTwoLabel.translatesAutoresizingMaskIntoConstraints = NO;
     _trackLineOneLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // populate the station scroller
+    [self populateStationScroller];
+}
+
+- (void) populateStationScroller {
+    NSArray *stations = [FMAudioPlayer sharedPlayer].stationList;
+    NSArray *colors = @[ [UIColor greenColor], [UIColor orangeColor], [UIColor purpleColor] ];
+    
+    // add a page for each station
+    UIView *previousStation = nil;
+    for (int i = 0; i < stations.count; i++) {
+        NSLog(@"adding station");
+        
+        FMStation *station = [stations objectAtIndex:i];
+        
+        UIView *stationView = [[UIView alloc] init];
+        stationView.backgroundColor = [colors objectAtIndex:i];
+
+        UILabel *stationTitle = [[UILabel alloc] init];
+        stationTitle.text = station.name;
+        
+        [stationView addSubview:stationTitle];
+
+        // title in center of view
+        stationTitle.translatesAutoresizingMaskIntoConstraints = NO;
+        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationTitle attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:stationView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationTitle attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:stationView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+
+        // stick view in content view
+        [_stationScrollerContent addSubview:stationView];
+        
+        // station view sizing:
+
+        stationView.translatesAutoresizingMaskIntoConstraints = NO;
+
+        // top = content view
+        [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_stationScrollerContent attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+        // bottom = content view
+        [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_stationScrollerContent attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+        
+        // width = screen width
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+        // left = right of previous station or anchored to left side of content view
+        if (previousStation == nil) {
+            [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_stationScrollerContent attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+        } else {
+            [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:previousStation attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+        }
+        
+        previousStation = stationView;
+    }
+    
+    // finally, the container is the width of all the stations together
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_stationScrollerContent attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:stations.count constant:0]];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
