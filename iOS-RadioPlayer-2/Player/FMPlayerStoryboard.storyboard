@@ -263,6 +263,9 @@
                                         <state key="normal" title="POWERED BY FEED.FM">
                                             <color key="titleColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="sBi-pL-wRf" kind="presentation" id="pQp-FA-LLt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,7 +321,7 @@
         <!--Disclaimer-->
         <scene sceneID="XQO-pd-5G3">
             <objects>
-                <viewController storyboardIdentifier="disclaimerViewController" id="sBi-pL-wRf" userLabel="Disclaimer" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="disclaimerViewController" id="sBi-pL-wRf" userLabel="Disclaimer" customClass="FMDisclaimerControllerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zZE-bn-1Mr"/>
                         <viewControllerLayoutGuide type="bottom" id="xhm-i3-EFt"/>
@@ -326,7 +329,42 @@
                     <view key="view" contentMode="scaleToFill" id="ZJ1-FA-EHk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-disclaimer-background" translatesAutoresizingMaskIntoConstraints="NO" id="NZu-iW-a3g">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-xQ-j5X">
+                                <rect key="frame" x="87" y="672" width="240" height="34"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
+                                <rect key="frame" x="36" y="541" width="342" height="101"/>
+                                <string key="text">There is no affiliation, connection, association or endorsement of the products, goods or services displayed on this page by the copyright owners, featured recording artists and authors of the sound recordings (and the musical works embodied therein) transmitted through the Feed.fm Player</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-Eq-MEn">
+                                <rect key="frame" x="16" y="36" width="24" height="24"/>
+                                <state key="normal" image="feedfm-icon-close-white"/>
+                                <connections>
+                                    <action selector="closePlayer:" destination="sBi-pL-wRf" eventType="touchUpInside" id="ZPl-fW-Ygq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xhm-i3-EFt" firstAttribute="top" secondItem="qfd-xQ-j5X" secondAttribute="bottom" constant="30" id="52v-OZ-jTY"/>
+                            <constraint firstAttribute="trailing" secondItem="NZu-iW-a3g" secondAttribute="trailing" id="7jX-b9-JvC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2DA-4e-3dk" secondAttribute="trailing" constant="16" id="Adx-L0-Gmg"/>
+                            <constraint firstItem="2DA-4e-3dk" firstAttribute="leading" secondItem="ZJ1-FA-EHk" secondAttribute="leadingMargin" constant="16" id="KQA-mK-gsf"/>
+                            <constraint firstItem="NZu-iW-a3g" firstAttribute="top" secondItem="zZE-bn-1Mr" secondAttribute="bottom" id="UO5-jn-ygq"/>
+                            <constraint firstItem="gsb-Eq-MEn" firstAttribute="top" secondItem="zZE-bn-1Mr" secondAttribute="bottom" constant="16" id="fCf-e4-K0l"/>
+                            <constraint firstItem="qfd-xQ-j5X" firstAttribute="centerX" secondItem="ZJ1-FA-EHk" secondAttribute="centerX" id="geZ-9I-tWq"/>
+                            <constraint firstItem="qfd-xQ-j5X" firstAttribute="top" secondItem="2DA-4e-3dk" secondAttribute="bottom" constant="30" id="obY-T7-lpH"/>
+                            <constraint firstItem="gsb-Eq-MEn" firstAttribute="leading" secondItem="ZJ1-FA-EHk" secondAttribute="leading" constant="16" id="qKh-QN-mwb"/>
+                            <constraint firstItem="xhm-i3-EFt" firstAttribute="top" secondItem="NZu-iW-a3g" secondAttribute="bottom" id="uDG-Ri-4rN"/>
+                            <constraint firstItem="NZu-iW-a3g" firstAttribute="leading" secondItem="ZJ1-FA-EHk" secondAttribute="leading" id="vX8-5a-dOs"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z96-Q3-gHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -335,6 +373,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="feedfm-disclaimer-background" width="577" height="577"/>
+        <image name="feedfm-icon-close-white" width="24" height="24"/>
         <image name="feedfm-icon-dislike-black" width="20" height="20"/>
         <image name="feedfm-icon-dislike-full-black" width="20" height="20"/>
         <image name="feedfm-icon-history-black" width="20" height="20"/>
@@ -345,5 +385,6 @@
         <image name="feedfm-icon-play-black" width="20" height="20"/>
         <image name="feedfm-icon-right-white" width="20" height="20"/>
         <image name="feedfm-icon-skip-black" width="20" height="20"/>
+        <image name="feedfm-logo-white" width="240" height="34"/>
     </resources>
 </document>
