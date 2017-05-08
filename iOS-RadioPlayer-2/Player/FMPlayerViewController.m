@@ -246,7 +246,7 @@
 
         // station play button
         FMStationButton *playButton = [[FMStationButton alloc] init];
-        UIImage *iconPlayBlack = [FMResources imageNamed:@"icon-play-black"];
+        UIImage *iconPlayBlack = [FMResources imageNamed:@"feedfm-icon-play-black"];
         [playButton setImage:iconPlayBlack forState:UIControlStateNormal];
         playButton.playOnClick = YES;
         playButton.hideWhenActive = YES;

@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="width" constant="30" id="1c0-4X-Jw5"/>
                                     <constraint firstAttribute="height" constant="30" id="N2R-93-gQ7"/>
                                 </constraints>
-                                <state key="normal" image="icon-left-white"/>
+                                <state key="normal" image="feedfm-icon-left-white"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-TF-LIN" userLabel="Right Station Button">
                                 <rect key="frame" x="364" y="496" width="30" height="30"/>
@@ -75,7 +75,7 @@
                                     <constraint firstAttribute="height" constant="30" id="I0m-uP-4kw"/>
                                     <constraint firstAttribute="width" constant="30" id="Iew-Ns-bVD"/>
                                 </constraints>
-                                <state key="normal" image="icon-right-white"/>
+                                <state key="normal" image="feedfm-icon-right-white"/>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-hc-qUe" customClass="FMProgressView">
                                 <rect key="frame" x="0.0" y="552" width="414" height="4"/>
@@ -147,8 +147,8 @@
                                                     <constraint firstAttribute="height" priority="999" constant="22" id="Jt5-Ge-NBC"/>
                                                     <constraint firstAttribute="width" priority="999" constant="22" id="ke4-he-P1n"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="icon-play-black"/>
-                                                <state key="selected" image="icon-pause-black"/>
+                                                <state key="normal" title="Button" image="feedfm-icon-play-black"/>
+                                                <state key="selected" image="feedfm-icon-pause-black"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenStalled" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -174,7 +174,7 @@
                                                     <constraint firstAttribute="width" constant="22" id="bea-s5-Wfq"/>
                                                     <constraint firstAttribute="height" constant="22" id="lmM-Fn-Z7f"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="icon-skip-black"/>
+                                                <state key="normal" title="Button" image="feedfm-icon-skip-black"/>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-zJ-6JG" userLabel="divider">
                                                 <rect key="frame" x="117" y="0.0" width="1" height="52"/>
@@ -190,8 +190,8 @@
                                                     <constraint firstAttribute="width" constant="22" id="1YU-WI-nWd"/>
                                                     <constraint firstAttribute="height" constant="22" id="1eH-oT-Qc7"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="icon-like-black"/>
-                                                <state key="selected" image="icon-like-full-black"/>
+                                                <state key="normal" title="Button" image="feedfm-icon-like-black"/>
+                                                <state key="selected" image="feedfm-icon-like-full-black"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrt-C6-bGz" userLabel="Dislike Button" customClass="FMDislikeButton">
                                                 <rect key="frame" x="177" y="15" width="22" height="22"/>
@@ -199,8 +199,8 @@
                                                     <constraint firstAttribute="height" constant="22" id="DEO-IP-Q1V"/>
                                                     <constraint firstAttribute="width" constant="22" id="Uig-fv-JK6"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="icon-dislike-black"/>
-                                                <state key="selected" image="icon-dislike-full-black"/>
+                                                <state key="normal" title="Button" image="feedfm-icon-dislike-black"/>
+                                                <state key="selected" image="feedfm-icon-dislike-full-black"/>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kc-4Te" userLabel="divider">
                                                 <rect key="frame" x="220" y="0.0" width="1" height="52"/>
@@ -216,7 +216,7 @@
                                                     <constraint firstAttribute="height" constant="22" id="3zd-lk-DHB"/>
                                                     <constraint firstAttribute="width" constant="22" id="L05-aU-GNt"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="icon-history-black"/>
+                                                <state key="normal" title="Button" image="feedfm-icon-history-black"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -335,15 +335,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-dislike-black" width="20" height="20"/>
-        <image name="icon-dislike-full-black" width="20" height="20"/>
-        <image name="icon-history-black" width="20" height="20"/>
-        <image name="icon-left-white" width="20" height="20"/>
-        <image name="icon-like-black" width="20" height="20"/>
-        <image name="icon-like-full-black" width="20" height="20"/>
-        <image name="icon-pause-black" width="20" height="20"/>
-        <image name="icon-play-black" width="20" height="20"/>
-        <image name="icon-right-white" width="20" height="20"/>
-        <image name="icon-skip-black" width="20" height="20"/>
+        <image name="feedfm-icon-dislike-black" width="20" height="20"/>
+        <image name="feedfm-icon-dislike-full-black" width="20" height="20"/>
+        <image name="feedfm-icon-history-black" width="20" height="20"/>
+        <image name="feedfm-icon-left-white" width="20" height="20"/>
+        <image name="feedfm-icon-like-black" width="20" height="20"/>
+        <image name="feedfm-icon-like-full-black" width="20" height="20"/>
+        <image name="feedfm-icon-pause-black" width="20" height="20"/>
+        <image name="feedfm-icon-play-black" width="20" height="20"/>
+        <image name="feedfm-icon-right-white" width="20" height="20"/>
+        <image name="feedfm-icon-skip-black" width="20" height="20"/>
     </resources>
 </document>
