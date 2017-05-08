@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FMPlayerViewController : UIViewController
+@interface FMPlayerViewController : UIViewController <UIScrollViewDelegate>
 
 @end

@@ -41,6 +41,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMZ-ET-jfu" userLabel="Station View Sizer">
+                                <rect key="frame" x="0.0" y="20" width="414" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivV-9a-XN8" userLabel="Station Scroller">
                                 <rect key="frame" x="0.0" y="20" width="414" height="536"/>
                                 <subviews>
@@ -57,6 +61,22 @@
                                     <constraint firstItem="SwU-Vj-vIN" firstAttribute="top" secondItem="ivV-9a-XN8" secondAttribute="top" id="r3N-z2-skz"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgc-zL-AKO" userLabel="Left Station Button">
+                                <rect key="frame" x="20" y="496" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="1c0-4X-Jw5"/>
+                                    <constraint firstAttribute="height" constant="30" id="N2R-93-gQ7"/>
+                                </constraints>
+                                <state key="normal" image="icon-left-white"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-TF-LIN" userLabel="Right Station Button">
+                                <rect key="frame" x="364" y="496" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="I0m-uP-4kw"/>
+                                    <constraint firstAttribute="width" constant="30" id="Iew-Ns-bVD"/>
+                                </constraints>
+                                <state key="normal" image="icon-right-white"/>
+                            </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-hc-qUe" customClass="FMProgressView">
                                 <rect key="frame" x="0.0" y="552" width="414" height="4"/>
                                 <constraints>
@@ -69,9 +89,14 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQz-4X-1Mg" userLabel="Metadata Display" customClass="OAStackView">
                                         <rect key="frame" x="8" y="21" width="398" height="38"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="180" y="9" width="67" height="18"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Press play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-8J-9Xn" customClass="MarqueeLabel">
+                                                <rect key="frame" x="0.0" y="8" width="398" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
+                                                <rect key="frame" x="0.0" y="9" width="398" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -79,16 +104,8 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%TRACK"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press play!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-8J-9Xn" customClass="MarqueeLabel">
-                                                <rect key="frame" x="36" y="8" width="105" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist/Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="272" y="11" width="59" height="15"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Artist/Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
+                                                <rect key="frame" x="0.0" y="11" width="398" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -98,6 +115,14 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="8DI-LC-N4h" firstAttribute="leading" secondItem="hQz-4X-1Mg" secondAttribute="leading" id="QTE-U4-ld5"/>
+                                            <constraint firstItem="QYm-Od-Gur" firstAttribute="leading" secondItem="hQz-4X-1Mg" secondAttribute="leading" id="UgX-ec-hAS"/>
+                                            <constraint firstItem="1Hv-8J-9Xn" firstAttribute="leading" secondItem="hQz-4X-1Mg" secondAttribute="leading" id="aAY-F7-YQQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="8DI-LC-N4h" secondAttribute="trailing" id="acq-Fb-FNM"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Hv-8J-9Xn" secondAttribute="trailing" id="oqX-H8-kCk"/>
+                                            <constraint firstAttribute="trailing" secondItem="QYm-Od-Gur" secondAttribute="trailing" id="zNZ-qa-JTR"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="axisValue">
                                                 <integer key="value" value="1"/>
@@ -253,32 +278,42 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AMZ-ET-jfu" secondAttribute="trailing" id="2w1-48-2PD"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="ecR-TF-LIN" secondAttribute="bottom" constant="30" id="33o-bl-ND8"/>
+                            <constraint firstItem="AMZ-ET-jfu" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="70L-T8-Iu0"/>
                             <constraint firstItem="ivV-9a-XN8" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="9K3-of-FUY"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="AMZ-ET-jfu" secondAttribute="bottom" id="FOt-0W-5UN"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="rzS-hc-qUe" secondAttribute="bottom" id="KvP-JB-gck"/>
+                            <constraint firstItem="AMZ-ET-jfu" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="QcB-Te-8Jj"/>
                             <constraint firstItem="cll-t9-WgT" firstAttribute="top" secondItem="ZV9-dA-UDD" secondAttribute="bottom" id="Sm9-hG-CJP"/>
                             <constraint firstAttribute="right" secondItem="ZV9-dA-UDD" secondAttribute="right" id="WQD-X4-cvk"/>
                             <constraint firstItem="rzS-hc-qUe" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="WyJ-u8-hrV"/>
-                            <constraint firstItem="SwU-Vj-vIN" firstAttribute="height" secondItem="xjn-V5-jyG" secondAttribute="height" constant="-200" id="Ya3-fu-SW8"/>
                             <constraint firstAttribute="trailing" secondItem="ivV-9a-XN8" secondAttribute="trailing" id="ZHr-fl-WlL"/>
                             <constraint firstAttribute="trailing" secondItem="rzS-hc-qUe" secondAttribute="trailing" id="bJP-Vz-ZGc"/>
                             <constraint firstItem="ivV-9a-XN8" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="eaz-DE-n3C"/>
                             <constraint firstItem="ivV-9a-XN8" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="eds-jL-mzL"/>
+                            <constraint firstItem="Vgc-zL-AKO" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="fgl-rF-HSC"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="30" id="hMC-Yh-qrH"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="pLD-BI-gOx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ecR-TF-LIN" secondAttribute="trailing" id="paO-Ha-Xgh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="leftButton" destination="Vgc-zL-AKO" id="Zb2-Wu-kL1"/>
                         <outlet property="noticeLabel" destination="1Hv-8J-9Xn" id="srl-HI-3WT"/>
+                        <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
                         <outlet property="stationScroller" destination="ivV-9a-XN8" id="6hP-6E-R60"/>
                         <outlet property="stationScrollerContent" destination="SwU-Vj-vIN" id="nLR-05-Bfu"/>
+                        <outlet property="stationSizer" destination="AMZ-ET-jfu" id="x3Y-vH-oNe"/>
                         <outlet property="trackLineOneLabel" destination="8DI-LC-N4h" id="0kB-g5-cv2"/>
                         <outlet property="trackLineTwoLabel" destination="QYm-Od-Gur" id="xTl-Z4-eqp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tZ-oC-jT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317.39130434782612" y="-127.17391304347827"/>
+            <point key="canvasLocation" x="303" y="-126"/>
         </scene>
         <!--Disclaimer-->
         <scene sceneID="XQO-pd-5G3">
@@ -303,10 +338,12 @@
         <image name="icon-dislike-black" width="20" height="20"/>
         <image name="icon-dislike-full-black" width="20" height="20"/>
         <image name="icon-history-black" width="20" height="20"/>
+        <image name="icon-left-white" width="20" height="20"/>
         <image name="icon-like-black" width="20" height="20"/>
         <image name="icon-like-full-black" width="20" height="20"/>
         <image name="icon-pause-black" width="20" height="20"/>
         <image name="icon-play-black" width="20" height="20"/>
+        <image name="icon-right-white" width="20" height="20"/>
         <image name="icon-skip-black" width="20" height="20"/>
     </resources>
 </document>

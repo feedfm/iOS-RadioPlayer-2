@@ -23,8 +23,7 @@
 }
 
 + (UIImage *)imageNamed:(NSString *)name {
-    NSString *imagePath = [[FMResources frameworkBundle] pathForResource:name ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:imagePath];
+    return [UIImage imageNamed:name];
 }
 
 @end
