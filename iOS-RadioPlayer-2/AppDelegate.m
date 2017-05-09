@@ -18,7 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [FMAudioPlayer setClientToken:@"demo" secret:@"demo"];
+    [FMAudioPlayer setClientToken:@"demo"
+                           secret:@"demo"];
+    
     [[FMAudioPlayer sharedPlayer] whenAvailable:^{
         NSLog(@"Available!");
     } notAvailable:^{
