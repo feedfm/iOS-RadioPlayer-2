@@ -31,7 +31,12 @@
 
 @end
 
-@implementation FMPlayerViewController
+@implementation FMPlayerViewController {
+    
+    NSTimer *_noticeTimer;
+    NSString *_defaultNoticeText;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +48,9 @@
     
     // manage station scrolling and switching
     [self setupStationScrolling];
+    
+    // set initialize metadata
+    [self setupMetadata];
 }
 
 - (void) extractVisibleStations {
@@ -55,20 +63,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     
-    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
- 
-    // watch for player events
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stateUpdated:) name:FMAudioPlayerPlaybackStateDidChangeNotification object:player];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(skipFailed:) name:FMAudioPlayerSkipFailedNotification object:player];
+    [self setupMetadataEventHandlers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    // stop watching for player events
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeMetadataEventHandlers];
 }
-
 
 #pragma mark - Manage station scrolling
 
@@ -326,7 +328,54 @@
 
 #pragma mark - Metadata display
 
+- (void)setupMetadata {
+    // keep track of this!
+    _defaultNoticeText = _noticeLabel.text;
+    _noticeTimer = nil;
+}
+
+- (void)setupMetadataEventHandlers {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    
+    if (_noticeTimer != nil) {
+        [_noticeTimer invalidate];
+        _noticeTimer = nil;
+    }
+
+    // watch for player events
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stateUpdated:) name:FMAudioPlayerPlaybackStateDidChangeNotification object:player];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(skipFailed:) name:FMAudioPlayerSkipFailedNotification object:player];
+    
+    [self updateMetadataDisplay];
+}
+
+- (void) removeMetadataEventHandlers {
+    // stop watching for player events
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void) skipFailed: (NSNotification *) notification {
+    [self displayNotice:@"Sorry, you've temporarily run out of skips"];
+}
+
+- (void) displayNotice: (NSString *) noticeText {
+    if (_noticeTimer != nil) {
+        [_noticeTimer invalidate];
+        _noticeTimer = nil;
+    }
+    
+    _trackLineOneLabel.hidden = YES;
+    _trackLineTwoLabel.hidden = YES;
+    _noticeLabel.text = noticeText;
+    _noticeLabel.hidden = NO;
+
+    _noticeTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(hideNotice:) userInfo:nil repeats:NO];
+}
+
+- (void) hideNotice: (NSTimer *)timer {
+    _noticeTimer = nil;
+    _noticeLabel.text = _defaultNoticeText;
+    
     [self updateMetadataDisplay];
 }
 
