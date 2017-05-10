@@ -129,6 +129,7 @@
         _rightButton.enabled = YES;
     }
     
+    /*
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     FMStation *visibleStation = [_visibleStations objectAtIndex:pageIndex];
 
@@ -142,6 +143,7 @@
         ) {
         [player setActiveStation:visibleStation];
     }
+     */
 }
 
 - (void) moveLeftOneStation: (id) target {
