@@ -67,6 +67,9 @@
     [super viewWillAppear: animated];
     
     [self setupMetadataEventHandlers];
+
+    // disable notificaitons when the player is open
+    [FMAudioPlayer sharedPlayer].disableSongStartNotifications = YES;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -106,6 +109,9 @@
     [self removeMetadataEventHandlers];
     
     _viewHasAppeared = NO;
+    
+    // re-enable notifications when the player is closed
+    [FMAudioPlayer sharedPlayer].disableSongStartNotifications = NO;
 }
 
 #pragma mark - Switch to Station List interface
@@ -123,7 +129,11 @@
     NSArray *viewControllers = self.navigationController.viewControllers;
     unsigned long viewControllerCount = viewControllers.count;
     
-    if (viewControllerCount == 1) {
+    if (_visibleStations.count == 1) {
+        // no other stations to view!
+        _stationCollectionCircle.hidden = YES;
+        
+    } else if (viewControllerCount == 1) {
         // no parent view controller, so display the button
         _stationCollectionCircle.hidden = NO;
 

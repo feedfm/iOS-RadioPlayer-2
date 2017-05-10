@@ -21,8 +21,14 @@
     [FMAudioPlayer setClientToken:@"demo"
                            secret:@"demo"];
     
-    [[FMAudioPlayer sharedPlayer] whenAvailable:^{
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    [player whenAvailable:^{
         NSLog(@"Available!");
+        
+        // optionally turn on music crossfading
+        player.crossfadeInEnabled = YES;
+        player.secondsOfCrossfade = 6.0;
+        
     } notAvailable:^{
         NSLog(@"Unavailable!");
     }];

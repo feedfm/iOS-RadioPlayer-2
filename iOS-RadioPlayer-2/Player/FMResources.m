@@ -10,7 +10,7 @@
 
 @implementation FMResources
 
-static NSString *_backgroundImageUrlPropertyName = @"image";
+static NSString *_backgroundImageUrlPropertyName = @"background_image_url";
 static NSString *_subheaderPropertyName = @"subheader";
 
 + (NSString *) backgroundImageUrlPropertyName {
