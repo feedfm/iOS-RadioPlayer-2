@@ -101,12 +101,12 @@ static UIEdgeInsets sectionInsets;
         cell.station = station;
         cell.title.text = station.name;
         
-        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlProperty];
+        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
         if (bgImageUrl) {
             [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
         }
         
-        NSString *subheader = [station.options objectForKey:FMResources.subheaderProperty];
+        NSString *subheader = [station.options objectForKey:FMResources.subheaderPropertyName];
         if (subheader) {
             cell.subtitle.text = subheader;
         } else {

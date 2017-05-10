@@ -10,15 +10,56 @@
 
 @implementation FMResources
 
-static NSString *_backgroundImageUrlProperty = @"image";
-static NSString *_subheaderProperty = @"subheader";
+static NSString *_backgroundImageUrlPropertyName = @"image";
+static NSString *_subheaderPropertyName = @"subheader";
 
-+ (NSString *) backgroundImageUrlProperty {
-    return _backgroundImageUrlProperty;
++ (NSString *) backgroundImageUrlPropertyName {
+    return _backgroundImageUrlPropertyName;
 }
 
-+ (NSString *) subheaderProperty {
-    return _subheaderProperty;
++ (NSString *) subheaderPropertyName {
+    return _subheaderPropertyName;
+}
+
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title {
+    UIStoryboard *sb = [FMResources playerStoryboard];
+
+    FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
+    player.title = title;
+    
+    return player;
+}
+
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName {
+
+    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:title];
+
+    for (FMStation *station in [[FMAudioPlayer sharedPlayer] stationList]) {
+        if ([station.name isEqualToString:stationName]) {
+            player.initiallyVisibleStation = station;
+            return player;
+        }
+    }
+    
+    return player;
+}
+
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title
+                                                showingStation: (FMStation *) station {
+    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:title];
+    
+    player.initiallyVisibleStation = station;
+
+    return player;
+}
+
++ (FMStationCollectionViewController *) createStationCollectionViewControllerWithTitle: (NSString *) title {
+    UIStoryboard *sb = [FMResources playerStoryboard];
+    
+    FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
+    stationCollection.title = title;
+    
+    return stationCollection;
 }
 
 + (UIStoryboard *)playerStoryboard {

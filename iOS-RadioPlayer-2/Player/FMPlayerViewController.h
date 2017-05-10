@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FeedMedia/FeedMedia.h>
 
 @interface FMPlayerViewController : UIViewController <UIScrollViewDelegate>
+
+@property (strong, nonatomic) FMStation *initiallyVisibleStation;
 
 @end

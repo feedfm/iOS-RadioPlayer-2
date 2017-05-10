@@ -77,15 +77,26 @@
 
 - (void)viewDidLayoutSubviews {
     if (!_viewHasAppeared){
-        [self scrollToActiveStation];
+        // when first displaying this view controller, display the requested
+        // station or, by default, the active station
+        if (_initiallyVisibleStation) {
+            [self scrollToStation:_initiallyVisibleStation];
+        } else {
+            [self scrollToActiveStation];
+        }
     } else {
-        // restore focus to station visible before rotation
+        // view has already appeared, so we're just re-laying things out
+        // after a rotation. In this case, re-display station we were
+        // initially looking at
         [self scrollToStation:_visibleStationBeforeRotation];
     }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     _viewHasAppeared = YES;
+    
+    // once we've displayed the requested station, we have fulfilled our obligation
+    _initiallyVisibleStation = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -302,7 +313,7 @@
         stationView.backgroundColor = [UIColor blackColor];
         
         // background image
-        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlProperty];
+        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
         if (bgImageUrl != nil) {
             UIImageView *backgroundImage = [[UIImageView alloc] init];
             

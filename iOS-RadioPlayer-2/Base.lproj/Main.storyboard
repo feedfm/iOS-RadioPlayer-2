@@ -36,10 +36,19 @@
                                     <action selector="openStationList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bjj-QN-3Gu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-tb-RPB">
+                                <rect key="frame" x="70.5" y="219.5" width="233" height="30"/>
+                                <state key="normal" title="open player showing 'Station Two'"/>
+                                <connections>
+                                    <action selector="openPlayerOnStationTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qDb-2M-gGv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e0v-aN-Ojq" firstAttribute="top" secondItem="zcg-4I-QRi" secondAttribute="bottom" constant="20" id="0wv-Sk-UnR"/>
+                            <constraint firstItem="X62-tb-RPB" firstAttribute="top" secondItem="e0v-aN-Ojq" secondAttribute="bottom" constant="20" id="aUn-P5-X3p"/>
+                            <constraint firstItem="X62-tb-RPB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dxI-qo-QQn"/>
                             <constraint firstItem="e0v-aN-Ojq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fC7-Bk-zhn"/>
                             <constraint firstItem="zcg-4I-QRi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="2:5" constant="1" id="oSu-T2-9E7"/>
                             <constraint firstItem="zcg-4I-QRi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tiM-Fj-Tvy"/>

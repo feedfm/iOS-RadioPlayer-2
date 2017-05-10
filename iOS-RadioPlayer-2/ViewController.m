@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    FMLogSetLevel(FMLogLevelDebug);
+    
     [[FMAudioPlayer sharedPlayer] whenAvailable:^{
         NSLog(@"stations available!");
         _playerButton.enabled = YES;
@@ -36,25 +38,23 @@
 }
 
 - (IBAction) openPlayer: (id) sender {
-    NSLog(@"you clicked open playier!");
-    
-    UIStoryboard *sb = [FMResources playerStoryboard];
-
-    FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
-    player.title = @"My Radio";
+    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:@"My Radio"];
 
     [self.navigationController pushViewController:player animated:YES];
 }
 
 - (IBAction) openStationList: (id) sender {
-    NSLog(@"you clicked open station list!");
+    FMStationCollectionViewController *stationCollection =
     
-    UIStoryboard *sb = [FMResources playerStoryboard];
-    
-    FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
-    stationCollection.title = @"My Radio";
+    [FMResources createStationCollectionViewControllerWithTitle:@"My Radio"];
     
     [self.navigationController pushViewController:stationCollection animated:YES];
+}
+
+- (IBAction) openPlayerOnStationTwo: (id) sender {
+    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:@"My Radio" showingStationNamed:@"Station Two"];
+    
+    [self.navigationController pushViewController:player animated:YES];
 }
 
 @end
