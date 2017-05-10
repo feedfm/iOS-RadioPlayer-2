@@ -55,8 +55,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    
+
     [self setupMetadataEventHandlers];
+}
+
+- (void)viewDidLayoutSubviews {
+    [self scrollToActiveStation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -161,6 +165,29 @@
     }
     
     return [_visibleStations objectAtIndex:pageIndex];
+}
+
+/**
+ 
+ Scroll to the currently active station
+ 
+ */
+
+- (void) scrollToActiveStation {
+    FMStation *activeStation = [[FMAudioPlayer sharedPlayer] activeStation];
+    
+    NSUInteger index = [_visibleStations indexOfObject:activeStation];
+    
+    // we do not seem to have the active station - bad!
+    if (index == NSNotFound) {
+        NSLog(@"did not find active station!");
+        return;
+    }
+    
+    float pageWidth = _stationSizer.bounds.size.width;
+    
+    CGPoint newOffset = CGPointMake(index * pageWidth , 0);
+    [_stationScroller setContentOffset: newOffset animated:NO];
 }
 
 #pragma mark - Populate station scroller with stations
