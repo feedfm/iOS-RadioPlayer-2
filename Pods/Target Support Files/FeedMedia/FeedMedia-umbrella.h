@@ -22,6 +22,7 @@
 #import "FMActivityIndicator.h"
 #import "FMDislikeButton.h"
 #import "FMElapsedTimeLabel.h"
+#import "FMEqualizer.h"
 #import "FMLikeButton.h"
 #import "FMMetadataLabel.h"
 #import "FMPlayPauseButton.h"

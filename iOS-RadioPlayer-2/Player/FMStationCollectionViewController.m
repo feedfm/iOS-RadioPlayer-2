@@ -118,7 +118,7 @@ static UIEdgeInsets sectionInsets;
         if ((player.playbackState == FMAudioPlayerPlaybackStateUninitialized)
             || (player.playbackState == FMAudioPlayerPlaybackStateUnavailable)) {
             cell.playImage.hidden = YES;
-            cell.playingImage.hidden = YES;
+            cell.equalizer.hidden = YES;
             
         // station is selected and playing
         } else if ([player.activeStation isEqual:station]
@@ -126,12 +126,12 @@ static UIEdgeInsets sectionInsets;
                    && (player.playbackState != FMAudioPlayerPlaybackStateReadyToPlay)
                    && (player.playbackState != FMAudioPlayerPlaybackStatePaused)) {
             cell.playImage.hidden = YES;
-            cell.playingImage.hidden = NO;
+            cell.equalizer.hidden = NO;
             
         // station not selected or playing
         } else {
             cell.playImage.hidden = NO;
-            cell.playingImage.hidden = YES;
+            cell.equalizer.hidden = YES;
 
         }
         
@@ -153,11 +153,11 @@ static UIEdgeInsets sectionInsets;
         if (active && (player.playbackState != FMAudioPlayerPlaybackStateComplete)
             && (player.playbackState != FMAudioPlayerPlaybackStateReadyToPlay)
             && (player.playbackState != FMAudioPlayerPlaybackStatePaused)){
-            cell.playingImage.hidden = NO;
+            cell.equalizer.hidden = NO;
             cell.playImage.hidden = YES;
 
         } else {
-            cell.playingImage.hidden = YES;
+            cell.equalizer.hidden = YES;
             cell.playImage.hidden = NO;
         }
     }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FeedMedia/FeedMedia.h>
+#import <FeedMedia/FeedMediaUI.h>
 
 @interface FMStationCollectionViewCell : UICollectionViewCell
 
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *subtitle;
 
 @property (weak, nonatomic) IBOutlet UIImageView *playImage;
-@property (weak, nonatomic) IBOutlet UIImageView *playingImage;
+@property (weak, nonatomic) IBOutlet FMEqualizer *equalizer;
 
 @property (weak, nonatomic) IBOutlet UIView *whiteCircle;
 

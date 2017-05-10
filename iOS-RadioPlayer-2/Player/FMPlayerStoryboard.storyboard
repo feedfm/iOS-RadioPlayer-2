@@ -54,26 +54,28 @@
                                                         <constraint firstAttribute="height" constant="16" id="khk-xy-EY8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-icon-like-black" translatesAutoresizingMaskIntoConstraints="NO" id="0aI-ce-d0h" userLabel="Playing image">
-                                                    <rect key="frame" x="157.33333333333334" y="102" width="16" height="16"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbf-f8-txc" userLabel="Equalizer" customClass="FMEqualizer">
+                                                    <rect key="frame" x="157" y="102" width="16" height="16"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="3im-90-hwE"/>
-                                                        <constraint firstAttribute="width" constant="16" id="pOP-ij-2jl"/>
+                                                        <constraint firstAttribute="width" constant="16" id="eQi-cO-ndu"/>
+                                                        <constraint firstAttribute="height" constant="16" id="heQ-Jy-S42"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="tqE-Hx-e4z" firstAttribute="centerY" secondItem="pLS-uu-GuS" secondAttribute="centerY" id="5UP-FP-q4q"/>
-                                                <constraint firstItem="0aI-ce-d0h" firstAttribute="centerX" secondItem="pLS-uu-GuS" secondAttribute="centerX" id="6JJ-6E-Zrf"/>
                                                 <constraint firstItem="za7-4Q-O5L" firstAttribute="top" secondItem="pLS-uu-GuS" secondAttribute="top" id="Aa6-nI-ze5"/>
                                                 <constraint firstItem="tqE-Hx-e4z" firstAttribute="centerX" secondItem="pLS-uu-GuS" secondAttribute="centerX" id="CJd-8T-bVt"/>
                                                 <constraint firstItem="w2T-KQ-3qB" firstAttribute="centerX" secondItem="pLS-uu-GuS" secondAttribute="centerX" id="HUD-0J-igq"/>
                                                 <constraint firstItem="w2T-KQ-3qB" firstAttribute="centerY" secondItem="pLS-uu-GuS" secondAttribute="centerY" id="M2W-4g-rQZ"/>
                                                 <constraint firstItem="za7-4Q-O5L" firstAttribute="leading" secondItem="pLS-uu-GuS" secondAttribute="leading" id="UQL-0v-wTy"/>
                                                 <constraint firstAttribute="trailing" secondItem="za7-4Q-O5L" secondAttribute="trailing" id="V7d-qH-bFL"/>
-                                                <constraint firstItem="0aI-ce-d0h" firstAttribute="centerY" secondItem="pLS-uu-GuS" secondAttribute="centerY" id="gcW-6e-Bex"/>
                                                 <constraint firstAttribute="bottom" secondItem="za7-4Q-O5L" secondAttribute="bottom" id="hfE-O5-lJV"/>
+                                                <constraint firstItem="Dbf-f8-txc" firstAttribute="centerX" secondItem="pLS-uu-GuS" secondAttribute="centerX" id="j6i-N5-7Oq"/>
+                                                <constraint firstItem="Dbf-f8-txc" firstAttribute="centerY" secondItem="pLS-uu-GuS" secondAttribute="centerY" id="jOd-6Z-h8O"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
@@ -110,8 +112,8 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="backgroundImage" destination="za7-4Q-O5L" id="fhL-eC-Tyr"/>
+                                    <outlet property="equalizer" destination="Dbf-f8-txc" id="0aK-TT-R9E"/>
                                     <outlet property="playImage" destination="w2T-KQ-3qB" id="ngP-5k-Qge"/>
-                                    <outlet property="playingImage" destination="0aI-ce-d0h" id="INX-w7-plK"/>
                                     <outlet property="subtitle" destination="tdO-Kw-CsE" id="eb0-Z3-u2X"/>
                                     <outlet property="title" destination="bBA-Am-ayB" id="tEs-f4-zYN"/>
                                     <outlet property="whiteCircle" destination="tqE-Hx-e4z" id="CcL-ME-j52"/>
