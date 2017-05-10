@@ -36,10 +36,14 @@
     NSTimer *_noticeTimer;
     NSString *_defaultNoticeText;
     
+    bool _viewHasAppeared;
+    FMStation *_visibleStationBeforeRotation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _viewHasAppeared = NO;
     
     _visibleStations = [FMStationCollectionViewController extractVisibleStations];
     
@@ -55,12 +59,28 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-
+    
     [self setupMetadataEventHandlers];
 }
 
+- (void)viewWillLayoutSubviews {
+    if (_viewHasAppeared) {
+        // capture visible station before re-layout after a rotation
+        _visibleStationBeforeRotation = [self visibleStation];
+    }
+}
+
 - (void)viewDidLayoutSubviews {
-    [self scrollToActiveStation];
+    if (!_viewHasAppeared){
+        [self scrollToActiveStation];
+    } else {
+        // restore focus to station visible before rotation
+        [self scrollToStation:_visibleStationBeforeRotation];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    _viewHasAppeared = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -160,27 +180,25 @@
     float pageWidth = _stationSizer.bounds.size.width;
     int pageIndex = fmax(0, floor(offset.x / pageWidth));
     
-    if (pageIndex >= (_visibleStations.count - 1)) {
+    if (pageIndex >= _visibleStations.count) {
         return nil;
     }
     
     return [_visibleStations objectAtIndex:pageIndex];
 }
 
-/**
- 
- Scroll to the currently active station
- 
- */
-
 - (void) scrollToActiveStation {
     FMStation *activeStation = [[FMAudioPlayer sharedPlayer] activeStation];
     
-    NSUInteger index = [_visibleStations indexOfObject:activeStation];
+    [self scrollToStation:activeStation];
+}
+
+- (void) scrollToStation: (FMStation *) station {
+    NSUInteger index = [_visibleStations indexOfObject:station];
     
-    // we do not seem to have the active station - bad!
+    // we do not seem to have this station - sad!
     if (index == NSNotFound) {
-        NSLog(@"did not find active station!");
+        NSLog(@"did not find requested station!");
         return;
     }
     
