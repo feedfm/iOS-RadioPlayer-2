@@ -8,6 +8,7 @@
 
 #import "FMStationCollectionViewController.h"
 #import "FMStationCollectionViewCell.h"
+#import "FMPlayerViewController.h"
 #import "FMResources.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FeedMedia/FeedMedia.h>
@@ -204,8 +205,52 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
 
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     
-    [player setActiveStation:station];
-    [player play];
+    if (![player.activeStation isEqual:station]) {
+        [player setActiveStation:station];
+    }
+    
+    if ((player.playbackState == FMAudioPlayerPlaybackStateReadyToPlay) ||
+        (player.playbackState == FMAudioPlayerPlaybackStateComplete)) {
+        [player play];
+    }
+    
+    // kick off display of the selected station
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    unsigned long viewControllerCount = viewControllers.count;
+    
+    UIStoryboard *sb = [FMResources playerStoryboard];
+
+    if (viewControllerCount == 1) {
+        // we're the only view controller, so create a player and push to it
+        FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
+        player.title = self.title;
+        
+        [self.navigationController pushViewController:player animated:YES];
+        
+    } else {
+        UIViewController *parent = [viewControllers objectAtIndex:(viewControllerCount - 2)];
+
+        if ([parent isKindOfClass:[FMPlayerViewController class]]) {
+            // the parent view controller is a player, so pop() to it
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } else {
+            // else create a new player, and push to it
+            FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
+            player.title = self.title;
+
+            [self.navigationController pushViewController:player animated:YES];
+            
+            /*
+            NSMutableArray *viewControllers = [self.navigationController.viewControllers mutableCopy];
+            [viewControllers removeLastObject];
+            [viewControllers addObject:player];
+            
+            [self.navigationController setViewControllers:viewControllers animated:YES];
+             */
+        }
+        
+    }
     
     return YES;
 }

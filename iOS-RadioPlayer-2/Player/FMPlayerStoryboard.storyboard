@@ -162,6 +162,29 @@
                                     <constraint firstItem="SwU-Vj-vIN" firstAttribute="top" secondItem="ivV-9a-XN8" secondAttribute="top" id="r3N-z2-skz"/>
                                 </constraints>
                             </scrollView>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbq-aT-esl" userLabel="Station Collection Circle">
+                                <rect key="frame" x="20" y="28" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPv-xs-U0Y" userLabel="Station Collection Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8rA-qd-dHN"/>
+                                            <constraint firstAttribute="width" constant="40" id="chC-2r-KaL"/>
+                                        </constraints>
+                                        <state key="normal" image="feedfm-icon-stations-black"/>
+                                        <connections>
+                                            <action selector="navigateToStationCollection:" destination="adh-gK-nCU" eventType="touchUpInside" id="piP-Fj-G1u"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qPv-xs-U0Y" firstAttribute="centerX" secondItem="dbq-aT-esl" secondAttribute="centerX" id="HQP-g5-bhC"/>
+                                    <constraint firstItem="qPv-xs-U0Y" firstAttribute="centerY" secondItem="dbq-aT-esl" secondAttribute="centerY" id="LLc-7V-IcK"/>
+                                    <constraint firstAttribute="width" constant="40" id="orc-uj-eTr"/>
+                                    <constraint firstAttribute="height" constant="40" id="w3w-Ek-gZE"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgc-zL-AKO" userLabel="Left Station Button">
                                 <rect key="frame" x="20" y="496" width="30" height="30"/>
                                 <constraints>
@@ -394,6 +417,7 @@
                             <constraint firstItem="cll-t9-WgT" firstAttribute="top" secondItem="ZV9-dA-UDD" secondAttribute="bottom" id="Sm9-hG-CJP"/>
                             <constraint firstAttribute="right" secondItem="ZV9-dA-UDD" secondAttribute="right" id="WQD-X4-cvk"/>
                             <constraint firstItem="rzS-hc-qUe" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="WyJ-u8-hrV"/>
+                            <constraint firstItem="dbq-aT-esl" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="Ye3-fh-oKH"/>
                             <constraint firstAttribute="trailing" secondItem="ivV-9a-XN8" secondAttribute="trailing" id="ZHr-fl-WlL"/>
                             <constraint firstAttribute="trailing" secondItem="rzS-hc-qUe" secondAttribute="trailing" id="bJP-Vz-ZGc"/>
                             <constraint firstItem="ivV-9a-XN8" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="eaz-DE-n3C"/>
@@ -402,12 +426,15 @@
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="30" id="hMC-Yh-qrH"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="pLD-BI-gOx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ecR-TF-LIN" secondAttribute="trailing" id="paO-Ha-Xgh"/>
+                            <constraint firstItem="dbq-aT-esl" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" constant="8" id="xJQ-nh-rht"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="leftButton" destination="Vgc-zL-AKO" id="Zb2-Wu-kL1"/>
                         <outlet property="noticeLabel" destination="1Hv-8J-9Xn" id="srl-HI-3WT"/>
                         <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
+                        <outlet property="stationCollectionButton" destination="qPv-xs-U0Y" id="tuw-mt-rCC"/>
+                        <outlet property="stationCollectionCircle" destination="dbq-aT-esl" id="NyZ-pA-BJA"/>
                         <outlet property="stationScroller" destination="ivV-9a-XN8" id="6hP-6E-R60"/>
                         <outlet property="stationScrollerContent" destination="SwU-Vj-vIN" id="nLR-05-Bfu"/>
                         <outlet property="stationSizer" destination="AMZ-ET-jfu" id="x3Y-vH-oNe"/>
@@ -417,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tZ-oC-jT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="-126"/>
+            <point key="canvasLocation" x="302.89855072463769" y="-126.35869565217392"/>
         </scene>
         <!--Disclaimer-->
         <scene sceneID="XQO-pd-5G3">
@@ -486,6 +513,7 @@
         <image name="feedfm-icon-play-black" width="20" height="20"/>
         <image name="feedfm-icon-right-white" width="20" height="20"/>
         <image name="feedfm-icon-skip-black" width="20" height="20"/>
+        <image name="feedfm-icon-stations-black" width="20" height="20"/>
         <image name="feedfm-logo-white" width="240" height="34"/>
     </resources>
 </document>

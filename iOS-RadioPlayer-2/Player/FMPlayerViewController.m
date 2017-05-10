@@ -28,6 +28,8 @@
 @property (strong, nonatomic) IBOutlet UIView *stationSizer;
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
+@property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
+@property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
 
 @end
 
@@ -55,6 +57,9 @@
     
     // set initialize metadata
     [self setupMetadata];
+    
+    // hide or show the station collection button
+    [self setupStationCollectionButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,6 +92,78 @@
     [super viewWillDisappear:animated];
     
     [self removeMetadataEventHandlers];
+    
+    _viewHasAppeared = NO;
+}
+
+#pragma mark - Switch to Station List interface
+
+- (void) setupStationCollectionButton {
+    // give it a sexy round shape
+    _stationCollectionCircle.layer.cornerRadius = _stationCollectionCircle.bounds.size.width / 2.0f;
+
+    // shrink the size of the image in the button
+    _stationCollectionButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _stationCollectionButton.imageEdgeInsets = UIEdgeInsetsMake(12, 12, 12, 12);
+    
+    // button to view station collection only appears in special cases
+    
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    unsigned long viewControllerCount = viewControllers.count;
+    
+    if (viewControllerCount == 1) {
+        // no parent view controller, so display the button
+        _stationCollectionCircle.hidden = NO;
+
+    } else {
+        UIViewController *parent = [viewControllers objectAtIndex:(viewControllerCount - 2)];
+        
+        if ([parent isKindOfClass:[FMStationCollectionViewController class]]) {
+            // parent is station collection view controller (which user
+            // can get to via navigation controller), so hide button
+            _stationCollectionCircle.hidden = YES;
+            
+        } else {
+            // parent is not station collection view controller, so show button
+            _stationCollectionCircle.hidden = NO;
+        }
+    }
+
+}
+
+- (IBAction)navigateToStationCollection:(id)sender {
+    // switch to station collection view
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    unsigned long viewControllerCount = viewControllers.count;
+    
+    UIStoryboard *sb = [FMResources playerStoryboard];
+    
+    if (viewControllerCount == 1) {
+        // we're the only view controller, so create a station collection viewer and push to it
+        FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
+        stationCollection.title = self.title;
+        
+        [self.navigationController pushViewController:stationCollection animated:YES];
+        
+    } else {
+        UIViewController *parent = [viewControllers objectAtIndex:(viewControllerCount - 2)];
+        
+        if ([parent isKindOfClass:[FMStationCollectionViewController class]]) {
+            // the parent view controller is a station collection, so pop() to it
+            // (technically, this button should be hidden and this shouldn't happen)
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } else {
+            // else create a new station collection view controller, and push to it
+            
+            FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
+            stationCollection.title = self.title;
+            
+            [self.navigationController pushViewController:stationCollection animated:YES];
+        }
+        
+    }
+    
 }
 
 #pragma mark - Manage station scrolling
