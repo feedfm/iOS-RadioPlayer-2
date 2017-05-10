@@ -9,11 +9,13 @@
 #import "ViewController.h"
 #import "FMResources.h"
 #import "FMPlayerViewController.h"
+#import "FMStationCollectionViewController.h"
 #import <FeedMedia/FeedMedia.h>
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet UIButton *openButton;
+@property (nonatomic, strong) IBOutlet UIButton *playerButton;
+@property (nonatomic, strong) IBOutlet UIButton *stationCollectionButton;
 
 @end
 
@@ -21,12 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    _openButton.enabled = NO;
     [[FMAudioPlayer sharedPlayer] whenAvailable:^{
         NSLog(@"stations available!");
-        _openButton.enabled = YES;
+        _playerButton.enabled = YES;
+        _stationCollectionButton.enabled = YES;
         
     } notAvailable:^{
         NSLog(@"not available!");
@@ -34,25 +35,26 @@
     }];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction) openPlayer: (id) sender {
     NSLog(@"you clicked open playier!");
     
     UIStoryboard *sb = [FMResources playerStoryboard];
-//    UINavigationController *vc = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
-//    FMPlayerViewController *player = (FMPlayerViewController *) vc.topViewController;
-    
-//    player.title = @"My Radio";
 
     FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
     player.title = @"My Radio";
 
     [self presentViewController:player animated:YES completion:nil];
+}
+
+- (IBAction) openStationList: (id) sender {
+    NSLog(@"you clicked open station list!");
+    
+    UIStoryboard *sb = [FMResources playerStoryboard];
+    
+    FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
+    stationCollection.title = @"My Radio";
+    
+    [self presentViewController:stationCollection animated:YES completion:nil];
 }
 
 @end

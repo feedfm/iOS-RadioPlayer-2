@@ -10,6 +10,17 @@
 
 @implementation FMResources
 
+static NSString *_backgroundImageUrlProperty = @"image";
+static NSString *_subheaderProperty = @"subheader";
+
++ (NSString *) backgroundImageUrlProperty {
+    return _backgroundImageUrlProperty;
+}
+
++ (NSString *) subheaderProperty {
+    return _subheaderProperty;
+}
+
 + (UIStoryboard *)playerStoryboard {
     return [FMResources storyboardWithName:@"FMPlayerStoryboard"];
 }

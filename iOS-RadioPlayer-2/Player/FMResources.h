@@ -11,6 +11,9 @@
 
 @interface FMResources : NSObject
 
+@property (class, nonatomic, assign, readonly) NSString *backgroundImageUrlProperty;
+@property (class, nonatomic, assign, readonly) NSString *subheaderProperty;
+
 + (UIStoryboard *)playerStoryboard;
 + (UIImage *)imageNamed:(NSString *)name;
 

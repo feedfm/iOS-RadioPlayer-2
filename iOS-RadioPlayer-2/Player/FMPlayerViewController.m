@@ -7,6 +7,7 @@
 //
 
 #import "FMPlayerViewController.h"
+#import "FMStationCollectionViewController.h"
 #import "FMResources.h"
 #import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
@@ -14,7 +15,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #define CALL_TO_ACTION @"Press play to start!"
-#define BACKGROUND_IMAGE_URL_PROPERTY @"image"
 
 @interface FMPlayerViewController ()
 
@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self extractVisibleStations];
+    _visibleStations = [FMStationCollectionViewController extractVisibleStations];
     
     // populate the station scroller
     [self populateStationScroller];
@@ -51,13 +51,6 @@
     
     // set initialize metadata
     [self setupMetadata];
-}
-
-- (void) extractVisibleStations {
-    NSArray *stations = [FMAudioPlayer sharedPlayer].stationList;
-
-    // for now, display all stations
-    _visibleStations = [stations copy];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -159,7 +152,7 @@
         stationView.backgroundColor = [UIColor blackColor];
         
         // background image
-        NSString *bgImageUrl = [station.options objectForKey:BACKGROUND_IMAGE_URL_PROPERTY];
+        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlProperty];
         if (bgImageUrl != nil) {
             UIImageView *backgroundImage = [[UIImageView alloc] init];
             
