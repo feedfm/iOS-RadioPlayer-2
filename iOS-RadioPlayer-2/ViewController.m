@@ -43,7 +43,7 @@
     FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
     player.title = @"My Radio";
 
-    [self presentViewController:player animated:YES completion:nil];
+    [self.navigationController pushViewController:player animated:YES];
 }
 
 - (IBAction) openStationList: (id) sender {
@@ -54,7 +54,7 @@
     FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
     stationCollection.title = @"My Radio";
     
-    [self presentViewController:stationCollection animated:YES completion:nil];
+    [self.navigationController pushViewController:stationCollection animated:YES];
 }
 
 @end

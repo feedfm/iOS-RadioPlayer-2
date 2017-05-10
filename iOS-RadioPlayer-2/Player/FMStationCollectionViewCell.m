@@ -35,7 +35,7 @@
 }
 
 - (void) setup {
-    NSLog(@"clipping!");
+    // nothing
 }
 
 @end
