@@ -75,14 +75,14 @@
     // watch for station scroll events to update left/right button states
     _stationScroller.delegate = self;
     
-    [self updateLeftRightButtonStates];
+    [self updateButtonStatesAndActiveStation];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self updateLeftRightButtonStates];
+    [self updateButtonStatesAndActiveStation];
 }
 
-- (void) updateLeftRightButtonStates {
+- (void) updateButtonStatesAndActiveStation {
     if (_visibleStations.count <= 1){
         _leftButton.hidden = YES;
         _rightButton.hidden = YES;
@@ -91,9 +91,9 @@
     
     CGPoint offset = _stationScroller.contentOffset;
     float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = floor(offset.x / pageWidth);
+    int pageIndex = fmax(0, floor(offset.x / pageWidth));
     
-    if (pageIndex == 0) {
+    if (pageIndex <= 0) {
         _leftButton.enabled = NO;
     } else {
         _leftButton.enabled = YES;
@@ -104,12 +104,26 @@
     } else {
         _rightButton.enabled = YES;
     }
+    
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    FMStation *visibleStation = [_visibleStations objectAtIndex:pageIndex];
+
+    // If the player is idle, then make sure the 'active' station
+    // matches what the user sees. If the user hits the play button in
+    // the controls area, it will play the visible station.
+    if (![player.activeStation isEqual:visibleStation]
+        && ((player.playbackState == FMAudioPlayerPlaybackStateReadyToPlay)
+            || (player.playbackState == FMAudioPlayerPlaybackStateComplete)
+            )
+        ) {
+        [player setActiveStation:visibleStation];
+    }
 }
 
 - (void) moveLeftOneStation: (id) target {
     CGPoint offset = _stationScroller.contentOffset;
     float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = floor(offset.x / pageWidth);
+    int pageIndex = fmax(0, floor(offset.x / pageWidth));
     
     if (pageIndex == 0) {
         return;
@@ -124,7 +138,7 @@
 - (void) moveRightOneStation: (id) target {
     CGPoint offset = _stationScroller.contentOffset;
     float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = floor(offset.x / pageWidth);
+    int pageIndex = fmax(0, floor(offset.x / pageWidth));
     
     if (pageIndex >= (_visibleStations.count - 1)) {
         return;
@@ -135,6 +149,18 @@
     CGPoint newOffset = CGPointMake(pageIndex * pageWidth , 0);
 
     [_stationScroller setContentOffset: newOffset animated:YES];
+}
+
+- (FMStation *) visibleStation {
+    CGPoint offset = _stationScroller.contentOffset;
+    float pageWidth = _stationSizer.bounds.size.width;
+    int pageIndex = fmax(0, floor(offset.x / pageWidth));
+    
+    if (pageIndex >= (_visibleStations.count - 1)) {
+        return nil;
+    }
+    
+    return [_visibleStations objectAtIndex:pageIndex];
 }
 
 #pragma mark - Populate station scroller with stations
