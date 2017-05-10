@@ -16,7 +16,15 @@ coding, see instructions below.*
 # Add the player to your app
 
 To add this music player to your app with minimal coding, follow
-the steps below (note: we'll assume you're using CocoaPods):
+the steps below. Some assumptions we make:
+
+- You are using CocoaPods (although this could easily be set up without them)
+- The music player will be displayed within a UINavigationController
+- You're going to have more than one music station. The player will handle a 
+  single station, but in that case you should point to the UIStationCollectionViewController
+  rather than the UIPlayerViewController below.
+
+Got it? Now here's what to do:
 
 - Add the [FeedMedia](https://cocoapods.org/?q=FeedMedia),
 [SDWebImage](https://cocoapods.org/?q=sdwebimage), and
