@@ -432,6 +432,7 @@
                     <connections>
                         <outlet property="leftButton" destination="Vgc-zL-AKO" id="Zb2-Wu-kL1"/>
                         <outlet property="noticeLabel" destination="1Hv-8J-9Xn" id="srl-HI-3WT"/>
+                        <outlet property="playPausebutton" destination="2Vk-WQ-6P4" id="2zY-kt-nbh"/>
                         <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
                         <outlet property="stationCollectionButton" destination="qPv-xs-U0Y" id="tuw-mt-rCC"/>
                         <outlet property="stationCollectionCircle" destination="dbq-aT-esl" id="NyZ-pA-BJA"/>

@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
+@property (strong, nonatomic) IBOutlet FMPlayPauseButton *playPausebutton;
 
 @end
 
@@ -216,22 +217,13 @@
     } else {
         _rightButton.enabled = YES;
     }
-    
-    /*
-    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-    FMStation *visibleStation = [_visibleStations objectAtIndex:pageIndex];
 
     // If the player is idle, then make sure the 'active' station
     // matches what the user sees. If the user hits the play button in
     // the controls area, it will play the visible station.
-    if (![player.activeStation isEqual:visibleStation]
-        && ((player.playbackState == FMAudioPlayerPlaybackStateReadyToPlay)
-            || (player.playbackState == FMAudioPlayerPlaybackStateComplete)
-            )
-        ) {
-        [player setActiveStation:visibleStation];
-    }
-     */
+    FMStation *visibleStation = [_visibleStations objectAtIndex:pageIndex];
+    _playPausebutton.playThisStationWhenIdle = visibleStation;
+
 }
 
 - (void) moveLeftOneStation: (id) target {
