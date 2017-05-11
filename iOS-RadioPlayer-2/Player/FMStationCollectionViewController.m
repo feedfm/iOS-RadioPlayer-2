@@ -56,6 +56,14 @@ static UIEdgeInsets sectionInsets;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // when we return to the view, the equalizer animation dies, so
+    // try to restart it here
+    [self restartEqualizerAnimation];
+}
+
 
 + (NSArray *) extractVisibleStations {
     NSArray *stations = [FMAudioPlayer sharedPlayer].stationList;
@@ -111,27 +119,28 @@ static UIEdgeInsets sectionInsets;
         } else {
             cell.subtitle.text = @"";
         }
+        // [cell.subtitle invalidateIntrinsicContentSize]
         
         FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
         
         // no buttons when not available
         if ((player.playbackState == FMAudioPlayerPlaybackStateUninitialized)
             || (player.playbackState == FMAudioPlayerPlaybackStateUnavailable)) {
-            cell.playImage.hidden = YES;
             cell.equalizer.hidden = YES;
+            cell.playImage.hidden = YES;
             
         // station is selected and playing
         } else if ([player.activeStation isEqual:station]
                    && (player.playbackState != FMAudioPlayerPlaybackStateComplete)
                    && (player.playbackState != FMAudioPlayerPlaybackStateReadyToPlay)
                    && (player.playbackState != FMAudioPlayerPlaybackStatePaused)) {
-            cell.playImage.hidden = YES;
             cell.equalizer.hidden = NO;
+            cell.playImage.hidden = YES;
             
         // station not selected or playing
         } else {
-            cell.playImage.hidden = NO;
             cell.equalizer.hidden = YES;
+            cell.playImage.hidden = NO;
 
         }
         
@@ -164,7 +173,17 @@ static UIEdgeInsets sectionInsets;
     
 }
 
-#pragma mark <UICollecitonViewdelegateFlowLayout
+- (void) restartEqualizerAnimation {
+    // any visible equalizer should be animated
+    for (FMStationCollectionViewCell *cell in self.collectionView.visibleCells) {
+        if (cell.equalizer.hidden == NO) {
+            [cell.equalizer startAnimation];
+        }
+    }
+    
+}
+
+#pragma mark <UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
@@ -209,7 +228,8 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     }
     
     if ((player.playbackState == FMAudioPlayerPlaybackStateReadyToPlay) ||
-        (player.playbackState == FMAudioPlayerPlaybackStateComplete)) {
+        (player.playbackState == FMAudioPlayerPlaybackStateComplete) ||
+        (player.playbackState == FMAudioPlayerPlaybackStatePaused)) {
         [player play];
     }
     
