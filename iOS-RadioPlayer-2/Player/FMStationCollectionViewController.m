@@ -77,7 +77,7 @@ static UIEdgeInsets sectionInsets;
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _visibleStations.count;
+    return 1;
 }
 
 
