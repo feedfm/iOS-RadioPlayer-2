@@ -107,6 +107,7 @@ static UIEdgeInsets sectionInsets;
     if (station) {
         cell.station = station;
         cell.title.text = station.name;
+        [cell.title invalidateIntrinsicContentSize];
         
         NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
         if (bgImageUrl) {
@@ -119,7 +120,7 @@ static UIEdgeInsets sectionInsets;
         } else {
             cell.subtitle.text = @"";
         }
-        // [cell.subtitle invalidateIntrinsicContentSize]
+        [cell.subtitle invalidateIntrinsicContentSize];
         
         FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
         

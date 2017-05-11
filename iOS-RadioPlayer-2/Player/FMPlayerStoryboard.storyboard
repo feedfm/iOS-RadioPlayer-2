@@ -27,20 +27,20 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="stationCell" reuseIdentifier="stationCell" id="rdB-gT-nja" customClass="FMStationCollectionViewCell">
-                                <rect key="frame" x="41.666666666666664" y="0.0" width="331" height="249"/>
+                                <rect key="frame" x="42" y="0.0" width="331" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="249"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLS-uu-GuS" userLabel="Image and Buttons">
-                                            <rect key="frame" x="0.0" y="0.0" width="331" height="220.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="331" height="220"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="za7-4Q-O5L">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="220.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="220"/>
                                                 </imageView>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqE-Hx-e4z" userLabel="White circle">
-                                                    <rect key="frame" x="150.66666666666666" y="95.666666666666671" width="30" height="30"/>
+                                                    <rect key="frame" x="151" y="95" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="oKT-hV-a0E"/>
@@ -48,7 +48,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-icon-play-black" translatesAutoresizingMaskIntoConstraints="NO" id="w2T-KQ-3qB" userLabel="Play image">
-                                                    <rect key="frame" x="157.66666666666666" y="102" width="16" height="16"/>
+                                                    <rect key="frame" x="158" y="102" width="16" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="16" id="Ani-Vo-jFO"/>
                                                         <constraint firstAttribute="height" constant="16" id="khk-xy-EY8"/>
@@ -78,20 +78,14 @@
                                                 <constraint firstItem="Dbf-f8-txc" firstAttribute="centerY" secondItem="pLS-uu-GuS" secondAttribute="centerY" id="jOd-6Z-h8O"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
-                                            <rect key="frame" x="0.0" y="222.66666666666663" width="331" height="14.333333333333343"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="14.333333333333343" id="g7Y-aT-8YF"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
+                                            <rect key="frame" x="0.0" y="222" width="331" height="15"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-Kw-CsE" userLabel="Subtitle">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-Kw-CsE" userLabel="Subtitle">
                                             <rect key="frame" x="0.0" y="237" width="331" height="12"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="12" id="N15-X5-S4i"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -466,7 +460,7 @@
                                 <rect key="frame" x="87" y="672" width="240" height="34"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
-                                <rect key="frame" x="36" y="541.66666666666652" width="342" height="100.33333333333337"/>
+                                <rect key="frame" x="36" y="541" width="342" height="101"/>
                                 <string key="text">There is no affiliation, connection, association or endorsement of the products, goods or services displayed on this page by the copyright owners, featured recording artists and authors of the sound recordings (and the musical works embodied therein) transmitted through the Feed.fm Player</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
