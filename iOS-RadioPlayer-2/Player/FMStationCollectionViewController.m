@@ -97,7 +97,6 @@ static UIEdgeInsets sectionInsets;
     cell.backgroundImage.backgroundColor = [UIColor blackColor];
     
     if (station) {
-        NSLog(@"assigning text for %@", station.name);
         cell.station = station;
         cell.title.text = station.name;
         
