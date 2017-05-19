@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    FMLogSetLevel(FMLogLevelDebug);
+    //FMLogSetLevel(FMLogLevelDebug);
     
     [[FMAudioPlayer sharedPlayer] whenAvailable:^{
         NSLog(@"stations available!");

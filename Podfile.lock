@@ -12,9 +12,13 @@ PODS:
   - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
-  - FeedMedia (~> 4.0.0-beta2)
+  - FeedMedia (from `~/git/iOS-SDK-Core/FeedMedia`)
   - OAStackView
   - SDWebImage (~> 3.8)
+
+EXTERNAL SOURCES:
+  FeedMedia:
+    :path: ~/git/iOS-SDK-Core/FeedMedia
 
 SPEC CHECKSUMS:
   FeedMedia: 8bfdde96fb5937edb9f7551bb6cd330657e81a4a
@@ -22,6 +26,6 @@ SPEC CHECKSUMS:
   OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 27aa24a3090c8473b5f272392d46a6db37cae752
+PODFILE CHECKSUM: 8a4bdb15e724251d1dec1120e4810263af467b13
 
 COCOAPODS: 1.2.0

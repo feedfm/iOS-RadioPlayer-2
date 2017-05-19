@@ -9,6 +9,7 @@
 #import "FMPlayerViewController.h"
 #import "FMStationCollectionViewController.h"
 #import "FMResources.h"
+#import "FMPlayHistoryCollectionViewDataSource.h"
 #import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
 #import <FeedMedia/FeedMediaUI.h>
@@ -31,6 +32,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *playPausebutton;
+
+@property (strong, nonatomic) IBOutlet UICollectionView *historyCollectionView;
+@property (strong, nonatomic) FMPlayHistoryCollectionViewDataSource *historyDataSource;
 
 @end
 
@@ -61,6 +65,9 @@
     
     // hide or show the station collection button
     [self setupStationCollectionButton];
+    
+    // set up the history display
+    [self setupHistory];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,7 +75,7 @@
     
     [self setupMetadataEventHandlers];
 
-    // disable notificaitons when the player is open
+    // disable notifications when the player is open
     [FMAudioPlayer sharedPlayer].disableSongStartNotifications = YES;
 }
 
@@ -572,6 +579,32 @@
             _noticeLabel.hidden = YES;
             break;
     }
+}
+
+#pragma mark - History View
+
+- (void) setupHistory {
+    NSArray *playHistory = [[FMAudioPlayer sharedPlayer] playHistory];
+    
+    self.historyDataSource = [[FMPlayHistoryCollectionViewDataSource alloc] initWithPlayHistory:playHistory];
+    self.historyCollectionView.dataSource = self.historyDataSource;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
+}
+
+- (void) songStarted: (NSNotification *) notification {
+    FMAudioItem *currentItem = [[FMAudioPlayer sharedPlayer] currentItem];
+    
+    if (currentItem) {
+        [self.historyDataSource appendNewAudioItem:currentItem];
+        
+        [self.historyCollectionView reloadData];
+    }
+}
+
+
+- (void) teardownHistory {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
 /*

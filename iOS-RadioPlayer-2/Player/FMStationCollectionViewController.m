@@ -27,7 +27,7 @@ static UIEdgeInsets sectionInsets;
 
 + (void) initialize {
     if (self == [FMStationCollectionViewController class]) {
-        sectionInsets = UIEdgeInsetsMake(25.0, 10.0, 0.0, 10.0);
+        sectionInsets = UIEdgeInsetsMake(10.0, 10.0, 0.0, 10.0);
     }
 }
 
@@ -99,6 +99,8 @@ static UIEdgeInsets sectionInsets;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FMStationCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    NSLog(@"dequeueing cell at index %ld", indexPath.row);
     
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
     
