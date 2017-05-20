@@ -9,7 +9,6 @@
 #import "FMPlayerViewController.h"
 #import "FMStationCollectionViewController.h"
 #import "FMResources.h"
-#import "FMPlayHistoryCollectionViewDataSource.h"
 #import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
 #import <FeedMedia/FeedMediaUI.h>
@@ -32,9 +31,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *playPausebutton;
+@property (strong, nonatomic) IBOutlet UIView *playerControlsView;
+@property (strong, nonatomic) IBOutlet UIButton *playHistoryButton;
 
 @property (strong, nonatomic) IBOutlet UICollectionView *historyCollectionView;
-@property (strong, nonatomic) FMPlayHistoryCollectionViewDataSource *historyDataSource;
 
 @end
 
@@ -60,14 +60,11 @@
     // manage station scrolling and switching
     [self setupStationScrolling];
     
-    // set initialize metadata
+    // set initialize metadata in the player controls
     [self setupMetadata];
     
     // hide or show the station collection button
     [self setupStationCollectionButton];
-    
-    // set up the history display
-    [self setupHistory];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +74,9 @@
 
     // disable notifications when the player is open
     [FMAudioPlayer sharedPlayer].disableSongStartNotifications = YES;
+    
+    // hide the play history by default
+    [self setupPlayHistory];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -581,31 +581,66 @@
     }
 }
 
-#pragma mark - History View
+#pragma mark - Play history toggling
 
-- (void) setupHistory {
-    NSArray *playHistory = [[FMAudioPlayer sharedPlayer] playHistory];
+- (void) setupPlayHistory {
+    [self hideHistoryAnimated:NO];
     
-    self.historyDataSource = [[FMPlayHistoryCollectionViewDataSource alloc] initWithPlayHistory:playHistory];
-    self.historyCollectionView.dataSource = self.historyDataSource;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    if (player.playHistory.count > 0) {
+        _playHistoryButton.enabled = YES;
+        
+    } else {
+        _playHistoryButton.enabled = NO;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
+    }
 }
 
 - (void) songStarted: (NSNotification *) notification {
-    FMAudioItem *currentItem = [[FMAudioPlayer sharedPlayer] currentItem];
+    _playHistoryButton.enabled = YES;
     
-    if (currentItem) {
-        [self.historyDataSource appendNewAudioItem:currentItem];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
+}
+
+- (IBAction)toggleHistory:(id)sender {
+    if (_playHistoryButton.selected) {
+        _playHistoryButton.selected = NO;
         
-        [self.historyCollectionView reloadData];
+        [self hideHistoryAnimated:YES];
+        
+    } else {
+        _playHistoryButton.selected = YES;
+        
+        [self showHistoryAnimated:YES];
+    }
+}
+
+- (void) hideHistoryAnimated: (BOOL) animated {
+    if (!animated) {
+        _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, _historyCollectionView.bounds.size.height);
+        
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, _historyCollectionView.bounds.size.height);
+        }];
+        
+    }
+}
+
+- (void) showHistoryAnimated: (BOOL) animated {
+    if (!animated) {
+        _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, 0);
+        
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, 0);
+        }];
+        
     }
 }
 
 
-- (void) teardownHistory {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
-}
 
 /*
 #pragma mark - Navigation

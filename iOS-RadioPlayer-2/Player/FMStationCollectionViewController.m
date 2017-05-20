@@ -47,7 +47,10 @@ static UIEdgeInsets sectionInsets;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationOrStateUpdated:) name:FMAudioPlayerActiveStationDidChangeNotification object:player];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationOrStateUpdated:) name:
      FMAudioPlayerPlaybackStateDidChangeNotification object:player];
-  
+    
+    // when we return to the view, the equalizer animation dies, so
+    // try to restart it here
+    [self refreshButtonStates];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -58,10 +61,6 @@ static UIEdgeInsets sectionInsets;
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    // when we return to the view, the equalizer animation dies, so
-    // try to restart it here
-    [self restartEqualizerAnimation];
 }
 
 
@@ -154,6 +153,10 @@ static UIEdgeInsets sectionInsets;
 }
 
 - (void) stationOrStateUpdated: (NSNotification *)notification {
+    [self refreshButtonStates];
+}
+
+- (void) refreshButtonStates {
     // pick out the active station, and see if it's being displayed
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
 
@@ -166,6 +169,7 @@ static UIEdgeInsets sectionInsets;
             && (player.playbackState != FMAudioPlayerPlaybackStateReadyToPlay)
             && (player.playbackState != FMAudioPlayerPlaybackStatePaused)){
             cell.equalizer.hidden = NO;
+            [cell.equalizer startAnimation];
             cell.playImage.hidden = YES;
 
         } else {
@@ -176,17 +180,8 @@ static UIEdgeInsets sectionInsets;
     
 }
 
-- (void) restartEqualizerAnimation {
-    // any visible equalizer should be animated
-    for (FMStationCollectionViewCell *cell in self.collectionView.visibleCells) {
-        if (cell.equalizer.hidden == NO) {
-            [cell.equalizer startAnimation];
-        }
-    }
-    
-}
 
-#pragma mark <UICollectionViewDelegateFlowLayout
+#pragma mark <UICollectionViewDelegateFlowLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
