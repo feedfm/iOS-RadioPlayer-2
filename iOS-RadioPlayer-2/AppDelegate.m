@@ -18,8 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [FMAudioPlayer setClientToken:@"b253e3c9aee06791794c031073967cb16616d9af"
-                           secret:@"d3c6f54a458ed2335f54587d02d485d5f46d7b03"];
+    [FMAudioPlayer setClientToken:@"demo"
+                           secret:@"demo"];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     [player whenAvailable:^{
