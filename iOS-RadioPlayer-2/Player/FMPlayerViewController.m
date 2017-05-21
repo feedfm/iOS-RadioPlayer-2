@@ -9,6 +9,7 @@
 #import "FMPlayerViewController.h"
 #import "FMStationCollectionViewController.h"
 #import "FMResources.h"
+#import "FMPlayHistoryCollectionView.h"
 #import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
 #import <FeedMedia/FeedMediaUI.h>
@@ -34,7 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIView *playerControlsView;
 @property (strong, nonatomic) IBOutlet UIButton *playHistoryButton;
 
-@property (strong, nonatomic) IBOutlet UICollectionView *historyCollectionView;
+@property (strong, nonatomic) IBOutlet FMPlayHistoryCollectionView *historyCollectionView;
 
 @end
 
@@ -585,6 +586,8 @@
 
 - (void) setupPlayHistory {
     [self hideHistoryAnimated:NO];
+  
+    [_historyCollectionView setTarget:self andSelectorForCloseButton:@selector(closePlayHistory)];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     if (player.playHistory.count > 0) {
@@ -603,20 +606,22 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
+- (void) closePlayHistory {
+    [self hideHistoryAnimated:YES];
+}
+
 - (IBAction)toggleHistory:(id)sender {
     if (_playHistoryButton.selected) {
-        _playHistoryButton.selected = NO;
-        
         [self hideHistoryAnimated:YES];
         
     } else {
-        _playHistoryButton.selected = YES;
-        
         [self showHistoryAnimated:YES];
     }
 }
 
 - (void) hideHistoryAnimated: (BOOL) animated {
+    _playHistoryButton.selected = NO;
+
     if (!animated) {
         _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, _historyCollectionView.bounds.size.height);
         
@@ -629,6 +634,8 @@
 }
 
 - (void) showHistoryAnimated: (BOOL) animated {
+    _playHistoryButton.selected = YES;
+
     if (!animated) {
         _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, 0);
         

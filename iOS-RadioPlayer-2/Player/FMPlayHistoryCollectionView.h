@@ -20,7 +20,7 @@
 
 @end
 
-@interface FMPlayHistoryCollectionViewStationCell : UICollectionViewCell
+@interface FMPlayHistoryCollectionViewStationCell : UICollectionReusableView
 
 @property (strong, nonatomic) IBOutlet UILabel *stationLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *stationImage;
@@ -34,5 +34,6 @@
 
 @interface FMPlayHistoryCollectionView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
+- (void) setTarget: (id) target andSelectorForCloseButton: (SEL) selector;
 
 @end

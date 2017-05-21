@@ -33,9 +33,18 @@
 //
 //
 
+@interface FMPlayHistoryCollectionView ()
+
+@property (weak, nonatomic) id closeTarget;
+@property (nonatomic) SEL closeSelector;
+
+@end
+
+
 @implementation FMPlayHistoryCollectionView {
     
     NSMutableArray *_stationsAndAudioItems;
+    
 }
 
 static NSString * const playCellIdentifier = @"playCell";
@@ -90,12 +99,21 @@ static double sectionHeight = 66.0;
     
     // watch for updates to the play history
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
+    
+    // no close targets by default
+    _closeTarget = nil;
+    _closeSelector = 0;
 }
 
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
+
+- (void) setTarget: (id) target andSelectorForCloseButton: (SEL) selector {
+    _closeTarget = target;
+    _closeSelector = selector;
+}
 
 - (void) songStarted: (NSNotification *) notification {
     FMAudioItem *currentItem = [[FMAudioPlayer sharedPlayer] currentItem];
@@ -109,8 +127,6 @@ static double sectionHeight = 66.0;
 - (void) appendNewAudioItem: (FMAudioItem *) audioItem {
     FMStation *lastStation = (_stationsAndAudioItems.count > 0) ? ((FMAudioItem *)_stationsAndAudioItems[0][0]).station : nil;
 
-    NSLog(@"appending %@ from station %@", audioItem.name, audioItem.station.name);
-    
     // stick play on existing station array, or create new one if on different station
     NSMutableArray *plays;
     if ((lastStation == nil) || ![lastStation.identifier isEqualToString:audioItem.station.identifier]) {
@@ -137,8 +153,6 @@ static double sectionHeight = 66.0;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FMPlayHistoryCollectionViewPlayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:playCellIdentifier forIndexPath:indexPath];
     
-    NSLog(@"dequeueing play cell at section %ld, row %ld", indexPath.section, indexPath.row);
-    
     FMAudioItem *audioItem = (FMAudioItem *) _stationsAndAudioItems[indexPath.section][indexPath.row];
     
     cell.trackLabel.text = [NSString stringWithFormat:@"%@ by %@", audioItem.name, audioItem.artist];
@@ -155,9 +169,8 @@ static double sectionHeight = 66.0;
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        NSLog(@"dequeueing station cell at section %ld, row %ld of kind '%@'", indexPath.section, indexPath.row, kind);
-        
-        FMPlayHistoryCollectionViewStationCell * cell =[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:stationCellIdentifier forIndexPath:indexPath];
+
+        FMPlayHistoryCollectionViewStationCell * cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:stationCellIdentifier forIndexPath:indexPath];
         
         FMAudioItem *audioItem = (FMAudioItem *) _stationsAndAudioItems[indexPath.section][0];
         FMStation *station = audioItem.station;
@@ -176,6 +189,8 @@ static double sectionHeight = 66.0;
 
         if (indexPath.section == 0) {
             cell.closeButton.hidden = NO;
+            [cell.closeButton addTarget:self action:@selector(didTapCloseButton:) forControlEvents:UIControlEventTouchUpInside];
+            
         } else {
             cell.closeButton.hidden = YES;
         }
@@ -188,20 +203,34 @@ static double sectionHeight = 66.0;
     }
 }
 
+- (void) didTapCloseButton: (id) sender {
+    
+    if (!_closeTarget) { return; }
+    IMP imp = [_closeTarget methodForSelector:_closeSelector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(_closeTarget, _closeSelector);
+}
+
 #pragma mark - <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
     FMPlayHistoryCollectionViewPlayCell *cell = (FMPlayHistoryCollectionViewPlayCell *) [collectionView cellForItemAtIndexPath:indexPath];
     
     // animate track name when selected
     cell.trackLabel.labelize = NO;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView
+didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    FMPlayHistoryCollectionViewPlayCell *cell = (FMPlayHistoryCollectionViewPlayCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    
+    // de-animate track name when deselected
+    cell.trackLabel.labelize = YES;
+}
 
-#pragma mark <UICollectionViewDelegateFlowLayout>
+
+#pragma mark - <UICollectionViewDelegateFlowLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
