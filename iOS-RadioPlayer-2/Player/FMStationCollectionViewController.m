@@ -7,11 +7,16 @@
 //
 
 #import "FMStationCollectionViewController.h"
-#import "FMStationCollectionViewCell.h"
 #import "FMPlayerViewController.h"
 #import "FMResources.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FeedMedia/FeedMedia.h>
+
+
+@implementation FMStationCollectionViewCell
+
+@end
+
 
 @interface FMStationCollectionViewController ()
 

@@ -27,7 +27,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="stationCell" reuseIdentifier="stationCell" id="rdB-gT-nja" customClass="FMStationCollectionViewCell">
-                                <rect key="frame" x="41.666666666666664" y="0.0" width="331" height="249"/>
+                                <rect key="frame" x="42" y="0.0" width="331" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="249"/>
@@ -267,7 +267,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HISTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xK-Vy-rzf" userLabel="&quot;history&quot;">
-                                            <rect key="frame" x="71" y="18.666666666666671" width="52" height="14.333333333333329"/>
+                                            <rect key="frame" x="71" y="18" width="52" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -581,7 +581,7 @@
                                 <rect key="frame" x="87" y="672" width="240" height="34"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
-                                <rect key="frame" x="36" y="541.66666666666652" width="342" height="100.33333333333337"/>
+                                <rect key="frame" x="36" y="541" width="342" height="101"/>
                                 <string key="text">There is no affiliation, connection, association or endorsement of the products, goods or services displayed on this page by the copyright owners, featured recording artists and authors of the sound recordings (and the musical works embodied therein) transmitted through the Feed.fm Player</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
