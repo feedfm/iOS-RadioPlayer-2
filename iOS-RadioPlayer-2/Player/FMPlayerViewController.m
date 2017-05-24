@@ -118,6 +118,9 @@
     
     _viewHasAppeared = NO;
     
+    // if we come back to this controller, return to visible station
+    _initiallyVisibleStation = [self visibleStation];
+    
     // re-enable notifications when the player is closed
     [FMAudioPlayer sharedPlayer].disableSongStartNotifications = NO;
 }
