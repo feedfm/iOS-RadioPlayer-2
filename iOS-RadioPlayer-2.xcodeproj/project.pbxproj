@@ -15,6 +15,7 @@
 		A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */; };
 		A9D46E191EC1386B004D3DAE /* FMDisclaimerControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */; };
 		A9D46E4D1EC24A3D004D3DAE /* FMStationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E4C1EC24A3D004D3DAE /* FMStationCollectionViewController.m */; };
+		A9DAECB81ED64520008D8431 /* FMPageableStationCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */; };
 		A9F09C221EB8F8AF007192AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F09C211EB8F8AF007192AE /* main.m */; };
 		A9F09C251EB8F8AF007192AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F09C241EB8F8AF007192AE /* AppDelegate.m */; };
 		A9F09C281EB8F8AF007192AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F09C271EB8F8AF007192AE /* ViewController.m */; };
@@ -48,6 +49,8 @@
 		A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDisclaimerControllerViewController.m; sourceTree = "<group>"; };
 		A9D46E4B1EC24A3D004D3DAE /* FMStationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMStationCollectionViewController.h; sourceTree = "<group>"; };
 		A9D46E4C1EC24A3D004D3DAE /* FMStationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMStationCollectionViewController.m; sourceTree = "<group>"; };
+		A9DAECB61ED64520008D8431 /* FMPageableStationCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPageableStationCollectionView.h; sourceTree = "<group>"; };
+		A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPageableStationCollectionView.m; sourceTree = "<group>"; };
 		A9F09C1D1EB8F8AF007192AE /* iOS-RadioPlayer-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-RadioPlayer-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F09C211EB8F8AF007192AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9F09C231EB8F8AF007192AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				A924F9411EBAB3D400E3951E /* FMResources.m */,
 				A954BCDE1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.h */,
 				A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */,
+				A9DAECB61ED64520008D8431 /* FMPageableStationCollectionView.h */,
+				A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */,
 				A924F93D1EBAB0CA00E3951E /* FMPlayerViewController.h */,
 				A924F93E1EBAB0CA00E3951E /* FMPlayerViewController.m */,
 				A9D46E4B1EC24A3D004D3DAE /* FMStationCollectionViewController.h */,
@@ -332,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F09C281EB8F8AF007192AE /* ViewController.m in Sources */,
+				A9DAECB81ED64520008D8431 /* FMPageableStationCollectionView.m in Sources */,
 				A9F09C251EB8F8AF007192AE /* AppDelegate.m in Sources */,
 				A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */,
 				A9D46E4D1EC24A3D004D3DAE /* FMStationCollectionViewController.m in Sources */,

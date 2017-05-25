@@ -24,8 +24,7 @@
 @property (strong, nonatomic) IBOutlet MarqueeLabel *noticeLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineOneLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineTwoLabel;
-@property (strong, nonatomic) IBOutlet UIScrollView *stationScroller;
-@property (strong, nonatomic) IBOutlet UIView *stationScrollerContent;
+@property (strong, nonatomic) IBOutlet FMPageableStationCollectionView *stationPager;
 @property (strong, nonatomic) IBOutlet UIView *stationSizer;
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
@@ -44,19 +43,12 @@
     NSTimer *_noticeTimer;
     NSString *_defaultNoticeText;
     
-    bool _viewHasAppeared;
-    FMStation *_visibleStationBeforeRotation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _viewHasAppeared = NO;
-    
     _visibleStations = [FMStationCollectionViewController extractVisibleStations];
-    
-    // populate the station scroller
-    [self populateStationScroller];
     
     // manage station scrolling and switching
     [self setupStationScrolling];
@@ -66,6 +58,21 @@
     
     // hide or show the station collection button
     [self setupStationCollectionButton];
+
+    // focus on the active station by default
+    if (!_initiallyVisibleStation) {
+        _initiallyVisibleStation = [[FMAudioPlayer sharedPlayer] activeStation];
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    // display requested station
+    if (_initiallyVisibleStation) {
+        [self scrollToStation:_initiallyVisibleStation];
+        _initiallyVisibleStation = nil;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,46 +87,15 @@
     [self setupPlayHistory];
 }
 
-- (void)viewWillLayoutSubviews {
-    if (_viewHasAppeared) {
-        // capture visible station before re-layout after a rotation
-        _visibleStationBeforeRotation = [self visibleStation];
-    }
-}
-
-- (void)viewDidLayoutSubviews {
-    if (!_viewHasAppeared){
-        // when first displaying this view controller, display the requested
-        // station or, by default, the active station
-        if (_initiallyVisibleStation) {
-            [self scrollToStation:_initiallyVisibleStation];
-        } else {
-            [self scrollToActiveStation];
-        }
-    } else {
-        // view has already appeared, so we're just re-laying things out
-        // after a rotation. In this case, re-display station we were
-        // initially looking at
-        [self scrollToStation:_visibleStationBeforeRotation];
-    }
-}
-
 - (void)viewDidAppear:(BOOL)animated {
-    _viewHasAppeared = YES;
-    
-    // once we've displayed the requested station, we have fulfilled our obligation
-    _initiallyVisibleStation = nil;
+    // just in case we adjusted stations before rendering
+    [self updateButtonStatesAndActiveStation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [self removeMetadataEventHandlers];
-    
-    _viewHasAppeared = NO;
-    
-    // if we come back to this controller, return to visible station
-    _initiallyVisibleStation = [self visibleStation];
     
     // re-enable notifications when the player is closed
     [FMAudioPlayer sharedPlayer].disableSongStartNotifications = NO;
@@ -202,17 +178,20 @@
 #pragma mark - Manage station scrolling
 
 - (void) setupStationScrolling {
+    // populate the station pager
+    _stationPager.visibleStations = _visibleStations;
+
     // watch for taps on scroll buttons
     [_leftButton addTarget:self action:@selector(moveLeftOneStation:) forControlEvents:UIControlEventTouchUpInside];
     [_rightButton addTarget:self action:@selector(moveRightOneStation:) forControlEvents:UIControlEventTouchUpInside];
     
     // watch for station scroll events to update left/right button states
-    _stationScroller.delegate = self;
+    _stationPager.pageableStationDelegate = self;
     
     [self updateButtonStatesAndActiveStation];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void) visibleStationDidChange {
     [self updateButtonStatesAndActiveStation];
 }
 
@@ -223,17 +202,16 @@
         return;
     }
     
-    CGPoint offset = _stationScroller.contentOffset;
-    float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = fmax(0, floor(offset.x / pageWidth));
+    FMStation *visibleStation = _stationPager.visibleStation;
+    long index = [_visibleStations indexOfObject:visibleStation];
     
-    if (pageIndex <= 0) {
+    if (index <= 0) {
         _leftButton.enabled = NO;
     } else {
         _leftButton.enabled = YES;
     }
     
-    if (pageIndex >= (_visibleStations.count - 1)) {
+    if (index >= (_visibleStations.count - 1)) {
         _rightButton.enabled = NO;
     } else {
         _rightButton.enabled = YES;
@@ -242,52 +220,30 @@
     // If the player is idle, then make sure the 'active' station
     // matches what the user sees. If the user hits the play button in
     // the controls area, it will play the visible station.
-    FMStation *visibleStation = [_visibleStations objectAtIndex:pageIndex];
     _playPausebutton.playThisStationWhenIdle = visibleStation;
 
 }
 
 - (void) moveLeftOneStation: (id) target {
-    CGPoint offset = _stationScroller.contentOffset;
-    float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = fmax(0, floor(offset.x / pageWidth));
-    
-    if (pageIndex == 0) {
-        return;
+    FMStation *visible = _stationPager.visibleStation;
+    long index = [_visibleStations indexOfObject:visible];
+
+    if (index > 0) {
+        NSIndexPath *newVisibleIndex = [NSIndexPath indexPathForRow:index - 1 inSection:0];
+        
+        [_stationPager scrollToItemAtIndexPath:newVisibleIndex atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
-    pageIndex -= 1;
-    
-    CGPoint newOffset = CGPointMake(pageIndex * pageWidth, 0);
-    
-    [_stationScroller setContentOffset: newOffset animated:YES];
 }
 
 - (void) moveRightOneStation: (id) target {
-    CGPoint offset = _stationScroller.contentOffset;
-    float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = fmax(0, floor(offset.x / pageWidth));
+    FMStation *visible = _stationPager.visibleStation;
+    long index = [_visibleStations indexOfObject:visible];
     
-    if (pageIndex >= (_visibleStations.count - 1)) {
-        return;
+    if (index < (_visibleStations.count - 1)) {
+        NSIndexPath *newVisibleIndex = [NSIndexPath indexPathForRow:index + 1 inSection:0];
+        
+        [_stationPager scrollToItemAtIndexPath:newVisibleIndex atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
-    
-    pageIndex += 1;
-    
-    CGPoint newOffset = CGPointMake(pageIndex * pageWidth , 0);
-
-    [_stationScroller setContentOffset: newOffset animated:YES];
-}
-
-- (FMStation *) visibleStation {
-    CGPoint offset = _stationScroller.contentOffset;
-    float pageWidth = _stationSizer.bounds.size.width;
-    int pageIndex = fmax(0, floor(offset.x / pageWidth));
-    
-    if (pageIndex >= _visibleStations.count) {
-        return nil;
-    }
-    
-    return [_visibleStations objectAtIndex:pageIndex];
 }
 
 - (void) scrollToActiveStation {
@@ -304,193 +260,10 @@
         NSLog(@"did not find requested station!");
         return;
     }
+
+    NSIndexPath *newVisibleIndex = [NSIndexPath indexPathForRow:index inSection:0];
     
-    float pageWidth = _stationSizer.bounds.size.width;
-    
-    CGPoint newOffset = CGPointMake(index * pageWidth , 0);
-    [_stationScroller setContentOffset: newOffset animated:NO];
-}
-
-#pragma mark - Populate station scroller with stations
-
-- (void) populateStationScroller {
-    // add a page for each station
-    UIView *previousStation = nil;
-
-    for (int i = 0; i < _visibleStations.count; i++) {
-        FMStation *station = [_visibleStations objectAtIndex:i];
-        
-        NSLog(@"adding station '%@'", station.name);
-        
-        UIView *stationView = [[UIView alloc] init];
-        stationView.backgroundColor = [UIColor blackColor];
-        
-        // background image
-        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
-        if (bgImageUrl != nil) {
-            UIImageView *backgroundImage = [[UIImageView alloc] init];
-            
-            backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
-            backgroundImage.contentMode = UIViewContentModeScaleAspectFill;
-            backgroundImage.clipsToBounds = YES;
-
-            [stationView addSubview:backgroundImage];
-            
-            // background image fills whole station view
-            [stationView addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:stationView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-            [stationView addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:stationView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-            [stationView addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:stationView attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-            [stationView addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:stationView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-            
-            [backgroundImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
-        }
-
-        // station title
-        UILabel *stationTitle = [[UILabel alloc] init];
-        stationTitle.text = station.name;
-        stationTitle.textColor = [UIColor whiteColor];
-        stationTitle.textAlignment = NSTextAlignmentCenter;
-        stationTitle.adjustsFontSizeToFitWidth = YES;
-        
-        [stationView addSubview:stationTitle];
-
-        stationTitle.translatesAutoresizingMaskIntoConstraints = NO;
-
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationTitle
-                                                                attribute:NSLayoutAttributeLeft
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeLeftMargin
-                                                               multiplier:1
-                                                                 constant:34]];
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationTitle
-                                                                attribute:NSLayoutAttributeRight
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeRightMargin
-                                                               multiplier:1
-                                                                 constant:-34]];
-        
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationTitle
-                                                                attribute:NSLayoutAttributeBottom
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeBottom
-                                                               multiplier:1
-                                                                 constant:-30]];
-        
-        // 'STATION' label
-        UILabel *stationLabel = [[UILabel alloc] init];
-        NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-        stationLabel.attributedText = [[NSAttributedString alloc] initWithString:@"STATION"
-                                                                      attributes:underlineAttribute];
-        stationLabel.textColor = [UIColor whiteColor];
-        stationLabel.textAlignment = NSTextAlignmentCenter;
-        stationLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        stationLabel.font = [UIFont systemFontOfSize:12];
-        
-        [stationView addSubview:stationLabel];
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationLabel
-                                                                attribute:NSLayoutAttributeLeft
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeLeftMargin
-                                                               multiplier:1
-                                                                 constant:34]];
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationLabel
-                                                                attribute:NSLayoutAttributeRight
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeRightMargin
-                                                               multiplier:1
-                                                                 constant:-34]];
-
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:stationLabel
-                                                                attribute:NSLayoutAttributeBottom
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationTitle
-                                                                attribute:NSLayoutAttributeTop
-                                                               multiplier:1
-                                                                 constant:0]];
-
-        // station play button
-        FMStationButton *playButton = [[FMStationButton alloc] init];
-        UIImage *iconPlayBlack = [FMResources imageNamed:@"feedfm-icon-play-black"];
-        [playButton setImage:iconPlayBlack forState:UIControlStateNormal];
-        playButton.playOnClick = YES;
-        playButton.hideWhenActive = YES;
-        playButton.station = station;
-        
-        float width = 60;
-        playButton.layer.cornerRadius = width / 2.0f;
-        playButton.clipsToBounds = true;
-        playButton.backgroundColor = [UIColor whiteColor];
-        
-        [playButton setTranslatesAutoresizingMaskIntoConstraints:false];
-        
-        [stationView addSubview:playButton];
-        
-        // center of station view
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:playButton
-                                                                attribute:NSLayoutAttributeCenterX
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeCenterX
-                                                               multiplier:1
-                                                                 constant:0]];
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:playButton
-                                                                attribute:NSLayoutAttributeCenterY
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stationView
-                                                                attribute:NSLayoutAttributeCenterY
-                                                               multiplier:1
-                                                                 constant:0]];
-        
-        // width, height of 60points
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:playButton
-                                                                attribute:NSLayoutAttributeWidth
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:nil
-                                                                attribute:NSLayoutAttributeNotAnAttribute
-                                                               multiplier:1
-                                                                 constant:width]];
-        [stationView addConstraint:[NSLayoutConstraint constraintWithItem:playButton
-                                                                attribute:NSLayoutAttributeHeight
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:nil
-                                                                attribute:NSLayoutAttributeNotAnAttribute
-                                                               multiplier:1
-                                                                 constant:width]];
-        
-        // add station view to content view that has all stations
-        [_stationScrollerContent addSubview:stationView];
-        
-        // station view sizing:
-        
-        stationView.translatesAutoresizingMaskIntoConstraints = NO;
-
-        // top = same as content view
-        [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_stationScrollerContent attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-        // bottom = same as content view
-        [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_stationScrollerContent attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-        
-        // width = station sizer width
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_stationSizer attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
-        // left = right of previous station or anchored to left side of content view
-        if (previousStation == nil) {
-            [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_stationScrollerContent attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-        } else {
-            [_stationScrollerContent addConstraint:[NSLayoutConstraint constraintWithItem:stationView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:previousStation attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-        }
-        
-        previousStation = stationView;
-    }
-    
-    // finally, the container is the width of all the stations together
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_stationScrollerContent attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_stationSizer attribute:NSLayoutAttributeWidth multiplier:_visibleStations.count constant:0]];
-    
-    // and as tall as the station sizer
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_stationScrollerContent attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_stationSizer attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
+    [_stationPager scrollToItemAtIndexPath:newVisibleIndex atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
 
 #pragma mark - Metadata display

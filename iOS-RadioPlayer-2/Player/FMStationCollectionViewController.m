@@ -254,6 +254,11 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
 
         if ([parent isKindOfClass:[FMPlayerViewController class]]) {
             // the parent view controller is a player, so pop() to it
+
+            // (after switching the display to the new station)
+            FMPlayerViewController *fmParent = (FMPlayerViewController *) parent;
+            [fmParent scrollToStation:station];
+
             [self.navigationController popViewControllerAnimated:YES];
             
         } else {
@@ -261,15 +266,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
             FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
             player.title = self.title;
 
-            [self.navigationController pushViewController:player animated:YES];
-            
-            /*
-            NSMutableArray *viewControllers = [self.navigationController.viewControllers mutableCopy];
-            [viewControllers removeLastObject];
-            [viewControllers addObject:player];
-            
-            [self.navigationController setViewControllers:viewControllers animated:YES];
-             */
+            [self.navigationController pushViewController:player animated:YES];            
         }
         
     }

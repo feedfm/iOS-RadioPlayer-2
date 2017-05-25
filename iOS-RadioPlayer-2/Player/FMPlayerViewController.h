@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMPageableStationCollectionView.h"
 #import <FeedMedia/FeedMedia.h>
 
-@interface FMPlayerViewController : UIViewController <UIScrollViewDelegate>
+@interface FMPlayerViewController : UIViewController <UIScrollViewDelegate, FMPageableStationCollectionViewDelegate>
 
 @property (strong, nonatomic) FMStation *initiallyVisibleStation;
+
+- (void) scrollToStation: (FMStation *) station;
 
 @end
