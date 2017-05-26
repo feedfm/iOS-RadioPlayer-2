@@ -15,7 +15,7 @@
         <scene sceneID="Apn-cV-7Db">
             <objects>
                 <collectionViewController storyboardIdentifier="stationCollectionViewController" id="Obn-WQ-IVU" userLabel="Station Collection View" customClass="FMStationCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="AMd-0D-sD2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AMd-0D-sD2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,7 +27,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="stationCell" reuseIdentifier="stationCell" id="rdB-gT-nja" customClass="FMStationCollectionViewCell">
-                                <rect key="frame" x="42" y="0.0" width="331" height="249"/>
+                                <rect key="frame" x="41.666666666666664" y="0.0" width="331" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="249"/>
@@ -363,6 +363,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="eMZ-uJ-QGj"/>
                                 </constraints>
+                                <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </progressView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-dA-UDD" userLabel="Player Controls View">
                                 <rect key="frame" x="0.0" y="556" width="414" height="180"/>
@@ -420,10 +421,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
-                                        <rect key="frame" x="60" y="69" width="295" height="52"/>
+                                        <rect key="frame" x="52.333333333333343" y="69" width="310" height="52"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
-                                                <rect key="frame" x="39" y="15" width="22" height="22"/>
+                                                <rect key="frame" x="38.999999999999993" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="22" id="Jt5-Ge-NBC"/>
                                                     <constraint firstAttribute="width" priority="999" constant="22" id="ke4-he-P1n"/>
@@ -435,7 +436,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BDc-Vu-Jhb" customClass="FMActivityIndicator">
-                                                <rect key="frame" x="5" y="15" width="22" height="22"/>
+                                                <rect key="frame" x="5" y="15" width="21.999999999999993" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="999" constant="22" id="D6x-IH-pDe"/>
                                                     <constraint firstAttribute="height" priority="999" constant="22" identifier="activity height" id="ZOg-hm-zKG"/>
@@ -484,15 +485,15 @@
                                                 <state key="selected" image="feedfm-icon-dislike-full-black"/>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kc-4Te" userLabel="divider">
-                                                <rect key="frame" x="220" y="0.0" width="1" height="52"/>
+                                                <rect key="frame" x="219.99999999999997" y="0.0" width="1" height="52"/>
                                                 <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="djH-um-wWe"/>
                                                     <constraint firstAttribute="width" constant="1" id="s8W-Be-TKI"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-02-bdh" userLabel="History Button">
-                                                <rect key="frame" x="252" y="15" width="22" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-02-bdh" userLabel="History Button">
+                                                <rect key="frame" x="251" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="3zd-lk-DHB"/>
                                                     <constraint firstAttribute="width" constant="22" id="L05-aU-GNt"/>
@@ -516,7 +517,7 @@
                                             <constraint firstItem="c4t-GC-cWv" firstAttribute="leading" secondItem="HU3-zJ-6JG" secondAttribute="trailing" constant="18" placeholder="YES" id="OZM-Bq-Yt4"/>
                                             <constraint firstItem="NPr-c0-5fi" firstAttribute="leading" secondItem="2Vk-WQ-6P4" secondAttribute="trailing" constant="8" symbolic="YES" placeholder="YES" id="PhM-jm-7Vr"/>
                                             <constraint firstItem="Wrt-C6-bGz" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="TRB-3Z-slD"/>
-                                            <constraint firstAttribute="width" constant="295" placeholder="YES" id="XvG-gx-P2a"/>
+                                            <constraint firstAttribute="width" constant="310" placeholder="YES" id="XvG-gx-P2a"/>
                                             <constraint firstItem="HU3-zJ-6JG" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="Zvn-kp-i74"/>
                                             <constraint firstItem="2Vk-WQ-6P4" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="bF5-jd-xsH"/>
                                             <constraint firstItem="F7J-Q5-fsw" firstAttribute="leading" secondItem="NPr-c0-5fi" secondAttribute="trailing" constant="8" symbolic="YES" placeholder="YES" id="cBz-hl-Cwy"/>
@@ -570,25 +571,25 @@
                             <constraint firstAttribute="trailing" secondItem="AMZ-ET-jfu" secondAttribute="trailing" id="2w1-48-2PD"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="ecR-TF-LIN" secondAttribute="bottom" constant="30" id="33o-bl-ND8"/>
                             <constraint firstItem="AMZ-ET-jfu" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="70L-T8-Iu0"/>
-                            <constraint firstItem="BTl-ow-ozA" firstAttribute="height" secondItem="AMZ-ET-jfu" secondAttribute="height" id="C40-Y7-xeJ"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="AMZ-ET-jfu" secondAttribute="bottom" id="FOt-0W-5UN"/>
+                            <constraint firstItem="7m0-qk-uHH" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="KU0-4U-fUO"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="rzS-hc-qUe" secondAttribute="bottom" id="KvP-JB-gck"/>
                             <constraint firstItem="7m0-qk-uHH" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="Oau-Tw-b2Y"/>
                             <constraint firstItem="AMZ-ET-jfu" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="QcB-Te-8Jj"/>
                             <constraint firstItem="cll-t9-WgT" firstAttribute="top" secondItem="ZV9-dA-UDD" secondAttribute="bottom" id="Sm9-hG-CJP"/>
                             <constraint firstAttribute="right" secondItem="ZV9-dA-UDD" secondAttribute="right" id="WQD-X4-cvk"/>
                             <constraint firstItem="rzS-hc-qUe" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="WyJ-u8-hrV"/>
-                            <constraint firstItem="7m0-qk-uHH" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="XYA-Fm-elB"/>
-                            <constraint firstItem="7m0-qk-uHH" firstAttribute="width" secondItem="AMZ-ET-jfu" secondAttribute="width" id="YXf-IF-VHf"/>
+                            <constraint firstItem="7m0-qk-uHH" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="XYA-Fm-elB"/>
                             <constraint firstItem="dbq-aT-esl" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="Ye3-fh-oKH"/>
                             <constraint firstAttribute="trailing" secondItem="rzS-hc-qUe" secondAttribute="trailing" id="bJP-Vz-ZGc"/>
                             <constraint firstItem="Vgc-zL-AKO" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="fgl-rF-HSC"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="30" id="hMC-Yh-qrH"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="hgT-fg-l7U"/>
-                            <constraint firstItem="7m0-qk-uHH" firstAttribute="height" secondItem="AMZ-ET-jfu" secondAttribute="height" id="kqV-Gi-s2E"/>
+                            <constraint firstAttribute="right" secondItem="7m0-qk-uHH" secondAttribute="right" id="nvb-o5-3cJ"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="pLD-BI-gOx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ecR-TF-LIN" secondAttribute="trailing" id="paO-Ha-Xgh"/>
-                            <constraint firstItem="BTl-ow-ozA" firstAttribute="width" secondItem="AMZ-ET-jfu" secondAttribute="width" id="sGd-CY-X6O"/>
+                            <constraint firstItem="BTl-ow-ozA" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="ruy-uX-be8"/>
+                            <constraint firstAttribute="right" secondItem="BTl-ow-ozA" secondAttribute="right" id="uyw-ua-LPC"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="w6e-bL-6te"/>
                             <constraint firstItem="dbq-aT-esl" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" constant="8" id="xJQ-nh-rht"/>
                         </constraints>
@@ -628,11 +629,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-disclaimer-background" translatesAutoresizingMaskIntoConstraints="NO" id="NZu-iW-a3g">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-xQ-j5X">
-                                <rect key="frame" x="87" y="672" width="240" height="34"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-logo-color" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-xQ-j5X">
+                                <rect key="frame" x="88.666666666666686" y="672" width="237" height="34"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
-                                <rect key="frame" x="36" y="541" width="342" height="101"/>
+                                <rect key="frame" x="36" y="541.66666666666652" width="342" height="100.33333333333337"/>
                                 <string key="text">There is no affiliation, connection, association or endorsement of the products, goods or services displayed on this page by the copyright owners, featured recording artists and authors of the sound recordings (and the musical works embodied therein) transmitted through the Feed.fm Player</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -686,6 +687,6 @@
         <image name="feedfm-icon-right-white" width="20" height="20"/>
         <image name="feedfm-icon-skip-black" width="20" height="20"/>
         <image name="feedfm-icon-stations-black" width="20" height="20"/>
-        <image name="feedfm-logo-white" width="240" height="34"/>
+        <image name="feedfm-logo-color" width="237" height="34"/>
     </resources>
 </document>
