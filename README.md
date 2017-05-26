@@ -1,4 +1,4 @@
-This is our second demo iOS app that makes use of the Feed Media SDK
+This is our second iOS app that makes use of the Feed Media SDK
 to power a Pandora-style Internet-radio app. This app 
 shows how you can easily display a scrolling grid of music
 stations that the user can click to hear.
