@@ -104,21 +104,12 @@ static UIEdgeInsets sectionInsets;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FMStationCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    NSLog(@"dequeueing cell at index %ld", indexPath.row);
-    
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
     
     cell.backgroundImage.backgroundColor = [UIColor blackColor];
     
     if (station) {
         cell.station = station;
-        cell.title.text = station.name;
-        [cell.title invalidateIntrinsicContentSize];
-        
-        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
-        if (bgImageUrl) {
-            [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
-        }
         
         NSString *subheader = [station.options objectForKey:FMResources.subheaderPropertyName];
         if (subheader) {
@@ -126,7 +117,13 @@ static UIEdgeInsets sectionInsets;
         } else {
             cell.subtitle.text = @"";
         }
-        [cell.subtitle invalidateIntrinsicContentSize];
+
+        cell.title.text = station.name;
+        
+        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
+        if (bgImageUrl) {
+            [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
+        }
         
         FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
         
