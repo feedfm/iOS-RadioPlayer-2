@@ -17,6 +17,8 @@
 @property (class, nonatomic, assign, readonly) NSString *backgroundImageUrlPropertyName;
 @property (class, nonatomic, assign, readonly) NSString *subheaderPropertyName;
 
++ (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title;
+
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title;
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName;
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title

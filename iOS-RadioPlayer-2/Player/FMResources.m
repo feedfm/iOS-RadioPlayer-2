@@ -8,6 +8,20 @@
 
 #import "FMResources.h"
 
+
+@interface FMDismissingViewController : UIViewController
+
+@end
+
+@implementation FMDismissingViewController
+
+- (void) viewWillAppear:(BOOL)animated {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+@end
+
+
 @implementation FMResources
 
 static NSString *_backgroundImageUrlPropertyName = @"background_image_url";
@@ -21,33 +35,45 @@ static NSString *_subheaderPropertyName = @"subheader";
     return _subheaderPropertyName;
 }
 
-+ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title {
-    UIStoryboard *sb = [FMResources playerStoryboard];
-
-    FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
-    player.title = title;
++ (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title {
+    // create fake 'dismissing' view controller
+    FMDismissingViewController *fmdvc = [[FMDismissingViewController alloc] init];
+    fmdvc.title = @"";
     
-    return player;
+    // create UINavigationController with dismisser as root
+    UINavigationController *uinc = [[UINavigationController alloc] initWithRootViewController:fmdvc];
+
+    // create real player and add to nav stack
+    FMPlayerViewController *fmpvc = [FMResources createPlayerViewControllerWithTitle:title];
+    
+    [uinc pushViewController:fmpvc animated:NO];
+
+    // present the player
+    [viewController presentViewController:uinc animated:YES completion:nil];
+}
+
+
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title {
+    return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil];
 }
 
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName {
 
-    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:title];
-
     for (FMStation *station in [[FMAudioPlayer sharedPlayer] stationList]) {
         if ([station.name isEqualToString:stationName]) {
-            player.initiallyVisibleStation = station;
-            return player;
+            return [FMResources createPlayerViewControllerWithTitle:title showingStation:station];
         }
     }
     
-    return player;
+    return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil];
 }
 
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title
                                                 showingStation: (FMStation *) station {
-    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:title];
+    UIStoryboard *sb = [FMResources playerStoryboard];
+    FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
     
+    player.title = title;
     player.initiallyVisibleStation = station;
 
     return player;

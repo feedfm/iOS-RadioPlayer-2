@@ -57,4 +57,8 @@
     [self.navigationController pushViewController:player animated:YES];
 }
 
+- (IBAction) presentViewController {
+    [FMResources presentPlayerFromViewController: self withTitle:@"music!"];
+}
+
 @end

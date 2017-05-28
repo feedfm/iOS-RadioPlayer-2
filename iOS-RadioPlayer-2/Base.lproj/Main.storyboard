@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,11 +42,20 @@
                                     <action selector="openPlayerOnStationTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qDb-2M-gGv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-5a-dA1">
+                                <rect key="frame" x="124" y="269.5" width="127" height="30"/>
+                                <state key="normal" title="open modal player"/>
+                                <connections>
+                                    <action selector="presentViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="102-SI-EII"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e0v-aN-Ojq" firstAttribute="top" secondItem="zcg-4I-QRi" secondAttribute="bottom" constant="20" id="0wv-Sk-UnR"/>
+                            <constraint firstItem="jUV-5a-dA1" firstAttribute="top" secondItem="X62-tb-RPB" secondAttribute="bottom" constant="20" id="Z0X-bA-TVy"/>
                             <constraint firstItem="X62-tb-RPB" firstAttribute="top" secondItem="e0v-aN-Ojq" secondAttribute="bottom" constant="20" id="aUn-P5-X3p"/>
+                            <constraint firstItem="jUV-5a-dA1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dPh-2o-AMs"/>
                             <constraint firstItem="X62-tb-RPB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dxI-qo-QQn"/>
                             <constraint firstItem="e0v-aN-Ojq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fC7-Bk-zhn"/>
                             <constraint firstItem="zcg-4I-QRi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="2:5" constant="1" id="oSu-T2-9E7"/>
