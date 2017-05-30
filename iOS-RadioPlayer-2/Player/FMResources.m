@@ -24,12 +24,11 @@ static NSString *_subheaderPropertyName = @"subheader";
 
 + (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title {
 
-    // create pop-up navigation controller
-    FMPopUpDownNavigationController *navController = [[FMPopUpDownNavigationController alloc] init];
-
-    // create real player and add to nav stack
+    // create player
     FMPlayerViewController *fmpvc = [FMResources createPlayerViewControllerWithTitle:title];
-    [navController pushViewController:fmpvc animated:NO];
+
+    // stick player in pop-up navigation controller
+    FMPopUpDownNavigationController *navController = [[FMPopUpDownNavigationController alloc] initWithRootViewController: fmpvc];
     
     // pop that sucker up!
     [viewController presentViewController:navController animated:YES completion:nil];

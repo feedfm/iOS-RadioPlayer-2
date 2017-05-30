@@ -106,11 +106,16 @@
 
 @implementation FMPopUpDownNavigationController
 
-- (id) init {
+
+
+- (id) initWithRootViewController:(UIViewController *)rootViewController {
     FMDismissingViewController *dvc = [[FMDismissingViewController alloc] init];
     dvc.title = @"";
     
     if (self = [super initWithRootViewController:dvc]) {
+        // push the provided view controller onto the stack
+        [self pushViewController:rootViewController animated:NO];
+
         // to disable animation when going 'back' to the root controller
         self.delegate = self;
 

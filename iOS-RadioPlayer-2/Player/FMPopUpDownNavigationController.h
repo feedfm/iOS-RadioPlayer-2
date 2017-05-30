@@ -10,4 +10,6 @@
 
 @interface FMPopUpDownNavigationController : UINavigationController <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate>
 
+- (id) initWithRootViewController:(UIViewController *)rootViewController;
+
 @end
