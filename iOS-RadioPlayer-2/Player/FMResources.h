@@ -8,6 +8,7 @@
 
 #import "FMPlayerViewController.h"
 #import "FMStationCollectionViewController.h"
+#import "FMPopUpDownTransitioningDelegate.h"
 #import <FeedMedia/FeedMedia.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>

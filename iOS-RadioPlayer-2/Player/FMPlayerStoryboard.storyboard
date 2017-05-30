@@ -14,7 +14,7 @@
         <scene sceneID="Apn-cV-7Db">
             <objects>
                 <collectionViewController storyboardIdentifier="stationCollectionViewController" id="Obn-WQ-IVU" userLabel="Station Collection View" customClass="FMStationCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="AMd-0D-sD2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AMd-0D-sD2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,7 +26,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="stationCell" reuseIdentifier="stationCell" id="rdB-gT-nja" customClass="FMStationCollectionViewCell">
-                                <rect key="frame" x="42" y="0.0" width="331" height="249"/>
+                                <rect key="frame" x="41.666666666666664" y="0.0" width="331" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="249"/>

@@ -7,20 +7,7 @@
 //
 
 #import "FMResources.h"
-
-
-@interface FMDismissingViewController : UIViewController
-
-@end
-
-@implementation FMDismissingViewController
-
-- (void) viewWillAppear:(BOOL)animated {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-@end
-
+#import "FMPopUpDownNavigationController.h"
 
 @implementation FMResources
 
@@ -36,22 +23,17 @@ static NSString *_subheaderPropertyName = @"subheader";
 }
 
 + (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title {
-    // create fake 'dismissing' view controller
-    FMDismissingViewController *fmdvc = [[FMDismissingViewController alloc] init];
-    fmdvc.title = @"";
-    
-    // create UINavigationController with dismisser as root
-    UINavigationController *uinc = [[UINavigationController alloc] initWithRootViewController:fmdvc];
+
+    // create pop-up navigation controller
+    FMPopUpDownNavigationController *navController = [[FMPopUpDownNavigationController alloc] init];
 
     // create real player and add to nav stack
     FMPlayerViewController *fmpvc = [FMResources createPlayerViewControllerWithTitle:title];
+    [navController pushViewController:fmpvc animated:NO];
     
-    [uinc pushViewController:fmpvc animated:NO];
-
-    // present the player
-    [viewController presentViewController:uinc animated:YES completion:nil];
+    // pop that sucker up!
+    [viewController presentViewController:navController animated:YES completion:nil];
 }
-
 
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title {
     return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil];
