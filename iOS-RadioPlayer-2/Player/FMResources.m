@@ -8,6 +8,7 @@
 
 #import "FMResources.h"
 #import "FMPopUpDownNavigationController.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @implementation FMResources
 
@@ -32,6 +33,21 @@ static NSString *_subheaderPropertyName = @"subheader";
     
     // pop that sucker up!
     [viewController presentViewController:navController animated:YES completion:nil];
+}
+
++ (void) presentPlayerWithTitle:(NSString *)title {
+    [FMResources presentPlayerFromViewController:[FMResources topMostController] withTitle:title];
+}
+
++ (UIViewController*) topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
 }
 
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title {
@@ -69,6 +85,22 @@ static NSString *_subheaderPropertyName = @"subheader";
     return stationCollection;
 }
 
++ (void) assignLockScreenImageFromStation: (FMStation *) station {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    
+    NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
+    if (bgImageUrl) {
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:[NSURL URLWithString:bgImageUrl]
+                              options:0
+                             progress:nil
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                if (image) {
+                                    [player setLockScreenImage:image];
+                                }
+                            }];
+    }
+}
 + (UIStoryboard *)playerStoryboard {
     return [FMResources storyboardWithName:@"FMPlayerStoryboard"];
 }

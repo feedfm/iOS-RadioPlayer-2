@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "CWStatusBarNotification.h"
 #import "FeedMedia.h"
 #import "FeedMediaCore.h"
 #import "FMAudioItem.h"
@@ -33,6 +34,7 @@
 #import "FMSkipWarningView.h"
 #import "FMStationButton.h"
 #import "FMTotalTimeLabel.h"
+#import "CWStatusBarNotification.h"
 #import "FeedMedia.h"
 #import "FeedMediaCore.h"
 #import "FMAudioItem.h"

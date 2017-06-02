@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <FeedMedia/FeedMedia.h>
+#import "FMResources.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [FMAudioPlayer setClientToken:@"demo"
-                           secret:@"demo"];
+    [FMAudioPlayer setClientToken:@"counting"
+                           secret:@"counting"];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     [player whenAvailable:^{
@@ -27,11 +28,15 @@
         
         // optionally turn on music crossfading
         player.crossfadeInEnabled = YES;
-        player.secondsOfCrossfade = 6.0;
+        player.secondsOfCrossfade = 0.0;
         
     } notAvailable:^{
         NSLog(@"Unavailable!");
     }];
+    
+    player.statusBarNotification.notificationTappedBlock = ^{
+        [FMResources presentPlayerWithTitle:@"pop-up music"];
+    };
     
     return YES;
 }

@@ -49,7 +49,7 @@
     [super viewDidLoad];
     
     _visibleStations = [FMStationCollectionViewController extractVisibleStations];
-    
+
     // manage station scrolling and switching
     [self setupStationScrolling];
     
@@ -58,11 +58,15 @@
     
     // hide or show the station collection button
     [self setupStationCollectionButton];
-
+    
     // focus on the active station by default
     if (!_initiallyVisibleStation) {
         _initiallyVisibleStation = [[FMAudioPlayer sharedPlayer] activeStation];
     }
+    
+    // make sure the lock screen is synced with the active station
+    [self setupLockScreen];
+
 }
 
 - (void)viewDidLayoutSubviews {
@@ -264,6 +268,23 @@
     NSIndexPath *newVisibleIndex = [NSIndexPath indexPathForRow:index inSection:0];
     
     [_stationPager scrollToItemAtIndexPath:newVisibleIndex atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+}
+
+#pragma mark - Update lock screen
+
+- (void) setupLockScreen {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+
+    [FMResources assignLockScreenImageFromStation:player.activeStation];
+    
+    // watch for station changes
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activeStationDidChange:) name:FMAudioPlayerActiveStationDidChangeNotification object:player];
+}
+
+- (void) activeStationDidChange: (NSNotification *)notification {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    
+    [FMResources assignLockScreenImageFromStation:player.activeStation];
 }
 
 #pragma mark - Metadata display
