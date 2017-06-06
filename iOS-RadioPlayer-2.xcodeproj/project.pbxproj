@@ -90,7 +90,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A924F9381EBA502A00E3951E /* Player */ = {
+		A924F9381EBA502A00E3951E /* FMPlayer */ = {
 			isa = PBXGroup;
 			children = (
 				A924F9401EBAB3D400E3951E /* FMResources.h */,
@@ -110,6 +110,7 @@
 				A924F9391EBA505300E3951E /* FMPlayerStoryboard.storyboard */,
 				A924F93B1EBA5B6F00E3951E /* FMPlayerAssets.xcassets */,
 			);
+			name = FMPlayer;
 			path = Player;
 			sourceTree = "<group>";
 		};
@@ -136,7 +137,7 @@
 		A9F09C1F1EB8F8AF007192AE /* iOS-RadioPlayer-2 */ = {
 			isa = PBXGroup;
 			children = (
-				A924F9381EBA502A00E3951E /* Player */,
+				A924F9381EBA502A00E3951E /* FMPlayer */,
 				A9F09C231EB8F8AF007192AE /* AppDelegate.h */,
 				A9F09C241EB8F8AF007192AE /* AppDelegate.m */,
 				A9F09C261EB8F8AF007192AE /* ViewController.h */,
