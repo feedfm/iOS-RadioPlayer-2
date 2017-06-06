@@ -93,7 +93,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // just in case we adjusted stations before rendering
-    [self updateButtonStatesAndActiveStation];
+    [self updateNavigationButtonStates];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -199,14 +199,25 @@
     // watch for station scroll events to update left/right button states
     _stationPager.pageableStationDelegate = self;
     
-    [self updateButtonStatesAndActiveStation];
+    [self updateNavigationButtonStates];
 }
 
 - (void) visibleStationDidChange {
-    [self updateButtonStatesAndActiveStation];
+    [self updateNavigationButtonStates];
+    
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    FMAudioPlayerPlaybackState state = player.playbackState;
+    
+    if ((state == FMAudioPlayerPlaybackStateReadyToPlay) ||
+        (state == FMAudioPlayerPlaybackStateComplete)) {
+        // if we haven't started playback yet, then switch to this station so that
+        // hitting the play button in the control area plays the visible station.
+        [player setActiveStation:_stationPager.visibleStation];
+    }
+
 }
 
-- (void) updateButtonStatesAndActiveStation {
+- (void) updateNavigationButtonStates {
     if (_visibleStations.count <= 1){
         _leftButton.hidden = YES;
         _rightButton.hidden = YES;
@@ -227,12 +238,6 @@
     } else {
         _rightButton.enabled = YES;
     }
-
-    // If the player is idle, then make sure the 'active' station
-    // matches what the user sees. If the user hits the play button in
-    // the controls area, it will play the visible station.
-    _playPausebutton.playThisStationWhenIdle = visibleStation;
-
 }
 
 - (void) moveLeftOneStation: (id) target {
