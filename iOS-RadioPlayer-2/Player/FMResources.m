@@ -39,6 +39,22 @@ static NSString *_subheaderPropertyName = @"subheader";
     [FMResources presentPlayerFromViewController:[FMResources topMostController] withTitle:title];
 }
 
++ (void) presentStationCollectionFromViewController: (UIViewController *) viewController withTitle:(NSString *)title {
+    
+    // create player
+    FMStationCollectionViewController *fmscvc = [FMResources createStationCollectionViewControllerWithTitle:title];
+    
+    // stick player in pop-up navigation controller
+    FMPopUpDownNavigationController *navController = [[FMPopUpDownNavigationController alloc] initWithRootViewController: fmscvc];
+    
+    // pop that sucker up!
+    [viewController presentViewController:navController animated:YES completion:nil];
+}
+
++ (void) presentStationCollectionWithTitle:(NSString *)title {
+    [FMResources presentStationCollectionFromViewController:[FMResources topMostController] withTitle:title];
+}
+
 + (UIViewController*) topMostController
 {
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
@@ -85,22 +101,6 @@ static NSString *_subheaderPropertyName = @"subheader";
     return stationCollection;
 }
 
-+ (void) assignLockScreenImageFromStation: (FMStation *) station {
-    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-    
-    NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
-    if (bgImageUrl) {
-        SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadImageWithURL:[NSURL URLWithString:bgImageUrl]
-                              options:0
-                             progress:nil
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                                if (image) {
-                                    [player setLockScreenImage:image];
-                                }
-                            }];
-    }
-}
 + (UIStoryboard *)playerStoryboard {
     return [FMResources storyboardWithName:@"FMPlayerStoryboard"];
 }

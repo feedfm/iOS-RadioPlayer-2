@@ -27,9 +27,15 @@
     //FMLogSetLevel(FMLogLevelDebug);
     
     [[FMAudioPlayer sharedPlayer] whenAvailable:^{
-        NSLog(@"stations available!");
-        _playerButton.enabled = YES;
-        _stationCollectionButton.enabled = YES;
+        
+        // enable all the player buttons when music is available
+        for (UIView *view in self.view.subviews) {
+            if ([view isMemberOfClass:[UIButton class]]) {
+                UIButton *button = (UIButton *) view;
+                
+                button.enabled = YES;
+            }
+        }
         
     } notAvailable:^{
         NSLog(@"not available!");
@@ -37,13 +43,13 @@
     }];
 }
 
-- (IBAction) openPlayer: (id) sender {
+- (IBAction) pushPlayer: (id) sender {
     FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:@"My Radio"];
 
     [self.navigationController pushViewController:player animated:YES];
 }
 
-- (IBAction) openStationList: (id) sender {
+- (IBAction) pushStationCollection: (id) sender {
     FMStationCollectionViewController *stationCollection =
     
     [FMResources createStationCollectionViewControllerWithTitle:@"My Radio"];
@@ -51,14 +57,18 @@
     [self.navigationController pushViewController:stationCollection animated:YES];
 }
 
-- (IBAction) openPlayerOnStationTwo: (id) sender {
+- (IBAction) pushPlayerOnStationTwo: (id) sender {
     FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:@"My Radio" showingStationNamed:@"Station Two"];
     
     [self.navigationController pushViewController:player animated:YES];
 }
 
 - (IBAction) presentViewController {
-    [FMResources presentPlayerFromViewController: self withTitle:@"music!"];
+    [FMResources presentPlayerWithTitle:@"music!"];
+}
+
+- (IBAction) presentStationCollectionController {
+    [FMResources presentStationCollectionWithTitle:@"music!"];
 }
 
 @end

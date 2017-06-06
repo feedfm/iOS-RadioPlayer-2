@@ -101,8 +101,15 @@
     
     [self removeMetadataEventHandlers];
     
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+
     // re-enable notifications when the player is closed
-    [FMAudioPlayer sharedPlayer].disableSongStartNotifications = NO;
+    player.disableSongStartNotifications = NO;
+    
+    // ...and have notification taps pull the player back up
+    player.statusBarNotification.notificationTappedBlock = ^{
+        [FMResources presentPlayerWithTitle:self.title];
+    };
 }
 
 #pragma mark - Switch to Station List interface
@@ -275,7 +282,7 @@
 - (void) setupLockScreen {
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
 
-    [FMResources assignLockScreenImageFromStation:player.activeStation];
+    [self assignLockScreenImageFromStation:player.activeStation];
     
     // watch for station changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activeStationDidChange:) name:FMAudioPlayerActiveStationDidChangeNotification object:player];
@@ -284,7 +291,24 @@
 - (void) activeStationDidChange: (NSNotification *)notification {
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     
-    [FMResources assignLockScreenImageFromStation:player.activeStation];
+    [self assignLockScreenImageFromStation:player.activeStation];
+}
+
+- (void) assignLockScreenImageFromStation: (FMStation *) station {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    
+    NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
+    if (bgImageUrl) {
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:[NSURL URLWithString:bgImageUrl]
+                              options:0
+                             progress:nil
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                if (image) {
+                                    [player setLockScreenImage:image];
+                                }
+                            }];
+    }
 }
 
 #pragma mark - Metadata display

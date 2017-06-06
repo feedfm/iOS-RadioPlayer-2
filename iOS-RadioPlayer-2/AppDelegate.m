@@ -19,24 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [FMAudioPlayer setClientToken:@"counting"
-                           secret:@"counting"];
+    [FMAudioPlayer setClientToken:@"demo"
+                           secret:@"demo"];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     [player whenAvailable:^{
         NSLog(@"Available!");
-        
-        // optionally turn on music crossfading
-        player.crossfadeInEnabled = YES;
+
         player.secondsOfCrossfade = 0.0;
+        player.crossfadeInEnabled = YES;
         
     } notAvailable:^{
         NSLog(@"Unavailable!");
     }];
-    
-    player.statusBarNotification.notificationTappedBlock = ^{
-        [FMResources presentPlayerWithTitle:@"pop-up music"];
-    };
     
     return YES;
 }
