@@ -495,12 +495,13 @@
 			baseConfigurationReference = 42CB28B74CEA448A5BB2B21F /* Pods-iOS-RadioPlayer-2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = PAGEPFEF9A;
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43b38c21-45f9-4999-9ba2-b8593ff92e2c";
+				PROVISIONING_PROFILE = "a8d56861-459b-4421-a569-9d923bc7916e";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS RadioPlayer 2";
 			};
 			name = Debug;
@@ -510,12 +511,13 @@
 			baseConfigurationReference = B77BC67E3DD2FCD69DFDB22B /* Pods-iOS-RadioPlayer-2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = PAGEPFEF9A;
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43b38c21-45f9-4999-9ba2-b8593ff92e2c";
+				PROVISIONING_PROFILE = "a8d56861-459b-4421-a569-9d923bc7916e";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS RadioPlayer 2";
 			};
 			name = Release;

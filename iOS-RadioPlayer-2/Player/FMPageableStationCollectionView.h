@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *stationLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (strong, nonatomic) IBOutlet FMStationButton *stationButton;
+@property (strong, nonatomic) IBOutlet FMPlayPauseButton *stationButton;
 
 @end
 

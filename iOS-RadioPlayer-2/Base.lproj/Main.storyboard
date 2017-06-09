@@ -22,32 +22,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcg-4I-QRi">
-                                <rect key="frame" x="147" y="119.5" width="81" height="30"/>
-                                <state key="normal" title="open player"/>
+                                <rect key="frame" x="147.5" y="119.5" width="80" height="30"/>
+                                <state key="normal" title="push player"/>
                                 <connections>
-                                    <action selector="openPlayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DkV-Je-JEV"/>
+                                    <action selector="pushPlayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ml2-5h-hnd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0v-aN-Ojq">
-                                <rect key="frame" x="132.5" y="169.5" width="109" height="30"/>
-                                <state key="normal" title="open station list"/>
+                                <rect key="frame" x="109.5" y="169.5" width="155" height="30"/>
+                                <state key="normal" title="push station collection"/>
                                 <connections>
-                                    <action selector="openStationList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bjj-QN-3Gu"/>
+                                    <action selector="pushStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ww2-Os-g0a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-tb-RPB">
-                                <rect key="frame" x="70.5" y="219.5" width="233" height="30"/>
-                                <state key="normal" title="open player showing 'Station Two'"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-tb-RPB">
+                                <rect key="frame" x="71" y="219.5" width="232" height="30"/>
+                                <state key="normal" title="push player showing 'Station Two'"/>
                                 <connections>
-                                    <action selector="openPlayerOnStationTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qDb-2M-gGv"/>
+                                    <action selector="pushPlayerOnStationTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTp-07-sYC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-5a-dA1">
-                                <rect key="frame" x="124" y="269.5" width="127" height="30"/>
-                                <state key="normal" title="open modal player"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-5a-dA1">
+                                <rect key="frame" x="138.5" y="269.5" width="98" height="30"/>
+                                <state key="normal" title="present player"/>
                                 <connections>
-                                    <action selector="presentViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="102-SI-EII"/>
+                                    <action selector="presentViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="DhP-bn-UlN"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeD-wn-fjh">
+                                <rect key="frame" x="100" y="319.5" width="174" height="30"/>
+                                <state key="normal" title="present station collection"/>
+                                <connections>
+                                    <action selector="presentStationCollectionController" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBg-Gn-Yrb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-Yf-26w" customClass="FMStationButton">
+                                <rect key="frame" x="132" y="422" width="112" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Station One" image="feedfm-icon-play-black">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" image="feedfm-icon-pause-black"/>
+                                <state key="highlighted" image="feedfm-icon-pause-black"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="stationName" value="Station One"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="playOnClick" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenActive" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,7 +79,9 @@
                             <constraint firstItem="jUV-5a-dA1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dPh-2o-AMs"/>
                             <constraint firstItem="X62-tb-RPB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dxI-qo-QQn"/>
                             <constraint firstItem="e0v-aN-Ojq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fC7-Bk-zhn"/>
+                            <constraint firstItem="eeD-wn-fjh" firstAttribute="top" secondItem="jUV-5a-dA1" secondAttribute="bottom" constant="20" id="kvz-MY-SCF"/>
                             <constraint firstItem="zcg-4I-QRi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="2:5" constant="1" id="oSu-T2-9E7"/>
+                            <constraint firstItem="eeD-wn-fjh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rRR-1O-Trd"/>
                             <constraint firstItem="zcg-4I-QRi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tiM-Fj-Tvy"/>
                         </constraints>
                     </view>
@@ -91,4 +114,8 @@
             <point key="canvasLocation" x="136.80000000000001" y="-543.77811094452773"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="feedfm-icon-pause-black" width="16" height="16"/>
+        <image name="feedfm-icon-play-black" width="16" height="16"/>
+    </resources>
 </document>

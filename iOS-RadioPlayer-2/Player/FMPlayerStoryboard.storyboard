@@ -72,7 +72,7 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
-                                            <rect key="frame" x="4" y="214" width="323" height="15"/>
+                                            <rect key="frame" x="4" y="213" width="323" height="16"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,7 +151,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJN-4K-X7d" userLabel="Station Button" customClass="FMStationButton">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJN-4K-X7d" userLabel="Station Button" customClass="FMPlayPauseButton">
                                                     <rect key="frame" x="175" y="220" width="60" height="60"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -160,18 +160,17 @@
                                                     </constraints>
                                                     <state key="normal" image="feedfm-icon-play-black"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="playOnClick" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenActive" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu7-KV-CM9">
-                                                    <rect key="frame" x="171.33333333333337" y="420" width="68.666666666666657" height="21"/>
+                                                    <rect key="frame" x="171" y="420" width="69" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddd-oV-XSh" userLabel="Station Name">
-                                                    <rect key="frame" x="184.66666666666666" y="451" width="42" height="21"/>
+                                                    <rect key="frame" x="185" y="451" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -415,10 +414,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
-                                        <rect key="frame" x="52.333333333333343" y="69" width="310" height="52"/>
+                                        <rect key="frame" x="52" y="69" width="310" height="52"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
-                                                <rect key="frame" x="38.999999999999993" y="15" width="22" height="22"/>
+                                                <rect key="frame" x="39" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="22" id="Jt5-Ge-NBC"/>
                                                     <constraint firstAttribute="width" priority="999" constant="22" id="ke4-he-P1n"/>
@@ -430,7 +429,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BDc-Vu-Jhb" customClass="FMActivityIndicator">
-                                                <rect key="frame" x="5" y="15" width="21.999999999999993" height="22"/>
+                                                <rect key="frame" x="5" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="999" constant="22" id="D6x-IH-pDe"/>
                                                     <constraint firstAttribute="height" priority="999" constant="22" identifier="activity height" id="ZOg-hm-zKG"/>
@@ -479,7 +478,7 @@
                                                 <state key="selected" image="feedfm-icon-dislike-full-black"/>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kc-4Te" userLabel="divider">
-                                                <rect key="frame" x="219.99999999999997" y="0.0" width="1" height="52"/>
+                                                <rect key="frame" x="220" y="0.0" width="1" height="52"/>
                                                 <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="djH-um-wWe"/>
@@ -623,7 +622,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-logo-color" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-xQ-j5X">
-                                <rect key="frame" x="88.666666666666686" y="672" width="237" height="34"/>
+                                <rect key="frame" x="89" y="672" width="237" height="34"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
                                 <rect key="frame" x="36" y="541.66666666666652" width="342" height="100.33333333333337"/>
