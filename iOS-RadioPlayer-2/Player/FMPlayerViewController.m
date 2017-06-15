@@ -32,6 +32,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *playPausebutton;
+@property (strong, nonatomic) IBOutlet UIButton *skipButton;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet UIButton *dislikeButton;
 @property (strong, nonatomic) IBOutlet UIView *playerControlsView;
 @property (strong, nonatomic) IBOutlet UIButton *playHistoryButton;
 
@@ -78,13 +81,36 @@
  */
 
 - (void) setupButtonStyling {
-    [self assignDisabledImageOpacity:0.5 forButton:_leftButton];
-    [self assignDisabledImageOpacity:0.5 forButton:_rightButton];
+    [self assignImageOpacity:0.5 forButton:_leftButton andState: UIControlStateDisabled fromState: UIControlStateNormal];
+    [self assignImageOpacity:0.5 forButton:_rightButton andState: UIControlStateDisabled fromState: UIControlStateNormal];
+    
+    for (UIButton *button in @[ _playPausebutton, _skipButton, _likeButton, _dislikeButton, _playHistoryButton]) {
+        [self assignImageOpacity:0.5
+                       forButton:button
+                        andState:UIControlStateDisabled
+                       fromState:UIControlStateNormal];
+        
+        [self assignImageOpacity:0.75
+                       forButton:button
+                        andState:UIControlStateNormal
+                       fromState:UIControlStateNormal];
+
+        [self assignImageOpacity:0.75
+                       forButton:button
+                        andState:UIControlStateSelected
+                       fromState:UIControlStateSelected];
+    }
+    
+    
 }
 
-- (void) assignDisabledImageOpacity: (CGFloat) opacity forButton: (UIButton *) button {
-    UIImage *disabled = [[button imageForState:UIControlStateNormal] translucentImageWithAlpha:opacity];
-    [button setImage:disabled forState:UIControlStateDisabled];
+- (void) assignImageOpacity: (CGFloat) opacity
+                  forButton: (UIButton *) button
+                   andState: (UIControlState) state
+                  fromState: (UIControlState) fromState
+{
+    UIImage *adjusted = [[button imageForState:fromState] translucentImageWithAlpha:opacity];
+    [button setImage:adjusted forState:state];
 }
 
 - (void)viewDidLayoutSubviews {

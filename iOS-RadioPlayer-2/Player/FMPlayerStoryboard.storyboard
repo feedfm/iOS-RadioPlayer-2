@@ -14,7 +14,7 @@
         <scene sceneID="Apn-cV-7Db">
             <objects>
                 <collectionViewController storyboardIdentifier="stationCollectionViewController" id="Obn-WQ-IVU" userLabel="Station Collection View" customClass="FMStationCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AMd-0D-sD2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="AMd-0D-sD2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,6 +240,7 @@
                             </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-hc-qUe" customClass="FMProgressView">
                                 <rect key="frame" x="0.0" y="552" width="414" height="4"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20060870398773006" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="eMZ-uJ-QGj"/>
                                 </constraints>
@@ -369,18 +370,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="0.0" y="10" width="398" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="0.0" y="10.666666666666629" width="398" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.85119104677914115" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%TRACK"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist/Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="0.0" y="11" width="398" height="15"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="0.0" y="10" width="398" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.60096338190184051" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%ARTIST on %ALBUM"/>
@@ -416,9 +417,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
-                                        <rect key="frame" x="52" y="69" width="310" height="52"/>
+                                        <rect key="frame" x="52" y="70" width="310" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
                                                 <rect key="frame" x="39" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="22" id="Jt5-Ge-NBC"/>
@@ -439,13 +440,13 @@
                                             </activityIndicatorView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-c0-5fi" userLabel="divider">
                                                 <rect key="frame" x="69" y="0.0" width="1" height="52"/>
-                                                <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="DQl-O4-6YR"/>
                                                     <constraint firstAttribute="height" constant="52" id="cAi-lX-AvN"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7J-Q5-fsw" userLabel="Skip Button" customClass="FMSkipButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7J-Q5-fsw" userLabel="Skip Button" customClass="FMSkipButton">
                                                 <rect key="frame" x="78" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="bea-s5-Wfq"/>
@@ -455,13 +456,13 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-zJ-6JG" userLabel="divider">
                                                 <rect key="frame" x="117" y="0.0" width="1" height="52"/>
-                                                <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="41E-4D-PNr"/>
                                                     <constraint firstAttribute="height" constant="52" id="tmx-5a-06f"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-GC-cWv" userLabel="Like Button" customClass="FMLikeButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-GC-cWv" userLabel="Like Button" customClass="FMLikeButton">
                                                 <rect key="frame" x="136" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="1YU-WI-nWd"/>
@@ -470,7 +471,7 @@
                                                 <state key="normal" title="Button" image="feedfm-icon-like-black"/>
                                                 <state key="selected" image="feedfm-icon-like-full-black"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrt-C6-bGz" userLabel="Dislike Button" customClass="FMDislikeButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrt-C6-bGz" userLabel="Dislike Button" customClass="FMDislikeButton">
                                                 <rect key="frame" x="177" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="DEO-IP-Q1V"/>
@@ -481,13 +482,13 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kc-4Te" userLabel="divider">
                                                 <rect key="frame" x="220" y="0.0" width="1" height="52"/>
-                                                <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="djH-um-wWe"/>
                                                     <constraint firstAttribute="width" constant="1" id="s8W-Be-TKI"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-02-bdh" userLabel="History Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-02-bdh" userLabel="History Button">
                                                 <rect key="frame" x="251" y="15" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="3zd-lk-DHB"/>
@@ -524,7 +525,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                <real key="value" value="15"/>
+                                                <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="alignmentValue">
                                                 <integer key="value" value="3"/>
@@ -538,10 +539,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCL-7b-BOk" userLabel="POWERED BY FEED.FM">
-                                        <rect key="frame" x="150" y="136" width="114" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <rect key="frame" x="155" y="137" width="104" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
                                         <state key="normal" title="POWERED BY FEED.FM">
-                                            <color key="titleColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.50341497315950912" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="sBi-pL-wRf" kind="presentation" id="pQp-FA-LLt"/>
@@ -597,13 +598,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dislikeButton" destination="Wrt-C6-bGz" id="kyr-UC-wY8"/>
                         <outlet property="historyCollectionView" destination="BTl-ow-ozA" id="K6P-2w-Qbo"/>
                         <outlet property="leftButton" destination="Vgc-zL-AKO" id="Zb2-Wu-kL1"/>
+                        <outlet property="likeButton" destination="c4t-GC-cWv" id="gDk-jO-Y1A"/>
                         <outlet property="noticeLabel" destination="1Hv-8J-9Xn" id="srl-HI-3WT"/>
                         <outlet property="playHistoryButton" destination="1um-02-bdh" id="0hs-p5-pBd"/>
                         <outlet property="playPausebutton" destination="2Vk-WQ-6P4" id="2zY-kt-nbh"/>
                         <outlet property="playerControlsView" destination="ZV9-dA-UDD" id="9Zl-RI-cWl"/>
                         <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
+                        <outlet property="skipButton" destination="F7J-Q5-fsw" id="7jZ-m4-l1S"/>
                         <outlet property="stationCollectionButton" destination="qPv-xs-U0Y" id="tuw-mt-rCC"/>
                         <outlet property="stationCollectionCircle" destination="dbq-aT-esl" id="NyZ-pA-BJA"/>
                         <outlet property="stationLabel" destination="cEp-GB-zqt" id="8ha-bR-reJ"/>
