@@ -32,7 +32,7 @@ static UIEdgeInsets sectionInsets;
 
 + (void) initialize {
     if (self == [FMStationCollectionViewController class]) {
-        sectionInsets = UIEdgeInsetsMake(10.0, 10.0, 0.0, 10.0);
+        sectionInsets = UIEdgeInsetsMake(20.0, 20.0, 0.0, 20.0);
     }
 }
 
@@ -148,10 +148,38 @@ static UIEdgeInsets sectionInsets;
 
         }
         
-        cell.whiteCircle.layer.cornerRadius = 15.0f;
+        UIView *whiteCircle = cell.whiteCircle;
+        whiteCircle.layer.cornerRadius = 20.0f;
+        
+        // and a drop shadow
+        UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:whiteCircle.bounds];
+        whiteCircle.layer.masksToBounds = NO;
+        whiteCircle.layer.shadowColor = [UIColor blackColor].CGColor;
+        whiteCircle.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+        whiteCircle.layer.shadowOpacity = 0.5f;
+        whiteCircle.layer.shadowPath = shadowPath.CGPath;
+
+        cell.backgroundImage.layer.cornerRadius = 3.0f;
+        cell.backgroundImage.layer.masksToBounds = YES;
     }
     
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"stationHeader" forIndexPath:indexPath];
+
+        return cell;
+        
+    } else {
+        assert(false);
+        
+    }
+    
 }
 
 - (void) stationOrStateUpdated: (NSNotification *)notification {
@@ -193,7 +221,29 @@ static UIEdgeInsets sectionInsets;
     float availableWidth = self.view.bounds.size.width - paddingSpace;
     float widthPerItem = availableWidth / stationsPerRow;
     
-    return CGSizeMake(widthPerItem, widthPerItem);
+    FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
+
+    UIFont *titleFont = [UIFont systemFontOfSize: 15.0f weight:UIFontWeightBold];
+    
+    CGSize size = [station.name sizeWithAttributes:@{ NSFontAttributeName: titleFont }];
+    //NSLog(@"title sizing is %f, %f", size.width, size.height);
+    
+    float height = (.75 * widthPerItem) + 12.0f + size.height;
+    
+    NSString *subheader = [station.options objectForKey:FMResources.subheaderPropertyName];
+
+    if (subheader) {
+        UIFont *subtitleFont = [UIFont systemFontOfSize: 12.0f];
+        size = [subheader sizeWithAttributes:@{ NSFontAttributeName: subtitleFont }];
+        
+        //NSLog(@"subtitle size is %f, %f", size.width, size.height);
+        
+        height += size.height;
+    }
+    
+    //NSLog(@"returning size %f, %f", widthPerItem, height);
+
+    return CGSizeMake(widthPerItem, height);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
