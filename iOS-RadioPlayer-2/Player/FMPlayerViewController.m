@@ -31,6 +31,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *stationLabel;
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
+@property (strong, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) IBOutlet UIView *shareCircle;
+
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *playPausebutton;
 @property (strong, nonatomic) IBOutlet UIButton *skipButton;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
@@ -65,7 +68,7 @@
     
     // hide or show the station collection button
     [self setupStationCollectionButton];
-    
+
     // focus on the active station by default
     if (!_initiallyVisibleStation) {
         _initiallyVisibleStation = [[FMAudioPlayer sharedPlayer] activeStation];
@@ -100,6 +103,21 @@
                         andState:UIControlStateSelected
                        fromState:UIControlStateSelected];
     }
+    
+    // give share button a sexy round shape
+    _shareCircle.layer.cornerRadius = _shareCircle.bounds.size.width / 2.0f;
+    
+    // and a drop shadow
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:_shareCircle.bounds];
+    _shareCircle.layer.masksToBounds = NO;
+    _shareCircle.layer.shadowColor = [UIColor blackColor].CGColor;
+    _shareCircle.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    _shareCircle.layer.shadowOpacity = 0.5f;
+    _shareCircle.layer.shadowPath = shadowPath.CGPath;
+    
+    // shrink the size of the image in the button
+    _shareButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _shareButton.imageEdgeInsets = UIEdgeInsetsMake(12.5, 12.5, 12.5, 12.5);
     
     
 }
@@ -162,9 +180,17 @@
     // give it a sexy round shape
     _stationCollectionCircle.layer.cornerRadius = _stationCollectionCircle.bounds.size.width / 2.0f;
 
+    // and a drop shadow
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:_stationCollectionCircle.bounds];
+    _stationCollectionCircle.layer.masksToBounds = NO;
+    _stationCollectionCircle.layer.shadowColor = [UIColor blackColor].CGColor;
+    _stationCollectionCircle.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    _stationCollectionCircle.layer.shadowOpacity = 0.5f;
+    _stationCollectionCircle.layer.shadowPath = shadowPath.CGPath;
+    
     // shrink the size of the image in the button
     _stationCollectionButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    _stationCollectionButton.imageEdgeInsets = UIEdgeInsetsMake(12, 12, 12, 12);
+    _stationCollectionButton.imageEdgeInsets = UIEdgeInsetsMake(12.5, 12.5, 12.5, 12.5);
     
     // button to view station collection only appears in special cases
     

@@ -99,6 +99,15 @@ static NSString * const stationCellIdentifier = @"stationCell";
         cell.backgroundImage.image = nil;
     }
     
+    if (!cell.backgroundImage.layer.sublayers) {
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        
+        gradient.frame = CGRectMake(0, cell.backgroundImage.bounds.size.height - 300, cell.backgroundImage.bounds.size.width, 300);
+        gradient.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor colorWithWhite:0 alpha:0.75].CGColor];
+        
+        [cell.backgroundImage.layer insertSublayer:gradient atIndex:0];
+    }
+    
     cell.stationButton.station = station;
     
     // make 'play' button a circle

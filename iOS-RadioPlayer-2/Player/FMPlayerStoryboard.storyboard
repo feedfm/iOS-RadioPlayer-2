@@ -14,7 +14,7 @@
         <scene sceneID="Apn-cV-7Db">
             <objects>
                 <collectionViewController storyboardIdentifier="stationCollectionViewController" id="Obn-WQ-IVU" userLabel="Station Collection View" customClass="FMStationCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="AMd-0D-sD2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AMd-0D-sD2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,7 +181,7 @@
                                 </cells>
                             </collectionView>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbq-aT-esl" userLabel="Station Collection Circle">
-                                <rect key="frame" x="20" y="28" width="40" height="40"/>
+                                <rect key="frame" x="12" y="32" width="40" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPv-xs-U0Y" userLabel="Station Collection Button">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -201,6 +201,26 @@
                                     <constraint firstItem="qPv-xs-U0Y" firstAttribute="centerY" secondItem="dbq-aT-esl" secondAttribute="centerY" id="LLc-7V-IcK"/>
                                     <constraint firstAttribute="width" constant="40" id="orc-uj-eTr"/>
                                     <constraint firstAttribute="height" constant="40" id="w3w-Ek-gZE"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-gr-Zc6" userLabel="Share Circle">
+                                <rect key="frame" x="362" y="32" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-Of-mRU" userLabel="Share Button">
+                                        <rect key="frame" x="0.33333333333331439" y="0.3333333333333357" width="40" height="39.999999999999993"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="7BK-ga-ff6"/>
+                                            <constraint firstAttribute="height" constant="40" id="7Qf-0e-Rt9"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="feedfm-icon-play-black"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="JOK-zq-MFy"/>
+                                    <constraint firstItem="tsW-Of-mRU" firstAttribute="centerY" secondItem="kh2-gr-Zc6" secondAttribute="centerY" id="SZb-OX-mtc"/>
+                                    <constraint firstItem="tsW-Of-mRU" firstAttribute="centerX" secondItem="kh2-gr-Zc6" secondAttribute="centerX" id="YWW-t3-CHC"/>
+                                    <constraint firstAttribute="height" constant="40" id="zN7-Gm-c0H"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgc-zL-AKO" userLabel="Left Station Button">
@@ -364,8 +384,8 @@
                                         <rect key="frame" x="8" y="21" width="398" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-8J-9Xn" customClass="MarqueeLabel">
-                                                <rect key="frame" x="0.0" y="8" width="398" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="10.333333333333371" width="398" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -417,7 +437,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
-                                        <rect key="frame" x="52" y="70" width="310" height="52"/>
+                                        <rect key="frame" x="52" y="75" width="310" height="52"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
                                                 <rect key="frame" x="39" y="15" width="22" height="22"/>
@@ -552,7 +572,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fCL-7b-BOk" firstAttribute="centerX" secondItem="ZV9-dA-UDD" secondAttribute="centerX" id="2QN-PO-SQV"/>
-                                    <constraint firstItem="fCL-7b-BOk" firstAttribute="top" secondItem="e5Q-2b-nR4" secondAttribute="bottom" constant="15" id="DlB-Zp-Nfv"/>
+                                    <constraint firstItem="fCL-7b-BOk" firstAttribute="top" secondItem="e5Q-2b-nR4" secondAttribute="bottom" constant="10" id="DlB-Zp-Nfv"/>
                                     <constraint firstItem="hQz-4X-1Mg" firstAttribute="centerY" secondItem="ZV9-dA-UDD" secondAttribute="top" constant="40" id="Mlr-Eo-JL5"/>
                                     <constraint firstAttribute="rightMargin" secondItem="hQz-4X-1Mg" secondAttribute="right" id="cbZ-Kd-2N5"/>
                                     <constraint firstAttribute="bottom" secondItem="fCL-7b-BOk" secondAttribute="bottom" constant="20" id="oMa-Nb-MRV"/>
@@ -568,6 +588,7 @@
                             <constraint firstItem="baS-Um-g9z" firstAttribute="top" secondItem="ibd-cv-yTv" secondAttribute="bottom" constant="1" id="8Jd-3V-9Xh"/>
                             <constraint firstItem="baS-Um-g9z" firstAttribute="width" secondItem="ibd-cv-yTv" secondAttribute="width" id="D25-QG-ptH"/>
                             <constraint firstItem="RO7-sR-98X" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="DWO-Jh-oec"/>
+                            <constraint firstItem="kh2-gr-Zc6" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" constant="12" id="GRC-Sc-DJM"/>
                             <constraint firstItem="7m0-qk-uHH" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="KU0-4U-fUO"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="rzS-hc-qUe" secondAttribute="bottom" id="KvP-JB-gck"/>
                             <constraint firstItem="7m0-qk-uHH" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="Oau-Tw-b2Y"/>
@@ -576,7 +597,7 @@
                             <constraint firstItem="rzS-hc-qUe" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="WyJ-u8-hrV"/>
                             <constraint firstItem="7m0-qk-uHH" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="XYA-Fm-elB"/>
                             <constraint firstItem="RO7-sR-98X" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="Xxi-6n-Cct"/>
-                            <constraint firstItem="dbq-aT-esl" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="Ye3-fh-oKH"/>
+                            <constraint firstItem="dbq-aT-esl" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" constant="12" id="Ye3-fh-oKH"/>
                             <constraint firstAttribute="trailing" secondItem="rzS-hc-qUe" secondAttribute="trailing" id="bJP-Vz-ZGc"/>
                             <constraint firstItem="Vgc-zL-AKO" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" constant="25" id="fgl-rF-HSC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RO7-sR-98X" secondAttribute="trailing" id="fxh-67-TKd"/>
@@ -584,6 +605,7 @@
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="cEp-GB-zqt" secondAttribute="bottom" constant="30" id="hIl-TC-KGg"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="34" id="hMC-Yh-qrH"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="hgT-fg-l7U"/>
+                            <constraint firstAttribute="trailing" secondItem="kh2-gr-Zc6" secondAttribute="trailing" constant="12" id="iYT-9e-KKa"/>
                             <constraint firstItem="cEp-GB-zqt" firstAttribute="centerX" secondItem="xjn-V5-jyG" secondAttribute="centerX" id="nsO-ha-kkF"/>
                             <constraint firstAttribute="right" secondItem="7m0-qk-uHH" secondAttribute="right" id="nvb-o5-3cJ"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="pLD-BI-gOx"/>
@@ -593,7 +615,7 @@
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="ruy-uX-be8"/>
                             <constraint firstAttribute="right" secondItem="BTl-ow-ozA" secondAttribute="right" id="uyw-ua-LPC"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="w6e-bL-6te"/>
-                            <constraint firstItem="dbq-aT-esl" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" constant="8" id="xJQ-nh-rht"/>
+                            <constraint firstItem="dbq-aT-esl" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" constant="12" id="xJQ-nh-rht"/>
                             <constraint firstItem="cEp-GB-zqt" firstAttribute="top" secondItem="baS-Um-g9z" secondAttribute="bottom" constant="8" id="xcV-a9-VbA"/>
                         </constraints>
                     </view>
@@ -607,6 +629,8 @@
                         <outlet property="playPausebutton" destination="2Vk-WQ-6P4" id="2zY-kt-nbh"/>
                         <outlet property="playerControlsView" destination="ZV9-dA-UDD" id="9Zl-RI-cWl"/>
                         <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
+                        <outlet property="shareButton" destination="tsW-Of-mRU" id="RH2-5c-aub"/>
+                        <outlet property="shareCircle" destination="kh2-gr-Zc6" id="5aR-NA-J6a"/>
                         <outlet property="skipButton" destination="F7J-Q5-fsw" id="7jZ-m4-l1S"/>
                         <outlet property="stationCollectionButton" destination="qPv-xs-U0Y" id="tuw-mt-rCC"/>
                         <outlet property="stationCollectionCircle" destination="dbq-aT-esl" id="NyZ-pA-BJA"/>
