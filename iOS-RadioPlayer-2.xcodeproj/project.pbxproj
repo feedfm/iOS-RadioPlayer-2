@@ -13,6 +13,7 @@
 		A924F93F1EBAB0CA00E3951E /* FMPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A924F93E1EBAB0CA00E3951E /* FMPlayerViewController.m */; };
 		A924F9421EBAB3D400E3951E /* FMResources.m in Sources */ = {isa = PBXBuildFile; fileRef = A924F9411EBAB3D400E3951E /* FMResources.m */; };
 		A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */; };
+		A98F3C1C1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */; };
 		A9D46E191EC1386B004D3DAE /* FMDisclaimerControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */; };
 		A9D46E4D1EC24A3D004D3DAE /* FMStationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E4C1EC24A3D004D3DAE /* FMStationCollectionViewController.m */; };
 		A9DAECB81ED64520008D8431 /* FMPageableStationCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */; };
@@ -46,6 +47,8 @@
 		A924F9411EBAB3D400E3951E /* FMResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResources.m; sourceTree = "<group>"; };
 		A954BCDE1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPlayHistoryCollectionView.h; sourceTree = "<group>"; };
 		A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPlayHistoryCollectionView.m; sourceTree = "<group>"; };
+		A98F3C1A1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FMAdjustImageAlpha.h"; sourceTree = "<group>"; };
+		A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FMAdjustImageAlpha.m"; sourceTree = "<group>"; };
 		A9D46E171EC1386B004D3DAE /* FMDisclaimerControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDisclaimerControllerViewController.h; sourceTree = "<group>"; };
 		A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDisclaimerControllerViewController.m; sourceTree = "<group>"; };
 		A9D46E4B1EC24A3D004D3DAE /* FMStationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMStationCollectionViewController.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */,
 				A924F9391EBA505300E3951E /* FMPlayerStoryboard.storyboard */,
 				A924F93B1EBA5B6F00E3951E /* FMPlayerAssets.xcassets */,
+				A98F3C1A1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.h */,
+				A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */,
 			);
 			name = FMPlayer;
 			path = Player;
@@ -238,7 +243,7 @@
 					A9F09C1C1EB8F8AF007192AE = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = PAGEPFEF9A;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -356,6 +361,7 @@
 				A924F93F1EBAB0CA00E3951E /* FMPlayerViewController.m in Sources */,
 				A924F9421EBAB3D400E3951E /* FMResources.m in Sources */,
 				A9F09C221EB8F8AF007192AE /* main.m in Sources */,
+				A98F3C1C1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m in Sources */,
 				A9F437BD1EDC88B500667B96 /* FMPopUpDownNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,14 +501,14 @@
 			baseConfigurationReference = 42CB28B74CEA448A5BB2B21F /* Pods-iOS-RadioPlayer-2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a8d56861-459b-4421-a569-9d923bc7916e";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS RadioPlayer 2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -511,14 +517,14 @@
 			baseConfigurationReference = B77BC67E3DD2FCD69DFDB22B /* Pods-iOS-RadioPlayer-2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a8d56861-459b-4421-a569-9d923bc7916e";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS RadioPlayer 2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

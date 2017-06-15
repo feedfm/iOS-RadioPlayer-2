@@ -19,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    FMLogSetLevel(FMLogLevelDebug);
+    
     [FMAudioPlayer setClientToken:@"demo"
                            secret:@"demo"];
     
