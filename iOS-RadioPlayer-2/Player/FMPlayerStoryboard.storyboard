@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -163,27 +163,11 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenActive" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu7-KV-CM9">
-                                                    <rect key="frame" x="171" y="420" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddd-oV-XSh" userLabel="Station Name">
-                                                    <rect key="frame" x="185" y="451" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="ddd-oV-XSh" secondAttribute="bottom" constant="20" id="4M9-oe-PAW"/>
-                                            <constraint firstItem="ddd-oV-XSh" firstAttribute="centerX" secondItem="Zgg-nj-yYc" secondAttribute="centerX" id="5jg-pg-EGu"/>
-                                            <constraint firstItem="Nu7-KV-CM9" firstAttribute="centerX" secondItem="Zgg-nj-yYc" secondAttribute="centerX" id="5zH-Mh-BJL"/>
                                             <constraint firstAttribute="trailing" secondItem="gtf-YO-Kaq" secondAttribute="trailing" id="HlZ-sl-lGy"/>
                                             <constraint firstItem="JJN-4K-X7d" firstAttribute="centerX" secondItem="Zgg-nj-yYc" secondAttribute="centerX" id="KY8-vq-Nvr"/>
-                                            <constraint firstItem="ddd-oV-XSh" firstAttribute="top" secondItem="Nu7-KV-CM9" secondAttribute="bottom" constant="10" id="OQw-XZ-NLu"/>
                                             <constraint firstItem="JJN-4K-X7d" firstAttribute="centerY" secondItem="Zgg-nj-yYc" secondAttribute="centerY" id="cQM-hk-mNw"/>
                                             <constraint firstItem="gtf-YO-Kaq" firstAttribute="leading" secondItem="Zgg-nj-yYc" secondAttribute="leading" id="clZ-28-Tel"/>
                                             <constraint firstAttribute="bottom" secondItem="gtf-YO-Kaq" secondAttribute="bottom" id="fe0-iV-NRD"/>
@@ -192,7 +176,6 @@
                                         <connections>
                                             <outlet property="backgroundImage" destination="gtf-YO-Kaq" id="Dt9-gm-O9y"/>
                                             <outlet property="stationButton" destination="JJN-4K-X7d" id="ETF-2R-8NS"/>
-                                            <outlet property="stationLabel" destination="ddd-oV-XSh" id="Qwk-ed-i5X"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -220,22 +203,41 @@
                                     <constraint firstAttribute="height" constant="40" id="w3w-Ek-gZE"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgc-zL-AKO" userLabel="Left Station Button">
-                                <rect key="frame" x="20" y="496" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgc-zL-AKO" userLabel="Left Station Button">
+                                <rect key="frame" x="25" y="502" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="1c0-4X-Jw5"/>
-                                    <constraint firstAttribute="height" constant="30" id="N2R-93-gQ7"/>
+                                    <constraint firstAttribute="width" constant="20" id="1c0-4X-Jw5"/>
+                                    <constraint firstAttribute="height" constant="20" id="N2R-93-gQ7"/>
                                 </constraints>
                                 <state key="normal" image="feedfm-icon-left-white"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-TF-LIN" userLabel="Right Station Button">
-                                <rect key="frame" x="364" y="496" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-TF-LIN" userLabel="Right Station Button">
+                                <rect key="frame" x="369" y="502" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="I0m-uP-4kw"/>
-                                    <constraint firstAttribute="width" constant="30" id="Iew-Ns-bVD"/>
+                                    <constraint firstAttribute="height" constant="20" id="I0m-uP-4kw"/>
+                                    <constraint firstAttribute="width" constant="20" id="Iew-Ns-bVD"/>
                                 </constraints>
                                 <state key="normal" image="feedfm-icon-right-white"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-GB-zqt" userLabel="Station Label">
+                                <rect key="frame" x="142.33333333333331" y="502" width="129.99999999999994" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibd-cv-yTv" userLabel="STATION">
+                                <rect key="frame" x="186" y="480" width="43" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baS-Um-g9z" userLabel="underline">
+                                <rect key="frame" x="185.66666666666666" y="493" width="43" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Frg-Qk-XQb"/>
+                                </constraints>
+                            </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-hc-qUe" customClass="FMProgressView">
                                 <rect key="frame" x="0.0" y="552" width="414" height="4"/>
                                 <constraints>
@@ -561,7 +563,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="ecR-TF-LIN" secondAttribute="bottom" constant="30" id="33o-bl-ND8"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="ecR-TF-LIN" secondAttribute="bottom" constant="34" id="33o-bl-ND8"/>
+                            <constraint firstItem="baS-Um-g9z" firstAttribute="top" secondItem="ibd-cv-yTv" secondAttribute="bottom" constant="1" id="8Jd-3V-9Xh"/>
+                            <constraint firstItem="baS-Um-g9z" firstAttribute="width" secondItem="ibd-cv-yTv" secondAttribute="width" id="D25-QG-ptH"/>
                             <constraint firstItem="RO7-sR-98X" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="DWO-Jh-oec"/>
                             <constraint firstItem="7m0-qk-uHH" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="KU0-4U-fUO"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="rzS-hc-qUe" secondAttribute="bottom" id="KvP-JB-gck"/>
@@ -573,18 +577,23 @@
                             <constraint firstItem="RO7-sR-98X" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="Xxi-6n-Cct"/>
                             <constraint firstItem="dbq-aT-esl" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="Ye3-fh-oKH"/>
                             <constraint firstAttribute="trailing" secondItem="rzS-hc-qUe" secondAttribute="trailing" id="bJP-Vz-ZGc"/>
-                            <constraint firstItem="Vgc-zL-AKO" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leadingMargin" id="fgl-rF-HSC"/>
+                            <constraint firstItem="Vgc-zL-AKO" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" constant="25" id="fgl-rF-HSC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RO7-sR-98X" secondAttribute="trailing" id="fxh-67-TKd"/>
-                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="30" id="hMC-Yh-qrH"/>
+                            <constraint firstItem="ibd-cv-yTv" firstAttribute="centerX" secondItem="xjn-V5-jyG" secondAttribute="centerX" id="h4v-Ik-0Vv"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="cEp-GB-zqt" secondAttribute="bottom" constant="30" id="hIl-TC-KGg"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="34" id="hMC-Yh-qrH"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="hgT-fg-l7U"/>
+                            <constraint firstItem="cEp-GB-zqt" firstAttribute="centerX" secondItem="xjn-V5-jyG" secondAttribute="centerX" id="nsO-ha-kkF"/>
                             <constraint firstAttribute="right" secondItem="7m0-qk-uHH" secondAttribute="right" id="nvb-o5-3cJ"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="pLD-BI-gOx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ecR-TF-LIN" secondAttribute="trailing" id="paO-Ha-Xgh"/>
+                            <constraint firstAttribute="trailing" secondItem="ecR-TF-LIN" secondAttribute="trailing" constant="25" id="paO-Ha-Xgh"/>
+                            <constraint firstItem="baS-Um-g9z" firstAttribute="centerX" secondItem="xjn-V5-jyG" secondAttribute="centerX" id="qU5-ke-DrL"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="RO7-sR-98X" secondAttribute="bottom" id="rd1-H8-ltg"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="ruy-uX-be8"/>
                             <constraint firstAttribute="right" secondItem="BTl-ow-ozA" secondAttribute="right" id="uyw-ua-LPC"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="w6e-bL-6te"/>
                             <constraint firstItem="dbq-aT-esl" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" constant="8" id="xJQ-nh-rht"/>
+                            <constraint firstItem="cEp-GB-zqt" firstAttribute="top" secondItem="baS-Um-g9z" secondAttribute="bottom" constant="8" id="xcV-a9-VbA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -597,6 +606,7 @@
                         <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
                         <outlet property="stationCollectionButton" destination="qPv-xs-U0Y" id="tuw-mt-rCC"/>
                         <outlet property="stationCollectionCircle" destination="dbq-aT-esl" id="NyZ-pA-BJA"/>
+                        <outlet property="stationLabel" destination="cEp-GB-zqt" id="8ha-bR-reJ"/>
                         <outlet property="stationPager" destination="7m0-qk-uHH" id="JJv-TI-fqe"/>
                         <outlet property="trackLineOneLabel" destination="8DI-LC-N4h" id="0kB-g5-cv2"/>
                         <outlet property="trackLineTwoLabel" destination="QYm-Od-Gur" id="xTl-Z4-eqp"/>

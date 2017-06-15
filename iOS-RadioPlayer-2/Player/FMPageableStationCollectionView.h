@@ -18,7 +18,6 @@
 
 @interface FMPageableStationCollectionViewStationCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *stationLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *stationButton;
 

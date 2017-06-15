@@ -99,7 +99,6 @@ static NSString * const stationCellIdentifier = @"stationCell";
         cell.backgroundImage.image = nil;
     }
     
-    cell.stationLabel.text = station.name;
     cell.stationButton.station = station;
     
     // make 'play' button a circle

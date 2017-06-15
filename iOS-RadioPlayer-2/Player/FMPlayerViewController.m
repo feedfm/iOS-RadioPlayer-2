@@ -10,6 +10,7 @@
 #import "FMStationCollectionViewController.h"
 #import "FMResources.h"
 #import "FMPlayHistoryCollectionView.h"
+#import "UIImage+FMAdjustImageAlpha.h"
 #import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
 #import <FeedMedia/FeedMediaUI.h>
@@ -25,9 +26,9 @@
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineOneLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineTwoLabel;
 @property (strong, nonatomic) IBOutlet FMPageableStationCollectionView *stationPager;
-@property (strong, nonatomic) IBOutlet UIView *stationSizer;
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
+@property (strong, nonatomic) IBOutlet UILabel *stationLabel;
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *playPausebutton;
@@ -48,6 +49,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // tweak the button styles
+    [self setupButtonStyling];
+    
     _visibleStations = [FMStationCollectionViewController extractVisibleStations];
 
     // manage station scrolling and switching
@@ -66,7 +70,21 @@
     
     // make sure the lock screen is synced with the active station
     [self setupLockScreen];
+}
 
+/**
+ * Disabled buttons have our own custom look, rather than
+ * the default iOS shading.
+ */
+
+- (void) setupButtonStyling {
+    [self assignDisabledImageOpacity:0.5 forButton:_leftButton];
+    [self assignDisabledImageOpacity:0.5 forButton:_rightButton];
+}
+
+- (void) assignDisabledImageOpacity: (CGFloat) opacity forButton: (UIButton *) button {
+    UIImage *disabled = [[button imageForState:UIControlStateNormal] translucentImageWithAlpha:opacity];
+    [button setImage:disabled forState:UIControlStateDisabled];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -93,7 +111,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // just in case we adjusted stations before rendering
-    [self updateNavigationButtonStates];
+    [self updateNavigationButtonStatesAndStationName];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -199,11 +217,11 @@
     // watch for station scroll events to update left/right button states
     _stationPager.pageableStationDelegate = self;
     
-    [self updateNavigationButtonStates];
+    [self updateNavigationButtonStatesAndStationName];
 }
 
 - (void) visibleStationDidChange {
-    [self updateNavigationButtonStates];
+    [self updateNavigationButtonStatesAndStationName];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     FMAudioPlayerPlaybackState state = player.playbackState;
@@ -217,10 +235,11 @@
 
 }
 
-- (void) updateNavigationButtonStates {
+- (void) updateNavigationButtonStatesAndStationName {
     if (_visibleStations.count <= 1){
         _leftButton.hidden = YES;
         _rightButton.hidden = YES;
+        _stationLabel.text = @"??";
         return;
     }
     
@@ -238,6 +257,8 @@
     } else {
         _rightButton.enabled = YES;
     }
+    
+    _stationLabel.text = visibleStation.name;
 }
 
 - (void) moveLeftOneStation: (id) target {
