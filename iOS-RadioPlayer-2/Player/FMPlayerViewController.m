@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *dislikeButton;
 @property (strong, nonatomic) IBOutlet UIView *playerControlsView;
+@property (strong, nonatomic) IBOutlet UIView *playerDisplayView;
 @property (strong, nonatomic) IBOutlet UIButton *playHistoryButton;
 
 @property (strong, nonatomic) IBOutlet FMPlayHistoryCollectionView *historyCollectionView;
@@ -129,6 +130,12 @@
 {
     UIImage *adjusted = [[button imageForState:fromState] translucentImageWithAlpha:opacity];
     [button setImage:adjusted forState:state];
+}
+
+- (void) viewWillLayoutSubviews {
+    // This is needed to apply autolayout constraints to UICollectionView so that
+    // it can calculate its cell sizes properly.
+    [_playerDisplayView layoutIfNeeded];
 }
 
 - (void)viewDidLayoutSubviews {
