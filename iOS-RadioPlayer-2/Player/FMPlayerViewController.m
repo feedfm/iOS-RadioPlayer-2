@@ -42,7 +42,7 @@
 @property (strong, nonatomic) IBOutlet UIView *playerDisplayView;
 @property (strong, nonatomic) IBOutlet UIButton *playHistoryButton;
 
-@property (strong, nonatomic) IBOutlet FMPlayHistoryCollectionView *historyCollectionView;
+@property (strong, nonatomic) IBOutlet FMPlayHistoryCollectionView *playHistoryView;
 
 @end
 
@@ -77,6 +77,9 @@
     
     // make sure the lock screen is synced with the active station
     [self setupLockScreen];
+    
+    // hide the play history
+    [self hideHistoryAnimated:NO];
 }
 
 /**
@@ -133,9 +136,12 @@
 }
 
 - (void) viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
     // This is needed to apply autolayout constraints to UICollectionView so that
     // it can calculate its cell sizes properly.
     [_playerDisplayView layoutIfNeeded];
+
 }
 
 - (void)viewDidLayoutSubviews {
@@ -490,9 +496,9 @@
 #pragma mark - Play history toggling
 
 - (void) setupPlayHistory {
-    [self hideHistoryAnimated:NO];
+    //[self hideHistoryAnimated:NO];
   
-    [_historyCollectionView setTarget:self andSelectorForCloseButton:@selector(closePlayHistory)];
+    [_playHistoryView setTarget:self andSelectorForCloseButton:@selector(closePlayHistory)];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     if (player.playHistory.count > 0) {
@@ -528,11 +534,13 @@
     _playHistoryButton.selected = NO;
 
     if (!animated) {
-        _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, _historyCollectionView.bounds.size.height);
+        _playHistoryView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
+        _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, 0);
         
     } else {
         [UIView animateWithDuration:0.5 animations:^{
-            _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, _historyCollectionView.bounds.size.height);
+            _playHistoryView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
+            _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, 0);
         }];
         
     }
@@ -542,11 +550,13 @@
     _playHistoryButton.selected = YES;
 
     if (!animated) {
-        _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, 0);
+        _playHistoryView.transform = CGAffineTransformMakeTranslation(0, 0);
+        _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height * -1);
         
     } else {
         [UIView animateWithDuration:0.5 animations:^{
-            _historyCollectionView.transform = CGAffineTransformMakeTranslation(0, 0);
+            _playHistoryView.transform = CGAffineTransformMakeTranslation(0, 0);
+            _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height * -1);
         }];
         
     }
