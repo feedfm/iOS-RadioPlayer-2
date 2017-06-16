@@ -137,13 +137,14 @@
     // display requested station
     if (_initiallyVisibleStation) {
         [self scrollToStation:_initiallyVisibleStation];
+        [self updateNavigationButtonStatesAndStationNameToStation:_initiallyVisibleStation];
         _initiallyVisibleStation = nil;
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    
+
     [self setupMetadataEventHandlers];
 
     // disable notifications when the player is open
@@ -151,11 +152,6 @@
     
     // hide the play history by default
     [self setupPlayHistory];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    // just in case we adjusted stations before rendering
-    [self updateNavigationButtonStatesAndStationName];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -172,6 +168,7 @@
     player.statusBarNotification.notificationTappedBlock = ^{
         [FMResources presentPlayerWithTitle:self.title];
     };
+
 }
 
 #pragma mark - Switch to Station List interface
@@ -268,8 +265,6 @@
     
     // watch for station scroll events to update left/right button states
     _stationPager.pageableStationDelegate = self;
-    
-    [self updateNavigationButtonStatesAndStationName];
 }
 
 - (void) visibleStationDidChange {
@@ -288,14 +283,18 @@
 }
 
 - (void) updateNavigationButtonStatesAndStationName {
-    if (_visibleStations.count <= 1){
+    FMStation *visibleStation = _stationPager.visibleStation;
+    [self updateNavigationButtonStatesAndStationNameToStation:  visibleStation];
+}
+
+- (void) updateNavigationButtonStatesAndStationNameToStation: (FMStation *) visibleStation {
+    if (_visibleStations.count <= 1) {
         _leftButton.hidden = YES;
         _rightButton.hidden = YES;
         _stationLabel.text = @"??";
         return;
     }
     
-    FMStation *visibleStation = _stationPager.visibleStation;
     long index = [_visibleStations indexOfObject:visibleStation];
     
     if (index <= 0) {
