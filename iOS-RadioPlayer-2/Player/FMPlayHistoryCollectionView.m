@@ -51,7 +51,7 @@ static NSString * const playCellIdentifier = @"playCell";
 static NSString * const stationCellIdentifier = @"stationCell";
 static UIEdgeInsets sectionInsets;
 static double itemHeight = 56.0;
-static double sectionHeight = 66.0;
+static double sectionHeight = 65.0;
 
 + (void) initialize {
     if (self == [FMPlayHistoryCollectionView class]) {
@@ -152,11 +152,22 @@ static double sectionHeight = 66.0;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FMPlayHistoryCollectionViewPlayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:playCellIdentifier forIndexPath:indexPath];
-    
-    FMAudioItem *audioItem = (FMAudioItem *) _stationsAndAudioItems[indexPath.section][indexPath.row];
-    
-    cell.trackLabel.text = [NSString stringWithFormat:@"%@ by %@", audioItem.name, audioItem.artist];
 
+    FMAudioItem *audioItem = (FMAudioItem *) _stationsAndAudioItems[indexPath.section][indexPath.row];
+
+    UIFont *plainFont = cell.trackLabel.font;
+    UIFont *boldFont = [UIFont fontWithDescriptor:[[plainFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:plainFont.pointSize];
+    
+    NSMutableAttributedString *trackString = [[NSMutableAttributedString alloc]initWithString: audioItem.name attributes: @{ NSFontAttributeName: boldFont }];
+    
+    NSMutableAttributedString *artistString = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat: @" · %@", audioItem.artist] attributes: @{ NSFontAttributeName: plainFont }];
+
+    [trackString appendAttributedString: artistString];
+    
+    cell.trackLabel.attributedText = trackString;
+    
+//    cell.trackLabel.text = [NSString stringWithFormat:@"%@ by %@", audioItem.name, audioItem.artist];
+    
     // by default, truncate titles. selecting title will animate it
     cell.trackLabel.labelize = YES;
     
