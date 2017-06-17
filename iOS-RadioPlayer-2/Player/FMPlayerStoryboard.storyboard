@@ -15,7 +15,7 @@
         <scene sceneID="Apn-cV-7Db">
             <objects>
                 <collectionViewController storyboardIdentifier="stationCollectionViewController" id="Obn-WQ-IVU" userLabel="Station Collection View" customClass="FMStationCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AMd-0D-sD2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" id="AMd-0D-sD2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -707,7 +707,7 @@
         <!--Disclaimer-->
         <scene sceneID="XQO-pd-5G3">
             <objects>
-                <viewController storyboardIdentifier="disclaimerViewController" id="sBi-pL-wRf" userLabel="Disclaimer" customClass="FMDisclaimerControllerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="disclaimerViewController" automaticallyAdjustsScrollViewInsets="NO" id="sBi-pL-wRf" userLabel="Disclaimer" customClass="FMDisclaimerControllerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zZE-bn-1Mr"/>
                         <viewControllerLayoutGuide type="bottom" id="xhm-i3-EFt"/>

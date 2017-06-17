@@ -226,23 +226,15 @@ static UIEdgeInsets sectionInsets;
     UIFont *titleFont = [UIFont systemFontOfSize: 15.0f weight:UIFontWeightBold];
     
     CGSize size = [station.name sizeWithAttributes:@{ NSFontAttributeName: titleFont }];
-    //NSLog(@"title sizing is %f, %f", size.width, size.height);
     
     float height = (.75 * widthPerItem) + 12.0f + size.height;
-    
-    NSString *subheader = [station.options objectForKey:FMResources.subheaderPropertyName];
 
-    if (subheader) {
-        UIFont *subtitleFont = [UIFont systemFontOfSize: 12.0f];
-        size = [subheader sizeWithAttributes:@{ NSFontAttributeName: subtitleFont }];
-        
-        //NSLog(@"subtitle size is %f, %f", size.width, size.height);
-        
-        height += size.height;
-    }
+    // assume all entries have a subtitle
+    UIFont *subtitleFont = [UIFont systemFontOfSize: 12.0f];
+    CGSize subheaderSize = [@"TEST" sizeWithAttributes:@{ NSFontAttributeName: subtitleFont }];
     
-    //NSLog(@"returning size %f, %f", widthPerItem, height);
-
+    height += subheaderSize.height;
+    
     return CGSizeMake(widthPerItem, height);
 }
 
