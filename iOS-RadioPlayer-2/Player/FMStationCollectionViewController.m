@@ -126,12 +126,15 @@ static UIEdgeInsets sectionInsets;
         }
         
         FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-        
+
+        cell.elapsedTimePie.layer.cornerRadius = cell.elapsedTimePie.bounds.size.width / 2.0f;
+
         // no buttons when not available
         if ((player.playbackState == FMAudioPlayerPlaybackStateUninitialized)
             || (player.playbackState == FMAudioPlayerPlaybackStateUnavailable)) {
             cell.equalizer.hidden = YES;
             cell.playImage.hidden = YES;
+            cell.elapsedTimePie.hidden = YES;
             
         // station is selected and playing
         } else if ([player.activeStation isEqual:station]
@@ -140,16 +143,25 @@ static UIEdgeInsets sectionInsets;
                    && (player.playbackState != FMAudioPlayerPlaybackStatePaused)) {
             cell.equalizer.hidden = NO;
             cell.playImage.hidden = YES;
-            
+            cell.elapsedTimePie.hidden = NO;
+          
+        // station is selected an paused
+        } else if ([player.activeStation isEqual:station]
+                   && (player.playbackState == FMAudioPlayerPlaybackStatePaused)) {
+            cell.equalizer.hidden = YES;
+            cell.playImage.hidden = NO;
+            cell.elapsedTimePie.hidden = NO;
+        
         // station not selected or playing
         } else {
             cell.equalizer.hidden = YES;
             cell.playImage.hidden = NO;
+            cell.elapsedTimePie.hidden = YES;
 
         }
         
         UIView *whiteCircle = cell.whiteCircle;
-        whiteCircle.layer.cornerRadius = 20.0f;
+        whiteCircle.layer.cornerRadius = whiteCircle.bounds.size.width / 2.0f;
         
         // and a drop shadow
         UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:whiteCircle.bounds];
@@ -201,10 +213,19 @@ static UIEdgeInsets sectionInsets;
             cell.equalizer.hidden = NO;
             [cell.equalizer startAnimation];
             cell.playImage.hidden = YES;
+            cell.elapsedTimePie.hidden = NO;
 
+        } else if (active && (player.playbackState == FMAudioPlayerPlaybackStatePaused)) {
+            cell.equalizer.hidden = YES;
+            [cell.equalizer stopAnimation];
+            cell.playImage.hidden = NO;
+            cell.elapsedTimePie.hidden = NO;
+        
         } else {
             cell.equalizer.hidden = YES;
+            [cell.equalizer stopAnimation];
             cell.playImage.hidden = NO;
+            cell.elapsedTimePie.hidden = YES;
         }
     }
     

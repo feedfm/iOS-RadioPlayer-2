@@ -13,6 +13,7 @@
 		A924F93C1EBA5B6F00E3951E /* FMPlayerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A924F93B1EBA5B6F00E3951E /* FMPlayerAssets.xcassets */; };
 		A924F93F1EBAB0CA00E3951E /* FMPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A924F93E1EBAB0CA00E3951E /* FMPlayerViewController.m */; };
 		A924F9421EBAB3D400E3951E /* FMResources.m in Sources */ = {isa = PBXBuildFile; fileRef = A924F9411EBAB3D400E3951E /* FMResources.m */; };
+		A94DA74E1EF6C3C5008E326F /* FMElapsedTimePie.m in Sources */ = {isa = PBXBuildFile; fileRef = A94DA74D1EF6C3C5008E326F /* FMElapsedTimePie.m */; };
 		A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */; };
 		A98F3C1C1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */; };
 		A9D46E191EC1386B004D3DAE /* FMDisclaimerControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */; };
@@ -48,6 +49,8 @@
 		A924F93E1EBAB0CA00E3951E /* FMPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPlayerViewController.m; sourceTree = "<group>"; };
 		A924F9401EBAB3D400E3951E /* FMResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResources.h; sourceTree = "<group>"; };
 		A924F9411EBAB3D400E3951E /* FMResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResources.m; sourceTree = "<group>"; };
+		A94DA74C1EF6C3C5008E326F /* FMElapsedTimePie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMElapsedTimePie.h; sourceTree = "<group>"; };
+		A94DA74D1EF6C3C5008E326F /* FMElapsedTimePie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMElapsedTimePie.m; sourceTree = "<group>"; };
 		A954BCDE1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPlayHistoryCollectionView.h; sourceTree = "<group>"; };
 		A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPlayHistoryCollectionView.m; sourceTree = "<group>"; };
 		A98F3C1A1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FMAdjustImageAlpha.h"; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */,
 				A90948811EF62EC100A2FB3F /* FMExplodingMask.h */,
 				A90948821EF62EC100A2FB3F /* FMExplodingMask.m */,
+				A94DA74C1EF6C3C5008E326F /* FMElapsedTimePie.h */,
+				A94DA74D1EF6C3C5008E326F /* FMElapsedTimePie.m */,
 				A98F3C1A1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.h */,
 				A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */,
 				A924F9391EBA505300E3951E /* FMPlayerStoryboard.storyboard */,
@@ -367,6 +372,7 @@
 				A924F93F1EBAB0CA00E3951E /* FMPlayerViewController.m in Sources */,
 				A924F9421EBAB3D400E3951E /* FMResources.m in Sources */,
 				A9F09C221EB8F8AF007192AE /* main.m in Sources */,
+				A94DA74E1EF6C3C5008E326F /* FMElapsedTimePie.m in Sources */,
 				A98F3C1C1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m in Sources */,
 				A9F437BD1EDC88B500667B96 /* FMPopUpDownNavigationController.m in Sources */,
 			);

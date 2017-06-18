@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -39,6 +40,14 @@
                                                 <constraint firstAttribute="width" secondItem="za7-4Q-O5L" secondAttribute="height" multiplier="4:3" id="dFv-16-ER3"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w4-iU-tBA" userLabel="Arc!" customClass="FMElapsedTimePie">
+                                            <rect key="frame" x="135.33333333333334" y="94" width="60" height="60"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.50292369631901834" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="0NO-D5-TVc"/>
+                                                <constraint firstAttribute="width" constant="60" id="afT-s0-lBA"/>
+                                            </constraints>
+                                        </view>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqE-Hx-e4z" userLabel="White circle">
                                             <rect key="frame" x="145" y="104.33333333333334" width="40" height="40.000000000000028"/>
                                             <subviews>
@@ -87,17 +96,20 @@
                                     <constraint firstAttribute="trailing" secondItem="tdO-Kw-CsE" secondAttribute="trailing" id="11F-VK-VgC"/>
                                     <constraint firstAttribute="right" secondItem="za7-4Q-O5L" secondAttribute="right" id="1pt-Yk-8Cv"/>
                                     <constraint firstItem="za7-4Q-O5L" firstAttribute="top" secondItem="rdB-gT-nja" secondAttribute="top" id="3yh-Ql-GgR"/>
+                                    <constraint firstItem="2w4-iU-tBA" firstAttribute="centerY" secondItem="za7-4Q-O5L" secondAttribute="centerY" id="5Ya-YZ-vI9"/>
                                     <constraint firstItem="tdO-Kw-CsE" firstAttribute="top" secondItem="bBA-Am-ayB" secondAttribute="bottom" id="DPE-9W-sTg"/>
                                     <constraint firstItem="bBA-Am-ayB" firstAttribute="leading" secondItem="rdB-gT-nja" secondAttribute="leading" id="DaJ-k3-3pE"/>
                                     <constraint firstItem="tqE-Hx-e4z" firstAttribute="centerY" secondItem="za7-4Q-O5L" secondAttribute="centerY" id="Hd5-J8-ulg"/>
                                     <constraint firstItem="tqE-Hx-e4z" firstAttribute="centerX" secondItem="rdB-gT-nja" secondAttribute="centerX" id="InP-J4-may"/>
                                     <constraint firstItem="tdO-Kw-CsE" firstAttribute="leading" secondItem="rdB-gT-nja" secondAttribute="leading" id="NCk-XH-rPh"/>
+                                    <constraint firstItem="2w4-iU-tBA" firstAttribute="centerX" secondItem="rdB-gT-nja" secondAttribute="centerX" id="Z5u-RB-ui0"/>
                                     <constraint firstAttribute="trailing" secondItem="bBA-Am-ayB" secondAttribute="trailing" id="emL-Cb-eIS"/>
                                     <constraint firstItem="bBA-Am-ayB" firstAttribute="top" secondItem="za7-4Q-O5L" secondAttribute="bottom" constant="12" id="mqt-YW-YFz"/>
                                     <constraint firstItem="za7-4Q-O5L" firstAttribute="left" secondItem="rdB-gT-nja" secondAttribute="left" id="yxT-HC-8jh"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="backgroundImage" destination="za7-4Q-O5L" id="fhL-eC-Tyr"/>
+                                    <outlet property="elapsedTimePie" destination="2w4-iU-tBA" id="aOB-zQ-jcm"/>
                                     <outlet property="equalizer" destination="Dbf-f8-txc" id="0aK-TT-R9E"/>
                                     <outlet property="playImage" destination="w2T-KQ-3qB" id="ngP-5k-Qge"/>
                                     <outlet property="subtitle" destination="tdO-Kw-CsE" id="eb0-Z3-u2X"/>

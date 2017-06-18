@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FeedMedia/FeedMediaUI.h>
+#import "FMElapsedTimePie.h"
 
 @interface FMStationCollectionViewCell : UICollectionViewCell
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet FMEqualizer *equalizer;
 
 @property (weak, nonatomic) IBOutlet UIView *whiteCircle;
+@property (weak, nonatomic) IBOutlet FMElapsedTimePie *elapsedTimePie;
 
 @property (weak, nonatomic) FMStation *station;
 
