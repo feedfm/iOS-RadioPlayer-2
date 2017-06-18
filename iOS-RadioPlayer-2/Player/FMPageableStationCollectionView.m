@@ -49,33 +49,46 @@ static NSString * const stationCellIdentifier = @"stationCell";
 }
 
 - (FMStation *) visibleStation {
-    float offset = self.contentOffset.x;
-    long index = 0;
+    UICollectionViewCell *visibleCell = [self visibleCell];
     
-    if (offset > 0) {
-        // loop through visible cells and find the one whose center
-        // is closest to center of display
-        UICollectionViewCell *visibleCell = nil;
-        float visibleDistance = 0;
-        
-        // find cell whose center is closest to screen center
-        for (UICollectionViewCell *cell in self.visibleCells){
-            float center = cell.frame.origin.x + (cell.bounds.size.width / 2);
-            float distance = fabs(center - (offset + (self.bounds.size.width / 2)));
-            
-            if ((visibleCell == nil) || (distance < visibleDistance)) {
-                visibleCell = cell;
-                visibleDistance = distance;
-            }
-            
-            //NSLog(@"   cell with center %f and distance %f %@", center, distance, (cell == visibleCell) ? @"*" : @"");
-        }
-        
-        NSIndexPath *current = [self indexPathForCell:visibleCell];
-        index = current.row;
+    if (!visibleCell) {
+        return nil;
+    }
+    
+    return [self stationForCell:visibleCell];
+}
+
+- (FMStation *) stationForCell: (UICollectionViewCell *) cell {
+    NSIndexPath *current = [self indexPathForCell:cell];
+    NSInteger index = current.row;
+    
+    return (index < _visibleStations.count) ? _visibleStations[index] : nil;
+}
+
+- (UICollectionViewCell *) visibleCell {
+    float offset = self.contentOffset.x;
+    
+    if (offset == 0) {
+        return self.visibleCells[0];
     }
 
-    return (index < _visibleStations.count) ? _visibleStations[index] : nil;
+    // loop through visible cells and find the one whose center
+    // is closest to center of display
+    UICollectionViewCell *visibleCell = nil;
+    float visibleDistance = 0;
+    
+    // find cell whose center is closest to screen center
+    for (UICollectionViewCell *cell in self.visibleCells){
+        float center = cell.frame.origin.x + (cell.bounds.size.width / 2);
+        float distance = fabs(center - (offset + (self.bounds.size.width / 2)));
+        
+        if ((visibleCell == nil) || (distance < visibleDistance)) {
+            visibleCell = cell;
+            visibleDistance = distance;
+        }
+    }
+
+    return visibleCell;
 }
 
 #pragma mark - <UICollectionViewDataSource>
@@ -99,6 +112,7 @@ static NSString * const stationCellIdentifier = @"stationCell";
         cell.backgroundImage.image = nil;
     }
     
+    // gradient over background image
     if (!cell.backgroundImage.layer.sublayers) {
         CAGradientLayer *gradient = [CAGradientLayer layer];
         
@@ -107,12 +121,14 @@ static NSString * const stationCellIdentifier = @"stationCell";
         
         [cell.backgroundImage.layer insertSublayer:gradient atIndex:0];        
     }
-    
-    cell.stationButton.station = station;
-    
-    // make 'play' button a circle
-    cell.stationButton.layer.cornerRadius = 30;
 
+    // 'play' button
+    cell.stationButton.station = station;
+    cell.stationButton.layer.cornerRadius = 30;
+    
+    // exploding mask
+    cell.explodingMask.station = station;
+ 
     return cell;
 }
 
@@ -152,6 +168,5 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0.0;
 }
-
 
 @end

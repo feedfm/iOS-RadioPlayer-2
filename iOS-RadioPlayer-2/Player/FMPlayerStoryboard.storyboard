@@ -517,6 +517,10 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
+                                                        <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxj-VF-cNe" userLabel="Exploding mask" customClass="FMExplodingMask">
+                                                            <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJN-4K-X7d" userLabel="Station Button" customClass="FMPlayPauseButton">
                                                             <rect key="frame" x="175.66666666666666" y="220" width="60" height="60"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -532,15 +536,20 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Oxj-VF-cNe" secondAttribute="trailing" id="HTz-g1-hvG"/>
                                                     <constraint firstAttribute="trailing" secondItem="gtf-YO-Kaq" secondAttribute="trailing" id="HlZ-sl-lGy"/>
                                                     <constraint firstItem="JJN-4K-X7d" firstAttribute="centerX" secondItem="Zgg-nj-yYc" secondAttribute="centerX" id="KY8-vq-Nvr"/>
+                                                    <constraint firstItem="Oxj-VF-cNe" firstAttribute="leading" secondItem="Zgg-nj-yYc" secondAttribute="leading" id="NgW-8i-UTI"/>
                                                     <constraint firstItem="JJN-4K-X7d" firstAttribute="centerY" secondItem="Zgg-nj-yYc" secondAttribute="centerY" id="cQM-hk-mNw"/>
                                                     <constraint firstItem="gtf-YO-Kaq" firstAttribute="leading" secondItem="Zgg-nj-yYc" secondAttribute="leading" id="clZ-28-Tel"/>
                                                     <constraint firstAttribute="bottom" secondItem="gtf-YO-Kaq" secondAttribute="bottom" id="fe0-iV-NRD"/>
                                                     <constraint firstItem="gtf-YO-Kaq" firstAttribute="top" secondItem="Zgg-nj-yYc" secondAttribute="top" id="j4x-uT-DRy"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Oxj-VF-cNe" secondAttribute="bottom" id="qIg-dc-gmY"/>
+                                                    <constraint firstItem="Oxj-VF-cNe" firstAttribute="top" secondItem="Zgg-nj-yYc" secondAttribute="top" id="u8v-ee-r0t"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="backgroundImage" destination="gtf-YO-Kaq" id="Dt9-gm-O9y"/>
+                                                    <outlet property="explodingMask" destination="Oxj-VF-cNe" id="08d-6o-ayM"/>
                                                     <outlet property="stationButton" destination="JJN-4K-X7d" id="ETF-2R-8NS"/>
                                                 </connections>
                                             </collectionViewCell>

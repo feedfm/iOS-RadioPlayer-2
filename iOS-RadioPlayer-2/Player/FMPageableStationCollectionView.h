@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FeedMedia/FeedMedia.h>
 #import <FeedMedia/FeedMediaUI.h>
+#import "FMExplodingMask.h"
 
 @protocol FMPageableStationCollectionViewDelegate<NSObject>
 
@@ -19,6 +20,7 @@
 @interface FMPageableStationCollectionViewStationCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (strong, nonatomic) IBOutlet FMExplodingMask *explodingMask;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *stationButton;
 
 @end
