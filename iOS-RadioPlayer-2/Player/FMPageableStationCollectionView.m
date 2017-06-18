@@ -55,22 +55,22 @@ static NSString * const stationCellIdentifier = @"stationCell";
         return nil;
     }
     
-    return [self stationForCell:visibleCell];
+    FMStation *station = [self stationForCell:visibleCell];
+    
+    NSLog(@"visible station is %@", station.name);
+    
+    return station;
 }
 
 - (FMStation *) stationForCell: (UICollectionViewCell *) cell {
     NSIndexPath *current = [self indexPathForCell:cell];
     NSInteger index = current.row;
-    
+
     return (index < _visibleStations.count) ? _visibleStations[index] : nil;
 }
 
 - (UICollectionViewCell *) visibleCell {
     float offset = self.contentOffset.x;
-    
-    if (offset == 0) {
-        return self.visibleCells[0];
-    }
 
     // loop through visible cells and find the one whose center
     // is closest to center of display
