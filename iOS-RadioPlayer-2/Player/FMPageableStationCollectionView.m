@@ -57,8 +57,6 @@ static NSString * const stationCellIdentifier = @"stationCell";
     
     FMStation *station = [self stationForCell:visibleCell];
     
-    NSLog(@"visible station is %@", station.name);
-    
     return station;
 }
 
