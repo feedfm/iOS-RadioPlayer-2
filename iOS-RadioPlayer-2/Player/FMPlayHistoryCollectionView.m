@@ -216,6 +216,11 @@ static double sectionHeight = 65.0;
 
 - (void) didTapCloseButton: (id) sender {
     
+    // turn off all animation
+    for (FMPlayHistoryCollectionViewPlayCell *cell in self.visibleCells) {
+        cell.trackLabel.labelize = YES;
+    }
+
     if (!_closeTarget) { return; }
     IMP imp = [_closeTarget methodForSelector:_closeSelector];
     void (*func)(id, SEL) = (void *)imp;
