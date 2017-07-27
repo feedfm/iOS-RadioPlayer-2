@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		508B7CBF23B22DCCA22E768D /* Pods_iOS_RadioPlayer_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02261A0C825B608415F9A46 /* Pods_iOS_RadioPlayer_2.framework */; };
 		A90948831EF62EC200A2FB3F /* FMExplodingMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A90948821EF62EC100A2FB3F /* FMExplodingMask.m */; };
+		A90A03C01F2900E300875A50 /* FMStationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A03BF1F2900E300875A50 /* FMStationImageView.m */; };
 		A924F93A1EBA505300E3951E /* FMPlayerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A924F9391EBA505300E3951E /* FMPlayerStoryboard.storyboard */; };
 		A924F93C1EBA5B6F00E3951E /* FMPlayerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A924F93B1EBA5B6F00E3951E /* FMPlayerAssets.xcassets */; };
 		A924F93F1EBAB0CA00E3951E /* FMPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A924F93E1EBAB0CA00E3951E /* FMPlayerViewController.m */; };
@@ -43,6 +44,8 @@
 		42CB28B74CEA448A5BB2B21F /* Pods-iOS-RadioPlayer-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-RadioPlayer-2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2.debug.xcconfig"; sourceTree = "<group>"; };
 		A90948811EF62EC100A2FB3F /* FMExplodingMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMExplodingMask.h; sourceTree = "<group>"; };
 		A90948821EF62EC100A2FB3F /* FMExplodingMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMExplodingMask.m; sourceTree = "<group>"; };
+		A90A03BE1F2900E300875A50 /* FMStationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMStationImageView.h; sourceTree = "<group>"; };
+		A90A03BF1F2900E300875A50 /* FMStationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMStationImageView.m; sourceTree = "<group>"; };
 		A924F9391EBA505300E3951E /* FMPlayerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FMPlayerStoryboard.storyboard; sourceTree = "<group>"; };
 		A924F93B1EBA5B6F00E3951E /* FMPlayerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FMPlayerAssets.xcassets; sourceTree = "<group>"; };
 		A924F93D1EBAB0CA00E3951E /* FMPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPlayerViewController.h; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				A9F437BC1EDC88B500667B96 /* FMPopUpDownNavigationController.m */,
 				A954BCDE1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.h */,
 				A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */,
+				A90A03BE1F2900E300875A50 /* FMStationImageView.h */,
+				A90A03BF1F2900E300875A50 /* FMStationImageView.m */,
 				A9DAECB61ED64520008D8431 /* FMPageableStationCollectionView.h */,
 				A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */,
 				A924F93D1EBAB0CA00E3951E /* FMPlayerViewController.h */,
@@ -364,6 +369,7 @@
 			files = (
 				A9F09C281EB8F8AF007192AE /* ViewController.m in Sources */,
 				A9DAECB81ED64520008D8431 /* FMPageableStationCollectionView.m in Sources */,
+				A90A03C01F2900E300875A50 /* FMStationImageView.m in Sources */,
 				A9F09C251EB8F8AF007192AE /* AppDelegate.m in Sources */,
 				A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */,
 				A9D46E4D1EC24A3D004D3DAE /* FMStationCollectionViewController.m in Sources */,

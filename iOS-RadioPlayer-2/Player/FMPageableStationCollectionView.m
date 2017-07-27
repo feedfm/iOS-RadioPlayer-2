@@ -102,13 +102,7 @@ static NSString * const stationCellIdentifier = @"stationCell";
     FMStation *station = _visibleStations[indexPath.row];
     
     // background image
-    NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
-    if (bgImageUrl != nil) {
-        [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
-
-    } else {
-        cell.backgroundImage.image = nil;
-    }
+    cell.backgroundImage.station = station;
     
     // gradient over background image
     if (!cell.backgroundImage.layer.sublayers) {

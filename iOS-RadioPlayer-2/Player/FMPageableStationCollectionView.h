@@ -11,6 +11,7 @@
 #import <FeedMedia/FeedMediaUI.h>
 #import "FMExplodingMask.h"
 #import "FMElapsedTimePie.h"
+#import "FMStationImageView.h"
 
 @protocol FMPageableStationCollectionViewDelegate<NSObject>
 
@@ -20,13 +21,18 @@
 
 @interface FMPageableStationCollectionViewStationCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (strong, nonatomic) IBOutlet FMStationImageView *backgroundImage;
 @property (strong, nonatomic) IBOutlet FMExplodingMask *explodingMask;
 @property (strong, nonatomic) IBOutlet FMPlayPauseButton *stationButton;
 
 @end
 
 @interface FMPageableStationCollectionView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+/*
+ * Set this property to the list of stations that can be
+ * scrolled through.
+ */
 
 @property (strong, nonatomic) NSArray *visibleStations;
 @property (strong, nonatomic) id<FMPageableStationCollectionViewDelegate> pageableStationDelegate;

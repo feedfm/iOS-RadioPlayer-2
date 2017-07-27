@@ -39,8 +39,8 @@
 @interface FMResources : NSObject
 
 /**
- * This is the key for the URL that is in FMStation.options that points
- * to the station's background image.
+ * This is the key for the URL that is in FMStation.options or FMAudioItem.metadata
+ * that points to an image to dis
  */
 
 @property (class, nonatomic, readonly) NSString *backgroundImageUrlPropertyName;
