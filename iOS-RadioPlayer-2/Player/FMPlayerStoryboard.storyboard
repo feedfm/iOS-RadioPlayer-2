@@ -590,7 +590,7 @@
                                             <constraint firstAttribute="height" constant="40" id="w3w-Ek-gZE"/>
                                         </constraints>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-gr-Zc6" userLabel="Share Circle">
+                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-gr-Zc6" userLabel="Share Circle">
                                         <rect key="frame" x="362" y="12" width="40" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-Of-mRU" userLabel="Share Button">
