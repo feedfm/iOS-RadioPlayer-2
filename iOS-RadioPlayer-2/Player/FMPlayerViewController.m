@@ -8,6 +8,7 @@
 
 #import "FMPlayerViewController.h"
 #import "FMStationCollectionViewController.h"
+#import "FMPlaylistCollectionView.h"
 #import "FMResources.h"
 #import "FMPlayHistoryCollectionView.h"
 #import "UIImage+FMAdjustImageAlpha.h"
@@ -43,6 +44,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *playHistoryButton;
 
 @property (strong, nonatomic) IBOutlet FMPlayHistoryCollectionView *playHistoryView;
+@property (strong, nonatomic) IBOutlet FMPlaylistCollectionView *playlistView;
 
 @end
 
@@ -77,9 +79,6 @@
     
     // make sure the lock screen is synced with the active station
     [self setupLockScreen];
-    
-    // hide the play history
-    [self hideHistoryAnimated:NO];
 }
 
 /**
@@ -304,7 +303,7 @@
     if (_visibleStations.count <= 1) {
         _leftButton.hidden = YES;
         _rightButton.hidden = YES;
-        _stationLabel.text = @"??";
+        _stationLabel.text = visibleStation.name;
         return;
     }
     
@@ -323,6 +322,13 @@
     }
     
     _stationLabel.text = visibleStation.name;
+    
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    if ((visibleStation.isOnDemand) || (player.playHistory.count > 0)) {
+        _playHistoryButton.enabled = YES;
+    } else {
+        _playHistoryButton.enabled = NO;
+    }
 }
 
 - (void) moveLeftOneStation: (id) target {
@@ -498,64 +504,85 @@
 - (void) setupPlayHistory {
     //[self hideHistoryAnimated:NO];
   
-    [_playHistoryView setTarget:self andSelectorForCloseButton:@selector(closePlayHistory)];
+    // shift playlist and playhistory down below controls
+    [self hideDrawer:_playHistoryView animated:NO];
+    [self hideDrawer:_playlistView animated:NO];
     
+    [_playHistoryView setTarget:self andSelectorForCloseButton:@selector(closeDrawer)];
+    [_playlistView setTarget:self andSelectorForCloseButton:@selector(closeDrawer)];
+
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-    if (player.playHistory.count > 0) {
+
+    if ((player.playHistory.count > 0) || _initiallyVisibleStation.isOnDemand) {
+        NSLog(@"enabling play history button");
         _playHistoryButton.enabled = YES;
         
     } else {
+        NSLog(@"not enabling play history button, on demand fo %@ is: %d", _initiallyVisibleStation.name, _initiallyVisibleStation.isOnDemand);
         _playHistoryButton.enabled = NO;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
 - (void) songStarted: (NSNotification *) notification {
-    _playHistoryButton.enabled = YES;
-    
+    if (!_playHistoryButton.enabled) {
+        _playHistoryButton.enabled = YES;
+        _playHistoryButton.selected = YES;
+    }
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
-- (void) closePlayHistory {
-    [self hideHistoryAnimated:YES];
+- (void) closeDrawer {
+    [self togglePlaylistOrHistory:nil];
 }
 
-- (IBAction)toggleHistory:(id)sender {
-    if (_playHistoryButton.selected) {
-        [self hideHistoryAnimated:YES];
-        
-    } else {
-        [self showHistoryAnimated:YES];
+- (IBAction)togglePlaylistOrHistory:(id)sender {
+    FMStation *station = [_stationPager visibleStation];
+
+    if (station.isOnDemand) {
+        _playlistView.station = station;
+        [_playlistView reloadData];
     }
+
+    UIView *drawer = (station.isOnDemand ? _playlistView : _playHistoryView);
+
+    NSLog(@"showing %@", station.isOnDemand ? @"playlist" : @"play history");
+
+    if (_playHistoryButton.selected) {
+        [self hideDrawer: drawer animated:YES];
+
+    } else {
+        
+        [self showDrawer: drawer animated:YES];
+    }
+    
+    _playHistoryButton.selected = !_playHistoryButton.selected;
 }
 
-- (void) hideHistoryAnimated: (BOOL) animated {
-    _playHistoryButton.selected = NO;
-
+- (void) hideDrawer: (UIView *) drawer animated: (BOOL) animated {
     if (!animated) {
-        _playHistoryView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
+        drawer.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
         _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, 0);
         
     } else {
         [UIView animateWithDuration:0.5 animations:^{
-            _playHistoryView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
+            drawer.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
             _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, 0);
         }];
         
     }
 }
 
-- (void) showHistoryAnimated: (BOOL) animated {
-    _playHistoryButton.selected = YES;
-
+- (void) showDrawer: (UIView *) drawer animated: (BOOL) animated {
     if (!animated) {
-        _playHistoryView.transform = CGAffineTransformMakeTranslation(0, 0);
+        drawer.transform = CGAffineTransformMakeTranslation(0, 0);
         _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height * -1);
         
     } else {
         [UIView animateWithDuration:0.5 animations:^{
-            _playHistoryView.transform = CGAffineTransformMakeTranslation(0, 0);
+            drawer.transform = CGAffineTransformMakeTranslation(0, 0);
             _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height * -1);
         }];
         

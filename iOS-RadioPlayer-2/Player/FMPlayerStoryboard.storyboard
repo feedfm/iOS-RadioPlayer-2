@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,20 +28,20 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="stationCell" reuseIdentifier="stationCell" id="rdB-gT-nja" customClass="FMStationCollectionViewCell">
-                                <rect key="frame" x="41.666666666666664" y="42" width="331" height="308"/>
+                                <rect key="frame" x="42" y="42" width="331" height="308"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="308"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="za7-4Q-O5L">
-                                            <rect key="frame" x="0.0" y="0.0" width="331" height="248.33333333333334"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="331" height="248"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="za7-4Q-O5L" secondAttribute="height" multiplier="4:3" id="dFv-16-ER3"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w4-iU-tBA" userLabel="Arc!" customClass="FMElapsedTimePie">
-                                            <rect key="frame" x="135.33333333333334" y="94" width="60" height="60"/>
+                                            <rect key="frame" x="135" y="94" width="60" height="60"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.50292369631901834" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="0NO-D5-TVc"/>
@@ -49,17 +49,17 @@
                                             </constraints>
                                         </view>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqE-Hx-e4z" userLabel="White circle">
-                                            <rect key="frame" x="145" y="104.33333333333334" width="40" height="40.000000000000028"/>
+                                            <rect key="frame" x="145" y="104" width="40" height="40"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-icon-play-black" translatesAutoresizingMaskIntoConstraints="NO" id="w2T-KQ-3qB" userLabel="Play image">
-                                                    <rect key="frame" x="10" y="10.333333333333343" width="20" height="19.999999999999986"/>
+                                                    <rect key="frame" x="10" y="10" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="Ani-Vo-jFO"/>
                                                         <constraint firstAttribute="height" constant="20" id="khk-xy-EY8"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbf-f8-txc" userLabel="Equalizer" customClass="FMEqualizer">
-                                                    <rect key="frame" x="10" y="10.333333333333343" width="20" height="19.999999999999986"/>
+                                                    <rect key="frame" x="10" y="10" width="20" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -79,13 +79,13 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-Kw-CsE" userLabel="Subtitle">
-                                            <rect key="frame" x="0.0" y="278.33333333333331" width="331" height="13.333333333333371"/>
+                                            <rect key="frame" x="0.0" y="278" width="331" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69756518404907975" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
-                                            <rect key="frame" x="0.0" y="260.33333333333331" width="331" height="18"/>
+                                            <rect key="frame" x="0.0" y="260" width="331" height="18"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.8534557131901841" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmc-P0-7He">
-                                    <rect key="frame" x="19.999999999999993" y="20" width="101.33333333333331" height="22"/>
+                                    <rect key="frame" x="20" y="20" width="102" height="22"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -183,21 +183,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track by artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtG-A1-JWW" userLabel="track" customClass="MarqueeLabel">
-                                                    <rect key="frame" x="15" y="19.666666666666664" width="223" height="16.999999999999993"/>
+                                                    <rect key="frame" x="15" y="20" width="221" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
-                                                            <real key="value" value="15"/>
+                                                            <real key="value" value="30"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-bE-KNG" userLabel="like" customClass="FMLikeButton">
-                                                    <rect key="frame" x="253" y="19" width="18" height="18"/>
+                                                    <rect key="frame" x="251" y="18" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="DEg-c6-9gC"/>
-                                                        <constraint firstAttribute="height" constant="18" id="J4k-XK-GRm"/>
+                                                        <constraint firstAttribute="width" constant="20" id="DEg-c6-9gC"/>
+                                                        <constraint firstAttribute="height" constant="20" id="J4k-XK-GRm"/>
                                                     </constraints>
                                                     <state key="normal" image="feedfm-icon-like-white"/>
                                                     <state key="selected" image="feedfm-icon-like-full-white"/>
@@ -258,7 +258,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-Ga-Heg" userLabel="station name">
-                                            <rect key="frame" x="70" y="33" width="307" height="19.333333333333336"/>
+                                            <rect key="frame" x="70" y="33" width="307" height="20"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -301,6 +301,189 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Svq-tm-JEX" userLabel="Playlist View" customClass="FMPlaylistCollectionView">
+                                <rect key="frame" x="0.0" y="20" width="414" height="532"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1yp-c7-NjM">
+                                    <size key="itemSize" width="376" height="279"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioItemCell" id="Cb1-m9-Jda" userLabel="audioItemCell" customClass="FMPlaylistCollectionViewAudioItemCell">
+                                        <rect key="frame" x="19" y="50" width="376" height="279"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="279"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedfm-disclaimer-background" translatesAutoresizingMaskIntoConstraints="NO" id="JBM-ks-oJE" userLabel="audioItem image">
+                                                    <rect key="frame" x="15" y="15" width="346" height="198"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="JBM-ks-oJE" secondAttribute="height" multiplier="7:4" id="YuM-sK-eaW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRU-JK-dRz" userLabel="play button" customClass="FMPlayPauseButton">
+                                                    <rect key="frame" x="158" y="84" width="60" height="60"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="mLK-Ta-fmt"/>
+                                                        <constraint firstAttribute="width" constant="60" id="zXi-qr-3T4"/>
+                                                    </constraints>
+                                                    <state key="normal" image="feedfm-icon-play-black"/>
+                                                    <state key="selected" image="feedfm-icon-pause-black"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenActive" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-E7-sDP" userLabel="track" customClass="MarqueeLabel">
+                                                    <rect key="frame" x="15" y="228" width="283" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="YyB-UM-A75"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIN-TZ-p6J" userLabel="artist" customClass="MarqueeLabel">
+                                                    <rect key="frame" x="15" y="253" width="283" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="jrc-i5-FNM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyA-cS-Vyl" userLabel="dislike" customClass="FMDislikeButton">
+                                                    <rect key="frame" x="333" y="228" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="bfG-dZ-azL"/>
+                                                        <constraint firstAttribute="height" constant="20" id="kba-ej-vgS"/>
+                                                    </constraints>
+                                                    <state key="normal" image="feedfm-icon-dislike-white"/>
+                                                    <state key="selected" image="feedfm-icon-dislike-full-white"/>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYW-2D-6cr" userLabel="border">
+                                                    <rect key="frame" x="0.0" y="278" width="376" height="1"/>
+                                                    <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="ema-fS-oUH"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dt3-wV-fwu" userLabel="like" customClass="FMLikeButton">
+                                                    <rect key="frame" x="303" y="228" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="o93-O4-rir"/>
+                                                        <constraint firstAttribute="height" constant="20" id="tQ5-xy-B51"/>
+                                                    </constraints>
+                                                    <state key="normal" image="feedfm-icon-like-white"/>
+                                                    <state key="selected" image="feedfm-icon-like-full-white"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="Ugz-E7-sDP" secondAttribute="trailing" constant="5" id="62Q-IY-8Rc"/>
+                                            <constraint firstAttribute="trailing" secondItem="KYW-2D-6cr" secondAttribute="trailing" id="6zG-0D-ZuC"/>
+                                            <constraint firstItem="WIN-TZ-p6J" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" constant="15" id="8vg-DU-eCX"/>
+                                            <constraint firstAttribute="bottom" secondItem="KYW-2D-6cr" secondAttribute="bottom" id="Aye-KE-8Bo"/>
+                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="15" id="Bk0-GA-vSZ"/>
+                                            <constraint firstItem="WIN-TZ-p6J" firstAttribute="top" secondItem="Ugz-E7-sDP" secondAttribute="bottom" constant="5" id="HcH-D9-fdS"/>
+                                            <constraint firstItem="LRU-JK-dRz" firstAttribute="centerY" secondItem="JBM-ks-oJE" secondAttribute="centerY" id="KCU-O6-zHj"/>
+                                            <constraint firstItem="Ugz-E7-sDP" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="15" id="Qgf-Kl-eyy"/>
+                                            <constraint firstItem="Ugz-E7-sDP" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" constant="15" id="UTt-TM-oax"/>
+                                            <constraint firstItem="JBM-ks-oJE" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" constant="15" id="UZa-hc-9Eh"/>
+                                            <constraint firstAttribute="trailing" secondItem="JBM-ks-oJE" secondAttribute="trailing" constant="15" id="ZoB-o5-5T2"/>
+                                            <constraint firstItem="uyA-cS-Vyl" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="15" id="bcg-Ch-ZCC"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="uyA-cS-Vyl" secondAttribute="trailing" constant="15" id="bd0-QL-Lth"/>
+                                            <constraint firstItem="uyA-cS-Vyl" firstAttribute="leading" secondItem="dt3-wV-fwu" secondAttribute="trailing" constant="10" id="irK-60-wcI"/>
+                                            <constraint firstItem="KYW-2D-6cr" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" id="maG-Ko-gIm"/>
+                                            <constraint firstItem="LRU-JK-dRz" firstAttribute="centerX" secondItem="JBM-ks-oJE" secondAttribute="centerX" id="p8x-LL-cJH"/>
+                                            <constraint firstItem="JBM-ks-oJE" firstAttribute="top" secondItem="Cb1-m9-Jda" secondAttribute="top" constant="15" id="tAh-Mg-WRG"/>
+                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="WIN-TZ-p6J" secondAttribute="trailing" constant="5" id="ynp-q3-r0E"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="WIN-TZ-p6J" id="nZA-yA-5E2"/>
+                                            <outlet property="audioItemImage" destination="JBM-ks-oJE" id="XNB-Dc-Xjp"/>
+                                            <outlet property="dislikeButton" destination="uyA-cS-Vyl" id="JNk-M4-rsu"/>
+                                            <outlet property="likeButton" destination="dt3-wV-fwu" id="r3N-t8-IyN"/>
+                                            <outlet property="playPauseButton" destination="LRU-JK-dRz" id="jfg-xh-NML"/>
+                                            <outlet property="trackLabel" destination="Ugz-E7-sDP" id="PDV-IF-Ivb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stationCell" id="rSD-Ch-7Zx" userLabel="stationCell" customClass="FMPlaylistCollectionViewStationCell">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="weY-UV-0cy" userLabel="station image">
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="P3m-np-iwa"/>
+                                                <constraint firstAttribute="width" constant="65" id="cJm-ro-wsI"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYLIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbV-Vm-HoE" userLabel="&quot;playlist&quot;">
+                                            <rect key="frame" x="70" y="13" width="46.666666666666671" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-3I-YAD" userLabel="station name">
+                                            <rect key="frame" x="70" y="25.000000000000004" width="289" height="19.333333333333339"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-SC-mKn" userLabel="close">
+                                            <rect key="frame" x="364" y="15" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="qNs-q3-0dD"/>
+                                                <constraint firstAttribute="height" constant="20" id="vbp-E4-W54"/>
+                                            </constraints>
+                                            <state key="normal" image="feedfm-icon-hide-white"/>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-OY-mAD" userLabel="border">
+                                            <rect key="frame" x="0.0" y="49" width="414" height="1"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="SmW-03-xj4"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="tbV-Vm-HoE" firstAttribute="bottom" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="9eb-Hc-Wis"/>
+                                        <constraint firstItem="weY-UV-0cy" firstAttribute="leading" secondItem="rSD-Ch-7Zx" secondAttribute="leading" id="Q3T-oZ-gkf"/>
+                                        <constraint firstItem="IaB-SC-mKn" firstAttribute="centerY" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="T9f-Nf-1SB"/>
+                                        <constraint firstAttribute="trailing" secondItem="aDw-OY-mAD" secondAttribute="trailing" id="ZaQ-WH-r7t"/>
+                                        <constraint firstItem="tbV-Vm-HoE" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="5" id="lnp-Rb-LZ7"/>
+                                        <constraint firstItem="aDw-OY-mAD" firstAttribute="leading" secondItem="rSD-Ch-7Zx" secondAttribute="leading" id="nPV-He-k1G"/>
+                                        <constraint firstItem="IaB-SC-mKn" firstAttribute="leading" secondItem="xvX-3I-YAD" secondAttribute="trailing" constant="5" id="o1U-I1-Sup"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="IaB-SC-mKn" secondAttribute="trailing" constant="22" id="pox-3Q-iKg"/>
+                                        <constraint firstItem="xvX-3I-YAD" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="5" id="rz9-bp-oRX"/>
+                                        <constraint firstItem="xvX-3I-YAD" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="vpg-lf-3Ev"/>
+                                        <constraint firstItem="weY-UV-0cy" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="top" id="wLf-mn-s86"/>
+                                        <constraint firstAttribute="bottom" secondItem="aDw-OY-mAD" secondAttribute="bottom" id="zht-Ci-28w"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="closeButton" destination="IaB-SC-mKn" id="fLi-IW-ev5"/>
+                                        <outlet property="stationImage" destination="weY-UV-0cy" id="wuZ-fP-o6F"/>
+                                        <outlet property="stationLabel" destination="xvX-3I-YAD" id="VNO-iq-cxU"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-dA-UDD" userLabel="Player Controls View">
                                 <rect key="frame" x="0.0" y="556" width="414" height="180"/>
                                 <subviews>
@@ -308,13 +491,13 @@
                                         <rect key="frame" x="8" y="21" width="398" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-8J-9Xn" customClass="MarqueeLabel">
-                                                <rect key="frame" x="0.0" y="10.333333333333371" width="398" height="17"/>
+                                                <rect key="frame" x="0.0" y="10" width="398" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="0.0" y="10.666666666666629" width="398" height="17"/>
+                                                <rect key="frame" x="0.0" y="11" width="398" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.85119104677914115" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -440,7 +623,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Button" image="feedfm-icon-history-black"/>
                                                 <connections>
-                                                    <action selector="toggleHistory:" destination="adh-gK-nCU" eventType="touchUpInside" id="jDJ-px-S8E"/>
+                                                    <action selector="togglePlaylistOrHistory:" destination="adh-gK-nCU" eventType="touchUpInside" id="iCO-wE-m8S"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -534,7 +717,7 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJN-4K-X7d" userLabel="Station Button" customClass="FMPlayPauseButton">
-                                                            <rect key="frame" x="175.66666666666666" y="220" width="60" height="60"/>
+                                                            <rect key="frame" x="176" y="220" width="60" height="60"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="48e-9a-eec"/>
@@ -594,7 +777,7 @@
                                         <rect key="frame" x="362" y="12" width="40" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-Of-mRU" userLabel="Share Button">
-                                                <rect key="frame" x="0.33333333333331439" y="0.3333333333333357" width="40" height="39.999999999999993"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="7BK-ga-ff6"/>
                                                     <constraint firstAttribute="height" constant="40" id="7Qf-0e-Rt9"/>
@@ -694,8 +877,12 @@
                             <constraint firstItem="ke7-Ji-fOU" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="TMp-3n-PL7"/>
                             <constraint firstAttribute="right" secondItem="ZV9-dA-UDD" secondAttribute="right" id="WQD-X4-cvk"/>
                             <constraint firstItem="rzS-hc-qUe" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="WyJ-u8-hrV"/>
+                            <constraint firstItem="Svq-tm-JEX" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="ZeP-uS-b3V"/>
                             <constraint firstAttribute="trailing" secondItem="rzS-hc-qUe" secondAttribute="trailing" id="bJP-Vz-ZGc"/>
+                            <constraint firstAttribute="trailing" secondItem="Svq-tm-JEX" secondAttribute="trailing" id="eCk-4M-lNn"/>
+                            <constraint firstItem="ZV9-dA-UDD" firstAttribute="top" secondItem="Svq-tm-JEX" secondAttribute="bottom" constant="4" id="hBZ-ve-MDf"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="leading" secondItem="xjn-V5-jyG" secondAttribute="leading" id="hgT-fg-l7U"/>
+                            <constraint firstItem="Svq-tm-JEX" firstAttribute="top" secondItem="Noh-eY-r0e" secondAttribute="bottom" id="i1S-rn-KDH"/>
                             <constraint firstItem="ZV9-dA-UDD" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="pLD-BI-gOx"/>
                             <constraint firstItem="BTl-ow-ozA" firstAttribute="bottom" secondItem="ZV9-dA-UDD" secondAttribute="top" id="ruy-uX-be8"/>
                             <constraint firstItem="ke7-Ji-fOU" firstAttribute="left" secondItem="xjn-V5-jyG" secondAttribute="left" id="rvl-zb-bps"/>
@@ -712,6 +899,7 @@
                         <outlet property="playPausebutton" destination="2Vk-WQ-6P4" id="2zY-kt-nbh"/>
                         <outlet property="playerControlsView" destination="ZV9-dA-UDD" id="9Zl-RI-cWl"/>
                         <outlet property="playerDisplayView" destination="ke7-Ji-fOU" id="mU8-v3-GaI"/>
+                        <outlet property="playlistView" destination="Svq-tm-JEX" id="jtR-Ao-vam"/>
                         <outlet property="rightButton" destination="ecR-TF-LIN" id="wjy-kd-GuT"/>
                         <outlet property="shareButton" destination="tsW-Of-mRU" id="RH2-5c-aub"/>
                         <outlet property="shareCircle" destination="kh2-gr-Zc6" id="5aR-NA-J6a"/>
@@ -747,7 +935,7 @@
                                 <rect key="frame" x="89" y="672" width="237" height="34"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
-                                <rect key="frame" x="36" y="541.66666666666652" width="342" height="100.33333333333337"/>
+                                <rect key="frame" x="36" y="541" width="342" height="101"/>
                                 <string key="text">There is no affiliation, connection, association or endorsement of the products, goods or services displayed on this page by the copyright owners, featured recording artists and authors of the sound recordings (and the musical works embodied therein) transmitted through the Feed.fm Player</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
