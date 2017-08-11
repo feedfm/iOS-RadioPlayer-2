@@ -550,25 +550,25 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
-                                        <rect key="frame" x="52" y="75" width="310" height="52"/>
+                                        <rect key="frame" x="67" y="75" width="280" height="52"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
-                                                <rect key="frame" x="35" y="14" width="24" height="24"/>
+                                                <rect key="frame" x="35" y="8" width="24" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" priority="999" constant="24" id="Jt5-Ge-NBC"/>
-                                                    <constraint firstAttribute="width" priority="999" constant="24" id="ke4-he-P1n"/>
+                                                    <constraint firstAttribute="height" priority="999" constant="36" id="Jt5-Ge-NBC"/>
+                                                    <constraint firstAttribute="width" priority="999" constant="36" id="ke4-he-P1n"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="feedfm-icon-play-black"/>
+                                                <state key="normal" image="feedfm-icon-play-black"/>
                                                 <state key="selected" image="feedfm-icon-pause-black"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenStalled" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BDc-Vu-Jhb" customClass="FMActivityIndicator">
-                                                <rect key="frame" x="-1" y="14" width="24" height="24"/>
+                                                <rect key="frame" x="-1" y="8" width="24" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" priority="999" constant="24" id="D6x-IH-pDe"/>
-                                                    <constraint firstAttribute="height" priority="999" constant="24" identifier="activity height" id="ZOg-hm-zKG"/>
+                                                    <constraint firstAttribute="width" priority="999" constant="36" id="D6x-IH-pDe"/>
+                                                    <constraint firstAttribute="height" priority="999" constant="36" identifier="activity height" id="ZOg-hm-zKG"/>
                                                 </constraints>
                                             </activityIndicatorView>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-c0-5fi" userLabel="divider">
@@ -580,12 +580,12 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7J-Q5-fsw" userLabel="Skip Button" customClass="FMSkipButton">
-                                                <rect key="frame" x="76" y="14" width="24" height="24"/>
+                                                <rect key="frame" x="76" y="8" width="24" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="bea-s5-Wfq"/>
-                                                    <constraint firstAttribute="height" constant="24" id="lmM-Fn-Z7f"/>
+                                                    <constraint firstAttribute="width" constant="36" id="bea-s5-Wfq"/>
+                                                    <constraint firstAttribute="height" constant="36" id="lmM-Fn-Z7f"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="feedfm-icon-skip-black"/>
+                                                <state key="normal" image="feedfm-icon-skip-black"/>
                                             </button>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-zJ-6JG" userLabel="divider">
                                                 <rect key="frame" x="117" y="0.0" width="1" height="52"/>
@@ -595,22 +595,22 @@
                                                     <constraint firstAttribute="height" constant="52" id="tmx-5a-06f"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-GC-cWv" userLabel="Like Button" customClass="FMLikeButton">
-                                                <rect key="frame" x="136" y="14" width="24" height="24"/>
+                                            <button opaque="NO" contentMode="center" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-GC-cWv" userLabel="Like Button" customClass="FMLikeButton">
+                                                <rect key="frame" x="136" y="8" width="24" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="1YU-WI-nWd"/>
-                                                    <constraint firstAttribute="height" constant="24" id="1eH-oT-Qc7"/>
+                                                    <constraint firstAttribute="width" constant="36" id="1YU-WI-nWd"/>
+                                                    <constraint firstAttribute="height" constant="36" id="1eH-oT-Qc7"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="feedfm-icon-like-black"/>
+                                                <state key="normal" image="feedfm-icon-like-black"/>
                                                 <state key="selected" image="feedfm-icon-like-full-black"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrt-C6-bGz" userLabel="Dislike Button" customClass="FMDislikeButton">
-                                                <rect key="frame" x="175" y="14" width="24" height="24"/>
+                                                <rect key="frame" x="175" y="8" width="24" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="DEO-IP-Q1V"/>
-                                                    <constraint firstAttribute="width" constant="24" id="Uig-fv-JK6"/>
+                                                    <constraint firstAttribute="height" constant="36" id="DEO-IP-Q1V"/>
+                                                    <constraint firstAttribute="width" constant="36" id="Uig-fv-JK6"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="feedfm-icon-dislike-black"/>
+                                                <state key="normal" image="feedfm-icon-dislike-black"/>
                                                 <state key="selected" image="feedfm-icon-dislike-full-black"/>
                                             </button>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kc-4Te" userLabel="divider">
@@ -622,12 +622,12 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-02-bdh" userLabel="History Button">
-                                                <rect key="frame" x="251" y="14" width="24" height="24"/>
+                                                <rect key="frame" x="238" y="8" width="24" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="3zd-lk-DHB"/>
-                                                    <constraint firstAttribute="width" constant="24" id="L05-aU-GNt"/>
+                                                    <constraint firstAttribute="height" constant="36" id="3zd-lk-DHB"/>
+                                                    <constraint firstAttribute="width" constant="36" id="L05-aU-GNt"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="feedfm-icon-history-black"/>
+                                                <state key="normal" image="feedfm-icon-history-black"/>
                                                 <connections>
                                                     <action selector="togglePlaylistOrHistory:" destination="adh-gK-nCU" eventType="touchUpInside" id="iCO-wE-m8S"/>
                                                 </connections>
@@ -637,9 +637,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" placeholder="YES" id="5Gg-bc-ZTN"/>
                                             <constraint firstItem="BDc-Vu-Jhb" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="Bhx-ll-lAl"/>
+                                            <constraint firstItem="1um-02-bdh" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" id="GfC-zo-9u1"/>
                                             <constraint firstItem="c4t-GC-cWv" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="GpO-qE-mmT"/>
                                             <constraint firstItem="Wrt-C6-bGz" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="TRB-3Z-slD"/>
-                                            <constraint firstAttribute="width" constant="310" placeholder="YES" id="XvG-gx-P2a"/>
+                                            <constraint firstAttribute="width" constant="280" placeholder="YES" id="XvG-gx-P2a"/>
                                             <constraint firstItem="HU3-zJ-6JG" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="Zvn-kp-i74"/>
                                             <constraint firstItem="2Vk-WQ-6P4" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="bF5-jd-xsH"/>
                                             <constraint firstItem="NPr-c0-5fi" firstAttribute="centerY" secondItem="e5Q-2b-nR4" secondAttribute="centerY" placeholder="YES" id="mQi-2S-XES"/>
@@ -648,7 +649,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                <real key="value" value="20"/>
+                                                <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="alignmentValue">
                                                 <integer key="value" value="3"/>
