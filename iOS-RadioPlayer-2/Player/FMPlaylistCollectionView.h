@@ -40,5 +40,6 @@
 - (void) setTarget: (id) target andSelectorForCloseButton: (SEL) selector;
 
 @property (strong, nonatomic) FMStation *station;
+@property (strong, nonatomic) UIImage *defaultAudioItemImage;
 
 @end

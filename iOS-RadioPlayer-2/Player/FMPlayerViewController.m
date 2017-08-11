@@ -503,8 +503,8 @@
 
 - (void) setupPlayHistory {
     //[self hideHistoryAnimated:NO];
-  
-    // shift playlist and playhistory down below controls
+
+    // make sure playlist and playhistory are down below controls
     [self hideDrawer:_playHistoryView animated:NO];
     [self hideDrawer:_playlistView animated:NO];
     
@@ -514,11 +514,9 @@
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
 
     if ((player.playHistory.count > 0) || _initiallyVisibleStation.isOnDemand) {
-        NSLog(@"enabling play history button");
         _playHistoryButton.enabled = YES;
-        
+
     } else {
-        NSLog(@"not enabling play history button, on demand fo %@ is: %d", _initiallyVisibleStation.name, _initiallyVisibleStation.isOnDemand);
         _playHistoryButton.enabled = NO;
     }
     
@@ -543,18 +541,22 @@
 
     if (station.isOnDemand) {
         _playlistView.station = station;
+        
+        NSArray *visible = _stationPager.visibleCells;
+        if (visible.count == 1) {
+            FMPageableStationCollectionViewStationCell *cell = [visible objectAtIndex:0];
+            _playlistView.defaultAudioItemImage = cell.backgroundImage.image;
+        }
+
         [_playlistView reloadData];
     }
 
     UIView *drawer = (station.isOnDemand ? _playlistView : _playHistoryView);
 
-    NSLog(@"showing %@", station.isOnDemand ? @"playlist" : @"play history");
-
     if (_playHistoryButton.selected) {
         [self hideDrawer: drawer animated:YES];
 
     } else {
-        
         [self showDrawer: drawer animated:YES];
     }
     

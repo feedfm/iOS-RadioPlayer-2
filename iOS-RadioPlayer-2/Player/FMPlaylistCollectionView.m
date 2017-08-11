@@ -141,12 +141,12 @@ static double sectionHeight = 65.0;
     
     NSString *bgImageUrl = [audioItem.metadata objectForKey:FMResources.backgroundImageUrlPropertyName];
     
-    if (bgImageUrl != nil) {
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
         [cell.audioItemImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
         
     } else {
         [cell.audioItemImage sd_cancelCurrentImageLoad];
-        cell.audioItemImage.image = [FMResources imageNamed:@"feedfm-logo-color"];
+        cell.audioItemImage.image = _defaultAudioItemImage;
 
     }
 
@@ -163,14 +163,14 @@ static double sectionHeight = 65.0;
         
         NSString *bgImageUrl = [_station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
         
-        if (bgImageUrl != nil) {
-            cell.stationImage.hidden = NO;
-            [cell.stationImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
+        if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+            [cell.stationImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl]];
             
         } else {
-            cell.stationImage.hidden = YES;
+            [cell.stationImage sd_cancelCurrentImageLoad];
+            cell.stationImage.image = _defaultAudioItemImage;
         }
-        
+
         if (indexPath.section == 0) {
             cell.closeButton.hidden = NO;
             [cell.closeButton addTarget:self action:@selector(didTapCloseButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -241,8 +241,6 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
                             + 14.0 /* release */
                             + 15.0  /* bottom margin */
     ;
-    
-    NSLog(@"padding space is %f, available width is %f, and image height is %f", paddingSpace, availableWidth, imageHeight);
     
     return CGSizeMake(availableWidth, totalHeight);
 }
