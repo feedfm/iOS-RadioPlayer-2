@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "dislike_unfilled_black_24pt@1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "dislike_unfilled_black_24pt@2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon-dislike-black.png",
+      "filename" : "dislike_unfilled_black_24pt@3.png",
       "scale" : "3x"
     }
   ],
