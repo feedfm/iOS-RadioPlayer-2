@@ -52,6 +52,7 @@
     
     NSTimer *_noticeTimer;
     NSString *_defaultNoticeText;
+    BOOL _drawerVisible;
     
 }
 
@@ -89,6 +90,9 @@
 - (void) setupButtonStyling {
     [self assignImageOpacity:0.5 forButton:_leftButton andState: UIControlStateDisabled fromState: UIControlStateNormal];
     [self assignImageOpacity:0.5 forButton:_rightButton andState: UIControlStateDisabled fromState: UIControlStateNormal];
+    
+    UIImage *playlistImage = [_playHistoryButton imageForState:UIControlStateSelected];
+    [_playHistoryButton setImage:playlistImage forState:UIControlStateSelected | UIControlStateHighlighted];
     
     for (UIButton *button in @[ _playPausebutton, _skipButton, _likeButton, _dislikeButton, _playHistoryButton]) {
         [self assignImageOpacity:0.5
@@ -150,6 +154,7 @@
     if (_initiallyVisibleStation) {
         [self scrollToStation:_initiallyVisibleStation];
         [self updateNavigationButtonStatesAndStationNameToStation:_initiallyVisibleStation];
+        [self updateHistoryButtonForStation: _initiallyVisibleStation];
         _initiallyVisibleStation = nil;
     }
 }
@@ -281,6 +286,7 @@
 
 - (void) visibleStationDidChange {
     [self updateNavigationButtonStatesAndStationName];
+    [self updateHistoryButtonForStation:_stationPager.visibleStation];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     FMAudioPlayerPlaybackState state = player.playbackState;
@@ -306,7 +312,7 @@
         _stationLabel.text = visibleStation.name;
         return;
     }
-    
+
     long index = [_visibleStations indexOfObject:visibleStation];
     
     if (index <= 0) {
@@ -323,12 +329,6 @@
     
     _stationLabel.text = visibleStation.name;
     
-    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-    if ((visibleStation.isOnDemand) || (player.playHistory.count > 0)) {
-        _playHistoryButton.enabled = YES;
-    } else {
-        _playHistoryButton.enabled = NO;
-    }
 }
 
 - (void) moveLeftOneStation: (id) target {
@@ -508,35 +508,46 @@
     [self hideDrawer:_playHistoryView animated:NO];
     [self hideDrawer:_playlistView animated:NO];
     
+    _drawerVisible = NO;
+    
     [_playHistoryView setTarget:self andSelectorForCloseButton:@selector(closeDrawer)];
     [_playlistView setTarget:self andSelectorForCloseButton:@selector(closeDrawer)];
 
-    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-
-    if ((player.playHistory.count > 0) || _initiallyVisibleStation.isOnDemand) {
-        _playHistoryButton.enabled = YES;
-
-    } else {
-        _playHistoryButton.enabled = NO;
-    }
+    [self updateHistoryButtonForStation:_stationPager.visibleStation];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songStarted:) name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
-- (void) songStarted: (NSNotification *) notification {
-    if (!_playHistoryButton.enabled) {
+- (void) updateHistoryButtonForStation: (FMStation *) visibleStation {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    if (visibleStation.isOnDemand) {
         _playHistoryButton.enabled = YES;
         _playHistoryButton.selected = YES;
+        
+    } else if (player.playHistory.count > 0) {
+        _playHistoryButton.enabled = YES;
+        _playHistoryButton.selected = NO;
+        
+    } else {
+        _playHistoryButton.enabled = NO;
+        _playHistoryButton.selected = NO;
+        
     }
+}
+
+- (void) songStarted: (NSNotification *) notification {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    [self updateHistoryButtonForStation:player.activeStation];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:FMAudioPlayerCurrentItemDidBeginPlaybackNotification object:[FMAudioPlayer sharedPlayer]];
 }
 
 - (void) closeDrawer {
-    [self togglePlaylistOrHistory:nil];
+    // callback for the playlist and playHistory views when their close button is hit
+    [self toggleDrawer:nil];
 }
 
-- (IBAction)togglePlaylistOrHistory:(id)sender {
+- (IBAction)toggleDrawer:(id)sender {
     FMStation *station = [_stationPager visibleStation];
 
     if (station.isOnDemand) {
@@ -553,14 +564,14 @@
 
     UIView *drawer = (station.isOnDemand ? _playlistView : _playHistoryView);
 
-    if (_playHistoryButton.selected) {
+    if (_drawerVisible) {
         [self hideDrawer: drawer animated:YES];
 
     } else {
         [self showDrawer: drawer animated:YES];
     }
     
-    _playHistoryButton.selected = !_playHistoryButton.selected;
+    _drawerVisible = !_drawerVisible;
 }
 
 - (void) hideDrawer: (UIView *) drawer animated: (BOOL) animated {

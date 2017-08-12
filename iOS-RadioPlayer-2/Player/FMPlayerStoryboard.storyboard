@@ -628,8 +628,10 @@
                                                     <constraint firstAttribute="width" constant="36" id="L05-aU-GNt"/>
                                                 </constraints>
                                                 <state key="normal" image="feedfm-icon-history-black"/>
+                                                <state key="disabled" image="feedfm-icon-history-black"/>
+                                                <state key="selected" image="feedfm-icon-playlist-black"/>
                                                 <connections>
-                                                    <action selector="togglePlaylistOrHistory:" destination="adh-gK-nCU" eventType="touchUpInside" id="iCO-wE-m8S"/>
+                                                    <action selector="toggleDrawer:" destination="adh-gK-nCU" eventType="touchUpInside" id="iqB-I6-Tx6"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -983,6 +985,7 @@
         <image name="feedfm-icon-like-white" width="20" height="20"/>
         <image name="feedfm-icon-pause-black" width="24" height="24"/>
         <image name="feedfm-icon-play-black" width="24" height="24"/>
+        <image name="feedfm-icon-playlist-black" width="24" height="24"/>
         <image name="feedfm-icon-right-white" width="20" height="20"/>
         <image name="feedfm-icon-skip-black" width="24" height="24"/>
         <image name="feedfm-icon-stations-black" width="20" height="20"/>
