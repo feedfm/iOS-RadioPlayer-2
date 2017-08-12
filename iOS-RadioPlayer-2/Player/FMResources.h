@@ -40,13 +40,14 @@
 
 /**
  * This is the key for the URL that is in FMStation.options or FMAudioItem.metadata
- * that points to an image to dis
+ * that points to an image to display for the station/audio item.
  */
 
 @property (class, nonatomic, readonly) NSString *backgroundImageUrlPropertyName;
 
 /**
- * This is the key for the subheader text that is in FMStation.options.
+ * This is the key for the subheader text in FMStation.options. This subheader
+ * text appears in the station collection view.
  */
 
 @property (class, nonatomic, readonly) NSString *subheaderPropertyName;
