@@ -149,6 +149,10 @@ static double sectionHeight = 65.0;
         cell.audioItemImage.image = _defaultAudioItemImage;
 
     }
+    
+    cell.audioItemImage.layer.cornerRadius = 5.0f;
+    cell.audioItemImage.layer.masksToBounds = YES;
+
 
     return cell;
 }
