@@ -302,6 +302,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
         // we're the only view controller, so create a player and push to it
         FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
         player.title = self.title;
+        player.initiallyVisibleStation = station;
         
         [self.navigationController pushViewController:player animated:YES];
         
@@ -321,6 +322,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
             // else create a new player, and push to it
             FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
             player.title = self.title;
+            player.initiallyVisibleStation = station;
 
             [self.navigationController pushViewController:player animated:YES];            
         }
