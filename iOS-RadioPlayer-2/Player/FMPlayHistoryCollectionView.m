@@ -18,6 +18,7 @@
 #import "FMResources.h"
 #import <FeedMedia/FeedMedia.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+FMAdjustImageAlpha.h"
 
 // Helper classes to represent a 'play' and a 'station' header.
 
@@ -37,6 +38,9 @@
 
 @property (weak, nonatomic) id closeTarget;
 @property (nonatomic) SEL closeSelector;
+
+@property (strong, nonatomic) UIImage *fadedLikeImage;
+@property (strong, nonatomic) UIImage *fadedDislikeImage;
 
 @end
 
@@ -166,13 +170,21 @@ static double sectionHeight = 65.0;
     
     cell.trackLabel.attributedText = trackString;
     
-//    cell.trackLabel.text = [NSString stringWithFormat:@"%@ by %@", audioItem.name, audioItem.artist];
-    
     // by default, truncate titles. selecting title will animate it
     cell.trackLabel.labelize = YES;
     
+    // fade out like/dislike buttons
     cell.likeButton.audioItem = audioItem;
+    if (_fadedLikeImage == nil) {
+        _fadedLikeImage = [[cell.likeButton imageForState:UIControlStateNormal] translucentImageWithAlpha:0.5];
+    }
+    [cell.likeButton setImage:_fadedLikeImage forState:UIControlStateNormal];
+    
     cell.dislikeButton.audioItem = audioItem;
+    if (_fadedDislikeImage == nil) {
+        _fadedDislikeImage = [[cell.dislikeButton imageForState:UIControlStateNormal] translucentImageWithAlpha:0.5];
+    }
+    [cell.dislikeButton setImage:self.fadedDislikeImage forState:UIControlStateNormal];
     
     return cell;
 }

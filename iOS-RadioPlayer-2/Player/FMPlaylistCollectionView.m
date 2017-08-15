@@ -18,6 +18,7 @@
 #import "FMResources.h"
 #import <FeedMedia/FeedMedia.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+FMAdjustImageAlpha.h"
 
 // Helper classes to represent an 'audio item' and a 'station' header.
 
@@ -38,6 +39,9 @@
 @property (weak, nonatomic) id closeTarget;
 @property (nonatomic) SEL closeSelector;
 
+@property (strong, nonatomic) UIImage *fadedLikeImage;
+@property (strong, nonatomic) UIImage *fadedDislikeImage;
+
 @end
 
 
@@ -46,7 +50,6 @@
 static NSString * const audioItemCellIdentifier = @"audioItemCell";
 static NSString * const stationCellIdentifier = @"stationCell";
 static UIEdgeInsets sectionInsets;
-static double sectionHeight = 65.0;
 
 + (void) initialize {
     if (self == [FMPlaylistCollectionView class]) {
@@ -80,6 +83,8 @@ static double sectionHeight = 65.0;
 
 - (void) setup {
     _station = nil;
+    _fadedLikeImage = nil;
+    _fadedDislikeImage = nil;
     
     self.dataSource = self;
     self.delegate = self;
@@ -118,23 +123,26 @@ static double sectionHeight = 65.0;
         return nil;
     }
     
-    UIFont *plainFont = cell.trackLabel.font;
-    UIFont *boldFont = [UIFont fontWithDescriptor:[[plainFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:plainFont.pointSize];
-    
-    NSMutableAttributedString *trackString = [[NSMutableAttributedString alloc] initWithString: audioItem.name attributes: @{ NSFontAttributeName: boldFont }];
-
-    NSMutableAttributedString *artistString = [[NSMutableAttributedString alloc] initWithString: audioItem.artist attributes: @{ NSFontAttributeName: plainFont }];
-    
     // by default, truncate titles. selecting title will animate it
-    cell.trackLabel.attributedText = trackString;
+    cell.trackLabel.text = audioItem.name;
     cell.trackLabel.labelize = YES;
 
     // by default, truncate artist.
-    cell.artistLabel.attributedText = artistString;
+    cell.artistLabel.text = audioItem.artist;
     cell.artistLabel.labelize = YES;
     
+    // fade out like/dislike buttons
     cell.likeButton.audioItem = audioItem;
+    if (_fadedLikeImage == nil) {
+        _fadedLikeImage = [[cell.likeButton imageForState:UIControlStateNormal] translucentImageWithAlpha:0.5];
+    }
+    [cell.likeButton setImage:_fadedLikeImage forState:UIControlStateNormal];
+    
     cell.dislikeButton.audioItem = audioItem;
+    if (_fadedDislikeImage == nil) {
+        _fadedDislikeImage = [[cell.dislikeButton imageForState:UIControlStateNormal] translucentImageWithAlpha:0.5];
+    }
+    [cell.dislikeButton setImage:self.fadedDislikeImage forState:UIControlStateNormal];
     
     cell.playPauseButton.audioItem = audioItem;
     cell.playPauseButton.layer.cornerRadius = 30;
@@ -152,7 +160,6 @@ static double sectionHeight = 65.0;
     
     cell.audioItemImage.layer.cornerRadius = 5.0f;
     cell.audioItemImage.layer.masksToBounds = YES;
-
 
     return cell;
 }
@@ -256,7 +263,7 @@ referenceSizeForHeaderInSection:(NSInteger)section {
     // section headers are width of screen and static height
     float availableWidth = self.bounds.size.width;
     
-    return CGSizeMake(availableWidth, sectionHeight);
+    return CGSizeMake(availableWidth, 65.0);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
