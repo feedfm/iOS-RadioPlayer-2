@@ -168,7 +168,19 @@
     [FMAudioPlayer sharedPlayer].disableSongStartNotifications = YES;
     
     // hide the play history by default
+    // TODO: maybe leave drawer open if we're pushing to another view?
     [self setupPlayHistory];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    // if the current station is an on-demand station, then
+    // open up the playlist drawer
+    if (_stationPager.visibleStation.isOnDemand) {
+        [self toggleDrawer:nil];
+    }
+        
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

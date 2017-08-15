@@ -278,15 +278,18 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
 
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
-    
-    if (![player.activeStation isEqual:station]) {
-        [player setActiveStation:station];
-    }
-    
-    if ((player.playbackState == FMAudioPlayerPlaybackStateReadyToPlay) ||
-        (player.playbackState == FMAudioPlayerPlaybackStateComplete) ||
-        (player.playbackState == FMAudioPlayerPlaybackStatePaused)) {
-        [player play];
+
+    if (!station.isOnDemand) {
+        // switch to and auto play non-on-demand stations
+        if (![player.activeStation isEqual:station]) {
+            [player setActiveStation:station];
+        }
+        
+        if ((player.playbackState == FMAudioPlayerPlaybackStateReadyToPlay) ||
+            (player.playbackState == FMAudioPlayerPlaybackStateComplete) ||
+            (player.playbackState == FMAudioPlayerPlaybackStatePaused)) {
+            [player play];
+        }
     }
     
     // kick off display of the selected station
