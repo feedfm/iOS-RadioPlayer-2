@@ -183,7 +183,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track by artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtG-A1-JWW" userLabel="track" customClass="MarqueeLabel">
-                                                    <rect key="frame" x="15" y="20" width="223" height="17"/>
+                                                    <rect key="frame" x="15" y="20" width="231" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -194,7 +194,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-bE-KNG" userLabel="like" customClass="FMLikeButton">
-                                                    <rect key="frame" x="253" y="19" width="18" height="18"/>
+                                                    <rect key="frame" x="261" y="19" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="DEg-c6-9gC"/>
                                                         <constraint firstAttribute="height" constant="18" id="J4k-XK-GRm"/>
@@ -203,7 +203,7 @@
                                                     <state key="selected" image="feedfm-icon-like-full-white"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASC-b1-qSW" userLabel="dislike" customClass="FMDislikeButton">
-                                                    <rect key="frame" x="281" y="18" width="20" height="20"/>
+                                                    <rect key="frame" x="289" y="18" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="SSE-39-czO"/>
                                                         <constraint firstAttribute="width" constant="20" id="k8N-2i-FEK"/>
@@ -220,7 +220,7 @@
                                                 </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstItem="VtG-A1-JWW" firstAttribute="centerY" secondItem="Nf3-14-MEj" secondAttribute="centerY" id="CYq-AN-l2t"/>
                                             <constraint firstAttribute="right" secondItem="Src-m2-iYH" secondAttribute="right" id="F3k-Dg-XSE"/>
@@ -231,7 +231,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Src-m2-iYH" secondAttribute="bottom" id="ZiH-KZ-1Ls"/>
                                             <constraint firstItem="4Da-bE-KNG" firstAttribute="centerY" secondItem="Nf3-14-MEj" secondAttribute="centerY" id="geo-yl-jyB"/>
                                             <constraint firstItem="Src-m2-iYH" firstAttribute="left" secondItem="Nf3-14-MEj" secondAttribute="left" id="qdr-hW-Hz5"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="ASC-b1-qSW" secondAttribute="trailing" constant="15" id="uYr-3H-Gb7"/>
+                                            <constraint firstAttribute="trailing" secondItem="ASC-b1-qSW" secondAttribute="trailing" constant="15" id="uYr-3H-Gb7"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dislikeButton" destination="ASC-b1-qSW" id="JXf-GP-ASn"/>
@@ -252,19 +252,19 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HISTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xK-Vy-rzf" userLabel="&quot;history&quot;">
-                                            <rect key="frame" x="70" y="21" width="44" height="12"/>
+                                            <rect key="frame" x="80" y="21" width="44" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-Ga-Heg" userLabel="station name">
-                                            <rect key="frame" x="70" y="33" width="307" height="20"/>
+                                            <rect key="frame" x="80" y="33" width="304" height="20"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-wa-t2a" userLabel="close">
-                                            <rect key="frame" x="372" y="23" width="20" height="20"/>
+                                            <rect key="frame" x="379" y="23" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="1bx-zI-GG2"/>
                                                 <constraint firstAttribute="width" constant="20" id="STi-ib-Aqd"/>
@@ -279,18 +279,18 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
                                         <constraint firstItem="0wc-v3-c7i" firstAttribute="leading" secondItem="dny-fk-Gg9" secondAttribute="leading" id="513-jb-Fyo"/>
                                         <constraint firstItem="fKt-Ga-Heg" firstAttribute="top" secondItem="dny-fk-Gg9" secondAttribute="centerY" id="Axq-pw-7gD"/>
                                         <constraint firstAttribute="bottom" secondItem="NTv-Sh-OBb" secondAttribute="bottom" id="COP-oW-dO4"/>
-                                        <constraint firstItem="fKt-Ga-Heg" firstAttribute="leading" secondItem="0wc-v3-c7i" secondAttribute="trailing" constant="5" id="Dd5-3v-D6J"/>
+                                        <constraint firstItem="fKt-Ga-Heg" firstAttribute="leading" secondItem="0wc-v3-c7i" secondAttribute="trailing" constant="15" id="Dd5-3v-D6J"/>
                                         <constraint firstItem="0wc-v3-c7i" firstAttribute="top" secondItem="dny-fk-Gg9" secondAttribute="top" id="EZk-b6-IP2"/>
                                         <constraint firstItem="9dp-wa-t2a" firstAttribute="centerY" secondItem="dny-fk-Gg9" secondAttribute="centerY" id="KQW-EL-FWG"/>
-                                        <constraint firstAttribute="trailing" secondItem="9dp-wa-t2a" secondAttribute="trailing" constant="22" id="Qvq-1u-vdh"/>
+                                        <constraint firstAttribute="trailing" secondItem="9dp-wa-t2a" secondAttribute="trailing" constant="15" id="Qvq-1u-vdh"/>
                                         <constraint firstAttribute="right" secondItem="NTv-Sh-OBb" secondAttribute="right" id="ULv-oj-qVb"/>
                                         <constraint firstItem="fKt-Ga-Heg" firstAttribute="trailing" secondItem="9dp-wa-t2a" secondAttribute="leading" constant="5" id="drP-uc-eJG"/>
-                                        <constraint firstItem="9xK-Vy-rzf" firstAttribute="leading" secondItem="0wc-v3-c7i" secondAttribute="trailing" constant="5" id="sTD-9l-jr4"/>
+                                        <constraint firstItem="9xK-Vy-rzf" firstAttribute="leading" secondItem="0wc-v3-c7i" secondAttribute="trailing" constant="15" id="sTD-9l-jr4"/>
                                         <constraint firstItem="9xK-Vy-rzf" firstAttribute="bottom" secondItem="dny-fk-Gg9" secondAttribute="centerY" id="tC9-Hm-Zaw"/>
                                         <constraint firstItem="NTv-Sh-OBb" firstAttribute="left" secondItem="dny-fk-Gg9" secondAttribute="left" id="uNb-06-vdR"/>
                                     </constraints>
@@ -311,7 +311,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioItemCell" id="Cb1-m9-Jda" userLabel="audioItemCell" customClass="FMPlaylistCollectionViewAudioItemCell">
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioItemCell" id="Cb1-m9-Jda" userLabel="audioItemCell" customClass="FMPlaylistCollectionViewAudioItemCell">
                                         <rect key="frame" x="19" y="50" width="376" height="279"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -392,7 +392,7 @@
                                                 </button>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="Ugz-E7-sDP" secondAttribute="trailing" constant="5" id="62Q-IY-8Rc"/>
                                             <constraint firstAttribute="trailing" secondItem="KYW-2D-6cr" secondAttribute="trailing" id="6zG-0D-ZuC"/>
@@ -423,7 +423,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stationCell" id="rSD-Ch-7Zx" userLabel="stationCell" customClass="FMPlaylistCollectionViewStationCell">
+                                <collectionReusableView key="sectionHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stationCell" id="rSD-Ch-7Zx" userLabel="stationCell" customClass="FMPlaylistCollectionViewStationCell">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -435,19 +435,19 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYLIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbV-Vm-HoE" userLabel="&quot;playlist&quot;">
-                                            <rect key="frame" x="70" y="13" width="47" height="12"/>
+                                            <rect key="frame" x="80" y="13" width="47" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-3I-YAD" userLabel="station name">
-                                            <rect key="frame" x="70" y="25" width="289" height="20"/>
+                                            <rect key="frame" x="80" y="25" width="294" height="20"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-SC-mKn" userLabel="close">
-                                            <rect key="frame" x="364" y="15" width="20" height="20"/>
+                                            <rect key="frame" x="379" y="15" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="qNs-q3-0dD"/>
                                                 <constraint firstAttribute="height" constant="20" id="vbp-E4-W54"/>
@@ -462,17 +462,17 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
                                         <constraint firstItem="tbV-Vm-HoE" firstAttribute="bottom" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="9eb-Hc-Wis"/>
                                         <constraint firstItem="weY-UV-0cy" firstAttribute="leading" secondItem="rSD-Ch-7Zx" secondAttribute="leading" id="Q3T-oZ-gkf"/>
                                         <constraint firstItem="IaB-SC-mKn" firstAttribute="centerY" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="T9f-Nf-1SB"/>
                                         <constraint firstAttribute="trailing" secondItem="aDw-OY-mAD" secondAttribute="trailing" id="ZaQ-WH-r7t"/>
-                                        <constraint firstItem="tbV-Vm-HoE" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="5" id="lnp-Rb-LZ7"/>
+                                        <constraint firstItem="tbV-Vm-HoE" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="15" id="lnp-Rb-LZ7"/>
                                         <constraint firstItem="aDw-OY-mAD" firstAttribute="leading" secondItem="rSD-Ch-7Zx" secondAttribute="leading" id="nPV-He-k1G"/>
                                         <constraint firstItem="IaB-SC-mKn" firstAttribute="leading" secondItem="xvX-3I-YAD" secondAttribute="trailing" constant="5" id="o1U-I1-Sup"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="IaB-SC-mKn" secondAttribute="trailing" constant="22" id="pox-3Q-iKg"/>
-                                        <constraint firstItem="xvX-3I-YAD" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="5" id="rz9-bp-oRX"/>
+                                        <constraint firstAttribute="trailing" secondItem="IaB-SC-mKn" secondAttribute="trailing" constant="15" id="pox-3Q-iKg"/>
+                                        <constraint firstItem="xvX-3I-YAD" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="15" id="rz9-bp-oRX"/>
                                         <constraint firstItem="xvX-3I-YAD" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="vpg-lf-3Ev"/>
                                         <constraint firstItem="weY-UV-0cy" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="top" id="wLf-mn-s86"/>
                                         <constraint firstAttribute="bottom" secondItem="aDw-OY-mAD" secondAttribute="bottom" id="zht-Ci-28w"/>
@@ -943,7 +943,7 @@
                                 <rect key="frame" x="89" y="672" width="237" height="34"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DA-4e-3dk">
-                                <rect key="frame" x="36" y="541" width="342" height="101"/>
+                                <rect key="frame" x="36" y="541.66666666666652" width="342" height="100.33333333333337"/>
                                 <string key="text">There is no affiliation, connection, association or endorsement of the products, goods or services displayed on this page by the copyright owners, featured recording artists and authors of the sound recordings (and the musical works embodied therein) transmitted through the Feed.fm Player</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
