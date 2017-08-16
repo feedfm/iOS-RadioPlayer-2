@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
 @property (strong, nonatomic) IBOutlet UILabel *stationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *stationSubheaderLabel;
 @property (strong, nonatomic) IBOutlet UIButton *stationCollectionButton;
 @property (strong, nonatomic) IBOutlet UIView *stationCollectionCircle;
 @property (strong, nonatomic) IBOutlet UIButton *shareButton;
@@ -341,6 +342,15 @@
     
     _stationLabel.text = visibleStation.name;
     
+    NSString *subheader = [visibleStation.options objectForKey:FMResources.subheaderPropertyName];
+    if (subheader) {
+        _stationSubheaderLabel.text = subheader;
+        _stationSubheaderLabel.hidden = NO;
+    } else {
+        _stationSubheaderLabel.text = @"";
+        _stationSubheaderLabel.hidden = YES;
+
+    }
 }
 
 - (void) moveLeftOneStation: (id) target {

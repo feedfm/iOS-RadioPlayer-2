@@ -78,7 +78,7 @@
                                                 <constraint firstItem="w2T-KQ-3qB" firstAttribute="centerX" secondItem="tqE-Hx-e4z" secondAttribute="centerX" id="uFV-oH-JHd"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-Kw-CsE" userLabel="Subtitle">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-Kw-CsE" userLabel="Subtitle">
                                             <rect key="frame" x="0.0" y="278" width="331" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69756518404907975" colorSpace="custom" customColorSpace="sRGB"/>
@@ -821,22 +821,28 @@
                                         <state key="normal" image="feedfm-icon-right-white"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-GB-zqt" userLabel="Station Label">
-                                        <rect key="frame" x="50" y="482" width="324" height="24"/>
+                                        <rect key="frame" x="50" y="466.33333333333331" width="324" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baS-Um-g9z" userLabel="underline">
-                                        <rect key="frame" x="185" y="473" width="43" height="1"/>
+                                        <rect key="frame" x="185" y="462.33333333333331" width="43" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Frg-Qk-XQb"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibd-cv-yTv" userLabel="STATION">
-                                        <rect key="frame" x="185" y="461" width="43" height="12"/>
+                                        <rect key="frame" x="185" y="450.33333333333331" width="43" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWs-4N-eyf" userLabel="Station Subheader">
+                                        <rect key="frame" x="50" y="490.33333333333326" width="314" height="15.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -854,13 +860,16 @@
                                     <constraint firstAttribute="right" secondItem="kh2-gr-Zc6" secondAttribute="right" constant="12" id="Yfw-83-cY9"/>
                                     <constraint firstAttribute="trailing" secondItem="ecR-TF-LIN" secondAttribute="trailing" constant="25" id="Yi7-6N-yBh"/>
                                     <constraint firstItem="dbq-aT-esl" firstAttribute="left" secondItem="ke7-Ji-fOU" secondAttribute="left" constant="12" id="bAv-QC-oQ3"/>
-                                    <constraint firstItem="cEp-GB-zqt" firstAttribute="top" secondItem="baS-Um-g9z" secondAttribute="bottom" constant="8" id="dPD-bZ-3Jg"/>
+                                    <constraint firstItem="ecR-TF-LIN" firstAttribute="leading" secondItem="TWs-4N-eyf" secondAttribute="trailing" constant="5" id="bcZ-1N-Fnb"/>
+                                    <constraint firstItem="cEp-GB-zqt" firstAttribute="top" secondItem="baS-Um-g9z" secondAttribute="bottom" constant="3" id="dPD-bZ-3Jg"/>
+                                    <constraint firstAttribute="bottom" secondItem="TWs-4N-eyf" secondAttribute="bottom" constant="30" id="i87-7B-E6d"/>
                                     <constraint firstItem="7m0-qk-uHH" firstAttribute="leading" secondItem="ke7-Ji-fOU" secondAttribute="leading" id="joP-c3-7gA"/>
                                     <constraint firstAttribute="bottom" secondItem="Vgc-zL-AKO" secondAttribute="bottom" constant="34" id="lZz-IN-OZh"/>
+                                    <constraint firstItem="TWs-4N-eyf" firstAttribute="leading" secondItem="Vgc-zL-AKO" secondAttribute="trailing" constant="5" id="m0R-c4-Xrc"/>
                                     <constraint firstAttribute="bottom" secondItem="7m0-qk-uHH" secondAttribute="bottom" id="ma7-kA-vgi"/>
                                     <constraint firstItem="baS-Um-g9z" firstAttribute="centerX" secondItem="ke7-Ji-fOU" secondAttribute="centerX" id="rZW-7y-qID"/>
                                     <constraint firstItem="Vgc-zL-AKO" firstAttribute="leading" secondItem="ke7-Ji-fOU" secondAttribute="leading" constant="25" id="tjy-Wj-1lQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="cEp-GB-zqt" secondAttribute="bottom" constant="30" id="vN2-K8-GhJ"/>
+                                    <constraint firstItem="TWs-4N-eyf" firstAttribute="top" secondItem="cEp-GB-zqt" secondAttribute="bottom" id="uqD-E0-tap"/>
                                     <constraint firstItem="kh2-gr-Zc6" firstAttribute="top" secondItem="ke7-Ji-fOU" secondAttribute="top" constant="12" id="xhq-9b-2Hp"/>
                                 </constraints>
                             </view>
@@ -916,6 +925,7 @@
                         <outlet property="stationCollectionCircle" destination="dbq-aT-esl" id="NyZ-pA-BJA"/>
                         <outlet property="stationLabel" destination="cEp-GB-zqt" id="8ha-bR-reJ"/>
                         <outlet property="stationPager" destination="7m0-qk-uHH" id="JJv-TI-fqe"/>
+                        <outlet property="stationSubheaderLabel" destination="TWs-4N-eyf" id="2hh-wm-opM"/>
                         <outlet property="trackLineOneLabel" destination="8DI-LC-N4h" id="0kB-g5-cv2"/>
                         <outlet property="trackLineTwoLabel" destination="QYm-Od-Gur" id="xTl-Z4-eqp"/>
                     </connections>

@@ -250,11 +250,33 @@ static UIEdgeInsets sectionInsets;
     
     float height = (.75 * widthPerItem) + 12.0f + size.height;
 
-    // assume all entries have a subtitle
-    UIFont *subtitleFont = [UIFont systemFontOfSize: 12.0f];
-    CGSize subheaderSize = [@"TEST" sizeWithAttributes:@{ NSFontAttributeName: subtitleFont }];
+    // subheader height
+    NSString *subheader = [station.options objectForKey:FMResources.subheaderPropertyName];
     
-    height += subheaderSize.height;
+    if (subheader) {
+        NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+        
+        // subheader font
+        UIFont *subheaderFont = [UIFont systemFontOfSize: 12.0f];
+        [attr setObject:subheaderFont forKey:NSFontAttributeName];
+        
+        // word wrapping
+        NSMutableParagraphStyle *paraStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paraStyle.lineBreakMode = NSLineBreakByWordWrapping;
+        [attr setObject:paraStyle forKey:NSParagraphStyleAttributeName];
+        
+        CGFloat subheaderHeight = [subheader boundingRectWithSize:(CGSize){ widthPerItem, CGFLOAT_MAX }
+                                                      options:NSStringDrawingUsesLineFragmentOrigin
+                                                   attributes:attr
+                                                      context:nil].size.height;
+        subheaderHeight = ceil(subheaderHeight);
+        
+        height += subheaderHeight;
+
+    } else {
+        // don't add any height for empty subheader
+        
+    }
     
     return CGSizeMake(widthPerItem, height);
 }
