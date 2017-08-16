@@ -314,7 +314,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
 
             // (after switching the display to the new station)
             FMPlayerViewController *fmParent = (FMPlayerViewController *) parent;
-            [fmParent scrollToStation:station];
+            fmParent.initiallyVisibleStation = station;
 
             [self.navigationController popViewControllerAnimated:YES];
             
