@@ -96,16 +96,28 @@
     [_playHistoryButton setImage:playlistImage forState:UIControlStateSelected | UIControlStateHighlighted];
     
     for (UIButton *button in @[ _playPausebutton, _skipButton, _likeButton, _dislikeButton, _playHistoryButton]) {
+        // disabled is %50 opacity
         [self assignImageOpacity:0.5
                        forButton:button
                         andState:UIControlStateDisabled
                        fromState:UIControlStateNormal];
         
-        [self assignImageOpacity:0.75
-                       forButton:button
-                        andState:UIControlStateNormal
-                       fromState:UIControlStateNormal];
+        if ((button == _likeButton) || (button == _dislikeButton)) {
+            // normal is %50 for like/dislike
+            [self assignImageOpacity:0.50
+                           forButton:button
+                            andState:UIControlStateNormal
+                           fromState:UIControlStateNormal];
+            
+        } else {
+            // normal is %75
+            [self assignImageOpacity:0.75
+                           forButton:button
+                            andState:UIControlStateNormal
+                           fromState:UIControlStateNormal];
+        }
 
+        // selected is %75 opacity
         [self assignImageOpacity:0.75
                        forButton:button
                         andState:UIControlStateSelected

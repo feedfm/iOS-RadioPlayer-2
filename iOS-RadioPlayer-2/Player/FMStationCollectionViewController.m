@@ -248,8 +248,6 @@ static UIEdgeInsets cellInsets;
     float bonus = 10.0; // what is this?
     float widthPerItem = (availableWidth - insets - bonus) / stationsPerRow;
 
-    NSLog(@"padding is %f, bonus is %f, insets %f, available width is %f, width per item is %f", paddingSpace, bonus, insets, availableWidth, widthPerItem);
-    
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
 
     UIFont *titleFont = [UIFont systemFontOfSize: 15.0f weight:UIFontWeightBold];

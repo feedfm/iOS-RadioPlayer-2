@@ -16,7 +16,7 @@
         <scene sceneID="Apn-cV-7Db">
             <objects>
                 <collectionViewController storyboardIdentifier="stationCollectionViewController" id="Obn-WQ-IVU" userLabel="Station Collection View" customClass="FMStationCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="AMd-0D-sD2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="AMd-0D-sD2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,7 +160,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="324" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track by artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtG-A1-JWW" userLabel="track" customClass="MarqueeLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="track by artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtG-A1-JWW" userLabel="track" customClass="MarqueeLabel">
                                                     <rect key="frame" x="15" y="20" width="231" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,7 +171,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-bE-KNG" userLabel="like" customClass="FMLikeButton">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-bE-KNG" userLabel="like" customClass="FMLikeButton">
                                                     <rect key="frame" x="261" y="19" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="DEg-c6-9gC"/>
@@ -180,7 +180,7 @@
                                                     <state key="normal" image="feedfm-icon-like-white"/>
                                                     <state key="selected" image="feedfm-icon-like-full-white"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASC-b1-qSW" userLabel="dislike" customClass="FMDislikeButton">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASC-b1-qSW" userLabel="dislike" customClass="FMDislikeButton">
                                                     <rect key="frame" x="289" y="18" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="SSE-39-czO"/>
@@ -189,7 +189,7 @@
                                                     <state key="normal" image="feedfm-icon-dislike-white"/>
                                                     <state key="selected" image="feedfm-icon-dislike-full-white"/>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Src-m2-iYH" userLabel="border">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Src-m2-iYH" userLabel="border">
                                                     <rect key="frame" x="0.0" y="55" width="324" height="1"/>
                                                     <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -222,26 +222,26 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0wc-v3-c7i" userLabel="station image">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wc-v3-c7i" userLabel="station image">
                                             <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="65" id="ZME-gR-ic4"/>
                                                 <constraint firstAttribute="height" constant="65" id="yQS-Wm-zXk"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HISTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xK-Vy-rzf" userLabel="&quot;history&quot;">
-                                            <rect key="frame" x="80" y="21" width="44" height="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="HISTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xK-Vy-rzf" userLabel="&quot;history&quot;">
+                                            <rect key="frame" x="80" y="16" width="44" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-Ga-Heg" userLabel="station name">
-                                            <rect key="frame" x="80" y="33" width="304" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Station Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-Ga-Heg" userLabel="station name">
+                                            <rect key="frame" x="80" y="30" width="304" height="20"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-wa-t2a" userLabel="close">
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-wa-t2a" userLabel="close">
                                             <rect key="frame" x="379" y="23" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="1bx-zI-GG2"/>
@@ -249,7 +249,7 @@
                                             </constraints>
                                             <state key="normal" image="feedfm-icon-hide-white"/>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTv-Sh-OBb" userLabel="border">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTv-Sh-OBb" userLabel="border">
                                             <rect key="frame" x="0.0" y="65" width="414" height="1"/>
                                             <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -260,16 +260,16 @@
                                     <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
                                         <constraint firstItem="0wc-v3-c7i" firstAttribute="leading" secondItem="dny-fk-Gg9" secondAttribute="leading" id="513-jb-Fyo"/>
-                                        <constraint firstItem="fKt-Ga-Heg" firstAttribute="top" secondItem="dny-fk-Gg9" secondAttribute="centerY" id="Axq-pw-7gD"/>
                                         <constraint firstAttribute="bottom" secondItem="NTv-Sh-OBb" secondAttribute="bottom" id="COP-oW-dO4"/>
                                         <constraint firstItem="fKt-Ga-Heg" firstAttribute="leading" secondItem="0wc-v3-c7i" secondAttribute="trailing" constant="15" id="Dd5-3v-D6J"/>
                                         <constraint firstItem="0wc-v3-c7i" firstAttribute="top" secondItem="dny-fk-Gg9" secondAttribute="top" id="EZk-b6-IP2"/>
                                         <constraint firstItem="9dp-wa-t2a" firstAttribute="centerY" secondItem="dny-fk-Gg9" secondAttribute="centerY" id="KQW-EL-FWG"/>
+                                        <constraint firstAttribute="bottom" secondItem="fKt-Ga-Heg" secondAttribute="bottom" constant="16" id="OXS-A6-eFb"/>
                                         <constraint firstAttribute="trailing" secondItem="9dp-wa-t2a" secondAttribute="trailing" constant="15" id="Qvq-1u-vdh"/>
                                         <constraint firstAttribute="right" secondItem="NTv-Sh-OBb" secondAttribute="right" id="ULv-oj-qVb"/>
+                                        <constraint firstItem="9xK-Vy-rzf" firstAttribute="top" secondItem="dny-fk-Gg9" secondAttribute="top" constant="16" id="bn6-EB-mBs"/>
                                         <constraint firstItem="fKt-Ga-Heg" firstAttribute="trailing" secondItem="9dp-wa-t2a" secondAttribute="leading" constant="5" id="drP-uc-eJG"/>
                                         <constraint firstItem="9xK-Vy-rzf" firstAttribute="leading" secondItem="0wc-v3-c7i" secondAttribute="trailing" constant="15" id="sTD-9l-jr4"/>
-                                        <constraint firstItem="9xK-Vy-rzf" firstAttribute="bottom" secondItem="dny-fk-Gg9" secondAttribute="centerY" id="tC9-Hm-Zaw"/>
                                         <constraint firstItem="NTv-Sh-OBb" firstAttribute="left" secondItem="dny-fk-Gg9" secondAttribute="left" id="uNb-06-vdR"/>
                                     </constraints>
                                     <connections>
@@ -284,13 +284,13 @@
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1yp-c7-NjM">
                                     <size key="itemSize" width="376" height="279"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="65"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioItemCell" id="Cb1-m9-Jda" userLabel="audioItemCell" customClass="FMPlaylistCollectionViewAudioItemCell">
-                                        <rect key="frame" x="19" y="50" width="376" height="279"/>
+                                        <rect key="frame" x="19" y="65" width="376" height="279"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="279"/>
@@ -402,7 +402,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stationCell" id="rSD-Ch-7Zx" userLabel="stationCell" customClass="FMPlaylistCollectionViewStationCell">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="weY-UV-0cy" userLabel="station image">
@@ -413,13 +413,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYLIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbV-Vm-HoE" userLabel="&quot;playlist&quot;">
-                                            <rect key="frame" x="80" y="13" width="47" height="12"/>
+                                            <rect key="frame" x="80" y="16" width="47" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-3I-YAD" userLabel="station name">
-                                            <rect key="frame" x="80" y="25" width="294" height="20"/>
+                                            <rect key="frame" x="80" y="14" width="294" height="20"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -442,7 +442,6 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
-                                        <constraint firstItem="tbV-Vm-HoE" firstAttribute="bottom" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="9eb-Hc-Wis"/>
                                         <constraint firstItem="weY-UV-0cy" firstAttribute="leading" secondItem="rSD-Ch-7Zx" secondAttribute="leading" id="Q3T-oZ-gkf"/>
                                         <constraint firstItem="IaB-SC-mKn" firstAttribute="centerY" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="T9f-Nf-1SB"/>
                                         <constraint firstAttribute="trailing" secondItem="aDw-OY-mAD" secondAttribute="trailing" id="ZaQ-WH-r7t"/>
@@ -450,9 +449,10 @@
                                         <constraint firstItem="aDw-OY-mAD" firstAttribute="leading" secondItem="rSD-Ch-7Zx" secondAttribute="leading" id="nPV-He-k1G"/>
                                         <constraint firstItem="IaB-SC-mKn" firstAttribute="leading" secondItem="xvX-3I-YAD" secondAttribute="trailing" constant="5" id="o1U-I1-Sup"/>
                                         <constraint firstAttribute="trailing" secondItem="IaB-SC-mKn" secondAttribute="trailing" constant="15" id="pox-3Q-iKg"/>
+                                        <constraint firstAttribute="bottom" secondItem="xvX-3I-YAD" secondAttribute="bottom" constant="16" id="rcW-v6-S2T"/>
                                         <constraint firstItem="xvX-3I-YAD" firstAttribute="leading" secondItem="weY-UV-0cy" secondAttribute="trailing" constant="15" id="rz9-bp-oRX"/>
-                                        <constraint firstItem="xvX-3I-YAD" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="centerY" id="vpg-lf-3Ev"/>
                                         <constraint firstItem="weY-UV-0cy" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="top" id="wLf-mn-s86"/>
+                                        <constraint firstItem="tbV-Vm-HoE" firstAttribute="top" secondItem="rSD-Ch-7Zx" secondAttribute="top" constant="16" id="xfg-Ii-brp"/>
                                         <constraint firstAttribute="bottom" secondItem="aDw-OY-mAD" secondAttribute="bottom" id="zht-Ci-28w"/>
                                     </constraints>
                                     <connections>
@@ -466,16 +466,16 @@
                                 <rect key="frame" x="0.0" y="556" width="414" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQz-4X-1Mg" userLabel="Metadata Display" customClass="OAStackView">
-                                        <rect key="frame" x="8" y="21" width="398" height="38"/>
+                                        <rect key="frame" x="28" y="21" width="358" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-8J-9Xn" customClass="MarqueeLabel">
-                                                <rect key="frame" x="0.0" y="10" width="398" height="17"/>
+                                                <rect key="frame" x="0.0" y="10" width="358" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-LC-N4h" userLabel="track line one" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="0.0" y="11" width="398" height="17"/>
+                                                <rect key="frame" x="0.0" y="11" width="358" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.85119104677914115" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -487,7 +487,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist/Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-Od-Gur" userLabel="track line two" customClass="FMMetadataLabel">
-                                                <rect key="frame" x="0.0" y="10" width="398" height="17"/>
+                                                <rect key="frame" x="0.0" y="10" width="358" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.60096338190184051" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -528,7 +528,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-2b-nR4" userLabel="Player Controls Button Container" customClass="OAStackView">
-                                        <rect key="frame" x="67" y="75" width="280" height="52"/>
+                                        <rect key="frame" x="67" y="80" width="280" height="52"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-WQ-6P4" userLabel="Play Pause Button" customClass="FMPlayPauseButton">
                                                 <rect key="frame" x="35" y="8" width="36" height="36"/>
@@ -652,10 +652,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCL-7b-BOk" userLabel="POWERED BY FEED.FM">
-                                        <rect key="frame" x="155" y="137" width="104" height="23"/>
+                                        <rect key="frame" x="155" y="142" width="104" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
                                         <state key="normal" title="POWERED BY FEED.FM">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.50341497315950912" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.015686274509803921" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="sBi-pL-wRf" kind="presentation" id="pQp-FA-LLt"/>
@@ -667,10 +667,10 @@
                                     <constraint firstItem="fCL-7b-BOk" firstAttribute="centerX" secondItem="ZV9-dA-UDD" secondAttribute="centerX" id="2QN-PO-SQV"/>
                                     <constraint firstItem="fCL-7b-BOk" firstAttribute="top" secondItem="e5Q-2b-nR4" secondAttribute="bottom" constant="10" id="DlB-Zp-Nfv"/>
                                     <constraint firstItem="hQz-4X-1Mg" firstAttribute="centerY" secondItem="ZV9-dA-UDD" secondAttribute="top" constant="40" id="Mlr-Eo-JL5"/>
-                                    <constraint firstAttribute="rightMargin" secondItem="hQz-4X-1Mg" secondAttribute="right" id="cbZ-Kd-2N5"/>
-                                    <constraint firstAttribute="bottom" secondItem="fCL-7b-BOk" secondAttribute="bottom" constant="20" id="oMa-Nb-MRV"/>
+                                    <constraint firstAttribute="rightMargin" secondItem="hQz-4X-1Mg" secondAttribute="right" constant="20" id="cbZ-Kd-2N5"/>
+                                    <constraint firstAttribute="bottom" secondItem="fCL-7b-BOk" secondAttribute="bottom" constant="15" id="oMa-Nb-MRV"/>
                                     <constraint firstItem="e5Q-2b-nR4" firstAttribute="centerX" secondItem="ZV9-dA-UDD" secondAttribute="centerX" id="sBB-xd-NXL"/>
-                                    <constraint firstItem="hQz-4X-1Mg" firstAttribute="left" secondItem="ZV9-dA-UDD" secondAttribute="leftMargin" id="wl8-nl-Ojt"/>
+                                    <constraint firstItem="hQz-4X-1Mg" firstAttribute="left" secondItem="ZV9-dA-UDD" secondAttribute="leftMargin" constant="20" id="wl8-nl-Ojt"/>
                                     <constraint firstAttribute="height" constant="180" id="xOK-pS-tbA"/>
                                 </constraints>
                             </view>
@@ -694,15 +694,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gtf-YO-Kaq" userLabel="Background image" customClass="FMStationImageView">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtf-YO-Kaq" userLabel="Background image" customClass="FMStationImageView">
                                                             <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
-                                                        <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxj-VF-cNe" userLabel="Exploding mask" customClass="FMExplodingMask">
+                                                        <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxj-VF-cNe" userLabel="Exploding mask" customClass="FMExplodingMask">
                                                             <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJN-4K-X7d" userLabel="Station Button" customClass="FMPlayPauseButton">
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJN-4K-X7d" userLabel="Station Button" customClass="FMPlayPauseButton">
                                                             <rect key="frame" x="176" y="220" width="60" height="60"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
