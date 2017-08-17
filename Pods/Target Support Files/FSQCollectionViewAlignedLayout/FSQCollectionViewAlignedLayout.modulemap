@@ -1,0 +1,6 @@
+framework module FSQCollectionViewAlignedLayout {
+  umbrella header "FSQCollectionViewAlignedLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

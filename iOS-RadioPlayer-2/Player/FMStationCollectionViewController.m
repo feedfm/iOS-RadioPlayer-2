@@ -28,11 +28,15 @@
     
 static NSString * const reuseIdentifier = @"stationCell";
 static int stationsPerRow = 2;
+static CGFloat itemSpacing = 20.0;
+static CGFloat lineSpacing = 15.0;
 static UIEdgeInsets sectionInsets;
+static UIEdgeInsets cellInsets;
 
 + (void) initialize {
     if (self == [FMStationCollectionViewController class]) {
-        sectionInsets = UIEdgeInsetsMake(20.0, 20.0, 0.0, 20.0);
+        sectionInsets = UIEdgeInsetsMake(20.0, 15.0, 0.0, 15.0);
+        cellInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
     }
 }
 
@@ -231,16 +235,20 @@ static UIEdgeInsets sectionInsets;
     
 }
 
-
-#pragma mark <UICollectionViewDelegateFlowLayout>
+#pragma mark <FSQCollectionViewDelegateAlignedLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    float paddingSpace = sectionInsets.left * (stationsPerRow + 1);
+                  layout:(FSQCollectionViewAlignedLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+      remainingLineSpace:(CGFloat)remainingLineSpace {
+
+    float paddingSpace = itemSpacing * (stationsPerRow - 1);
     float availableWidth = self.view.bounds.size.width - paddingSpace;
-    float widthPerItem = availableWidth / stationsPerRow;
+    float insets = sectionInsets.left + sectionInsets.right;
+    float bonus = 10.0; // what is this?
+    float widthPerItem = (availableWidth - insets - bonus) / stationsPerRow;
+
+    NSLog(@"padding is %f, bonus is %f, insets %f, available width is %f, width per item is %f", paddingSpace, bonus, insets, availableWidth, widthPerItem);
     
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
 
@@ -281,21 +289,33 @@ static UIEdgeInsets sectionInsets;
     return CGSizeMake(widthPerItem, height);
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
-                        layout:(UICollectionViewLayout *)collectionViewLayout
-        insetForSectionAtIndex:(NSInteger)section {
-    return sectionInsets;
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceHeightForHeaderInSection:(NSInteger)section {
+    return 0.0;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout *)collectionViewLayout
-minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return sectionInsets.left;
+- (FSQCollectionViewAlignedLayoutSectionAttributes *)collectionView:(UICollectionView *)collectionView
+                                                             layout:(FSQCollectionViewAlignedLayout *)collectionViewLayout
+                                        attributesForSectionAtIndex:(NSInteger)sectionIndex {
+    return [FSQCollectionViewAlignedLayoutSectionAttributes withHorizontalAlignment:FSQCollectionViewHorizontalAlignmentLeft
+                                                                  verticalAlignment:FSQCollectionViewVerticalAlignmentTop
+                                                                        itemSpacing:itemSpacing
+                                                                        lineSpacing:lineSpacing
+                                                                             insets:sectionInsets];
+}
+
+- (FSQCollectionViewAlignedLayoutCellAttributes *)collectionView:(UICollectionView *)collectionView
+                                                          layout:(FSQCollectionViewAlignedLayout *)collectionViewLayout
+                                    attributesForCellAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return [FSQCollectionViewAlignedLayoutCellAttributes withInsets:cellInsets
+            shouldBeginLine:NO
+            shouldEndLine:NO
+            startLineIndentation:NO];
+    
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-// Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
 

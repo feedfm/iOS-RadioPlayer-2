@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FeedMedia/FeedMediaUI.h>
 #import "FMElapsedTimePie.h"
+#import <FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.h>
 
 @interface FMStationCollectionViewCell : UICollectionViewCell
 
@@ -27,7 +28,7 @@
 @end
 
 
-@interface FMStationCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
+@interface FMStationCollectionViewController : UICollectionViewController <FSQCollectionViewDelegateAlignedLayout>
 
 /**
  * Return the array of stations that are visible to the
