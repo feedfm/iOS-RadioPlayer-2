@@ -250,11 +250,19 @@ static UIEdgeInsets cellInsets;
 
     FMStation *station = [_visibleStations objectAtIndex:indexPath.row];
 
+    // calculate height of station title
+    NSMutableDictionary *titleAttr = [NSMutableDictionary dictionary];
     UIFont *titleFont = [UIFont systemFontOfSize: 15.0f weight:UIFontWeightBold];
+    [titleAttr setObject:titleFont forKey:NSFontAttributeName];
     
-    CGSize size = [station.name sizeWithAttributes:@{ NSFontAttributeName: titleFont }];
+    NSMutableParagraphStyle *titleParaStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    titleParaStyle.lineBreakMode = NSLineBreakByWordWrapping;
+
+    CGFloat titleHeight = [station.name boundingRectWithSize:(CGSize) { widthPerItem, CGFLOAT_MAX }
+                                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                                  attributes:titleAttr context:nil].size.height;
     
-    float height = (.75 * widthPerItem) + 12.0f + size.height;
+    float height = (.75 * widthPerItem) + 12.0f + titleHeight;
 
     // subheader height
     NSString *subheader = [station.options objectForKey:FMResources.subheaderPropertyName];

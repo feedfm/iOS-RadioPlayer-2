@@ -79,7 +79,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69756518404907975" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBA-Am-ayB" userLabel="Title">
                                             <rect key="frame" x="0.0" y="49.333333333333329" width="50" height="17.999999999999986"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.8534557131901841" colorSpace="custom" customColorSpace="sRGB"/>
@@ -419,13 +419,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-3I-YAD" userLabel="station name">
-                                            <rect key="frame" x="80" y="14" width="294" height="20"/>
+                                            <rect key="frame" x="80" y="29" width="294" height="20"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-SC-mKn" userLabel="close">
-                                            <rect key="frame" x="379" y="15" width="20" height="20"/>
+                                            <rect key="frame" x="379" y="22.666666666666664" width="20" height="19.999999999999993"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="qNs-q3-0dD"/>
                                                 <constraint firstAttribute="height" constant="20" id="vbp-E4-W54"/>
@@ -433,7 +433,7 @@
                                             <state key="normal" image="feedfm-icon-hide-white"/>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-OY-mAD" userLabel="border">
-                                            <rect key="frame" x="0.0" y="49" width="414" height="1"/>
+                                            <rect key="frame" x="0.0" y="64" width="414" height="1"/>
                                             <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="SmW-03-xj4"/>
