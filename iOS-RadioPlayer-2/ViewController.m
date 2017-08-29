@@ -21,6 +21,11 @@
 
 @implementation ViewController
 
+- (UIInterfaceOrientationMask) supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

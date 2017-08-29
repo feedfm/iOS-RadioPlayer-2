@@ -48,6 +48,10 @@ static NSString * const stationCellIdentifier = @"stationCell";
     self.delegate = self;
 }
 
+- (UIInterfaceOrientationMask) supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (FMStation *) visibleStation {
     UICollectionViewCell *visibleCell = [self visibleCell];
     
