@@ -24,8 +24,6 @@
 @interface FMStationImageView : UIImageView
 
 
-
-
 @property (nonatomic, strong) FMStation *station;
 
 @end

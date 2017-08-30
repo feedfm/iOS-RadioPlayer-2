@@ -147,21 +147,39 @@ static UIEdgeInsets sectionInsets;
     cell.playPauseButton.audioItem = audioItem;
     cell.playPauseButton.layer.cornerRadius = 30;
     
-    NSString *bgImageUrl = [audioItem.metadata objectForKey:FMResources.backgroundImageUrlPropertyName];
-    
-    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+    NSString *bgImageUrl = [self backgroundLandscapeImageURLForOptions:audioItem.metadata andBackupOptions:_station.options];
+    if (bgImageUrl != nil) {
         [cell.audioItemImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
-        
+
     } else {
         [cell.audioItemImage sd_cancelCurrentImageLoad];
         cell.audioItemImage.image = _defaultAudioItemImage;
-
     }
     
     cell.audioItemImage.layer.cornerRadius = 5.0f;
     cell.audioItemImage.layer.masksToBounds = YES;
 
     return cell;
+}
+
+- (NSString *) backgroundLandscapeImageURLForOptions: (NSDictionary *) options andBackupOptions: (NSDictionary *) backupOptions {
+    NSString *bgImageUrl = [options objectForKey:FMResources.backgroundLandscapeImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    bgImageUrl = [options objectForKey:FMResources.backgroundImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    if (backupOptions != nil) {
+        return [self backgroundLandscapeImageURLForOptions:backupOptions andBackupOptions:nil];
+    }
+    
+    return nil;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -172,9 +190,9 @@ static UIEdgeInsets sectionInsets;
         
         cell.stationLabel.text = _station.name;
         
-        NSString *bgImageUrl = [_station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
-        
-        if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        NSString *bgImageUrl = [self backgroundLandscapeImageURLForOptions:_station.options andBackupOptions:nil];
+
+        if (bgImageUrl != nil) {
             [cell.stationImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl]];
             
         } else {

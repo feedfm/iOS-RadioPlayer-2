@@ -40,10 +40,26 @@
 
 /**
  * This is the key for the URL that is in FMStation.options or FMAudioItem.metadata
- * that points to an image to display for the station/audio item.
+ * that points to an image to display for the station/audio item. This is the fallback
+ * image to represent a station or song, assuming there is no portrait or landscape
+ * shaped image.
  */
 
 @property (class, nonatomic, readonly) NSString *backgroundImageUrlPropertyName;
+
+/**
+ * This is the key for the URL that is in FMStation.options or FMAudioItem.metadata
+ * that points to a portrait shaped image to display for the station/audio item.
+ */
+
+@property (class, nonatomic, readonly) NSString * backgroundPortraitImageUrlPropertyName;
+
+/**
+ * This is the key for the URL that is in FMStation.options or FMAudioItem.metadata
+ * that points to a landscape shaped image to display for the station/audio item.
+ */
+
+@property (class, nonatomic, readonly) NSString * backgroundLandscapeImageUrlPropertyName;
 
 /**
  * This is the key for the subheader text in FMStation.options. This subheader

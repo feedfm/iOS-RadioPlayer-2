@@ -590,12 +590,7 @@
 
     if (station.isOnDemand) {
         _playlistView.station = station;
-        
-        NSArray *visible = _stationPager.visibleCells;
-        if (visible.count == 1) {
-            FMPageableStationCollectionViewStationCell *cell = [visible objectAtIndex:0];
-            _playlistView.defaultAudioItemImage = cell.backgroundImage.image;
-        }
+        _playlistView.defaultAudioItemImage = nil;
 
         [_playlistView reloadData];
     }

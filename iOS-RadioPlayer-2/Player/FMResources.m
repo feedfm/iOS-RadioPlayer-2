@@ -13,10 +13,20 @@
 @implementation FMResources
 
 static NSString *_backgroundImageUrlPropertyName = @"background_image_url";
+static NSString *_backgroundPortraitImageUrlPropertyName = @"background_portrait_image_url";
+static NSString *_backgroundLandscapeImageUrlPropertyName = @"background_landscape_image_url";
 static NSString *_subheaderPropertyName = @"subheader";
 
 + (NSString *) backgroundImageUrlPropertyName {
     return _backgroundImageUrlPropertyName;
+}
+
++ (NSString *) backgroundPortraitImageUrlPropertyName {
+    return _backgroundPortraitImageUrlPropertyName;
+}
+
++ (NSString *) backgroundLandscapeImageUrlPropertyName {
+    return _backgroundLandscapeImageUrlPropertyName;
 }
 
 + (NSString *) subheaderPropertyName {

@@ -128,7 +128,7 @@ static UIEdgeInsets cellInsets;
 
         cell.title.text = station.name;
         
-        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
+        NSString *bgImageUrl = [self backgroundImageURLForOptions:station.options];
         if (bgImageUrl) {
             [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
         }
@@ -185,6 +185,23 @@ static UIEdgeInsets cellInsets;
     
     return cell;
 }
+
+- (NSString *) backgroundImageURLForOptions: (NSDictionary *) options {
+    NSString *bgImageUrl = [options objectForKey:FMResources.backgroundLandscapeImageUrlPropertyName];
+        
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    bgImageUrl = [options objectForKey:FMResources.backgroundImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    return nil;
+}
+
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind

@@ -200,7 +200,7 @@ static double sectionHeight = 65.0;
         
         cell.stationLabel.text = audioItem.station.name;
  
-        NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
+        NSString *bgImageUrl = [self backgroundImageURLForOptions:station.options];
         
         if (bgImageUrl != nil) {
             cell.stationImage.hidden = NO;
@@ -225,6 +225,23 @@ static double sectionHeight = 65.0;
         return nil;
     }
 }
+
+- (NSString *) backgroundImageURLForOptions: (NSDictionary *) options {
+    NSString *bgImageUrl = [options objectForKey:FMResources.backgroundLandscapeImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    bgImageUrl = [options objectForKey:FMResources.backgroundImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    return nil;
+}
+
 
 - (void) didTapCloseButton: (id) sender {
     

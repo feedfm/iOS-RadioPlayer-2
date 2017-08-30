@@ -138,24 +138,36 @@
     [super setImage:_defaultImage];
 }
 
-- (NSString *) backgroundImageURLForStation: (FMStation *) station {
-    NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
+- (NSString *) backgroundImageURLForOptions: (NSDictionary *) options {
+    NSString *bgImageUrl = nil;
     
-    if ((bgImageUrl != nil) && (bgImageUrl.length == 0)) {
-        bgImageUrl = nil;
+    if (self.bounds.size.width > self.bounds.size.height) {
+        bgImageUrl = [options objectForKey:FMResources.backgroundLandscapeImageUrlPropertyName];
+        
+    } else if (self.bounds.size.width < self.bounds.size.height) {
+        bgImageUrl = [options objectForKey:FMResources.backgroundPortraitImageUrlPropertyName];
+        
     }
     
-    return bgImageUrl;
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    bgImageUrl = [options objectForKey:FMResources.backgroundImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length > 0)) {
+        return bgImageUrl;
+    }
+    
+    return nil;
+}
+
+- (NSString *) backgroundImageURLForStation: (FMStation *) station {
+    return [self backgroundImageURLForOptions:station.options];
 }
 
 - (NSString *) backgroundImageURLForSong: (FMAudioItem *) song {
-    NSString *bgImageUrl = [song.metadata objectForKey:FMResources.backgroundImageUrlPropertyName];
-    
-    if ((bgImageUrl != nil) && (bgImageUrl.length == 0)) {
-        bgImageUrl = nil;
-    }
-    
-    return bgImageUrl;
+    return [self backgroundImageURLForOptions:song.metadata];
 }
 
 - (void) setStation:(FMStation *)station {
