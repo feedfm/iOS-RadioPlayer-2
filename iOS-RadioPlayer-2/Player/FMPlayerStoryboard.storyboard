@@ -161,7 +161,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track by artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtG-A1-JWW" userLabel="track" customClass="MarqueeLabel">
-                                                    <rect key="frame" x="15" y="20" width="231" height="17"/>
+                                                    <rect key="frame" x="15" y="20" width="233" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -171,20 +171,20 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-bE-KNG" userLabel="like" customClass="FMLikeButton">
-                                                    <rect key="frame" x="261" y="19" width="18" height="18"/>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-bE-KNG" userLabel="like" customClass="FMLikeButton">
+                                                    <rect key="frame" x="258" y="14" width="28" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="DEg-c6-9gC"/>
-                                                        <constraint firstAttribute="height" constant="18" id="J4k-XK-GRm"/>
+                                                        <constraint firstAttribute="width" constant="28" id="DEg-c6-9gC"/>
+                                                        <constraint firstAttribute="height" constant="28" id="J4k-XK-GRm"/>
                                                     </constraints>
                                                     <state key="normal" image="feedfm-icon-like-white"/>
                                                     <state key="selected" image="feedfm-icon-like-full-white"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASC-b1-qSW" userLabel="dislike" customClass="FMDislikeButton">
-                                                    <rect key="frame" x="289" y="18" width="20" height="20"/>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASC-b1-qSW" userLabel="dislike" customClass="FMDislikeButton">
+                                                    <rect key="frame" x="286" y="14" width="28" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="SSE-39-czO"/>
-                                                        <constraint firstAttribute="width" constant="20" id="k8N-2i-FEK"/>
+                                                        <constraint firstAttribute="height" constant="28" id="SSE-39-czO"/>
+                                                        <constraint firstAttribute="width" constant="28" id="k8N-2i-FEK"/>
                                                     </constraints>
                                                     <state key="normal" image="feedfm-icon-dislike-white"/>
                                                     <state key="selected" image="feedfm-icon-dislike-full-white"/>
@@ -202,14 +202,14 @@
                                         <constraints>
                                             <constraint firstItem="VtG-A1-JWW" firstAttribute="centerY" secondItem="Nf3-14-MEj" secondAttribute="centerY" id="CYq-AN-l2t"/>
                                             <constraint firstAttribute="right" secondItem="Src-m2-iYH" secondAttribute="right" id="F3k-Dg-XSE"/>
-                                            <constraint firstItem="4Da-bE-KNG" firstAttribute="leading" secondItem="VtG-A1-JWW" secondAttribute="trailing" constant="15" id="HYi-Lq-41v"/>
+                                            <constraint firstItem="4Da-bE-KNG" firstAttribute="leading" secondItem="VtG-A1-JWW" secondAttribute="trailing" constant="10" id="HYi-Lq-41v"/>
                                             <constraint firstItem="ASC-b1-qSW" firstAttribute="centerY" secondItem="Nf3-14-MEj" secondAttribute="centerY" id="NQO-RF-CkK"/>
                                             <constraint firstItem="VtG-A1-JWW" firstAttribute="leading" secondItem="Nf3-14-MEj" secondAttribute="leading" constant="15" id="Ud9-35-iHO"/>
-                                            <constraint firstItem="ASC-b1-qSW" firstAttribute="leading" secondItem="4Da-bE-KNG" secondAttribute="trailing" constant="10" id="XAm-3U-5Ya"/>
+                                            <constraint firstItem="ASC-b1-qSW" firstAttribute="leading" secondItem="4Da-bE-KNG" secondAttribute="trailing" id="XAm-3U-5Ya"/>
                                             <constraint firstAttribute="bottom" secondItem="Src-m2-iYH" secondAttribute="bottom" id="ZiH-KZ-1Ls"/>
                                             <constraint firstItem="4Da-bE-KNG" firstAttribute="centerY" secondItem="Nf3-14-MEj" secondAttribute="centerY" id="geo-yl-jyB"/>
                                             <constraint firstItem="Src-m2-iYH" firstAttribute="left" secondItem="Nf3-14-MEj" secondAttribute="left" id="qdr-hW-Hz5"/>
-                                            <constraint firstAttribute="trailing" secondItem="ASC-b1-qSW" secondAttribute="trailing" constant="15" id="uYr-3H-Gb7"/>
+                                            <constraint firstAttribute="trailing" secondItem="ASC-b1-qSW" secondAttribute="trailing" constant="10" id="uYr-3H-Gb7"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dislikeButton" destination="ASC-b1-qSW" id="JXf-GP-ASn"/>
@@ -343,11 +343,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyA-cS-Vyl" userLabel="dislike" customClass="FMDislikeButton">
-                                                    <rect key="frame" x="335" y="228" width="18" height="18"/>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyA-cS-Vyl" userLabel="dislike" customClass="FMDislikeButton">
+                                                    <rect key="frame" x="330" y="223" width="28" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="bfG-dZ-azL"/>
-                                                        <constraint firstAttribute="height" constant="18" id="kba-ej-vgS"/>
+                                                        <constraint firstAttribute="width" constant="28" id="bfG-dZ-azL"/>
+                                                        <constraint firstAttribute="height" constant="28" id="kba-ej-vgS"/>
                                                     </constraints>
                                                     <state key="normal" image="feedfm-icon-dislike-white"/>
                                                     <state key="selected" image="feedfm-icon-dislike-full-white"/>
@@ -359,11 +359,11 @@
                                                         <constraint firstAttribute="height" constant="1" id="ema-fS-oUH"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dt3-wV-fwu" userLabel="like" customClass="FMLikeButton">
-                                                    <rect key="frame" x="307" y="228" width="18" height="18"/>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dt3-wV-fwu" userLabel="like" customClass="FMLikeButton">
+                                                    <rect key="frame" x="302" y="223" width="28" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="o93-O4-rir"/>
-                                                        <constraint firstAttribute="height" constant="18" id="tQ5-xy-B51"/>
+                                                        <constraint firstAttribute="width" constant="28" id="o93-O4-rir"/>
+                                                        <constraint firstAttribute="height" constant="28" id="tQ5-xy-B51"/>
                                                     </constraints>
                                                     <state key="normal" image="feedfm-icon-like-white"/>
                                                     <state key="selected" image="feedfm-icon-like-full-white"/>
@@ -372,24 +372,24 @@
                                         </view>
                                         <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
-                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="Ugz-E7-sDP" secondAttribute="trailing" constant="5" id="62Q-IY-8Rc"/>
+                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="Ugz-E7-sDP" secondAttribute="trailing" id="62Q-IY-8Rc"/>
                                             <constraint firstAttribute="trailing" secondItem="KYW-2D-6cr" secondAttribute="trailing" id="6zG-0D-ZuC"/>
                                             <constraint firstItem="WIN-TZ-p6J" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" constant="15" id="8vg-DU-eCX"/>
                                             <constraint firstAttribute="bottom" secondItem="KYW-2D-6cr" secondAttribute="bottom" id="Aye-KE-8Bo"/>
-                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="15" id="Bk0-GA-vSZ"/>
+                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="10" id="Bk0-GA-vSZ"/>
                                             <constraint firstItem="WIN-TZ-p6J" firstAttribute="top" secondItem="Ugz-E7-sDP" secondAttribute="bottom" constant="5" id="HcH-D9-fdS"/>
                                             <constraint firstItem="LRU-JK-dRz" firstAttribute="centerY" secondItem="JBM-ks-oJE" secondAttribute="centerY" id="KCU-O6-zHj"/>
                                             <constraint firstItem="Ugz-E7-sDP" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="15" id="Qgf-Kl-eyy"/>
                                             <constraint firstItem="Ugz-E7-sDP" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" constant="15" id="UTt-TM-oax"/>
                                             <constraint firstItem="JBM-ks-oJE" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" constant="15" id="UZa-hc-9Eh"/>
                                             <constraint firstAttribute="trailing" secondItem="JBM-ks-oJE" secondAttribute="trailing" constant="15" id="ZoB-o5-5T2"/>
-                                            <constraint firstItem="uyA-cS-Vyl" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="15" id="bcg-Ch-ZCC"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="uyA-cS-Vyl" secondAttribute="trailing" constant="15" id="bd0-QL-Lth"/>
-                                            <constraint firstItem="uyA-cS-Vyl" firstAttribute="leading" secondItem="dt3-wV-fwu" secondAttribute="trailing" constant="10" id="irK-60-wcI"/>
+                                            <constraint firstItem="uyA-cS-Vyl" firstAttribute="top" secondItem="JBM-ks-oJE" secondAttribute="bottom" constant="10" id="bcg-Ch-ZCC"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="uyA-cS-Vyl" secondAttribute="trailing" constant="10" id="bd0-QL-Lth"/>
+                                            <constraint firstItem="uyA-cS-Vyl" firstAttribute="leading" secondItem="dt3-wV-fwu" secondAttribute="trailing" id="irK-60-wcI"/>
                                             <constraint firstItem="KYW-2D-6cr" firstAttribute="leading" secondItem="Cb1-m9-Jda" secondAttribute="leading" id="maG-Ko-gIm"/>
                                             <constraint firstItem="LRU-JK-dRz" firstAttribute="centerX" secondItem="JBM-ks-oJE" secondAttribute="centerX" id="p8x-LL-cJH"/>
                                             <constraint firstItem="JBM-ks-oJE" firstAttribute="top" secondItem="Cb1-m9-Jda" secondAttribute="top" constant="15" id="tAh-Mg-WRG"/>
-                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="WIN-TZ-p6J" secondAttribute="trailing" constant="5" id="ynp-q3-r0E"/>
+                                            <constraint firstItem="dt3-wV-fwu" firstAttribute="leading" secondItem="WIN-TZ-p6J" secondAttribute="trailing" id="ynp-q3-r0E"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="artistLabel" destination="WIN-TZ-p6J" id="nZA-yA-5E2"/>
