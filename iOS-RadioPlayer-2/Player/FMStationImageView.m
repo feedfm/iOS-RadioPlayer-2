@@ -85,15 +85,21 @@
 - (void) updateImage {
 
     if (_station != nil) {
+        FMLogDebug(@"updating station image for station '%@'", _station.name);
+        
         NSString *toDisplay = nil;
         
         if ([_feedPlayer.activeStation isEqual:_station] &&
             (_feedPlayer.currentItem != nil)) {
+            FMLogDebug(@"   .. selecting current song image");
+            
             // display current song if it exists and we are active station
             toDisplay = [self backgroundImageURLForSong:_feedPlayer.currentItem];
         }
         
         if (toDisplay == nil) {
+            FMLogDebug(@"   .. selecting station background");
+
             // display station background if we're not displaying song background
             toDisplay = [self backgroundImageURLForStation:_station];
         }
@@ -135,11 +141,19 @@
 - (NSString *) backgroundImageURLForStation: (FMStation *) station {
     NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
     
+    if ((bgImageUrl != nil) && (bgImageUrl.length == 0)) {
+        bgImageUrl = nil;
+    }
+    
     return bgImageUrl;
 }
 
 - (NSString *) backgroundImageURLForSong: (FMAudioItem *) song {
     NSString *bgImageUrl = [song.metadata objectForKey:FMResources.backgroundImageUrlPropertyName];
+    
+    if ((bgImageUrl != nil) && (bgImageUrl.length == 0)) {
+        bgImageUrl = nil;
+    }
     
     return bgImageUrl;
 }
