@@ -18,6 +18,7 @@
 		A94DA74E1EF6C3C5008E326F /* FMElapsedTimePie.m in Sources */ = {isa = PBXBuildFile; fileRef = A94DA74D1EF6C3C5008E326F /* FMElapsedTimePie.m */; };
 		A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */; };
 		A98F3C1C1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */; };
+		A99EC3F11F56068100B55033 /* PortraitNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC3F01F56068100B55033 /* PortraitNavigationController.m */; };
 		A9D46E191EC1386B004D3DAE /* FMDisclaimerControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */; };
 		A9D46E4D1EC24A3D004D3DAE /* FMStationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D46E4C1EC24A3D004D3DAE /* FMStationCollectionViewController.m */; };
 		A9DAECB81ED64520008D8431 /* FMPageableStationCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */; };
@@ -61,6 +62,8 @@
 		A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPlayHistoryCollectionView.m; sourceTree = "<group>"; };
 		A98F3C1A1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FMAdjustImageAlpha.h"; sourceTree = "<group>"; };
 		A98F3C1B1EF2005100C55799 /* UIImage+FMAdjustImageAlpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FMAdjustImageAlpha.m"; sourceTree = "<group>"; };
+		A99EC3EF1F56068100B55033 /* PortraitNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitNavigationController.h; sourceTree = "<group>"; };
+		A99EC3F01F56068100B55033 /* PortraitNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitNavigationController.m; sourceTree = "<group>"; };
 		A9D46E171EC1386B004D3DAE /* FMDisclaimerControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDisclaimerControllerViewController.h; sourceTree = "<group>"; };
 		A9D46E181EC1386B004D3DAE /* FMDisclaimerControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDisclaimerControllerViewController.m; sourceTree = "<group>"; };
 		A9D46E4B1EC24A3D004D3DAE /* FMStationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMStationCollectionViewController.h; sourceTree = "<group>"; };
@@ -114,9 +117,9 @@
 				A9F437BC1EDC88B500667B96 /* FMPopUpDownNavigationController.m */,
 				A954BCDE1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.h */,
 				A954BCDF1ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m */,
+				A9157C051F3BCC0A0063CE84 /* FMPlaylistCollectionView.h */,
 				A9157C061F3BCC0A0063CE84 /* FMPlaylistCollectionView.m */,
 				A90A03BE1F2900E300875A50 /* FMStationImageView.h */,
-				A9157C051F3BCC0A0063CE84 /* FMPlaylistCollectionView.h */,
 				A90A03BF1F2900E300875A50 /* FMStationImageView.m */,
 				A9DAECB61ED64520008D8431 /* FMPageableStationCollectionView.h */,
 				A9DAECB71ED64520008D8431 /* FMPageableStationCollectionView.m */,
@@ -168,6 +171,8 @@
 				A9F09C261EB8F8AF007192AE /* ViewController.h */,
 				A9F09C271EB8F8AF007192AE /* ViewController.m */,
 				A9F09C291EB8F8AF007192AE /* Main.storyboard */,
+				A99EC3EF1F56068100B55033 /* PortraitNavigationController.h */,
+				A99EC3F01F56068100B55033 /* PortraitNavigationController.m */,
 				A9F09C2C1EB8F8AF007192AE /* Assets.xcassets */,
 				A9F09C2E1EB8F8B0007192AE /* LaunchScreen.storyboard */,
 				A9F09C311EB8F8B0007192AE /* Info.plist */,
@@ -374,6 +379,7 @@
 			files = (
 				A9F09C281EB8F8AF007192AE /* ViewController.m in Sources */,
 				A9DAECB81ED64520008D8431 /* FMPageableStationCollectionView.m in Sources */,
+				A99EC3F11F56068100B55033 /* PortraitNavigationController.m in Sources */,
 				A90A03C01F2900E300875A50 /* FMStationImageView.m in Sources */,
 				A9F09C251EB8F8AF007192AE /* AppDelegate.m in Sources */,
 				A954BCE01ECF67FC00FBFBAF /* FMPlayHistoryCollectionView.m in Sources */,

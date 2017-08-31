@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="1086" y="-544"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Portrait Navigation Controller-->
         <scene sceneID="x4P-Io-llA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DL8-ox-g8a" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DL8-ox-g8a" customClass="PortraitNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EmL-N0-nk0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -115,7 +116,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="feedfm-icon-pause-black" width="16" height="16"/>
-        <image name="feedfm-icon-play-black" width="16" height="16"/>
+        <image name="feedfm-icon-pause-black" width="24" height="24"/>
+        <image name="feedfm-icon-play-black" width="24" height="24"/>
     </resources>
 </document>
