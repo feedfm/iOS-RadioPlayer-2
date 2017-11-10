@@ -14,7 +14,6 @@
 #import "UIImage+FMAdjustImageAlpha.h"
 #import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
-#import <FeedMedia/FeedMediaUI.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #define CALL_TO_ACTION @"Press play to start!"

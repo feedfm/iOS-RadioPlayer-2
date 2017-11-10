@@ -2,15 +2,13 @@
 //  FeedMediaCore.h
 //  FeedMediaCore
 //
-//  Umbrella header.
-//
-//  Created by Eric Lambrecht on 2/1/16.
-//  Copyright © 2016 Feed Media. All rights reserved.
+//  Created by Eric Lambrecht on 9/6/17.
+//  Copyright © 2017 Feed Media. All rights reserved.
 //
 
-#ifndef FeedMediaCore_h
-#define FeedMediaCore_h
+#define FEED_MEDIA_CLIENT_VERSION @"4.0.19"
 
+// All public headers
 #import "FMAudioItem.h"
 #import "FMAudioPlayer.h"
 #import "FMLockScreenDelegate.h"
@@ -18,6 +16,3 @@
 #import "FMLog.h"
 #import "FMStation.h"
 
-#define FEED_MEDIA_CLIENT_VERSION @"4.0.11"
-
-#endif /* FeedMediaCore_h */

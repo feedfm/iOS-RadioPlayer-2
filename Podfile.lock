@@ -1,7 +1,7 @@
 PODS:
-  - FeedMedia (4.0.11):
-    - FeedMedia/UI (= 4.0.11)
-  - FeedMedia/UI (4.0.11):
+  - FeedMedia (4.0.19):
+    - FeedMedia/UI (= 4.0.19)
+  - FeedMedia/UI (4.0.19):
     - MarqueeLabel (~> 3.0.3)
   - FSQCollectionViewAlignedLayout (1.1.1)
   - MarqueeLabel (3.0.5):
@@ -13,18 +13,18 @@ PODS:
   - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
-  - FeedMedia (~> 4.0.11)
+  - FeedMedia (~> 4.0.19)
   - FSQCollectionViewAlignedLayout
   - OAStackView
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
-  FeedMedia: e8b017aafbedb07710ee4ea889200c30aaebca13
+  FeedMedia: 0052ac8c8f1825d629906b209e10c76bce1e0499
   FSQCollectionViewAlignedLayout: 122006b230bf5635ae159f1ad1eaa9b5ef11391e
   MarqueeLabel: 8a25b2cf02cf52165022f01369e63536c58fcc00
   OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 58439a8e33ddb53522f71b6fed4258bdbe1ee8a5
+PODFILE CHECKSUM: e40fad577dd61737b11fb0a1473d71c344c74358
 
 COCOAPODS: 1.2.0

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FeedMedia/FeedMediaUI.h>
+#include <FeedMedia/FeedMedia.h>
 #import "FMElapsedTimePie.h"
 #import <FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.h>
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FeedMedia/FeedMediaUI.h>
+#import <FeedMedia/FeedMedia.h>
 #import <MarqueeLabel/MarqueeLabel.h>
 
 // helper classes

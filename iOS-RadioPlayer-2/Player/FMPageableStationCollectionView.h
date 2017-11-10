@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <FeedMedia/FeedMedia.h>
-#import <FeedMedia/FeedMediaUI.h>
 #import "FMExplodingMask.h"
 #import "FMElapsedTimePie.h"
 #import "FMStationImageView.h"

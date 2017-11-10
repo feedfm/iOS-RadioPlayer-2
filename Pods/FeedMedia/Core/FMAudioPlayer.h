@@ -338,8 +338,8 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  *  @param onNotAvailable called when we determine music is not available
  */
 
-- (void)whenAvailable: (void (^)()) onAvailable
-         notAvailable: (void (^)()) onNotAvailable;
+- (void)whenAvailable: (void (^)(void)) onAvailable
+         notAvailable: (void (^)(void)) onNotAvailable;
 
 
 ///-----------------------------------------------------
@@ -480,7 +480,6 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  *  @see activeStation
  */
 
-
 - (BOOL) setActiveStationByName: (NSString *)name withCrossfade: (BOOL) withCrossfade;
 
 /**
@@ -497,6 +496,42 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  */
 
 - (void) setActiveStation: (FMStation *)station withCrossfade: (BOOL) withCrossfade;
+
+/**
+ * Search through the list of available stations, and return the one that has
+ * an option attribute named 'key' with a string value of 'value'.
+ *
+ * @param key name of attribute to inspect
+ * @param value attribute value that matching station should contain
+ */
+
+- (FMStation *) getStationWithOptionKey: (NSString *) key Value: (NSObject *) value;
+
+/**
+ * Search throught the list of available stations, and return one that has
+ * options that match those passed in via optionKeysAndValues. This differs from
+ * getStationWithOptionKey:Value: in that you can specify multiple key/value
+ * pairs, like so:
+ *
+ * [player getStationWithOptions: @{ @"genre": @"80s", @"bpm" : @"slow" }
+ *
+ * This method returns the first station with the matching values, or nil.
+ 
+ * @param optionKeysAndValues key value pairs to search for
+ * @return a station whose options contain optionKeysAndValues
+ */
+
+- (FMStation *) getStationWithOptions: (NSDictionary *) optionKeysAndValues;
+
+/**
+ * Similar to getStationWithOptions:, but this method returns all the stations
+ * that match the passed in optionsKeysAndValues.
+ *
+ * @param optionKeysAndValues key value pairs to search for
+ * @return an array of stations whose options contain optionKeysAndValues. never nil.
+ */
+
+- (NSArray *) getAllStationsWithOptions: (NSDictionary *) optionKeysAndValues;
 
 /**
  *  A value between 0.0 and 1.0 relative to system volume

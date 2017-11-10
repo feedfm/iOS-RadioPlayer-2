@@ -11,7 +11,6 @@
 #endif
 
 #import "CWStatusBarNotification.h"
-#import "FeedMedia.h"
 #import "FeedMediaCore.h"
 #import "FMAudioItem.h"
 #import "FMAudioPlayer.h"
@@ -19,7 +18,8 @@
 #import "FMLockScreenDelegate.h"
 #import "FMLog.h"
 #import "FMStation.h"
-#import "FeedMediaUI.h"
+#import "FeedMedia.h"
+#import "FeedMediaCoreProxy.h"
 #import "FMActivityIndicator.h"
 #import "FMDislikeButton.h"
 #import "FMElapsedTimeLabel.h"
@@ -33,9 +33,9 @@
 #import "FMSkipButton.h"
 #import "FMSkipWarningView.h"
 #import "FMStationButton.h"
+#import "FMStationCrossfader.h"
 #import "FMTotalTimeLabel.h"
 #import "CWStatusBarNotification.h"
-#import "FeedMedia.h"
 #import "FeedMediaCore.h"
 #import "FMAudioItem.h"
 #import "FMAudioPlayer.h"
