@@ -47,7 +47,8 @@
 
 @implementation FMPlayHistoryCollectionView {
     
-    NSMutableArray *_stationsAndAudioItems;
+    NSMutableArray *_audioItems;
+    NSMutableArray *_stations;
     
 }
 
@@ -88,14 +89,16 @@ static double sectionHeight = 65.0;
 }
 
 - (void) setup {
-    _stationsAndAudioItems = [NSMutableArray new];
+    _audioItems = [NSMutableArray new];
+    _stations = [NSMutableArray new];
 
     // pull current play history into our data structure
     NSArray *playHistory = [[FMAudioPlayer sharedPlayer] playHistory];
     for (long int i = playHistory.count - 1; i >= 0; i--) {
         FMAudioItem *audioItem = [playHistory objectAtIndex:i];
-        
-        [self appendNewAudioItem:audioItem];
+        FMStation *station = [self stationForAudioItem:audioItem];
+
+        [self appendNewAudioItem:audioItem station:station];
     }
     
     self.dataSource = self;
@@ -121,24 +124,55 @@ static double sectionHeight = 65.0;
 
 - (void) songStarted: (NSNotification *) notification {
     FMAudioItem *currentItem = [[FMAudioPlayer sharedPlayer] currentItem];
+    FMStation *activeStation = [[FMAudioPlayer sharedPlayer] activeStation];
     
     if (currentItem) {
-        [self appendNewAudioItem:currentItem];
+        [self appendNewAudioItem:currentItem station:activeStation];
         [self reloadData];
     }
 }
 
-- (void) appendNewAudioItem: (FMAudioItem *) audioItem {
-    FMStation *lastStation = (_stationsAndAudioItems.count > 0) ? ((FMAudioItem *)_stationsAndAudioItems[0][0]).station : nil;
+- (FMStation *) stationForAudioItem: (FMAudioItem *) audioItem {
+    FMStation *sameName = nil;
+    
+    for (FMStation *station in [[FMAudioPlayer sharedPlayer] stationList]) {
+        if ([station.identifier isEqualToString:audioItem.station.identifier]) {
+            return station;
+        }
+        
+        if ([station.name isEqualToString:audioItem.station.name]) {
+            sameName = station;
+        }
+    }
+    
+    // try returning station with matching name
+    if (sameName != nil) {
+        return sameName;
+    }
+    
+    // ran out of matches.. use the best we have
+    return audioItem.station;
+}
+
+- (void) appendNewAudioItem: (FMAudioItem *) audioItem station: (FMStation *) station {
+    FMStation *lastStation = (_stations.count > 0) ? ((FMStation *)_stations[0]) : nil;
 
     // stick play on existing station array, or create new one if on different station
     NSMutableArray *plays;
-    if ((lastStation == nil) || ![lastStation.identifier isEqualToString:audioItem.station.identifier]) {
+    if ((lastStation == nil) || ![lastStation.identifier isEqualToString:station.identifier]) {
         plays = [NSMutableArray new];
+        [_audioItems insertObject:plays atIndex:0];
         
-        [_stationsAndAudioItems insertObject:plays atIndex:0];
+        [_stations insertObject:station atIndex:0];
+        
     } else {
-        plays = _stationsAndAudioItems[0];
+        FMAudioItem *lastSong = _audioItems[0][0];
+        if ([lastSong.id isEqualToString:audioItem.id]) {
+            // don't list a song twice (from simulcast stations)
+            return;
+        }
+
+        plays = _audioItems[0];
     }
     
     [plays insertObject:audioItem atIndex:0];
@@ -147,17 +181,17 @@ static double sectionHeight = 65.0;
 #pragma mark - <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _stationsAndAudioItems.count;
+    return _stations.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return ((NSMutableArray *) _stationsAndAudioItems[section]).count;
+    return ((NSMutableArray *) _audioItems[section]).count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FMPlayHistoryCollectionViewPlayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:playCellIdentifier forIndexPath:indexPath];
 
-    FMAudioItem *audioItem = (FMAudioItem *) _stationsAndAudioItems[indexPath.section][indexPath.row];
+    FMAudioItem *audioItem = (FMAudioItem *) _audioItems[indexPath.section][indexPath.row];
 
     UIFont *plainFont = cell.trackLabel.font;
     UIFont *boldFont = [UIFont fontWithDescriptor:[[plainFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:plainFont.pointSize];
@@ -195,10 +229,9 @@ static double sectionHeight = 65.0;
 
         FMPlayHistoryCollectionViewStationCell * cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:stationCellIdentifier forIndexPath:indexPath];
         
-        FMAudioItem *audioItem = (FMAudioItem *) _stationsAndAudioItems[indexPath.section][0];
-        FMStation *station = audioItem.station;
+        FMStation *station = (FMStation *) _stations[indexPath.section];
         
-        cell.stationLabel.text = audioItem.station.name;
+        cell.stationLabel.text = station.name;
  
         NSString *bgImageUrl = [self backgroundImageURLForOptions:station.options];
         

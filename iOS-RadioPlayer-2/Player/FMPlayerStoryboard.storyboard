@@ -677,8 +677,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ke7-Ji-fOU" userLabel="Player Display View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="467"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7m0-qk-uHH" userLabel="Station Collection" customClass="FMPageableStationCollectionView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7m0-qk-uHH" userLabel="Station Collection" customClass="FMPageableStationCollectionView">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="329"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HOM-gZ-S7T">
                                             <size key="itemSize" width="411" height="500"/>
@@ -688,7 +688,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stationCell" id="Zgg-nj-yYc" customClass="FMPageableStationCollectionViewStationCell">
-                                                <rect key="frame" x="0.0" y="-16.5" width="411" height="500"/>
+                                                <rect key="frame" x="0.0" y="-85.5" width="411" height="500"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="411" height="500"/>
@@ -910,7 +910,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tZ-oC-jT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302.89855072463769" y="-126.35869565217392"/>
+            <point key="canvasLocation" x="301.60000000000002" y="-126.38680659670166"/>
         </scene>
         <!--Disclaimer-->
         <scene sceneID="XQO-pd-5G3">

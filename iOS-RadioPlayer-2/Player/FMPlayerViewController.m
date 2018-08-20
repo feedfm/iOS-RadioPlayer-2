@@ -209,10 +209,12 @@
     // re-enable notifications when the player is closed
     player.disableSongStartNotifications = NO;
     
+#ifndef TARGET_OS_TV
     // ...and have notification taps pull the player back up
     player.statusBarNotification.notificationTappedBlock = ^{
         [FMResources presentPlayerWithTitle:self.title];
     };
+#endif
 
 }
 

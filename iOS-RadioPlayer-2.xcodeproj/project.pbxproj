@@ -227,7 +227,6 @@
 				A9F09C1A1EB8F8AF007192AE /* Frameworks */,
 				A9F09C1B1EB8F8AF007192AE /* Resources */,
 				E1F7C0C64C6CDE77B21EEB5F /* [CP] Embed Pods Frameworks */,
-				EADD5B7F856FCA802C06E14A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,21 +366,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EADD5B7F856FCA802C06E14A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -548,7 +532,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -565,7 +549,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
