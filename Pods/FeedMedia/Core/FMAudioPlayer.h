@@ -14,7 +14,13 @@
 #import "FMLog.h"
 #import "FMAudioPlayer.h"
 #import "FMLockScreenDelegate.h"
+#import "FMStationArray.h"
+
+#if TARGET_OS_TV
+#else
 #import "CWStatusBarNotification.h"
+#endif
+
 
 /**
  *  @const FMAudioPlayerPlaybackStateDidChangeNotification
@@ -36,10 +42,11 @@ extern NSString *const FMAudioPlayerPlaybackStateDidChangeNotification;
 
 extern NSString *const FMAudioPlayerCurrentItemDidBeginPlaybackNotification;
 
-/*
- * @const FMAudioPlayerMusicQueuedNotification
+/**
+ *  @const FMAudioPlayerMusicQueuedNotification
  * @discussion Sent when the player has loaded music from the current
- * station and is ready for immediate playback
+ * station and is ready for immediate playback. This is triggered by a
+ * call to `prepareToPlay`.
  */
  
 extern NSString *const FMAudioPlayerMusicQueuedNotification;
@@ -87,6 +94,22 @@ extern NSString *const FMAudioPlayerLikeStatusChangeNotification;
 extern NSString *const FMAudioPlayerTimeElapseNotification;
 
 /**
+ *  @const FMAudioPlayerPreCachingCompleted
+ *  Sent when precaching for stations is completed. This notification
+ * is sent after a call to `prepareStations` or `prepareStations:`
+ * completes.
+ *  
+ */
+extern NSString *const FMAudioPlayerPreCachingCompleted;
+
+/**
+ *  @const FMAudioPlayerStationDownloadProgress
+ *  Sent to indicate progress for station download
+ *
+ */
+
+extern NSString *const FMAudioPlayerStationDownloadProgress;
+/**
  *  @const FMAudioPlayerStationListKey
  *  userInfo key for NSArray of FMStations from <FMAudioPlayerStationListAvailableNotification>
  */
@@ -111,10 +134,17 @@ extern NSString *const FMAudioFormatMP3;
 extern NSString *const FMAudioFormatAAC;
 
 /**
- * This enum represents the various states the FMAudioPlayer can
+ * @enum This enum represents the various states the FMAudioPlayer can
  * be in, as identified by the `[FMAudioPlayer playbackState]`.
  */
 typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
+    
+    /**
+     * Offline music is available
+     *
+     */
+    
+    FMAudioPlayerPlaybackStateOfflineOnly,
     
     /**
      * The server has not responded yet, so we don't know if music
@@ -172,6 +202,43 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
 
 #define kFMRemoteControlEvent @"FMRemoteControlEvent"
 
+/**
+ When a station download request is posted this delegate
+ is required to track the progress and the completion of the download.
+ */
+
+@protocol FMStationDownloadDelegate <NSObject>
+/**
+ * Called when the station has fully completed downloading, whether
+ * succesful or not.
+ *
+ * @param station the station that completed downloading
+ */
+- (void) stationDownloadComplete:(FMStation *)station;
+
+/**
+ This method is called once, at the start of a station download,
+ and then again after every file in the station is either fully
+ downloaded or aborted.
+ 
+ The first (and possibly final) call to this method will have 0
+ failed counts and pending and total will be the number of
+ files that will be downloaded for the station.
+ 
+ The final call to this method will have a pendingCount value of 0
+ 
+ @param station The station that is being downloaded
+ @param pendingCount the number of downloads remaining to be downloaded
+ @param failedCount the number of download attempts that failed
+ @param totalCount the total number of files that will be downloaded
+ */
+-(void) stationDownloadProgress:(FMStation *)station
+                    pendingCount:(int)pendingCount
+                     failedCount:(int)failedCount
+                      totalCount:(int)totalCount;
+
+@end
+
 
 /**
  When events are reported to the feed.fm servers via
@@ -203,11 +270,12 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
   withParameters: (NSDictionary *)parameters;
 @end
 
+
 /**
  
  The SDK centers around a singleton instance of this `FMAudioPlayer` class, which 
  has simple methods to control music playback (`play`, `pause`, `skip`). The
- `FMAudioPlayer` holds a list of `FMStation` objects (`stationList`), one of which is always
+ `FMAudioPlayer` holds lists of `FMStation` objects (`stationList` and `localOfflineStationList`), one of which is always
  considered the _active_ station (`activeStation`). Once music playback has begun, there
  is a _current_ song (`currentSong`).
  
@@ -219,7 +287,7 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
      [FMAudioPlayer setclientToken:@"demo" secret:@"demo"]
 
  to asynchronously contact the feed.fm servers, validate that the client is in a location
- that can legally play music, and then retrieve a list of available music
+ that can legally stream music, and then retrieve a list of available streaming music
  stations.
  
  There are a number of sample credentials you can use to assist
@@ -231,43 +299,65 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  - 'counting' - a station that just plays really short audio clips
    of a voice saying the numbers 0 through 9
 
- To receive notice that music is available or not available, use the
+ To receive notice that streaming music is available or not available, use the
  `whenAvailable:notAvailable:` method call, which is guaranteed to call
  only one of its arguments as soon as music is deemed available or not:
 
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
  
     [player whenAvailable:^{
-      NSLog(@"music is available!");
-      // .. do something, like show music button or
-
-      // optionally start queueing up first song so playback starts as soon as
-      // the play button is pressed:
-      [player prepareToPlay]
- 
-       // alternatively, start playback immediately
-       // [player play]
-
+      NSLog(@"streaming music is available!");
+      // .. do something, now that you know streaming music is available
 
      } notAvailable: ^{
-        NSLog(@"music is not available!");
+        NSLog(@"streaming music is not available!");
         // .. do something, like leave music button hidden
 
      }];
 
- Since music playback is restricted to US clients, we recommend you leave
- music functionality hidden by default, and reveal it only when confirmation
- is returned.
+ Because music may not be available to this particular client (due
+ to lack of network connectivity or geographic restrictions), we
+ recommend you leave music functionality hidden by default, and
+ reveal it only when confirmation is returned.
 
- Once you can play music, use the `play`, `pause`, `skip` methods to
- control playback. The `stationList` property will contain a list of
- stations the user can switch to with the the `setActiveStationByName:` 
- or `setActiveStation:` calls.
+ Once music is available, use the `play`, `pause`, `skip` methods to
+ control playback. The `stationList` and `localOfflineStationList` properties
+ will contain lists of stations the user can switch to with the `setActiveStation:` and
+ `setActiveStation:withCrossfade:` calls.
+
+     // pick the station to play music from
+     FMStation *station = [player.stationList getStationWithOptionKey: @"genre" Value: @"HipHop"];
+     [player setActiveStation:station withCrossfade:NO];
+
+     // when you have set the station that is about to begin playback, you
+     // can optionally call prepareToPlay first so playback is immediate upon
+     // calling 'play'
+     [player prepareToPlay];
+ 
+     // begin playback!
+     // (if you called 'prepareToPlay', then you should first wait for
+     // an FMAudioPlayerMusicQueuedNotification notification to be guaranteed
+     // that playback will start immediately on this call, with no intervening
+     // network requests)
+     [player play]
+ 
+ Offline music can be retrieved by selecting a station in the
+ `remoteOfflineStationList` and passing it to `downloadAndSyncStation:forTargetMinutes:withDelegate`.
+ That will cause the contents of the station to be downloaded onto the device
+ (or updated with new music, if the station was already downloaded and new
+ music is available), and a new `FMStation` entry in `localOfflineStationList`
+ that can be passed to `setActiveStation`.
  
  The `FMAudioPlayer` registers with iOS so that
  playback can be paused, skipped, liked, and disliked via the lock screen.
  Additionally, iOS will display on the lock screen whatever image
  you've assigned via `[FMAudioPlayer setLockScreenImage:]`.
+ 
+ The 'prepareToPlay' method can be called before playback begins and
+ when the client knows that the current station will immediately be
+ played next. This call is primarily useful when you want music to begin
+ playback immediately upon a call to play, with no intervening network
+ requests.
  
  The `FMAudioPlayer` generates events that can be hooked into
  whatever analytics service your app uses. Just have an object in your app
@@ -290,8 +380,9 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
 ///-----------------------------------------------------
 
 /**
- * This method calls `setClientToken:secret:detectLocalMusic` with
- * `detectLocalMusic` set to `false`.
+ * This method kicks off asynchronous initialization of the library and communication
+ * with the feed.fm servers. This call should be made as early as possible
+ * in the lifecycle of the app.
  *
  * @param token public authentication token. Use `@"demo"` during testing/development.
  * @param secret private authentication token. Use `@"demo"` during testing/development.
@@ -300,32 +391,11 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
 + (void)setClientToken:(NSString *)token secret:(NSString *)secret;
 
 /**
- * This method kicks off asynchronous initialization of the library and communication
- * with the feed.fm servers. This call should be made as early as possible
- * in the lifecycle of the app.
- *
- *
- * @param token public authentication token. Use `@"demo"` during testing/development.
- * @param secret private authentication token. Use `@"demo"` during testing/development.
- * @param detectLocalMusic when true, the user's local media collection will be queried to
- *      sample what type of music they listen to
- */
-
-+ (void)setClientToken:(NSString *)token secret:(NSString *)secret detectLocalMusic:(BOOL) detectLocalMusic;
-
-
-/**
  * There is only one global `FMAudioPlayer` instance, and it
  * is available via this static property.
  */
 
 + (FMAudioPlayer *)sharedPlayer;
-
-/**
- * Utility function to map state to string.
- */
-
-+ (NSString *) nameForType:(FMAudioPlayerPlaybackState)type;
 
 /**
  * Call one of the two callbacks as soon as we know if we pass geographic playback
@@ -342,13 +412,79 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
          notAvailable: (void (^)(void)) onNotAvailable;
 
 
+
+///-----------------------------------------------------
+/// @name Offline station management
+///-----------------------------------------------------
+
+/**
+ Downloads an offline station.
+
+ This method kicks off an asynchronous download to retrieve audio
+ files for the given station. As the station downloads, events (1
+ at a minimum) will be sent to the provided delegate.
+ 
+ The station passed in must come from either `remoteOfflineStationList`
+ or `localOfflineStationList`.
+ 
+ The `minutes` attribute specifies the minimum number of minutes of
+ music the client would like to be available offline. The server will make the
+ decision as to whether the client already has enough music stored locally
+ and, if so, whether that music should be replaced or appended to.
+
+ @param station A station from remoteOfflineStationList or
+     localOfflineStationList.
+ @param minutes describes target time for music. If you need music for half an hour pass 30.
+ @param delegate for receiving updates about the download.
+ @see FMStationDownloadDelegate
+ 
+ */
+
+-(void) downloadAndSyncStation:(FMStation *)station
+              forTargetMinutes:(NSNumber*) minutes
+                  withDelegate: (id<FMStationDownloadDelegate>) delegate;
+
+
+/**
+ Downloads an offline station.
+ 
+ This method is the same as `downloadAndSyncStation:forTargetMinutes:withDelegate`, but
+ it lets the server determine the 'targetMinutes' value. This method is preferable
+ unless the amount of music loaded for each station varies in different contexts.
+ 
+ @param station Pass a station from remoteOfflineStationList or
+     localOfflineStationList.
+ @param delegate for receiving updates about the download.
+ @see FMStationDownloadDelegate
+ */
+
+-(void) downloadAndSyncStation:(FMStation *)station
+                  withDelegate: (id<FMStationDownloadDelegate>) delegate;
+
+/**
+ Deletes all locally stored files in a previously downloaded station and
+ removes the station from the `localOfflineStationList`.
+ 
+ Does nothing if the station passed in does not
+ appear in the `localOfflineStationList`.
+ 
+ @param localOfflineStation the station whose contents will be deleted.
+ */
+
+- (void) deleteOfflineStation: (FMStation *) localOfflineStation;
+
+
+
 ///-----------------------------------------------------
 /// @name Playback Controls
 ///-----------------------------------------------------
 
+
 /**
  * Starts asynchronous loading of the first song in the active station
  * so that a future call to `play` will start music instantaneously.
+ * This action runs asynchronously and, when it completes, triggers
+ * an `FMAudioPlayerPreCachingCompleted` notification.
  */
 - (void)prepareToPlay;
 
@@ -358,7 +494,10 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
 - (void)play;
 
 /**
- * Start playback of specific song
+ * Start playback of specific song. This method only works with
+ * on-demand stations.
+ *
+ * @param audioItem the audio item to immediately play
  */
 - (void)playAudioItem: (FMAudioItem *) audioItem;
 
@@ -453,132 +592,6 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  */
 - (void)unlikeAudioItem: (FMAudioItem *)audioItem;
 
-
-/**
- *  Finds a station with the given name and assigns it to the `activeStation`.
- *
- *  @param name Station name. Should not be nil.
- *
- *  @return true if a station with the given name is found
- *  @see activeStation
- */
-
-- (BOOL) setActiveStationByName: (NSString *)name;
-
-
-/**
- * Finds a station with the given name and assigns it to the `activeStation`. If
- * `withCrossfade` is true, any currently playing music will crossfade into the first
- * song in the new station.
- *
- *  @param name Station name. Should not be nil.
- *  @param withCrossfade if true, if crossfading is enabled, and if music is currenty 
- *    playing, the currently playing song will fade into the song in the new station
- *    as soon as it is loaded.
- *
- *  @return true if a station with the given name is found
- *  @see activeStation
- */
-
-- (BOOL) setActiveStationByName: (NSString *)name withCrossfade: (BOOL) withCrossfade;
-
-/**
- * Make the given station the `activeStation`. If
- * `withCrossfade` is true, any currently playing music will crossfade into the first
- * song in the new station.
- *
- *  @param station Station to tune to.
- *  @param withCrossfade if true, if crossfading is enabled, and if music is currenty
- *    playing, the currently playing song will fade into the song in the new station
- *    as soon as it is loaded.
- *
- *  @see activeStation
- */
-
-- (void) setActiveStation: (FMStation *)station withCrossfade: (BOOL) withCrossfade;
-
-/**
- * Search through the list of available stations, and return the one that has
- * an option attribute named 'key' with a string value of 'value'.
- *
- * @param key name of attribute to inspect
- * @param value attribute value that matching station should contain
- */
-
-- (FMStation *) getStationWithOptionKey: (NSString *) key Value: (NSObject *) value;
-
-/**
- * Search throught the list of available stations, and return one that has
- * options that match those passed in via optionKeysAndValues. This differs from
- * getStationWithOptionKey:Value: in that you can specify multiple key/value
- * pairs, like so:
- *
- * [player getStationWithOptions: @{ @"genre": @"80s", @"bpm" : @"slow" }
- *
- * This method returns the first station with the matching values, or nil.
- 
- * @param optionKeysAndValues key value pairs to search for
- * @return a station whose options contain optionKeysAndValues
- */
-
-- (FMStation *) getStationWithOptions: (NSDictionary *) optionKeysAndValues;
-
-/**
- * Similar to getStationWithOptions:, but this method returns all the stations
- * that match the passed in optionsKeysAndValues.
- *
- * @param optionKeysAndValues key value pairs to search for
- * @return an array of stations whose options contain optionKeysAndValues. never nil.
- */
-
-- (NSArray *) getAllStationsWithOptions: (NSDictionary *) optionKeysAndValues;
-
-/**
- *  A value between 0.0 and 1.0 relative to system volume
- */
-
-@property (nonatomic) float mixVolume;
-
-/**
- * When true (the default), adjust individual song volumes so they are perceived
- * be the same loudness.
- */
-
-@property (nonatomic) BOOL normalizeSongVolume;
-
-/**
- * If YES (the default), then the Feed.fm library will
- * register with the MPRemoteCommandCenter to handle play/pause/skip/like/dislike
- * commands upon start of playback. Note that, unless a lockScreenDelegate
- * is assigned, the FMAudioPlayer will still enable/disable the 
- * play/pause/skip/like/dislike buttons in the MPRemoteCommandCenter (but not
- * respond to them) when this is NO.
- */
-
-@property (nonatomic) BOOL doesHandleRemoteCommands;
-
-/**
- * When not NULL, this causes the FMAudioPlayer to not update
- * the MPNowPlayingInfoCenter metadata nor enable or disable the like,
- * dislike, and next track MPFeedbackCommands. See the documentation
- * of FMLockScreenDelegate for more information. Note that the 
- * FMAudioPlayer will still register to handle the MPRemoteCommandCenter
- * commands (play/pause/skip/like/dislike) unless doesHandleRemoteCommands
- * is also set to NO.
- */
-
-@property (nonatomic) id<FMLockScreenDelegate> lockScreenDelegate;
-
-
-/**
- *  Assigns the image to be displayed on the lock screen when music is playing.
- *
- *  @param image The image to be added to the lock screen
- */
-
-- (void)setLockScreenImage: (UIImage *)image;
-
-
 ///-----------------------------------------------------
 /// @name Playback Status
 ///-----------------------------------------------------
@@ -589,6 +602,13 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  */
 
 @property (nonatomic, readonly) FMAudioPlayerPlaybackState playbackState;
+
+/**
+ * The currently playing or paused song, or null if there
+ * is not one.
+ */
+@property (nonatomic, readonly) FMAudioItem *currentItem;
+
 
 /**
  *  The elapsed playback time of the current item.
@@ -609,6 +629,36 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
 @property (nonatomic, readonly) float currentPlaybackRate;
 
 /**
+ * If false, then the user may not skip the currently playing
+ * song. If true, the user may be able to skip the current song,
+ * but the server will be queried and possibly reject the request.
+ * This property is updated every time a new song
+ * starts playback or after a failed skip attempt, and a
+ * `FMAudioPlayerSkipStatusNotification notification` is sent any
+ * time this value changes.
+ *
+ *  @see skip
+ */
+
+@property (readonly) BOOL canSkip;
+
+/**
+ * This array holds all the FMAudioItems that the user has heard
+ * since playback started, including the currently playing
+ * song. As new items start playback, they are appended to this array.
+ *
+ * This history currently does not include songs from past sessions.
+ */
+
+@property (nonatomic, readonly) NSMutableArray<FMAudioItem *> *playHistory;
+
+
+
+///-----------------------------------------------------
+/// @name Playback options
+///-----------------------------------------------------
+
+/**
  * The number of seconds to crossfade between songs. This defaults
  * to 0.
  */
@@ -625,85 +675,90 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
 @property (nonatomic) BOOL crossfadeInEnabled;
 
 /**
- * @deprecated Clients should look for the FMAudioPlayerMusicQueuedNotification
- * notification to know when music is queued up in the player, rather than
- * rely on this property, which will be removed in the next major version.
- *
- * Indicates if the SDK has retrieved the next song for playback from the
- * server and is ready to start playing it.
- */
-@property (nonatomic, readonly) BOOL isPreparedToPlay DEPRECATED_ATTRIBUTE;
-
-/**
- * The currently playing or paused song, or null if there
- * is not one.
- */
-@property (nonatomic, readonly) FMAudioItem *currentItem;
-
-/**
- * This array holds all the FMAudioItems that the user has heard
- * since playback started, including the currently playing
- * song. As new items start playback, they are appended to this array.
- *
- * This history currently does not include songs from past sessions.
+ * When true (the default), adjust individual song volumes so they are perceived
+ * be the same loudness.
  */
 
-@property (nonatomic, readonly) NSArray *playHistory;
+@property (nonatomic) BOOL normalizeSongVolume;
+
 
 /**
- * This is a list of music stations retrieved from the server.
+ *  A value between 0.0 and 1.0 relative to system volume
+ */
+
+@property (nonatomic) float mixVolume;
+
+
+
+///-----------------------------------------------------
+/// @name Current and available stations
+///-----------------------------------------------------
+
+/**
+ * This is a list of streaming music stations retrieved from the server.
  * This array will not change once populated.
  **/
 
-@property (nonatomic, readonly) NSArray *stationList;
+@property (nonatomic, readonly) FMStationArray *stationList;
+
+
+/**
+ The list of stations available for immediate offline playback.
+ This list contains any stations that have been downloaded at some point
+ in the past with downloadAndSyncStation:forTargetMinutes:withDelegate.
+ 
+ Stations listed here are available for playback even if there is no
+ network connectivity, and this property is intialized as soon as the
+ `FMAudioPlayer` is created (before any attempt is made to contact
+ the feed.fm servers.
+ 
+ @return List of stations available on disk ready for playback. never returns nil.
+ */
+
+@property (readonly, nonatomic) FMStationArray *localOfflineStationList;
+
+
+/**
+ List of stations that are available for downloading.
+ 
+ These stations cannot be tuned to (with setActiveStation:), rather they should be passed
+ to downloadAndSyncSation:forTargetMinutes:withDelegate to be downloaded
+ and made available for playback in the localOfflineStationList.
+ 
+ This property is only populated when internet connectivity is available and
+ the player is declared 'available'.
+ 
+ @return List of stations that can be downloaded for offline playback
+ */
+
+@property (readonly, nonatomic) FMStationArray *remoteOfflineStationList;
+
 
 /**
  * The current station from which music is pulled. Any `FMStation` retrieved
- * from the `stationList` property can be assigned here. Once music is
- * available, this property is never null. When this value changes,
+ * from the `stationList` or `localOfflineStationList` properties can be assigned here.
+ * Once music is available, this property is never null. When this value changes,
  * `FMAudioPlayerActiveStationDidChangeNotification` is sent to the default
  * notification center.
  */
 
 @property (nonatomic, copy) FMStation *activeStation;
 
-/**
- * This status bar notification is used to announce song changes to
- * the user. Access the properties on this object to change
- * how the notification is styled and to add handlers for when the
- * notification is tapped.
- *
- * Details on this object can be found at https://github.com/cezarywojcik/CWStatusBarNotification
- */
-
-@property (nonatomic, readonly) CWStatusBarNotification *statusBarNotification;
 
 /**
- * The player displays a notification at the top of the screen during song
- * transitions by default. If you are currently showing the active song, which
- * means a notification isn't needed, it can be disabled by setting this
- * property to YES. Don't forget to set this to NO when you stop showing the 
- * active song.
+ * Make the given station the `activeStation`. If
+ * `withCrossfade` is true, any currently playing music will crossfade into the first
+ * song in the new station.
  *
- * To alter how notifications are displayed, see the `statusBarNotification`
- * property.
+ *  @param station Station to tune to.
+ *  @param withCrossfade if true, if crossfading is enabled, and if music is currenty
+ *    playing, the currently playing song will fade into the song in the new station
+ *    as soon as it is loaded.
+ *
+ *  @see activeStation
  */
 
-@property (nonatomic) BOOL disableSongStartNotifications;
-
-/**
- * If false, then the user may not skip the currently playing
- * song. If true, the user may be able to skip the current song,
- * but the server will be queried and possibly reject the request.
- * This property is updated every time a new song
- * starts playback or after a failed skip attempt, and a
- * `FMAudioPlayerSkipStatusNotification notification` is sent any
- * time this value changes.
- *
- *  @see skip
- */
-
-@property (readonly) BOOL canSkip;
+- (void) setActiveStation: (FMStation *)station withCrossfade: (BOOL) withCrossfade;
 
 ///-----------------------------------------------------
 /// @name Logging and reporting
@@ -755,6 +810,196 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
  * Defaults to 48.
  */
 @property (nonatomic) NSInteger maxBitrate;
+
+#if TARGET_OS_TV
+#else
+
+/**
+ * This status bar notification is used to announce song changes to
+ * the user. Access the properties on this object to change
+ * how the notification is styled and to add handlers for when the
+ * notification is tapped.
+ *
+ * Details on this object can be found at https://github.com/cezarywojcik/CWStatusBarNotification
+ */
+
+@property (nonatomic, readonly) CWStatusBarNotification *statusBarNotification;
+
+#endif
+
+/**
+ * The player displays a notification at the top of the screen during song
+ * transitions by default. If you are currently showing the active song, which
+ * means a notification isn't needed, it can be disabled by setting this
+ * property to YES. Don't forget to set this to NO when you stop showing the
+ * active song.
+ *
+ * To alter how notifications are displayed, see the `statusBarNotification`
+ * property.
+ */
+
+@property (nonatomic) BOOL disableSongStartNotifications;
+
+/**
+ * If YES (the default), then the Feed.fm library will
+ * register with the MPRemoteCommandCenter to handle play/pause/skip/like/dislike
+ * commands upon start of playback. Note that, unless a lockScreenDelegate
+ * is assigned, the FMAudioPlayer will still enable/disable the
+ * play/pause/skip/like/dislike buttons in the MPRemoteCommandCenter (but not
+ * respond to them) when this is NO.
+ */
+
+@property (nonatomic) BOOL doesHandleRemoteCommands;
+
+/**
+ * When not NULL, this causes the FMAudioPlayer to not update
+ * the MPNowPlayingInfoCenter metadata nor enable or disable the like,
+ * dislike, and next track MPFeedbackCommands. See the documentation
+ * of FMLockScreenDelegate for more information. Note that the
+ * FMAudioPlayer will still register to handle the MPRemoteCommandCenter
+ * commands (play/pause/skip/like/dislike) unless doesHandleRemoteCommands
+ * is also set to NO.
+ */
+
+@property (nonatomic) id<FMLockScreenDelegate> lockScreenDelegate;
+
+/**
+ *  Assigns the image to be displayed on the lock screen when music is playing.
+ *
+ *  @param image The image to be added to the lock screen
+ */
+
+- (void)setLockScreenImage: (UIImage *)image;
+
+/**
+ * Utility function to map state to string.
+ *
+ * @param type the playback state to map to an NSString
+ */
+
++ (NSString *) nameForType:(FMAudioPlayerPlaybackState)type;
+
+
+///-----------------------------------------------------
+/// @name Deprecated
+///-----------------------------------------------------
+
+
+/**
+ @deprecated Clients should use the `FMStationArray` interface to
+ search for stations based on option values.
+ 
+ Search throught the list of available stations, and return one that has
+ options that match those passed in via optionKeysAndValues. This differs from
+ getStationWithOptionKey:Value: in that you can specify multiple key/value
+ pairs, like so:
+ 
+   [player getStationWithOptions: @{ @"genre": @"80s", @"bpm" : @"slow" }
+ 
+ This method returns the first station with the matching values, or nil.
+ 
+ @param optionKeysAndValues key value pairs to search for
+ @return a station whose options contain optionKeysAndValues
+ 
+ */
+
+- (FMStation *) getStationWithOptions: (NSDictionary *) optionKeysAndValues DEPRECATED_ATTRIBUTE;
+
+/**
+ @deprecated Clients should use the `FMStationArray` interface to
+ search for stations based on option values.
+ 
+ Similar to getStationWithOptions:, but this method returns all the stations
+ that match the passed in optionsKeysAndValues.
+ 
+ @param optionKeysAndValues key value pairs to search for
+ @return an array of stations whose options contain optionKeysAndValues. never nil.
+ 
+ */
+
+- (NSArray<FMStation *> *) getAllStationsWithOptions: (NSDictionary *) optionKeysAndValues DEPRECATED_ATTRIBUTE;
+
+
+/**
+ * @deprecated Clients should find FMStation references by pulling them from
+ * stationList or localOfflineStationList and then assigning the reference
+ * to the activeStation property or calling setActiveStation:withCrossfade:
+ *
+ *  Finds a station with the given name and assigns it to the `activeStation`.
+ *
+ *  @param name Station name. Should not be nil.
+ *
+ *  @return true if a station with the given name is found
+ *  @see activeStation
+ */
+
+- (BOOL) setActiveStationByName: (NSString *)name DEPRECATED_ATTRIBUTE;
+
+/**
+ * @deprecated Clients should find FMStation references by pulling them from
+ * stationList or localOfflineStationList and then assigning the reference
+ * to the activeStation property or calling setActiveStation:withCrossfade:
+ *
+ * Finds a station with the given name and assigns it to the `activeStation`. If
+ * `withCrossfade` is true, any currently playing music will crossfade into the first
+ * song in the new station.
+ *
+ *  @param name Station name. Should not be nil.
+ *  @param withCrossfade if true, if crossfading is enabled, and if music is currenty
+ *    playing, the currently playing song will fade into the song in the new station
+ *    as soon as it is loaded.
+ *
+ *  @return true if a station with the given name is found
+ *  @see activeStation
+ */
+
+- (BOOL) setActiveStationByName: (NSString *)name withCrossfade: (BOOL) withCrossfade DEPRECATED_ATTRIBUTE;
+
+/**
+ * @deprecated Clients should find FMStation references by pulling them from
+ * stationList, localOfflineStationList, or remoteOfflineStationList.
+ *
+ * Search through the list of available stations, and return the one that has
+ * an option attribute named 'key' with a string value of 'value'.
+ *
+ * @param key name of attribute to inspect
+ * @param value attribute value that matching station should contain
+ */
+
+- (FMStation *) getStationWithOptionKey: (NSString *) key Value: (NSObject *) value DEPRECATED_ATTRIBUTE;
+
+/**
+ * @deprected This method is called internally now and clients need not call it.
+ *
+ * @param stations list of stations to prepare
+ */
+- (void)prepareStations:(NSArray<FMStation *> *) stations DEPRECATED_ATTRIBUTE;
+
+/**
+ * @deprecated Clients should look for the FMAudioPlayerMusicQueuedNotification
+ * notification to know when music is queued up in the player, rather than
+ * rely on this property, which will be removed in the next major version.
+ *
+ * Indicates if the SDK has retrieved the next song for playback from the
+ * server and is ready to start playing it.
+ */
+@property (nonatomic, readonly) BOOL isPreparedToPlay DEPRECATED_ATTRIBUTE;
+
+/**
+ @deprecated local detection is no longer performed by this library
+ 
+ This call to initialize the library and then detect whether the user had any local
+ music available for playback.
+ 
+ @param token public authentication token. Use `@"demo"` during testing/development.
+ @param secret private authentication token. Use `@"demo"` during testing/development.
+ @param detectLocalMusic when true, the user's local media collection will be queried to
+ sample what type of music they listen to
+ */
+
++ (void)setClientToken:(NSString *)token secret:(NSString *)secret detectLocalMusic:(BOOL) detectLocalMusic DEPRECATED_ATTRIBUTE;
+
+
 
 
 

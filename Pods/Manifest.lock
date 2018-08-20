@@ -11,29 +11,26 @@ PODS:
   - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
-  - FeedMedia (from `~/git/iOS-SDK-Core/FeedMedia`)
+  - FeedMedia (~> 4.2.0-beta)
   - FSQCollectionViewAlignedLayout
   - OAStackView
   - SDWebImage (~> 3.8)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FeedMedia
     - FSQCollectionViewAlignedLayout
     - MarqueeLabel
     - OAStackView
     - SDWebImage
 
-EXTERNAL SOURCES:
-  FeedMedia:
-    :path: "~/git/iOS-SDK-Core/FeedMedia"
-
 SPEC CHECKSUMS:
-  FeedMedia: 4dd4437d896414ed0265154f357e1ee44c13a4d3
+  FeedMedia: 4c80edcd25ceed129eebaf220806cc06ac37e11f
   FSQCollectionViewAlignedLayout: 122006b230bf5635ae159f1ad1eaa9b5ef11391e
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
   OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 036b802f2f09b62c7c1766a4a26543a587e1f5b8
+PODFILE CHECKSUM: 189667c894e5f63b713864f26a1f25527e10f399
 
 COCOAPODS: 1.5.3

@@ -83,8 +83,12 @@
     
     if ((state == FMAudioPlayerPlaybackStateComplete) ||
         (state == FMAudioPlayerPlaybackStateReadyToPlay)) {
-        [self updateText];
+        [self updateToBlankText];
     }
+}
+
+- (void) updateToBlankText {
+    super.text = @"";
 }
 
 - (void) updateText {
@@ -106,7 +110,10 @@
     
     super.text = string;
 
+#if TARGET_OS_TV
+#else
     self.marqueeType = MLContinuous;
+#endif
 
 }
 

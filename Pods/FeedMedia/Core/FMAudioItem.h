@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMedia/CoreMedia.h>
-
 #import "FMStation.h"
 
 
@@ -21,7 +20,7 @@
 /*
  *  Track identifier.
  */
-@property (readonly) NSString *playId;
+@property (readwrite) NSString *playId;
 
 /*
  * Audio File identifier.
@@ -65,7 +64,7 @@
 /*
  *  Track file URL
  */
-@property (readonly) NSURL *contentUrl;
+@property (readwrite) NSURL *contentUrl;
 /*
  *  Codec used to encode track. For example: "he-aac"
  */
@@ -107,6 +106,12 @@
  */
 
 @property double preGain;
+
+/**
+ * Representation of the object in dictionary form
+ */
+
+//@property (readonly) NSDictionary* jsonDictionary;
 
 /**
  *  Creates FMAudioItem from the JSON provided. 

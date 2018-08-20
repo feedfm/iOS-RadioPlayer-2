@@ -59,12 +59,46 @@
 @property (readonly) double preGain;
 
 /**
+ * Used internally to detect if this is a simulcast stream or not
+ */
+
+@property (readonly) NSString *castURL;
+
+/**
+ * Return true if this station is a simulcast station
+ */
+
+@property (readonly) BOOL isSimulcast;
+
+/**
  * An array of FMAudioItem songs that are in this station, if it
  * is on-demand, otherwise this is NULL.
  */
 
-@property (readonly) NSArray *audioItems;
+@property NSArray *audioItems;
 
+/**
+ * Representation of the object in dictionary form
+ */
+
+//@property (readonly) NSDictionary* jsonDictionary;
+
+/**
+ * Returs true if this object is a offline/downloadable station.
+ */
+
+@property (readonly) BOOL isTypeOffline;
+
+/**
+ * Returns expiry date for offline stations, null for online stations.
+ */
+
+@property (readonly) NSUInteger expiry;
+
+/*
+ *  JSON representation of this object
+ */
+@property (readonly) NSMutableDictionary *dict;
 /*
  *  Used internally to convert the JSON representation of this
  *  station to this object.
@@ -72,6 +106,6 @@
  *  @param jsonDictionary JSON dictionary
  *  @return returns new FMStation instance
  */
-- (id)initWithJSON:(id)jsonDictionary;
+- (id)initWithJSON:(id)jsonDictionary isTypeOffline:(BOOL)isOffline;
 
 @end

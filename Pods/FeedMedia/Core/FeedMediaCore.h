@@ -6,7 +6,7 @@
 //  Copyright © 2017 Feed Media. All rights reserved.
 //
 
-#define FEED_MEDIA_CLIENT_VERSION @"4.0.24"
+#define FEED_MEDIA_CLIENT_VERSION @"4.2.0-beta"
 
 // All public headers
 #import "FMAudioItem.h"
@@ -16,3 +16,7 @@
 #import "FMLog.h"
 #import "FMStation.h"
 
+#if TARGET_OS_TV
+#else
+#import "CWStatusBarNotification.h"
+#endif
