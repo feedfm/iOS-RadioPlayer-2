@@ -20,8 +20,6 @@
 
 @interface FMStationCollectionViewController ()
 
-@property (strong, nonatomic) NSArray *visibleStations;
-
 @end
 
 @implementation FMStationCollectionViewController
@@ -47,8 +45,7 @@ static UIEdgeInsets cellInsets;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _visibleStations = [FMStationCollectionViewController extractVisibleStations];
-    
+    // **NOTE** - somebody had better set the visibleStations property
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,8 +55,7 @@ static UIEdgeInsets cellInsets;
     
     // watch for player state updates so we can update play/playing button states
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationOrStateUpdated:) name:FMAudioPlayerActiveStationDidChangeNotification object:player];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationOrStateUpdated:) name:
-     FMAudioPlayerPlaybackStateDidChangeNotification object:player];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationOrStateUpdated:) name:FMAudioPlayerPlaybackStateDidChangeNotification object:player];
     
     // when we return to the view, the equalizer animation dies, so
     // try to restart it here
@@ -74,14 +70,6 @@ static UIEdgeInsets cellInsets;
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-}
-
-
-+ (NSArray *) extractVisibleStations {
-    NSArray *stations = [FMAudioPlayer sharedPlayer].stationList;
-    
-    // for now, display all stations
-    return [stations copy];
 }
 
 /*
@@ -372,6 +360,7 @@ static UIEdgeInsets cellInsets;
         FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
         player.title = self.title;
         player.initiallyVisibleStation = station;
+        player.visibleStations = self.visibleStations;
         
         [self.navigationController pushViewController:player animated:YES];
         
@@ -392,6 +381,7 @@ static UIEdgeInsets cellInsets;
             FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
             player.title = self.title;
             player.initiallyVisibleStation = station;
+            player.visibleStations = self.visibleStations;
 
             [self.navigationController pushViewController:player animated:YES];            
         }

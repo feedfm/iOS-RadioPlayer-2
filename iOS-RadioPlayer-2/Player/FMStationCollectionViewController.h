@@ -30,12 +30,6 @@
 
 @interface FMStationCollectionViewController : UICollectionViewController <FSQCollectionViewDelegateAlignedLayout>
 
-/**
- * Return the array of stations that are visible to the
- * user.
- */
-
-+ (NSArray *) extractVisibleStations;
-
+@property (strong, nonatomic) NSArray *visibleStations;
 
 @end

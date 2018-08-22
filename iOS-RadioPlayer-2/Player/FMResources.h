@@ -76,7 +76,7 @@
  * @param title The title to display for the player
  */
 
-+ (void) presentPlayerWithTitle:(NSString *)title;
++ (void) presentPlayerWithTitle:(NSString *)title visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * This method will create a new FMPlayerViewController and present it on
@@ -86,7 +86,7 @@
  * @param title The title to display for the player
  */
  
-+ (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title;
++ (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * This method will create a new FMStationCollectionViewController and present it on
@@ -96,7 +96,7 @@
  * @param title The title to display for the station collection screen
  */
 
-+ (void) presentStationCollectionWithTitle:(NSString *)title;
++ (void) presentStationCollectionWithTitle:(NSString *)title visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * This method will create a new FMStationCollectionViewController and present it on
@@ -106,7 +106,7 @@
  * @param title The title to display for the station collection screen
  */
 
-+ (void) presentStationCollectionFromViewController: (UIViewController *) viewController withTitle:(NSString *)title;
++ (void) presentStationCollectionFromViewController: (UIViewController *) viewController withTitle:(NSString *)title visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * Create and return a new FMPlayerViewController with the given title. 
@@ -116,7 +116,7 @@
  * @param title The title to display for the player
  */
 
-+ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title;
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * Create and return a new FMPlayerViewController with the given title. Try
@@ -129,7 +129,7 @@
  * @param stationName Name of the station to try initially display
  */
 
-+ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName;
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * Create and return a new FMPlayerViewController with the given title. The player
@@ -142,7 +142,8 @@
  */
 
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title
-                                                showingStation: (FMStation *) station;
+                                                  showingStation: (FMStation *) station
+                                               visibleStations:(FMStationArray *) visibleStations;
 
 /**
  * Create and return a new FMStationCollectionViewController with
@@ -153,7 +154,7 @@
  * @param title The title to display for the view
  */
 
-+ (FMStationCollectionViewController *) createStationCollectionViewControllerWithTitle: (NSString *) title;
++ (FMStationCollectionViewController *) createStationCollectionViewControllerWithTitle: (NSString *) title visibleStations:(FMStationArray *)visibleStations;
 
 /**
  * Utility function to return a reference to the FMPlayerStoryboard.

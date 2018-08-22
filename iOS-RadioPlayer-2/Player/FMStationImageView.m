@@ -118,11 +118,11 @@
                                  progress:nil
                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                     // only update if we're still displaying this image
-                                    if ([_nowDisplaying isEqualToString:toDisplay]) {
+                                    if ([self->_nowDisplaying isEqualToString:toDisplay]) {
                                         if (image) {
                                             [super setImage:image];
                                         } else {
-                                            [super setImage:_defaultImage];
+                                            [super setImage:self->_defaultImage];
                                         }
                                     }
                                 }

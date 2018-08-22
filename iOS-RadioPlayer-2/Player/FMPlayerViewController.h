@@ -13,6 +13,7 @@
 @interface FMPlayerViewController : UIViewController <UIScrollViewDelegate, FMPageableStationCollectionViewDelegate>
 
 @property (strong, nonatomic) FMStation *initiallyVisibleStation;
+@property (strong, nonatomic) NSArray *visibleStations;
 
 - (void) scrollToStation: (FMStation *) station;
 

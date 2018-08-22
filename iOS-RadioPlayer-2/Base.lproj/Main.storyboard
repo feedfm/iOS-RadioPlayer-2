@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,74 +21,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcg-4I-QRi">
-                                <rect key="frame" x="147.5" y="119.5" width="80" height="30"/>
-                                <state key="normal" title="push player"/>
-                                <connections>
-                                    <action selector="pushPlayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ml2-5h-hnd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0v-aN-Ojq">
-                                <rect key="frame" x="109.5" y="169.5" width="155" height="30"/>
-                                <state key="normal" title="push station collection"/>
-                                <connections>
-                                    <action selector="pushStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ww2-Os-g0a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-tb-RPB">
-                                <rect key="frame" x="71" y="219.5" width="232" height="30"/>
-                                <state key="normal" title="push player showing 'Station Two'"/>
-                                <connections>
-                                    <action selector="pushPlayerOnStationTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTp-07-sYC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-5a-dA1">
-                                <rect key="frame" x="138.5" y="269.5" width="98" height="30"/>
-                                <state key="normal" title="present player"/>
-                                <connections>
-                                    <action selector="presentViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="DhP-bn-UlN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeD-wn-fjh">
-                                <rect key="frame" x="100" y="319.5" width="174" height="30"/>
-                                <state key="normal" title="present station collection"/>
-                                <connections>
-                                    <action selector="presentStationCollectionController" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBg-Gn-Yrb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-Yf-26w" customClass="FMStationButton">
-                                <rect key="frame" x="132" y="422" width="112" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flt-wn-HH8">
+                                <rect key="frame" x="107" y="498" width="163" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Station One" image="feedfm-icon-play-black">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="selected" image="feedfm-icon-pause-black"/>
-                                <state key="highlighted" image="feedfm-icon-pause-black"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="stationName" value="Station One"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="playOnClick" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenActive" value="NO"/>
-                                </userDefinedRuntimeAttributes>
+                                <state key="normal" title="Download Offline Music"/>
+                                <connections>
+                                    <action selector="presentDownloadOfflineStationsViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ae-sh-ige"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsu-90-PwP">
+                                <rect key="frame" x="122" y="176" width="130" height="30"/>
+                                <state key="normal" title="Streaming Stations"/>
+                                <connections>
+                                    <action selector="pushStreamingStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ua-ZN-9NB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpC-N2-5DZ">
+                                <rect key="frame" x="134" y="270" width="106" height="30"/>
+                                <state key="normal" title="Offline Stations"/>
+                                <connections>
+                                    <action selector="pushOfflineStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QuO-gu-2bx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="e0v-aN-Ojq" firstAttribute="top" secondItem="zcg-4I-QRi" secondAttribute="bottom" constant="20" id="0wv-Sk-UnR"/>
-                            <constraint firstItem="jUV-5a-dA1" firstAttribute="top" secondItem="X62-tb-RPB" secondAttribute="bottom" constant="20" id="Z0X-bA-TVy"/>
-                            <constraint firstItem="X62-tb-RPB" firstAttribute="top" secondItem="e0v-aN-Ojq" secondAttribute="bottom" constant="20" id="aUn-P5-X3p"/>
-                            <constraint firstItem="jUV-5a-dA1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dPh-2o-AMs"/>
-                            <constraint firstItem="X62-tb-RPB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dxI-qo-QQn"/>
-                            <constraint firstItem="e0v-aN-Ojq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fC7-Bk-zhn"/>
-                            <constraint firstItem="eeD-wn-fjh" firstAttribute="top" secondItem="jUV-5a-dA1" secondAttribute="bottom" constant="20" id="kvz-MY-SCF"/>
-                            <constraint firstItem="zcg-4I-QRi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="2:5" constant="1" id="oSu-T2-9E7"/>
-                            <constraint firstItem="eeD-wn-fjh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rRR-1O-Trd"/>
-                            <constraint firstItem="zcg-4I-QRi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tiM-Fj-Tvy"/>
+                            <constraint firstItem="NpC-N2-5DZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Jv-Yv-3We"/>
+                            <constraint firstItem="Bsu-90-PwP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="112" id="Af6-7B-dDD"/>
+                            <constraint firstItem="Bsu-90-PwP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NRq-pt-QzL"/>
+                            <constraint firstItem="NpC-N2-5DZ" firstAttribute="top" secondItem="Bsu-90-PwP" secondAttribute="bottom" constant="64" id="g57-Rr-Cga"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Eai-6C-raF"/>
                     <connections>
-                        <outlet property="playerButton" destination="zcg-4I-QRi" id="veH-ol-8Y2"/>
-                        <outlet property="stationCollectionButton" destination="e0v-aN-Ojq" id="UOD-2T-dJ6"/>
+                        <outlet property="downloadOfflineStations" destination="flt-wn-HH8" id="Dyq-5b-4Xj"/>
+                        <outlet property="offlineStations" destination="NpC-N2-5DZ" id="MSO-9T-UDy"/>
+                        <outlet property="streamingStations" destination="Bsu-90-PwP" id="AxF-kr-aqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -102,7 +69,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DL8-ox-g8a" customClass="PortraitNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EmL-N0-nk0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -115,8 +82,4 @@
             <point key="canvasLocation" x="136.80000000000001" y="-543.77811094452773"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="feedfm-icon-pause-black" width="24" height="24"/>
-        <image name="feedfm-icon-play-black" width="24" height="24"/>
-    </resources>
 </document>

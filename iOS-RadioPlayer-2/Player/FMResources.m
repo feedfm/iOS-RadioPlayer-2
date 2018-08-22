@@ -33,10 +33,10 @@ static NSString *_subheaderPropertyName = @"subheader";
     return _subheaderPropertyName;
 }
 
-+ (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title {
++ (void) presentPlayerFromViewController: (UIViewController *) viewController withTitle:(NSString *)title visibleStations:(FMStationArray *) visibleStations {
 
     // create player
-    FMPlayerViewController *fmpvc = [FMResources createPlayerViewControllerWithTitle:title];
+    FMPlayerViewController *fmpvc = [FMResources createPlayerViewControllerWithTitle:title visibleStations:visibleStations];
 
     // stick player in pop-up navigation controller
     FMPopUpDownNavigationController *navController = [[FMPopUpDownNavigationController alloc] initWithRootViewController: fmpvc];
@@ -45,14 +45,14 @@ static NSString *_subheaderPropertyName = @"subheader";
     [viewController presentViewController:navController animated:YES completion:nil];
 }
 
-+ (void) presentPlayerWithTitle:(NSString *)title {
-    [FMResources presentPlayerFromViewController:[FMResources topMostController] withTitle:title];
++ (void) presentPlayerWithTitle:(NSString *)title visibleStations:(FMStationArray *) visibleStations {
+    [FMResources presentPlayerFromViewController:[FMResources topMostController] withTitle:title visibleStations:visibleStations];
 }
 
-+ (void) presentStationCollectionFromViewController: (UIViewController *) viewController withTitle:(NSString *)title {
++ (void) presentStationCollectionFromViewController: (UIViewController *) viewController withTitle:(NSString *)title visibleStations:visibleStations {
     
     // create player
-    FMStationCollectionViewController *fmscvc = [FMResources createStationCollectionViewControllerWithTitle:title];
+    FMStationCollectionViewController *fmscvc = [FMResources createStationCollectionViewControllerWithTitle:title visibleStations:visibleStations];
     
     // stick player in pop-up navigation controller
     FMPopUpDownNavigationController *navController = [[FMPopUpDownNavigationController alloc] initWithRootViewController: fmscvc];
@@ -61,8 +61,8 @@ static NSString *_subheaderPropertyName = @"subheader";
     [viewController presentViewController:navController animated:YES completion:nil];
 }
 
-+ (void) presentStationCollectionWithTitle:(NSString *)title {
-    [FMResources presentStationCollectionFromViewController:[FMResources topMostController] withTitle:title];
++ (void) presentStationCollectionWithTitle:(NSString *)title visibleStations:visibleStations {
+    [FMResources presentStationCollectionFromViewController:[FMResources topMostController] withTitle:title visibleStations:visibleStations];
 }
 
 + (UIViewController*) topMostController
@@ -76,37 +76,40 @@ static NSString *_subheaderPropertyName = @"subheader";
     return topController;
 }
 
-+ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title {
-    return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil];
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title visibleStations:(FMStationArray *)visibleStations {
+    return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil visibleStations:visibleStations];
 }
 
-+ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName {
++ (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title showingStationNamed: (NSString *) stationName visibleStations:(FMStationArray *)visibleStations {
 
     for (FMStation *station in [[FMAudioPlayer sharedPlayer] stationList]) {
         if ([station.name isEqualToString:stationName]) {
-            return [FMResources createPlayerViewControllerWithTitle:title showingStation:station];
+            return [FMResources createPlayerViewControllerWithTitle:title showingStation:station visibleStations:visibleStations];
         }
     }
     
-    return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil];
+    return [FMResources createPlayerViewControllerWithTitle:title showingStation:nil visibleStations:visibleStations];
 }
 
 + (FMPlayerViewController *) createPlayerViewControllerWithTitle: (NSString *) title
-                                                showingStation: (FMStation *) station {
+                                                  showingStation: (FMStation *) station
+                                                 visibleStations: (FMStationArray *)visibleStations {
     UIStoryboard *sb = [FMResources playerStoryboard];
     FMPlayerViewController *player = [sb instantiateViewControllerWithIdentifier:@"playerViewController"];
     
     player.title = title;
     player.initiallyVisibleStation = station;
+    player.visibleStations = visibleStations;
 
     return player;
 }
 
-+ (FMStationCollectionViewController *) createStationCollectionViewControllerWithTitle: (NSString *) title {
++ (FMStationCollectionViewController *) createStationCollectionViewControllerWithTitle: (NSString *) title visibleStations:(FMStationArray *)visibleStations {
     UIStoryboard *sb = [FMResources playerStoryboard];
     
     FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
     stationCollection.title = title;
+    stationCollection.visibleStations = visibleStations;
     
     return stationCollection;
 }

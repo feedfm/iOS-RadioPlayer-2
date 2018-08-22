@@ -10,12 +10,14 @@
 #import "FMResources.h"
 #import "FMPlayerViewController.h"
 #import "FMStationCollectionViewController.h"
+#import "FMDownloadStationsViewController.h"
 #import <FeedMedia/FeedMedia.h>
 
 @interface ViewController ()
 
-@property (nonatomic, strong) IBOutlet UIButton *playerButton;
-@property (nonatomic, strong) IBOutlet UIButton *stationCollectionButton;
+@property (nonatomic, strong) IBOutlet UIButton *downloadOfflineStations;
+@property (nonatomic, strong) IBOutlet UIButton *streamingStations;
+@property (nonatomic, strong) IBOutlet UIButton *offlineStations;
 
 @end
 
@@ -29,17 +31,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //FMLogSetLevel(FMLogLevelDebug);
+    // defaults
+    self->_offlineStations.enabled = NO;
+    self->_streamingStations.enabled = NO;
+    self->_downloadOfflineStations.enabled = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     
-    [[FMAudioPlayer sharedPlayer] whenAvailable:^{
+    // enable playback of offline stations
+    self->_offlineStations.enabled = (player.localOfflineStationList.count > 0);
+    
+    [player whenAvailable:^{
+        // enable streaming stations when streaming music is available
+        self->_streamingStations.enabled = YES;
         
-        // enable all the player buttons when music is available
-        for (UIView *view in self.view.subviews) {
-            if ([view isMemberOfClass:[UIButton class]]) {
-                UIButton *button = (UIButton *) view;
-                
-                button.enabled = YES;
-            }
+        // enable downloading of remote stations
+        if (player.remoteOfflineStationList.count > 0) {
+            self->_downloadOfflineStations.enabled = YES;
+        }
+        
+        // if no offline stuff, then just display online player
+        if ((player.localOfflineStationList.count == 0) &&
+            (player.remoteOfflineStationList.count == 0)) {
+            // just display station collection
+            [self pushStreamingStationCollection:nil];
         }
         
     } notAvailable:^{
@@ -48,32 +65,27 @@
     }];
 }
 
-- (IBAction) pushPlayer: (id) sender {
-    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:@"My Radio"];
-
-    [self.navigationController pushViewController:player animated:YES];
-}
-
-- (IBAction) pushStationCollection: (id) sender {
+- (IBAction) pushStreamingStationCollection: (id) sender {
     FMStationCollectionViewController *stationCollection =
     
-    [FMResources createStationCollectionViewControllerWithTitle:@"My Radio"];
+    [FMResources createStationCollectionViewControllerWithTitle:@"Streaming Radio" visibleStations:[FMAudioPlayer sharedPlayer].stationList];
     
     [self.navigationController pushViewController:stationCollection animated:YES];
 }
 
-- (IBAction) pushPlayerOnStationTwo: (id) sender {
-    FMPlayerViewController *player = [FMResources createPlayerViewControllerWithTitle:@"My Radio" showingStationNamed:@"Station Two"];
+- (IBAction) pushOfflineStationCollection: (id) sender {
+    FMStationCollectionViewController *stationCollection =
     
-    [self.navigationController pushViewController:player animated:YES];
+    [FMResources createStationCollectionViewControllerWithTitle:@"Offline Radio" visibleStations:[FMAudioPlayer sharedPlayer].localOfflineStationList];
+    
+    [self.navigationController pushViewController:stationCollection animated:YES];
 }
 
-- (IBAction) presentViewController {
-    [FMResources presentPlayerWithTitle:@"music!"];
-}
+- (IBAction) presentDownloadOfflineStationsViewController {
+    UIStoryboard *sb = [FMResources playerStoryboard];
+    FMDownloadStationsViewController *dsvc = [sb instantiateViewControllerWithIdentifier:@"downloadStationsViewController"];
 
-- (IBAction) presentStationCollectionController {
-    [FMResources presentStationCollectionWithTitle:@"music!"];
+    [self.navigationController pushViewController:dsvc animated:YES];
 }
 
 @end

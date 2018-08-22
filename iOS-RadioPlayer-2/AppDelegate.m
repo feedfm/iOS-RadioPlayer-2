@@ -19,10 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    //FMLogSetLevel(FMLogLevelDebug);
+    FMLogSetLevel(FMLogLevelDebug);
     
-    [FMAudioPlayer setClientToken:@"ondemand"
-                           secret:@"ondemand"];
+    [FMAudioPlayer setClientToken:@"offline"
+                           secret:@"offline"];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     [player whenAvailable:^{
@@ -30,19 +30,7 @@
 
         player.secondsOfCrossfade = 0.0;
         player.crossfadeInEnabled = YES;
-        
-        for (FMStation *station in [player stationList]) {
-            if (station.isOnDemand) {
-                NSLog(@"'%@' is on-demand, with songs:", station.name);
-                for (FMAudioItem *audioItem in station.audioItems) {
-                    NSLog(@"   '%@' by '%@'", audioItem.name, audioItem.artist);
-                }
-                
-            } else {
-                NSLog(@"'%@' is not on-demand", station.name);
-            }
-        }
-        
+
     } notAvailable:^{
         NSLog(@"Unavailable!");
     }];

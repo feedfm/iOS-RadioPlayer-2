@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *stationLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *stationImage;
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
+@property (strong, nonatomic) IBOutlet UILabel *historyLabel;
 
 @end
 

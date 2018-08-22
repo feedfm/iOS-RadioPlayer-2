@@ -20,8 +20,6 @@
 
 @interface FMPlayerViewController ()
 
-@property (strong, nonatomic) NSArray *visibleStations;
-
 @property (strong, nonatomic) IBOutlet MarqueeLabel *noticeLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineOneLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineTwoLabel;
@@ -66,8 +64,6 @@
     // tweak the button styles
     [self setupButtonStyling];
     
-    _visibleStations = [FMStationCollectionViewController extractVisibleStations];
-
     // manage station scrolling and switching
     [self setupStationScrolling];
     
@@ -276,6 +272,7 @@
         // we're the only view controller, so create a station collection viewer and push to it
         FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
         stationCollection.title = self.title;
+        stationCollection.visibleStations = self.visibleStations;
         
         [self.navigationController pushViewController:stationCollection animated:YES];
         
@@ -292,6 +289,7 @@
             
             FMStationCollectionViewController *stationCollection = [sb instantiateViewControllerWithIdentifier:@"stationCollectionViewController"];
             stationCollection.title = self.title;
+            stationCollection.visibleStations = self.visibleStations;
             
             [self.navigationController pushViewController:stationCollection animated:YES];
         }
@@ -519,6 +517,7 @@
             
         case FMAudioPlayerPlaybackStateComplete:
         case FMAudioPlayerPlaybackStateReadyToPlay:
+        case FMAudioPlayerPlaybackStateOfflineOnly:
             // show call to action
             _trackLineOneLabel.hidden = YES;
             _trackLineTwoLabel.hidden = YES;
@@ -615,8 +614,8 @@
         
     } else {
         [UIView animateWithDuration:0.5 animations:^{
-            drawer.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height);
-            _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, 0);
+            drawer.transform = CGAffineTransformMakeTranslation(0, self->_playerDisplayView.frame.size.height);
+            self->_playerDisplayView.transform = CGAffineTransformMakeTranslation(0, 0);
         }];
         
     }
@@ -630,7 +629,7 @@
     } else {
         [UIView animateWithDuration:0.5 animations:^{
             drawer.transform = CGAffineTransformMakeTranslation(0, 0);
-            _playerDisplayView.transform = CGAffineTransformMakeTranslation(0, _playerDisplayView.frame.size.height * -1);
+            self->_playerDisplayView.transform = CGAffineTransformMakeTranslation(0, self->_playerDisplayView.frame.size.height * -1);
         }];
         
     }

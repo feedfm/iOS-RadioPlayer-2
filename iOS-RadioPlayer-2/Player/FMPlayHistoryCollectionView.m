@@ -91,14 +91,15 @@ static double sectionHeight = 65.0;
 - (void) setup {
     _audioItems = [NSMutableArray new];
     _stations = [NSMutableArray new];
-
+    
     // pull current play history into our data structure
     NSArray *playHistory = [[FMAudioPlayer sharedPlayer] playHistory];
     for (long int i = playHistory.count - 1; i >= 0; i--) {
         FMAudioItem *audioItem = [playHistory objectAtIndex:i];
-        FMStation *station = [self stationForAudioItem:audioItem];
-
-        [self appendNewAudioItem:audioItem station:station];
+        
+        NSLog(@"audio item is %@, and station is %@", audioItem, audioItem.station);
+        
+        [self appendNewAudioItem:audioItem station:audioItem.station];
     }
     
     self.dataSource = self;
@@ -126,32 +127,12 @@ static double sectionHeight = 65.0;
     FMAudioItem *currentItem = [[FMAudioPlayer sharedPlayer] currentItem];
     FMStation *activeStation = [[FMAudioPlayer sharedPlayer] activeStation];
     
+    NSLog(@"'%@' started in '%@'", currentItem.name, activeStation.name);
+    
     if (currentItem) {
         [self appendNewAudioItem:currentItem station:activeStation];
         [self reloadData];
     }
-}
-
-- (FMStation *) stationForAudioItem: (FMAudioItem *) audioItem {
-    FMStation *sameName = nil;
-    
-    for (FMStation *station in [[FMAudioPlayer sharedPlayer] stationList]) {
-        if ([station.identifier isEqualToString:audioItem.station.identifier]) {
-            return station;
-        }
-        
-        if ([station.name isEqualToString:audioItem.station.name]) {
-            sameName = station;
-        }
-    }
-    
-    // try returning station with matching name
-    if (sameName != nil) {
-        return sameName;
-    }
-    
-    // ran out of matches.. use the best we have
-    return audioItem.station;
 }
 
 - (void) appendNewAudioItem: (FMAudioItem *) audioItem station: (FMStation *) station {
@@ -232,6 +213,7 @@ static double sectionHeight = 65.0;
         FMStation *station = (FMStation *) _stations[indexPath.section];
         
         cell.stationLabel.text = station.name;
+        //cell.historyLabel.hidden = (indexPath.section > 0);
  
         NSString *bgImageUrl = [self backgroundImageURLForOptions:station.options];
         
