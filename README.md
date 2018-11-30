@@ -10,6 +10,9 @@ defines background images and descriptive text.
 *If you want to add a music player to your app with minimal
 coding, see instructions below.*
 
+If you've have a bug report or support questions, please
+send an email to support@feed.fm.
+
 !["tabbed station page"](specification/player.png)
 !["music playing"](specification/station-collection.png)
 
