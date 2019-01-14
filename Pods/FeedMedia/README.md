@@ -21,12 +21,6 @@ it, simply add the following line to your Podfile:
 pod "FeedMedia"
 ```
 
-If you want to try out a sample app before installing, run
-
-```bash
-pod try FeedMedia
-```
-
 ### Carthage
 
 You can add this library via Carthage by adding the following to your CartFile:
@@ -64,8 +58,8 @@ Typical initialization and setup is as follows:
 As early as you can in your app’s lifecycle (preferably in your AppDelegate or initial ViewController) call
 ```Objective-C
 [FMAudioPlayer setclientToken:@"demo" secret:@"demo"]
-to asynchronously contact the feed.fm servers, validate that the client is in a location that can legally play music, and then retrieve a list of available music stations.
 ```
+to asynchronously contact the feed.fm servers, validate that the client is in a location that can legally play music, and then retrieve a list of available music stations.
 
 There are a number of sample credentials you can use to assist in testing your app out. Use one of the following strings for your token and secret to get the desired behavior:
 
@@ -99,7 +93,6 @@ FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
 ```
 
 
-
 ## Tell me more!
 Find Appledocs for SDK at [demo.Feed.fm](http://demo.feed.fm/sdk/docs/ios/latest/html/index.html)
 
@@ -110,6 +103,11 @@ pre-built music players
 [RadioPlayer](https://github.com/feedfm/iOS-RadioPlayer) and
 [Radioplayer 2](https://github.com/feedfm/iOS-RadioPlayer-2),
 located on GitHub, that use this library.
+
+## Bugs!
+
+If you find a bug, please send an email to support@feed.fm with a description
+and any information you have to help us reproduce it.
 
 ## Authors
 

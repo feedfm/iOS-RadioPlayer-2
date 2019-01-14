@@ -433,14 +433,14 @@
     NSString *bgImageUrl = [station.options objectForKey:FMResources.backgroundImageUrlPropertyName];
     if (bgImageUrl) {
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadImageWithURL:[NSURL URLWithString:bgImageUrl]
-                              options:0
-                             progress:nil
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                                if (image) {
-                                    [player setLockScreenImage:image];
-                                }
-                            }];
+        [manager loadImageWithURL:[NSURL URLWithString:bgImageUrl]
+                          options:0
+                         progress:nil
+                        completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                            if (image) {
+                                [player setLockScreenImage:image];
+                            }
+                        }];
     }
 }
 

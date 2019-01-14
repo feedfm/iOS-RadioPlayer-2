@@ -1,5 +1,5 @@
 PODS:
-  - FeedMedia (4.2.0-beta4):
+  - FeedMedia (4.2.2):
     - MarqueeLabel (~> 3.1.4)
   - FFCircularProgressView (0.5)
   - FSQCollectionViewAlignedLayout (1.1.1)
@@ -7,16 +7,16 @@ PODS:
     - MarqueeLabel/ObjC (= 3.1.6)
   - MarqueeLabel/ObjC (3.1.6)
   - OAStackView (1.0.1)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
-  - FeedMedia (~> 4.2.0-beta4)
+  - FeedMedia (~> 4.2.2)
   - FFCircularProgressView
   - FSQCollectionViewAlignedLayout
   - OAStackView
-  - SDWebImage (~> 3.8)
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -28,13 +28,13 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
-  FeedMedia: 66f4dbaf11c311564826582091594edd39fe7628
+  FeedMedia: 145d32fbfdb92855abd923cf22a4c6942afbb694
   FFCircularProgressView: 683a4ab1e1bd613246a3dffa61503ffdebcde8d8
   FSQCollectionViewAlignedLayout: 122006b230bf5635ae159f1ad1eaa9b5ef11391e
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
   OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: efb38ee2fb9b413872ec6c9f6187fc020ddde48b
+PODFILE CHECKSUM: 8bafe9e7059a79b0a97e3229001d8797c62de89b
 
 COCOAPODS: 1.5.3

@@ -152,7 +152,6 @@ static UIEdgeInsets sectionInsets;
         [cell.audioItemImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl] ];
 
     } else {
-        [cell.audioItemImage sd_cancelCurrentImageLoad];
         cell.audioItemImage.image = _defaultAudioItemImage;
     }
     
@@ -196,7 +195,6 @@ static UIEdgeInsets sectionInsets;
             [cell.stationImage sd_setImageWithURL:[NSURL URLWithString:bgImageUrl]];
             
         } else {
-            [cell.stationImage sd_cancelCurrentImageLoad];
             cell.stationImage.image = _defaultAudioItemImage;
         }
 

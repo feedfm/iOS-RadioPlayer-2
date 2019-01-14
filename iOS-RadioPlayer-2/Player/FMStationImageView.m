@@ -83,7 +83,11 @@
 }
 
 - (void) updateImage {
-
+    
+    if(_station == nil){
+        _station = [_feedPlayer activeStation];
+    }
+    
     if (_station != nil) {
         FMLogDebug(@"updating station image for station '%@'", _station.name);
         
@@ -113,19 +117,20 @@
             _nowDisplaying = toDisplay;
 
             SDWebImageManager *manager = [SDWebImageManager sharedManager];
-            [manager downloadImageWithURL:[NSURL URLWithString:toDisplay]
+            [manager loadImageWithURL:[NSURL URLWithString:toDisplay]
                                   options:0
                                  progress:nil
-                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                                    // only update if we're still displaying this image
-                                    if ([self->_nowDisplaying isEqualToString:toDisplay]) {
-                                        if (image) {
-                                            [super setImage:image];
-                                        } else {
-                                            [super setImage:self->_defaultImage];
-                                        }
+                            completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                                // only update if we're still displaying this image
+                                if ([self->_nowDisplaying isEqualToString:toDisplay]) {
+                                    if (image) {
+                                        [super setImage:image];
+                                    } else {
+                                        [super setImage:self->_defaultImage];
                                     }
                                 }
+                            
+                            }
              ];
 
             return;
