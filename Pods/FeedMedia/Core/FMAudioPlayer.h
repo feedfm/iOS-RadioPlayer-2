@@ -176,17 +176,17 @@ typedef NS_ENUM(NSInteger, FMAudioPlayerPlaybackState) {
     /**
      *  Initial state of the audio player.
      */
-    FMAudioPlayerPlaybackStateReadyToPlay,
+    /* 4 */  FMAudioPlayerPlaybackStateReadyToPlay,
     
     /**
      *  Playback of audio is in progress
      */
-    FMAudioPlayerPlaybackStatePlaying,
+    /* 5 */ FMAudioPlayerPlaybackStatePlaying,
     
     /**
      *  Playback is paused
      */
-    FMAudioPlayerPlaybackStatePaused,
+    /* 6 */ FMAudioPlayerPlaybackStatePaused,
     
     /**
      *  Some media did not arrive in time to continue playback, and the 
@@ -969,6 +969,14 @@ NS_ASSUME_NONNULL_END
 + (nonnull NSString *) nameForType:(FMAudioPlayerPlaybackState)type;
 
 
+/**
+ * Destroys the instance of the player, use this call if you wish to set new tokens.
+ *
+ */
+
+- (void)destroy;
+
+
 ///-----------------------------------------------------
 /// @name Deprecated
 ///-----------------------------------------------------
@@ -1087,9 +1095,5 @@ NS_ASSUME_NONNULL_END
  */
 
 + (void)setClientToken:(nonnull NSString *)token secret:(nonnull NSString *)secret detectLocalMusic:(BOOL) detectLocalMusic DEPRECATED_ATTRIBUTE;
-
-
-
-
 
 @end

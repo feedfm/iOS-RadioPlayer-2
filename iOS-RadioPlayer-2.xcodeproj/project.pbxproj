@@ -353,7 +353,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FFCircularProgressView/FFCircularProgressView.framework",
 				"${BUILT_PRODUCTS_DIR}/FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/FeedMedia/FeedMedia.framework",
@@ -372,7 +372,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
