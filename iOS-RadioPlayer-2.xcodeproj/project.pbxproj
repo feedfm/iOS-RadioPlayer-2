@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4476B8CB261B5DEC007FEF22 /* FeedMedia in Frameworks */ = {isa = PBXBuildFile; productRef = 4476B8CA261B5DEC007FEF22 /* FeedMedia */; };
+		4476B8D0261B5E08007FEF22 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4476B8CF261B5E08007FEF22 /* SDWebImage */; };
 		508B7CBF23B22DCCA22E768D /* Pods_iOS_RadioPlayer_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02261A0C825B608415F9A46 /* Pods_iOS_RadioPlayer_2.framework */; };
 		A90948831EF62EC200A2FB3F /* FMExplodingMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A90948821EF62EC100A2FB3F /* FMExplodingMask.m */; };
 		A90A03C01F2900E300875A50 /* FMStationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A03BF1F2900E300875A50 /* FMStationImageView.m */; };
@@ -97,7 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4476B8D0261B5E08007FEF22 /* SDWebImage in Frameworks */,
 				508B7CBF23B22DCCA22E768D /* Pods_iOS_RadioPlayer_2.framework in Frameworks */,
+				4476B8CB261B5DEC007FEF22 /* FeedMedia in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +242,10 @@
 			dependencies = (
 			);
 			name = "iOS-RadioPlayer-2";
+			packageProductDependencies = (
+				4476B8CA261B5DEC007FEF22 /* FeedMedia */,
+				4476B8CF261B5E08007FEF22 /* SDWebImage */,
+			);
 			productName = "iOS-RadioPlayer-2";
 			productReference = A9F09C1D1EB8F8AF007192AE /* iOS-RadioPlayer-2.app */;
 			productType = "com.apple.product-type.application";
@@ -292,10 +300,15 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = A9F09C141EB8F8AF007192AE;
+			packageReferences = (
+				4476B8C9261B5DEC007FEF22 /* XCRemoteSwiftPackageReference "iOS-SDK" */,
+				4476B8CE261B5E08007FEF22 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = A9F09C1E1EB8F8AF007192AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,19 +369,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FFCircularProgressView/FFCircularProgressView.framework",
 				"${BUILT_PRODUCTS_DIR}/FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/FeedMedia/FeedMedia.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/OAStackView/OAStackView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFCircularProgressView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSQCollectionViewAlignedLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedMedia.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAStackView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -557,7 +564,10 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -574,7 +584,10 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS-RadioPlayer-2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.iOSRadioPlayer2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -587,7 +600,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = PAGEPFEF9A;
 				INFOPLIST_FILE = "iOS-RadioPlayer-2UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fm.feed.iOS-RadioPlayer-2UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = "iOS-RadioPlayer-2";
@@ -599,7 +616,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = PAGEPFEF9A;
 				INFOPLIST_FILE = "iOS-RadioPlayer-2UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fm.feed.iOS-RadioPlayer-2UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = "iOS-RadioPlayer-2";
@@ -637,6 +658,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4476B8C9261B5DEC007FEF22 /* XCRemoteSwiftPackageReference "iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/feedfm/iOS-SDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		4476B8CE261B5E08007FEF22 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4476B8CA261B5DEC007FEF22 /* FeedMedia */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4476B8C9261B5DEC007FEF22 /* XCRemoteSwiftPackageReference "iOS-SDK" */;
+			productName = FeedMedia;
+		};
+		4476B8CF261B5E08007FEF22 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4476B8CE261B5E08007FEF22 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A9F09C151EB8F8AF007192AE /* Project object */;
 }

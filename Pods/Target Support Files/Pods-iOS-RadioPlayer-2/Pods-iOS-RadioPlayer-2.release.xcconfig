@@ -1,10 +1,12 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FFCircularProgressView" "${PODS_CONFIGURATION_BUILD_DIR}/FSQCollectionViewAlignedLayout" "${PODS_CONFIGURATION_BUILD_DIR}/FeedMedia" "${PODS_CONFIGURATION_BUILD_DIR}/MarqueeLabel" "${PODS_CONFIGURATION_BUILD_DIR}/OAStackView" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage"
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FFCircularProgressView" "${PODS_CONFIGURATION_BUILD_DIR}/FSQCollectionViewAlignedLayout" "${PODS_CONFIGURATION_BUILD_DIR}/OAStackView"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FFCircularProgressView/FFCircularProgressView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FeedMedia/FeedMedia.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MarqueeLabel/MarqueeLabel.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OAStackView/OAStackView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FFCircularProgressView/FFCircularProgressView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OAStackView/OAStackView.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/FeedMedia/Core"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "AVFoundation" -framework "CoreGraphics" -framework "CoreMedia" -framework "FFCircularProgressView" -framework "FSQCollectionViewAlignedLayout" -framework "FeedMedia" -framework "ImageIO" -framework "MarqueeLabel" -framework "MediaPlayer" -framework "OAStackView" -framework "QuartzCore" -framework "SDWebImage" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "CoreGraphics" -framework "FFCircularProgressView" -framework "FSQCollectionViewAlignedLayout" -framework "OAStackView" -framework "QuartzCore"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
