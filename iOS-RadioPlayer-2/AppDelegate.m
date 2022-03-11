@@ -29,7 +29,6 @@
         NSLog(@"Available!");
 
         player.secondsOfCrossfade = 0.0;
-        player.crossfadeInEnabled = YES;
 
     } notAvailable:^{
         NSLog(@"Unavailable!");

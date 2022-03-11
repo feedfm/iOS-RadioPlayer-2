@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/feedfm/iOS-SDK",
         "state": {
           "branch": null,
-          "revision": "9154d3f88b30179f03885c6a83663022b48b12cf",
-          "version": "5.0.0"
+          "revision": "717a6b5dd81bc131fa18cdfe6fc2529001fa5aaa",
+          "version": "5.1.6"
         }
       },
       {
@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
         "state": {
           "branch": null,
-          "revision": "9ffc546b8f68c3251ca09cfa95bbd20084b6321e",
+          "revision": "d1c75d839709b3f91c82ecf7d3c7665272090456",
           "version": "5.11.0"
         }
       }

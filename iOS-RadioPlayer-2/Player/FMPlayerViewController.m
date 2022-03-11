@@ -12,7 +12,6 @@
 #import "FMResources.h"
 #import "FMPlayHistoryCollectionView.h"
 #import "UIImage+FMAdjustImageAlpha.h"
-#import <MarqueeLabel/MarqueeLabel.h>
 #import <FeedMedia/FeedMedia.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -20,7 +19,7 @@
 
 @interface FMPlayerViewController ()
 
-@property (strong, nonatomic) IBOutlet MarqueeLabel *noticeLabel;
+@property (strong, nonatomic) IBOutlet FMMarqueeLabel *noticeLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineOneLabel;
 @property (strong, nonatomic) IBOutlet FMMetadataLabel *trackLineTwoLabel;
 @property (strong, nonatomic) IBOutlet FMPageableStationCollectionView *stationPager;

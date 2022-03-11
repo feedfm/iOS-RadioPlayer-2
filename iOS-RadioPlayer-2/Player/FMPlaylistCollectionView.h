@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <FeedMedia/FeedMedia.h>
-#import <MarqueeLabel/MarqueeLabel.h>
 
 // helper classes
 
 @interface FMPlaylistCollectionViewAudioItemCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet MarqueeLabel *trackLabel;
-@property (strong, nonatomic) IBOutlet MarqueeLabel *artistLabel;
+@property (strong, nonatomic) IBOutlet FMMarqueeLabel *trackLabel;
+@property (strong, nonatomic) IBOutlet FMMarqueeLabel *artistLabel;
 @property (strong, nonatomic) IBOutlet FMLikeButton *likeButton;
 @property (strong, nonatomic) IBOutlet FMDislikeButton *dislikeButton;
 @property (strong, nonatomic) IBOutlet UIImageView *audioItemImage;
