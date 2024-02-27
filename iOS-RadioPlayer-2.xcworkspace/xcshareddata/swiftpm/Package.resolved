@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "FeedMedia",
-        "repositoryURL": "https://github.com/feedfm/iOS-SDK",
-        "state": {
-          "branch": null,
-          "revision": "717a6b5dd81bc131fa18cdfe6fc2529001fa5aaa",
-          "version": "5.1.6"
-        }
-      },
-      {
-        "package": "SDWebImage",
-        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
-        "state": {
-          "branch": null,
-          "revision": "d1c75d839709b3f91c82ecf7d3c7665272090456",
-          "version": "5.11.0"
-        }
+  "pins" : [
+    {
+      "identity" : "ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/feedfm/iOS-SDK",
+      "state" : {
+        "revision" : "2284336e46da51ed9105576b98f6d6cdc21d1d9b",
+        "version" : "5.5.4"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage",
+      "state" : {
+        "revision" : "73b9397cfbd902f606572964055464903b1d84c6",
+        "version" : "5.19.0"
+      }
+    }
+  ],
+  "version" : 2
 }

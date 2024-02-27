@@ -21,8 +21,8 @@
 
     FMLogSetLevel(FMLogLevelDebug);
     
-    [FMAudioPlayer setClientToken:@"offline"
-                           secret:@"offline"];
+    [FMAudioPlayer setClientToken:@"demo"
+                           secret:@"demo"];
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
     [player whenAvailable:^{

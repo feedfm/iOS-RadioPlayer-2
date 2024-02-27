@@ -175,8 +175,6 @@
 
     [self setupMetadataEventHandlers];
 
-    // disable notifications when the player is open
-    [FMAudioPlayer sharedPlayer].disableSongStartNotifications = YES;
     
     // hide the play history by default
     // TODO: maybe leave drawer open if we're pushing to another view?
@@ -201,8 +199,6 @@
     
     FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
 
-    // re-enable notifications when the player is closed
-    player.disableSongStartNotifications = NO;
     
 #ifndef TARGET_OS_TV
     // ...and have notification taps pull the player back up
