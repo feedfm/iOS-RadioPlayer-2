@@ -41,7 +41,7 @@ install_framework()
 
   if [ -L "${source}" ]; then
     echo "Symlinked..."
-    source="$(readlink "${source}")"
+    source="$(readlink -f "${source}")"
   fi
 
   if [ -d "${source}/${BCSYMBOLMAP_DIR}" ]; then
@@ -179,11 +179,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FFCircularProgressView/FFCircularProgressView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OAStackView/OAStackView.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/FeedMedia/Core/FeedMedia.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FFCircularProgressView/FFCircularProgressView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSQCollectionViewAlignedLayout/FSQCollectionViewAlignedLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OAStackView/OAStackView.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/FeedMedia/Core/FeedMedia.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

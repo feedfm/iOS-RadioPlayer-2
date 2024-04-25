@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "ios-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/feedfm/iOS-SDK",
-      "state" : {
-        "revision" : "2284336e46da51ed9105576b98f6d6cdc21d1d9b",
-        "version" : "5.5.4"
-      }
-    },
-    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",

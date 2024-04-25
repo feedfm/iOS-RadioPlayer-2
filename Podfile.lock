@@ -1,24 +1,30 @@
 PODS:
+  - FeedMedia (5.5.6):
+    - FeedMedia/Core (= 5.5.6)
+  - FeedMedia/Core (5.5.6)
   - FFCircularProgressView (0.5)
   - FSQCollectionViewAlignedLayout (1.1.1)
   - OAStackView (1.0.1)
 
 DEPENDENCIES:
+  - FeedMedia (~> 5.5.6)
   - FFCircularProgressView
   - FSQCollectionViewAlignedLayout
   - OAStackView
 
 SPEC REPOS:
   trunk:
+    - FeedMedia
     - FFCircularProgressView
     - FSQCollectionViewAlignedLayout
     - OAStackView
 
 SPEC CHECKSUMS:
+  FeedMedia: fa72c00bce742b599f35865b5d56fce05040d489
   FFCircularProgressView: 683a4ab1e1bd613246a3dffa61503ffdebcde8d8
   FSQCollectionViewAlignedLayout: 122006b230bf5635ae159f1ad1eaa9b5ef11391e
   OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
 
-PODFILE CHECKSUM: ac3d449d3540eee567aedcf3d79ed6cdcc7a4a8f
+PODFILE CHECKSUM: 19431d2020e62995ff579b8926bfa01dd04288f8
 
 COCOAPODS: 1.11.3

@@ -6,71 +6,101 @@
 	objectVersion = 54;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		42E64E32184E344DF83C9F082A9B6EBF /* FeedMedia */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8A8DBCAA9D6433E76C45B85984A95704 /* Build configuration list for PBXAggregateTarget "FeedMedia" */;
+			buildPhases = (
+				85738C78F2DDFB8486E069BCB0D38000 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+				80C65E5B752FC941E3BD17120EB594D1 /* PBXTargetDependency */,
+			);
+			name = FeedMedia;
+			productName = FeedMedia;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		011DB69F1C58313E13CC4D4C5C77C92A /* FFCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B863B8A157988167DE95697718C9A621 /* FFCircularProgressView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0185F80B1CB974399C2DCA87F7BDA780 /* FSQCollectionViewAlignedLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EA3C2E86B8D90FCE59629D649439475 /* FSQCollectionViewAlignedLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		03BADD95DC5B1FA4B30FE0410CB3F63E /* OAStackViewAlignmentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DC0B4DB1331EDBE3CDA72A34E5A70E /* OAStackViewAlignmentStrategy.m */; };
-		20B85B364579A65EC7B41BD1DE645659 /* _OALayoutGuide.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7684B7CB15A4F945901C60DC8B0665 /* _OALayoutGuide.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		237C3CD0FD7CE12879183009067F9A9E /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F100A83EB6FD7A8DE2775C61CB2D300 /* OAStackView.m */; };
-		27C8DD7010445A869853033DFF605BA4 /* OAStackView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07343D9A34B23F1E204B760BF08A9DFD /* OAStackView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3042C4DCF29B626462E688BFF46C57E5 /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = ED04F7A1EC7675001E7F44973E7B6CBE /* OATransformLayer.m */; };
-		322F331B5326A9D9B24E9D5A11BFF873 /* FFCircularProgressView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B91D32362CE6C164DDCE47AB32168F53 /* FFCircularProgressView-dummy.m */; };
-		32C3D7FCD66F618B805BA4CF4BB7E813 /* OAStackViewDistributionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEEF50A49DCDAC7C4820F162B5AD811 /* OAStackViewDistributionStrategy.m */; };
-		37A8BC5F5C6D590C588DD9FC00D9C04B /* UIColor+iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C658BEDDCA8A55F63776BFCDE22784 /* UIColor+iOS7.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3E05E641CE45CAF702C1D141D89F8BF7 /* OATransformLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B920FF559ECD0519E0F19EC3C9CB828 /* OATransformLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		458D63F1BA4E5A4A2D9713367A57E657 /* OAStackViewDistributionStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AC545F658B3DD076DC00B0F371676E5 /* OAStackViewDistributionStrategy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		51399323B89A9EEB792ACE138FA9EA0C /* OAStackView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DD6B725561D749C7993E4ECBA87EA /* OAStackView-dummy.m */; };
-		5E63E3089B9653BBD9B5D51E19F6FD5D /* OAStackViewAlignmentStrategyBaseline.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E58285EA46F6A1BA6E2BFE514C71AB /* OAStackViewAlignmentStrategyBaseline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		011DB69F1C58313E13CC4D4C5C77C92A /* FFCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD2E755A2B03149315746C17F9F6EFD /* FFCircularProgressView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0185F80B1CB974399C2DCA87F7BDA780 /* FSQCollectionViewAlignedLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 284F6486CF6EF34ED570778DC7101460 /* FSQCollectionViewAlignedLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03BADD95DC5B1FA4B30FE0410CB3F63E /* OAStackViewAlignmentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C5F7FDED65BC2EDD00B79770D5784 /* OAStackViewAlignmentStrategy.m */; };
+		0D2EF7223B42A74A90E603D696CFB4C9 /* Pods-iOS-RadioPlayer-2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 288F64C0B1A294B2837FD290B40F01E7 /* Pods-iOS-RadioPlayer-2-dummy.m */; };
+		1A16B7E59C3745409EFFD74DE1F54222 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
+		20B85B364579A65EC7B41BD1DE645659 /* _OALayoutGuide.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E1D1D1E6F814CE98D7F5A8658B087D2 /* _OALayoutGuide.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		237C3CD0FD7CE12879183009067F9A9E /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA829B86EC2EB3D63663A8F559DF87A2 /* OAStackView.m */; };
+		27C8DD7010445A869853033DFF605BA4 /* OAStackView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1134E519212D4AEF7CC61CA0C140EBA5 /* OAStackView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3042C4DCF29B626462E688BFF46C57E5 /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F549B99E022936990C2FA07FFE9752DF /* OATransformLayer.m */; };
+		322F331B5326A9D9B24E9D5A11BFF873 /* FFCircularProgressView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FF47DDE98597DDE45F5F994D8FF933 /* FFCircularProgressView-dummy.m */; };
+		32C3D7FCD66F618B805BA4CF4BB7E813 /* OAStackViewDistributionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 493574BFC60FD3102ACED8F84BDEE6C1 /* OAStackViewDistributionStrategy.m */; };
+		37A8BC5F5C6D590C588DD9FC00D9C04B /* UIColor+iOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EE957B570FCD54409E74EC19ECD14 /* UIColor+iOS7.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3E05E641CE45CAF702C1D141D89F8BF7 /* OATransformLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A79B79868FEF74B942FAB7D4AC39A7 /* OATransformLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		458D63F1BA4E5A4A2D9713367A57E657 /* OAStackViewDistributionStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E8C6FB726C06091B6DAA9CC74476D59 /* OAStackViewDistributionStrategy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51399323B89A9EEB792ACE138FA9EA0C /* OAStackView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD6675A09BEF10A3D372136D3A7CD38 /* OAStackView-dummy.m */; };
+		5E63E3089B9653BBD9B5D51E19F6FD5D /* OAStackViewAlignmentStrategyBaseline.h in Headers */ = {isa = PBXBuildFile; fileRef = 4153648EFC416E94BD99F09A42703AA1 /* OAStackViewAlignmentStrategyBaseline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6160922F2FFCEE44E403BF7944B7B13B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABB98090B02C131F86931CB9BE54B7A /* CoreGraphics.framework */; };
-		63330C28E01B2B46D2962E3B41C43A73 /* OAStackViewAlignmentStrategyBaseline.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CECB395EDADE70CB8C09A52D17014E /* OAStackViewAlignmentStrategyBaseline.m */; };
-		64D99006A79AC8C27D5A2C51E55EFC21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
-		6A2215A4D2C424DB847647468C6605E1 /* FFCircularProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A174E94DF540AA22337D7BD53D51105 /* FFCircularProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6EE789B4D929A17528C36D8B4DD9B5CD /* FSQCollectionViewAlignedLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 44878034015907744BD43C02A66B9A86 /* FSQCollectionViewAlignedLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FDD55AD91B831248CAFBCCA0B944DAA /* FFCircularProgressView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BBCA5B4E0C8A6E2FE45D6A9FE2C760C /* FFCircularProgressView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A257E47313316FC74130B7D326A2F42 /* Pods-iOS-RadioPlayer-2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EFEBFF9805B338C56D474806DADAC3E6 /* Pods-iOS-RadioPlayer-2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63330C28E01B2B46D2962E3B41C43A73 /* OAStackViewAlignmentStrategyBaseline.m in Sources */ = {isa = PBXBuildFile; fileRef = 5021EF992147439895A74803B4A64319 /* OAStackViewAlignmentStrategyBaseline.m */; };
+		6A2215A4D2C424DB847647468C6605E1 /* FFCircularProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8AB2A2DE49DC137701AE904FD79A8B /* FFCircularProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EE789B4D929A17528C36D8B4DD9B5CD /* FSQCollectionViewAlignedLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 33464628302BB7EC923F9DC4CF7EF1A6 /* FSQCollectionViewAlignedLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FDD55AD91B831248CAFBCCA0B944DAA /* FFCircularProgressView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DA90A95CE79438CE510BCC53C002BA /* FFCircularProgressView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BDE9E655E7412181FABCCB0AAC3C32A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
+		8A2420BCBDCBE536016462E7E17BDC37 /* Pods-iOS-RadioPlayer-2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 94652E8F2578EAB7A8685FE4A34A88A4 /* Pods-iOS-RadioPlayer-2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96E4BFFF04639418E652D5AD1B1EC0C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
-		A254CB4B9D3B418C8EAE995B682D9E15 /* OAStackView+Hiding.h in Headers */ = {isa = PBXBuildFile; fileRef = 48F3B7BAFB3440B79B5473875FD64F32 /* OAStackView+Hiding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5CFCFDC2277884E39B5494C1B7FB046 /* UIColor+iOS7.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E649A95AB80866C439E1DC8720C4FDB /* UIColor+iOS7.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD1D84AE726A1D73A9605653B691FE27 /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3D842816BFCB56751D8DD3AA4FA052 /* _OALayoutGuide.m */; };
-		B07F6B80725DF0F805A2626D02282651 /* OAStackViewAlignmentStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB398AC2AA70884684EE29FBD4A240D /* OAStackViewAlignmentStrategy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2C1BACD4BBCF165F1BBDA7A54970CE2 /* Pods-iOS-RadioPlayer-2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A2459D115A41E8F8E6A1F2C1DE42C3 /* Pods-iOS-RadioPlayer-2-dummy.m */; };
-		BA1C8D1EBBB71D63EF1CCE418CD89196 /* OAStackView+Traversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A149EEE1082D4404AB129F4847FD307 /* OAStackView+Traversal.m */; };
-		CD6BC52EDD1459D5E5D711B62C62BD8D /* OAStackView+Hiding.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79795267F037BC6C209FD27E1418D8 /* OAStackView+Hiding.m */; };
-		D011A5FEB00CFA9E80F41F1EB3B09F60 /* FSQCollectionViewAlignedLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7423EBB0AEFF7C1CF9C0611A0207BC3 /* FSQCollectionViewAlignedLayout-dummy.m */; };
-		D23DEF35E25C72FB89E8C332BDB919AB /* OAStackView+Constraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D231914B48E8198E0A82196D89AF3C3 /* OAStackView+Constraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A254CB4B9D3B418C8EAE995B682D9E15 /* OAStackView+Hiding.h in Headers */ = {isa = PBXBuildFile; fileRef = D54F035E4489FA487F74E233C8EB4603 /* OAStackView+Hiding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5CFCFDC2277884E39B5494C1B7FB046 /* UIColor+iOS7.h in Headers */ = {isa = PBXBuildFile; fileRef = A80B9647C002AACCFAC2D748541CE1A5 /* UIColor+iOS7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD1D84AE726A1D73A9605653B691FE27 /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5753162172E2D8A41981BACA6F24F7 /* _OALayoutGuide.m */; };
+		B07F6B80725DF0F805A2626D02282651 /* OAStackViewAlignmentStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F89613870EA0A49CDF7BB49019D89A4 /* OAStackViewAlignmentStrategy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA1C8D1EBBB71D63EF1CCE418CD89196 /* OAStackView+Traversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8CCB98C984D42677A5FC0837FDEF5 /* OAStackView+Traversal.m */; };
+		CD6BC52EDD1459D5E5D711B62C62BD8D /* OAStackView+Hiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 771FA71E97F69516F1759EA90E64ACFB /* OAStackView+Hiding.m */; };
+		D011A5FEB00CFA9E80F41F1EB3B09F60 /* FSQCollectionViewAlignedLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A63B2109BC15AEDCC9CC6DC54E7C8F /* FSQCollectionViewAlignedLayout-dummy.m */; };
+		D23DEF35E25C72FB89E8C332BDB919AB /* OAStackView+Constraint.h in Headers */ = {isa = PBXBuildFile; fileRef = D24271D283BBF176621195ED2B74BAF1 /* OAStackView+Constraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3AA8629EDDF8ADD6E00DFEE4BC2448C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB40693B18F443F75126966ED13E47 /* QuartzCore.framework */; };
-		DAD6A5FFCD886B8BEFD07C76B6F05760 /* OAStackView-OAStackView in Resources */ = {isa = PBXBuildFile; fileRef = 318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView-OAStackView */; };
-		DBD33B887F352934773537E024C5B240 /* FSQCollectionViewAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BADC6BBB1508A087997480498E57E8 /* FSQCollectionViewAlignedLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DAD6A5FFCD886B8BEFD07C76B6F05760 /* OAStackView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView.bundle */; };
+		DBD33B887F352934773537E024C5B240 /* FSQCollectionViewAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88290CFAB7B26347FA5B0C7F86DCC0E6 /* FSQCollectionViewAlignedLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E05A8DA4226F2263688BB49615401CE1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C462DA11ADEDC49828FAB422AAED6494 /* PrivacyInfo.xcprivacy */; };
 		E4212B6D174C8B47D267B6B8C6995DC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
-		E9313AC6BF4D80B7AA43C0EDC9921E73 /* OAStackView+Traversal.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BAE03B8F9E5F972DBEEC9C28145F39 /* OAStackView+Traversal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9432FB9F45D3D1A0AD62F06F0D79E54 /* OAStackView.h in Headers */ = {isa = PBXBuildFile; fileRef = F43047FC2D3B47A87E3E2BA71223E448 /* OAStackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F401FC88B8C19FA901CCFAAFE98D83A0 /* OAStackView+Constraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7AC16B07D87653666224CE91FDEDB2 /* OAStackView+Constraint.m */; };
+		E9313AC6BF4D80B7AA43C0EDC9921E73 /* OAStackView+Traversal.h in Headers */ = {isa = PBXBuildFile; fileRef = 768F6754ED9C72F0CA3670E3DEE3468D /* OAStackView+Traversal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9432FB9F45D3D1A0AD62F06F0D79E54 /* OAStackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E45099B2ED3B0C706D17CBF06ADD43F /* OAStackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F401FC88B8C19FA901CCFAAFE98D83A0 /* OAStackView+Constraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB35D03A507903AC218C7FBBFAF9B6D /* OAStackView+Constraint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4CBA0B73CA9EB5EFE1562BFDD7EA7D43 /* PBXContainerItemProxy */ = {
+		0F1E301182760FC80AA91975BE533CEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F43E310316FFC7CEB9B7BFE6503BA90D;
-			remoteInfo = FFCircularProgressView;
+			remoteGlobalIDString = 42E64E32184E344DF83C9F082A9B6EBF;
+			remoteInfo = FeedMedia;
 		};
-		4D3BD5559DE73BDD9DE60DC4A95F8BBA /* PBXContainerItemProxy */ = {
+		561B8CA3E96270E377AA4435F2BA4DC7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 33C3ECB4DF8C63FE951E9E2EBBE1476B;
 			remoteInfo = "OAStackView-OAStackView";
 		};
-		5F224D40BA91BD79E7008F8D47C429C2 /* PBXContainerItemProxy */ = {
+		8EB81194A789E91A6F5B1DBEE9B9B085 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 875B5AFC81F2EFF20BD7382E15E03F03;
+			remoteInfo = "FeedMedia-FeedMedia";
+		};
+		97046EB990532F858E5A856E43AF2CF6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 778F5CF2E3BA7069832615893C915B6D;
 			remoteInfo = OAStackView;
 		};
-		B96AB9E6D2F0BFAB396FF15FAC94CBA4 /* PBXContainerItemProxy */ = {
+		E51D4DA89A03659FE737826840EBCC29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F43E310316FFC7CEB9B7BFE6503BA90D;
+			remoteInfo = FFCircularProgressView;
+		};
+		F2C5F8B1C50070525A7C54C7798D6DDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -80,73 +110,88 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07343D9A34B23F1E204B760BF08A9DFD /* OAStackView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OAStackView-umbrella.h"; sourceTree = "<group>"; };
-		0BBCA5B4E0C8A6E2FE45D6A9FE2C760C /* FFCircularProgressView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FFCircularProgressView-umbrella.h"; sourceTree = "<group>"; };
-		0D0DD6B725561D749C7993E4ECBA87EA /* OAStackView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OAStackView-dummy.m"; sourceTree = "<group>"; };
-		1102BD335D6FEE3F03A6FBB9F5D1FF55 /* FSQCollectionViewAlignedLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSQCollectionViewAlignedLayout.modulemap; sourceTree = "<group>"; };
-		13A2459D115A41E8F8E6A1F2C1DE42C3 /* Pods-iOS-RadioPlayer-2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS-RadioPlayer-2-dummy.m"; sourceTree = "<group>"; };
-		1A174E94DF540AA22337D7BD53D51105 /* FFCircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FFCircularProgressView.h; path = FFCircularProgressView/FFCircularProgressView/FFCircularProgressView.h; sourceTree = "<group>"; };
+		00EABEDB0961F55792B11FCC60EF1F8B /* Pods-iOS-RadioPlayer-2-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS-RadioPlayer-2-Info.plist"; sourceTree = "<group>"; };
+		0CC60A9F91084E51A274802548E018E4 /* FFCircularProgressView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FFCircularProgressView.release.xcconfig; sourceTree = "<group>"; };
+		1134E519212D4AEF7CC61CA0C140EBA5 /* OAStackView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OAStackView-umbrella.h"; sourceTree = "<group>"; };
+		13A63B2109BC15AEDCC9CC6DC54E7C8F /* FSQCollectionViewAlignedLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSQCollectionViewAlignedLayout-dummy.m"; sourceTree = "<group>"; };
+		17197FED5F3760790B3BA185D36CA2DE /* FSQCollectionViewAlignedLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSQCollectionViewAlignedLayout-Info.plist"; sourceTree = "<group>"; };
 		22054A2A0B867C532F65844D757F39C8 /* OAStackView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OAStackView; path = OAStackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		22E58285EA46F6A1BA6E2BFE514C71AB /* OAStackViewAlignmentStrategyBaseline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackViewAlignmentStrategyBaseline.h; path = Pod/Classes/OAStackViewAlignmentStrategyBaseline.h; sourceTree = "<group>"; };
 		24B7D5B193A7CB63F4BC10DEEA666629 /* Pods-iOS-RadioPlayer-2 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-iOS-RadioPlayer-2"; path = Pods_iOS_RadioPlayer_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		25DC0B4DB1331EDBE3CDA72A34E5A70E /* OAStackViewAlignmentStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackViewAlignmentStrategy.m; path = Pod/Classes/OAStackViewAlignmentStrategy.m; sourceTree = "<group>"; };
-		27C658BEDDCA8A55F63776BFCDE22784 /* UIColor+iOS7.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+iOS7.m"; path = "FFCircularProgressView/FFCircularProgressView/UIColor+iOS7.m"; sourceTree = "<group>"; };
-		2AC545F658B3DD076DC00B0F371676E5 /* OAStackViewDistributionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackViewDistributionStrategy.h; path = Pod/Classes/OAStackViewDistributionStrategy.h; sourceTree = "<group>"; };
-		2B920FF559ECD0519E0F19EC3C9CB828 /* OATransformLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OATransformLayer.h; path = Pod/Classes/OATransformLayer.h; sourceTree = "<group>"; };
-		2F100A83EB6FD7A8DE2775C61CB2D300 /* OAStackView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackView.m; path = Pod/Classes/OAStackView.m; sourceTree = "<group>"; };
-		305AD4603AE48E2070E185C898223059 /* ResourceBundle-OAStackView-OAStackView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-OAStackView-OAStackView-Info.plist"; sourceTree = "<group>"; };
-		318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView-OAStackView */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "OAStackView-OAStackView"; path = OAStackView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		43BAE03B8F9E5F972DBEEC9C28145F39 /* OAStackView+Traversal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OAStackView+Traversal.h"; path = "Pod/Classes/OAStackView+Traversal.h"; sourceTree = "<group>"; };
-		44878034015907744BD43C02A66B9A86 /* FSQCollectionViewAlignedLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FSQCollectionViewAlignedLayout.h; sourceTree = "<group>"; };
-		47516209B4870F6C237DB13D68F37409 /* FSQCollectionViewAlignedLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSQCollectionViewAlignedLayout-Info.plist"; sourceTree = "<group>"; };
-		48F3B7BAFB3440B79B5473875FD64F32 /* OAStackView+Hiding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OAStackView+Hiding.h"; path = "Pod/Classes/OAStackView+Hiding.h"; sourceTree = "<group>"; };
-		4A149EEE1082D4404AB129F4847FD307 /* OAStackView+Traversal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OAStackView+Traversal.m"; path = "Pod/Classes/OAStackView+Traversal.m"; sourceTree = "<group>"; };
-		4C57686EA405C620DF9E9736EE1A1452 /* FFCircularProgressView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FFCircularProgressView-Info.plist"; sourceTree = "<group>"; };
-		4D0A002A5F1488E44D631B0900FC9757 /* FFCircularProgressView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FFCircularProgressView.debug.xcconfig; sourceTree = "<group>"; };
+		27A79B79868FEF74B942FAB7D4AC39A7 /* OATransformLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OATransformLayer.h; path = Pod/Classes/OATransformLayer.h; sourceTree = "<group>"; };
+		284F6486CF6EF34ED570778DC7101460 /* FSQCollectionViewAlignedLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSQCollectionViewAlignedLayout-umbrella.h"; sourceTree = "<group>"; };
+		288F64C0B1A294B2837FD290B40F01E7 /* Pods-iOS-RadioPlayer-2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS-RadioPlayer-2-dummy.m"; sourceTree = "<group>"; };
+		2EB8CCB98C984D42677A5FC0837FDEF5 /* OAStackView+Traversal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OAStackView+Traversal.m"; path = "Pod/Classes/OAStackView+Traversal.m"; sourceTree = "<group>"; };
+		318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAStackView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		328CBB84A6BC3D5DE1CB0B5F5E077560 /* OAStackView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OAStackView-prefix.pch"; sourceTree = "<group>"; };
+		331D9CA98156B285942B298236FFA879 /* FFCircularProgressView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FFCircularProgressView.modulemap; sourceTree = "<group>"; };
+		33464628302BB7EC923F9DC4CF7EF1A6 /* FSQCollectionViewAlignedLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FSQCollectionViewAlignedLayout.h; sourceTree = "<group>"; };
+		34CB7C088953966D6EE3B39260D4EFFE /* ResourceBundle-FeedMedia-FeedMedia-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FeedMedia-FeedMedia-Info.plist"; sourceTree = "<group>"; };
+		3900AA7F71CC75028E6DDB6D7EE5CB06 /* FeedMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FeedMedia.debug.xcconfig; sourceTree = "<group>"; };
+		3EEE69246780D3849BD69B4E161EAB20 /* OAStackView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OAStackView.debug.xcconfig; sourceTree = "<group>"; };
+		3F89613870EA0A49CDF7BB49019D89A4 /* OAStackViewAlignmentStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackViewAlignmentStrategy.h; path = Pod/Classes/OAStackViewAlignmentStrategy.h; sourceTree = "<group>"; };
+		4153648EFC416E94BD99F09A42703AA1 /* OAStackViewAlignmentStrategyBaseline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackViewAlignmentStrategyBaseline.h; path = Pod/Classes/OAStackViewAlignmentStrategyBaseline.h; sourceTree = "<group>"; };
+		43D8DE81905C1CBC6B9CE11C7569258A /* FSQCollectionViewAlignedLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSQCollectionViewAlignedLayout.release.xcconfig; sourceTree = "<group>"; };
+		493574BFC60FD3102ACED8F84BDEE6C1 /* OAStackViewDistributionStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackViewDistributionStrategy.m; path = Pod/Classes/OAStackViewDistributionStrategy.m; sourceTree = "<group>"; };
+		4A8AB2A2DE49DC137701AE904FD79A8B /* FFCircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FFCircularProgressView.h; path = FFCircularProgressView/FFCircularProgressView/FFCircularProgressView.h; sourceTree = "<group>"; };
+		5021EF992147439895A74803B4A64319 /* OAStackViewAlignmentStrategyBaseline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackViewAlignmentStrategyBaseline.m; path = Pod/Classes/OAStackViewAlignmentStrategyBaseline.m; sourceTree = "<group>"; };
 		51AB40693B18F443F75126966ED13E47 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		5E7684B7CB15A4F945901C60DC8B0665 /* _OALayoutGuide.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _OALayoutGuide.h; path = Pod/Classes/_OALayoutGuide.h; sourceTree = "<group>"; };
-		615FBFD7F80B8781363C6D0A70BFE027 /* FFCircularProgressView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FFCircularProgressView.release.xcconfig; sourceTree = "<group>"; };
-		6A7AC16B07D87653666224CE91FDEDB2 /* OAStackView+Constraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OAStackView+Constraint.m"; path = "Pod/Classes/OAStackView+Constraint.m"; sourceTree = "<group>"; };
+		54526E7287C257D82556CDD353752595 /* Pods-iOS-RadioPlayer-2-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS-RadioPlayer-2-resources.sh"; sourceTree = "<group>"; };
+		5526CD5652D13F5A4838933E50A142E3 /* FeedMedia.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = FeedMedia.xcframework; sourceTree = "<group>"; };
+		5683848556D7B7C24B349485C06518E9 /* FFCircularProgressView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FFCircularProgressView-Info.plist"; sourceTree = "<group>"; };
+		5C476FE8471D1DA590CD1C0C33B28860 /* FFCircularProgressView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FFCircularProgressView.debug.xcconfig; sourceTree = "<group>"; };
+		5E8C6FB726C06091B6DAA9CC74476D59 /* OAStackViewDistributionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackViewDistributionStrategy.h; path = Pod/Classes/OAStackViewDistributionStrategy.h; sourceTree = "<group>"; };
+		63CF12E0A38E1618DA4AF1991D38326C /* ResourceBundle-OAStackView-OAStackView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-OAStackView-OAStackView-Info.plist"; sourceTree = "<group>"; };
+		6ACAD99F3DACC08463E0B09659C60CE5 /* FeedMedia-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "FeedMedia-xcframeworks.sh"; sourceTree = "<group>"; };
+		6CB5767A92EDDB828C3E77AC6C35BD06 /* Pods-iOS-RadioPlayer-2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOS-RadioPlayer-2.modulemap"; sourceTree = "<group>"; };
+		6DD2E755A2B03149315746C17F9F6EFD /* FFCircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FFCircularProgressView.m; path = FFCircularProgressView/FFCircularProgressView/FFCircularProgressView.m; sourceTree = "<group>"; };
+		6E1D1D1E6F814CE98D7F5A8658B087D2 /* _OALayoutGuide.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _OALayoutGuide.h; path = Pod/Classes/_OALayoutGuide.h; sourceTree = "<group>"; };
+		6F598BA20E09D547BA79F2DE065CB88E /* Pods-iOS-RadioPlayer-2-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS-RadioPlayer-2-frameworks.sh"; sourceTree = "<group>"; };
+		768F6754ED9C72F0CA3670E3DEE3468D /* OAStackView+Traversal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OAStackView+Traversal.h"; path = "Pod/Classes/OAStackView+Traversal.h"; sourceTree = "<group>"; };
+		771FA71E97F69516F1759EA90E64ACFB /* OAStackView+Hiding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OAStackView+Hiding.m"; path = "Pod/Classes/OAStackView+Hiding.m"; sourceTree = "<group>"; };
 		78C4224D60BC192EA80EDBB9277ADCEE /* FSQCollectionViewAlignedLayout */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSQCollectionViewAlignedLayout; path = FSQCollectionViewAlignedLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C79994DF6AEE9C84E3F2D5CA8235AA /* FFCircularProgressView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FFCircularProgressView; path = FFCircularProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E649A95AB80866C439E1DC8720C4FDB /* UIColor+iOS7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+iOS7.h"; path = "FFCircularProgressView/FFCircularProgressView/UIColor+iOS7.h"; sourceTree = "<group>"; };
-		82041F9C21F927B4DF57F546591B096D /* OAStackView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OAStackView.modulemap; sourceTree = "<group>"; };
-		89BADC6BBB1508A087997480498E57E8 /* FSQCollectionViewAlignedLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FSQCollectionViewAlignedLayout.m; sourceTree = "<group>"; };
-		8B1E374633B2726574FEDA481C9E6D5D /* Pods-iOS-RadioPlayer-2-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS-RadioPlayer-2-frameworks.sh"; sourceTree = "<group>"; };
-		8D231914B48E8198E0A82196D89AF3C3 /* OAStackView+Constraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OAStackView+Constraint.h"; path = "Pod/Classes/OAStackView+Constraint.h"; sourceTree = "<group>"; };
-		8D76DE3DDD8E127ABBD9A22635E11E5C /* FFCircularProgressView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FFCircularProgressView.modulemap; sourceTree = "<group>"; };
-		8DC42F5103DDE8BD3E9C542B689F17A8 /* Pods-iOS-RadioPlayer-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS-RadioPlayer-2.debug.xcconfig"; sourceTree = "<group>"; };
-		93ED0199982F205F67E0DDEC4B40AB2F /* Pods-iOS-RadioPlayer-2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOS-RadioPlayer-2.modulemap"; sourceTree = "<group>"; };
-		9A445031354355B23CDF05BFCA207197 /* OAStackView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OAStackView.release.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DEEF50A49DCDAC7C4820F162B5AD811 /* OAStackViewDistributionStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackViewDistributionStrategy.m; path = Pod/Classes/OAStackViewDistributionStrategy.m; sourceTree = "<group>"; };
-		9EA3C2E86B8D90FCE59629D649439475 /* FSQCollectionViewAlignedLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSQCollectionViewAlignedLayout-umbrella.h"; sourceTree = "<group>"; };
-		A048C02CB7CE7D45A033B4875F95B632 /* FSQCollectionViewAlignedLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSQCollectionViewAlignedLayout.debug.xcconfig; sourceTree = "<group>"; };
-		A30EEF58AFBFBE2A8C70A4307095FC65 /* OAStackView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OAStackView.debug.xcconfig; sourceTree = "<group>"; };
-		A60D6544285E769A40F34B305D5A3B89 /* OAStackView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OAStackView-prefix.pch"; sourceTree = "<group>"; };
-		AD79795267F037BC6C209FD27E1418D8 /* OAStackView+Hiding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OAStackView+Hiding.m"; path = "Pod/Classes/OAStackView+Hiding.m"; sourceTree = "<group>"; };
-		B3EC454C49577E89185CAF1E02B9D860 /* FFCircularProgressView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FFCircularProgressView-prefix.pch"; sourceTree = "<group>"; };
-		B72DE59F16FFBDBEBBC7D26FC33373F8 /* Pods-iOS-RadioPlayer-2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS-RadioPlayer-2-acknowledgements.plist"; sourceTree = "<group>"; };
-		B863B8A157988167DE95697718C9A621 /* FFCircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FFCircularProgressView.m; path = FFCircularProgressView/FFCircularProgressView/FFCircularProgressView.m; sourceTree = "<group>"; };
-		B91D32362CE6C164DDCE47AB32168F53 /* FFCircularProgressView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FFCircularProgressView-dummy.m"; sourceTree = "<group>"; };
-		BEB398AC2AA70884684EE29FBD4A240D /* OAStackViewAlignmentStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackViewAlignmentStrategy.h; path = Pod/Classes/OAStackViewAlignmentStrategy.h; sourceTree = "<group>"; };
-		C89525E9FE684F53BCE598A1BC3D4687 /* Pods-iOS-RadioPlayer-2-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS-RadioPlayer-2-Info.plist"; sourceTree = "<group>"; };
+		7F330D25F440AEE3CC2572EC8BCE83DB /* FeedMedia.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedMedia.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		88290CFAB7B26347FA5B0C7F86DCC0E6 /* FSQCollectionViewAlignedLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FSQCollectionViewAlignedLayout.m; sourceTree = "<group>"; };
+		89FF47DDE98597DDE45F5F994D8FF933 /* FFCircularProgressView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FFCircularProgressView-dummy.m"; sourceTree = "<group>"; };
+		8AA5414D9E27948269B72B7E7602B270 /* Pods-iOS-RadioPlayer-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS-RadioPlayer-2.debug.xcconfig"; sourceTree = "<group>"; };
+		8E45099B2ED3B0C706D17CBF06ADD43F /* OAStackView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackView.h; path = Pod/Classes/OAStackView.h; sourceTree = "<group>"; };
+		94652E8F2578EAB7A8685FE4A34A88A4 /* Pods-iOS-RadioPlayer-2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOS-RadioPlayer-2-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A80B9647C002AACCFAC2D748541CE1A5 /* UIColor+iOS7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+iOS7.h"; path = "FFCircularProgressView/FFCircularProgressView/UIColor+iOS7.h"; sourceTree = "<group>"; };
+		AA829B86EC2EB3D63663A8F559DF87A2 /* OAStackView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackView.m; path = Pod/Classes/OAStackView.m; sourceTree = "<group>"; };
+		ADB35D03A507903AC218C7FBBFAF9B6D /* OAStackView+Constraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OAStackView+Constraint.m"; path = "Pod/Classes/OAStackView+Constraint.m"; sourceTree = "<group>"; };
+		B1063F91B1D4198A4C45B21D78C2DD0F /* FSQCollectionViewAlignedLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSQCollectionViewAlignedLayout.modulemap; sourceTree = "<group>"; };
+		B62EE957B570FCD54409E74EC19ECD14 /* UIColor+iOS7.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+iOS7.m"; path = "FFCircularProgressView/FFCircularProgressView/UIColor+iOS7.m"; sourceTree = "<group>"; };
+		C13C63604EF01A193FCA3F7D9F2A97F6 /* OAStackView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OAStackView-Info.plist"; sourceTree = "<group>"; };
+		C4027E8E0ED6DA2DDDEF0493C6A04182 /* FSQCollectionViewAlignedLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSQCollectionViewAlignedLayout-prefix.pch"; sourceTree = "<group>"; };
+		C462DA11ADEDC49828FAB422AAED6494 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = "FeedMedia-Wrapper/Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
 		CABB98090B02C131F86931CB9BE54B7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CE308FBF0E1ECF6AE58337BA81E235CB /* Pods-iOS-RadioPlayer-2-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS-RadioPlayer-2-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D17BE72C4E94F6706D27C3CBB96939F3 /* FSQCollectionViewAlignedLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSQCollectionViewAlignedLayout.release.xcconfig; sourceTree = "<group>"; };
-		D4CECB395EDADE70CB8C09A52D17014E /* OAStackViewAlignmentStrategyBaseline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackViewAlignmentStrategyBaseline.m; path = Pod/Classes/OAStackViewAlignmentStrategyBaseline.m; sourceTree = "<group>"; };
-		D7423EBB0AEFF7C1CF9C0611A0207BC3 /* FSQCollectionViewAlignedLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSQCollectionViewAlignedLayout-dummy.m"; sourceTree = "<group>"; };
-		D9FB5751EDCAEF0D6E798AAB274686AD /* OAStackView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OAStackView-Info.plist"; sourceTree = "<group>"; };
-		DF3D842816BFCB56751D8DD3AA4FA052 /* _OALayoutGuide.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _OALayoutGuide.m; path = Pod/Classes/_OALayoutGuide.m; sourceTree = "<group>"; };
-		ED04F7A1EC7675001E7F44973E7B6CBE /* OATransformLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OATransformLayer.m; path = Pod/Classes/OATransformLayer.m; sourceTree = "<group>"; };
-		EFEBFF9805B338C56D474806DADAC3E6 /* Pods-iOS-RadioPlayer-2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOS-RadioPlayer-2-umbrella.h"; sourceTree = "<group>"; };
-		F09BE659140FA0BDA674274E49B70543 /* FSQCollectionViewAlignedLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSQCollectionViewAlignedLayout-prefix.pch"; sourceTree = "<group>"; };
-		F0BC9E84AE53D4D1334B1E102DF4FB54 /* Pods-iOS-RadioPlayer-2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS-RadioPlayer-2.release.xcconfig"; sourceTree = "<group>"; };
-		F43047FC2D3B47A87E3E2BA71223E448 /* OAStackView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OAStackView.h; path = Pod/Classes/OAStackView.h; sourceTree = "<group>"; };
+		CC88E928C07D0D9D1C4823CF660DF7A7 /* OAStackView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OAStackView.modulemap; sourceTree = "<group>"; };
+		D11C5F7FDED65BC2EDD00B79770D5784 /* OAStackViewAlignmentStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OAStackViewAlignmentStrategy.m; path = Pod/Classes/OAStackViewAlignmentStrategy.m; sourceTree = "<group>"; };
+		D231F0371EF4FBF55AFFA22EEE86A0BD /* Pods-iOS-RadioPlayer-2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS-RadioPlayer-2.release.xcconfig"; sourceTree = "<group>"; };
+		D24271D283BBF176621195ED2B74BAF1 /* OAStackView+Constraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OAStackView+Constraint.h"; path = "Pod/Classes/OAStackView+Constraint.h"; sourceTree = "<group>"; };
+		D54F035E4489FA487F74E233C8EB4603 /* OAStackView+Hiding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OAStackView+Hiding.h"; path = "Pod/Classes/OAStackView+Hiding.h"; sourceTree = "<group>"; };
+		DC1D0BFFB663BC3F7DC5B3F790CEDDB7 /* FFCircularProgressView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FFCircularProgressView-prefix.pch"; sourceTree = "<group>"; };
+		DFA2E00EA3E7378E16A1B26366813FE6 /* FSQCollectionViewAlignedLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSQCollectionViewAlignedLayout.debug.xcconfig; sourceTree = "<group>"; };
+		E7EF231C6B912078F05AA4C9D877DBA0 /* OAStackView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OAStackView.release.xcconfig; sourceTree = "<group>"; };
+		EB5753162172E2D8A41981BACA6F24F7 /* _OALayoutGuide.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _OALayoutGuide.m; path = Pod/Classes/_OALayoutGuide.m; sourceTree = "<group>"; };
+		F34DEB2261162CDB322C3B3076318C65 /* FeedMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FeedMedia.release.xcconfig; sourceTree = "<group>"; };
+		F549B99E022936990C2FA07FFE9752DF /* OATransformLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OATransformLayer.m; path = Pod/Classes/OATransformLayer.m; sourceTree = "<group>"; };
+		F5DA90A95CE79438CE510BCC53C002BA /* FFCircularProgressView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FFCircularProgressView-umbrella.h"; sourceTree = "<group>"; };
+		FBD6675A09BEF10A3D372136D3A7CD38 /* OAStackView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OAStackView-dummy.m"; sourceTree = "<group>"; };
+		FCC6D2002C0B190963E5B133138F5809 /* Pods-iOS-RadioPlayer-2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS-RadioPlayer-2-acknowledgements.plist"; sourceTree = "<group>"; };
+		FDBDA15E0915E592854B79CE61EB4267 /* Pods-iOS-RadioPlayer-2-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS-RadioPlayer-2-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2BE7EC0C449A39851487E2319E7B3324 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51CE71D55F402A2A1F14937040AD1D5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,7 +202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76969E8E30E1CDC86EA6EA28351E9B56 /* Frameworks */ = {
+		64C309445721EB50B00BB2C3BDA05440 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,19 +217,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD0509F49933B6F86012E1FB18F2E6D0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				64D99006A79AC8C27D5A2C51E55EFC21 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E357865B02218B50CA28AB7353764FAE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E4212B6D174C8B47D267B6B8C6995DC3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F625FE50A1037C500C0300E74836EAFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A16B7E59C3745409EFFD74DE1F54222 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,65 +244,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1C134CB45DBF8F89B8DC3F42E48C08FA /* Products */ = {
+		125AA931700BC30628CA9CA60F7B447E /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				7F330D25F440AEE3CC2572EC8BCE83DB /* FeedMedia.bundle */,
 				78C79994DF6AEE9C84E3F2D5CA8235AA /* FFCircularProgressView */,
 				78C4224D60BC192EA80EDBB9277ADCEE /* FSQCollectionViewAlignedLayout */,
 				22054A2A0B867C532F65844D757F39C8 /* OAStackView */,
-				318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView-OAStackView */,
+				318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView.bundle */,
 				24B7D5B193A7CB63F4BC10DEEA666629 /* Pods-iOS-RadioPlayer-2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1D2EE2E57AF0181895A8EE39D612948B /* FFCircularProgressView */ = {
+		196C8A549666A97C4C30B7182878C866 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1A174E94DF540AA22337D7BD53D51105 /* FFCircularProgressView.h */,
-				B863B8A157988167DE95697718C9A621 /* FFCircularProgressView.m */,
-				7E649A95AB80866C439E1DC8720C4FDB /* UIColor+iOS7.h */,
-				27C658BEDDCA8A55F63776BFCDE22784 /* UIColor+iOS7.m */,
-				F2276118FCB9E758028F31F9695F2B5F /* Support Files */,
-			);
-			name = FFCircularProgressView;
-			path = FFCircularProgressView;
-			sourceTree = "<group>";
-		};
-		1D419E18FA9F1E8A1A1B345392D4998B /* FSQCollectionViewAlignedLayout */ = {
-			isa = PBXGroup;
-			children = (
-				44878034015907744BD43C02A66B9A86 /* FSQCollectionViewAlignedLayout.h */,
-				89BADC6BBB1508A087997480498E57E8 /* FSQCollectionViewAlignedLayout.m */,
-				2FD52A8A22DE24A3130D5BC4D18BE062 /* Support Files */,
-			);
-			name = FSQCollectionViewAlignedLayout;
-			path = FSQCollectionViewAlignedLayout;
-			sourceTree = "<group>";
-		};
-		22274D8C3B64425B8CBFAF7DCA2E1488 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1D2EE2E57AF0181895A8EE39D612948B /* FFCircularProgressView */,
-				1D419E18FA9F1E8A1A1B345392D4998B /* FSQCollectionViewAlignedLayout */,
-				829AE374D2C893BBF075410CA59274DC /* OAStackView */,
+				E15DF8E429B5A949FAC0638F912CCA40 /* FeedMedia */,
+				97662A9E6C6BB428BC3A5E0166A84A25 /* FFCircularProgressView */,
+				FF2B0F77EEAE01E3BFBD7C12A66D82B6 /* FSQCollectionViewAlignedLayout */,
+				EDB7E8CDD62AD607FEF0728B5423E046 /* OAStackView */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		2FD52A8A22DE24A3130D5BC4D18BE062 /* Support Files */ = {
+		21693C43AAE87E115F8852646699CF99 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1102BD335D6FEE3F03A6FBB9F5D1FF55 /* FSQCollectionViewAlignedLayout.modulemap */,
-				D7423EBB0AEFF7C1CF9C0611A0207BC3 /* FSQCollectionViewAlignedLayout-dummy.m */,
-				47516209B4870F6C237DB13D68F37409 /* FSQCollectionViewAlignedLayout-Info.plist */,
-				F09BE659140FA0BDA674274E49B70543 /* FSQCollectionViewAlignedLayout-prefix.pch */,
-				9EA3C2E86B8D90FCE59629D649439475 /* FSQCollectionViewAlignedLayout-umbrella.h */,
-				A048C02CB7CE7D45A033B4875F95B632 /* FSQCollectionViewAlignedLayout.debug.xcconfig */,
-				D17BE72C4E94F6706D27C3CBB96939F3 /* FSQCollectionViewAlignedLayout.release.xcconfig */,
+				4F5B259047322C09852595D01F9D286A /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		3AA9C22A7D75BEEB04BE9BEB0986B662 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				331D9CA98156B285942B298236FFA879 /* FFCircularProgressView.modulemap */,
+				89FF47DDE98597DDE45F5F994D8FF933 /* FFCircularProgressView-dummy.m */,
+				5683848556D7B7C24B349485C06518E9 /* FFCircularProgressView-Info.plist */,
+				DC1D0BFFB663BC3F7DC5B3F790CEDDB7 /* FFCircularProgressView-prefix.pch */,
+				F5DA90A95CE79438CE510BCC53C002BA /* FFCircularProgressView-umbrella.h */,
+				5C476FE8471D1DA590CD1C0C33B28860 /* FFCircularProgressView.debug.xcconfig */,
+				0CC60A9F91084E51A274802548E018E4 /* FFCircularProgressView.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/FSQCollectionViewAlignedLayout";
+			path = "../Target Support Files/FFCircularProgressView";
 			sourceTree = "<group>";
 		};
 		4D6691D8CB3D493006A8661C7CFED31A /* iOS */ = {
@@ -270,72 +301,101 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		63DBFF3A27F75587E3A990B77A6EE37C /* Support Files */ = {
+		4F5B259047322C09852595D01F9D286A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82041F9C21F927B4DF57F546591B096D /* OAStackView.modulemap */,
-				0D0DD6B725561D749C7993E4ECBA87EA /* OAStackView-dummy.m */,
-				D9FB5751EDCAEF0D6E798AAB274686AD /* OAStackView-Info.plist */,
-				A60D6544285E769A40F34B305D5A3B89 /* OAStackView-prefix.pch */,
-				07343D9A34B23F1E204B760BF08A9DFD /* OAStackView-umbrella.h */,
-				A30EEF58AFBFBE2A8C70A4307095FC65 /* OAStackView.debug.xcconfig */,
-				9A445031354355B23CDF05BFCA207197 /* OAStackView.release.xcconfig */,
-				305AD4603AE48E2070E185C898223059 /* ResourceBundle-OAStackView-OAStackView-Info.plist */,
+				5526CD5652D13F5A4838933E50A142E3 /* FeedMedia.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		765FBCBCF4183814ADD7D4A5161F8FCA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1063F91B1D4198A4C45B21D78C2DD0F /* FSQCollectionViewAlignedLayout.modulemap */,
+				13A63B2109BC15AEDCC9CC6DC54E7C8F /* FSQCollectionViewAlignedLayout-dummy.m */,
+				17197FED5F3760790B3BA185D36CA2DE /* FSQCollectionViewAlignedLayout-Info.plist */,
+				C4027E8E0ED6DA2DDDEF0493C6A04182 /* FSQCollectionViewAlignedLayout-prefix.pch */,
+				284F6486CF6EF34ED570778DC7101460 /* FSQCollectionViewAlignedLayout-umbrella.h */,
+				DFA2E00EA3E7378E16A1B26366813FE6 /* FSQCollectionViewAlignedLayout.debug.xcconfig */,
+				43D8DE81905C1CBC6B9CE11C7569258A /* FSQCollectionViewAlignedLayout.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FSQCollectionViewAlignedLayout";
+			sourceTree = "<group>";
+		};
+		7BAE23D55FF646564B254E5569D27604 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC88E928C07D0D9D1C4823CF660DF7A7 /* OAStackView.modulemap */,
+				FBD6675A09BEF10A3D372136D3A7CD38 /* OAStackView-dummy.m */,
+				C13C63604EF01A193FCA3F7D9F2A97F6 /* OAStackView-Info.plist */,
+				328CBB84A6BC3D5DE1CB0B5F5E077560 /* OAStackView-prefix.pch */,
+				1134E519212D4AEF7CC61CA0C140EBA5 /* OAStackView-umbrella.h */,
+				3EEE69246780D3849BD69B4E161EAB20 /* OAStackView.debug.xcconfig */,
+				E7EF231C6B912078F05AA4C9D877DBA0 /* OAStackView.release.xcconfig */,
+				63CF12E0A38E1618DA4AF1991D38326C /* ResourceBundle-OAStackView-OAStackView-Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/OAStackView";
 			sourceTree = "<group>";
 		};
-		66CE23B64B9A8052C4668B42A19D39A1 /* Targets Support Files */ = {
+		91DDD537E2BB4A7A53AFB47125704A70 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE66E15CC0C8B383AC84D5C001144AED /* Pods-iOS-RadioPlayer-2 */,
+				6ACAD99F3DACC08463E0B09659C60CE5 /* FeedMedia-xcframeworks.sh */,
+				3900AA7F71CC75028E6DDB6D7EE5CB06 /* FeedMedia.debug.xcconfig */,
+				F34DEB2261162CDB322C3B3076318C65 /* FeedMedia.release.xcconfig */,
+				34CB7C088953966D6EE3B39260D4EFFE /* ResourceBundle-FeedMedia-FeedMedia-Info.plist */,
 			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "../Target Support Files/FeedMedia";
 			sourceTree = "<group>";
 		};
-		829AE374D2C893BBF075410CA59274DC /* OAStackView */ = {
+		97662A9E6C6BB428BC3A5E0166A84A25 /* FFCircularProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				5E7684B7CB15A4F945901C60DC8B0665 /* _OALayoutGuide.h */,
-				DF3D842816BFCB56751D8DD3AA4FA052 /* _OALayoutGuide.m */,
-				F43047FC2D3B47A87E3E2BA71223E448 /* OAStackView.h */,
-				2F100A83EB6FD7A8DE2775C61CB2D300 /* OAStackView.m */,
-				8D231914B48E8198E0A82196D89AF3C3 /* OAStackView+Constraint.h */,
-				6A7AC16B07D87653666224CE91FDEDB2 /* OAStackView+Constraint.m */,
-				48F3B7BAFB3440B79B5473875FD64F32 /* OAStackView+Hiding.h */,
-				AD79795267F037BC6C209FD27E1418D8 /* OAStackView+Hiding.m */,
-				43BAE03B8F9E5F972DBEEC9C28145F39 /* OAStackView+Traversal.h */,
-				4A149EEE1082D4404AB129F4847FD307 /* OAStackView+Traversal.m */,
-				BEB398AC2AA70884684EE29FBD4A240D /* OAStackViewAlignmentStrategy.h */,
-				25DC0B4DB1331EDBE3CDA72A34E5A70E /* OAStackViewAlignmentStrategy.m */,
-				22E58285EA46F6A1BA6E2BFE514C71AB /* OAStackViewAlignmentStrategyBaseline.h */,
-				D4CECB395EDADE70CB8C09A52D17014E /* OAStackViewAlignmentStrategyBaseline.m */,
-				2AC545F658B3DD076DC00B0F371676E5 /* OAStackViewDistributionStrategy.h */,
-				9DEEF50A49DCDAC7C4820F162B5AD811 /* OAStackViewDistributionStrategy.m */,
-				2B920FF559ECD0519E0F19EC3C9CB828 /* OATransformLayer.h */,
-				ED04F7A1EC7675001E7F44973E7B6CBE /* OATransformLayer.m */,
-				63DBFF3A27F75587E3A990B77A6EE37C /* Support Files */,
+				4A8AB2A2DE49DC137701AE904FD79A8B /* FFCircularProgressView.h */,
+				6DD2E755A2B03149315746C17F9F6EFD /* FFCircularProgressView.m */,
+				A80B9647C002AACCFAC2D748541CE1A5 /* UIColor+iOS7.h */,
+				B62EE957B570FCD54409E74EC19ECD14 /* UIColor+iOS7.m */,
+				3AA9C22A7D75BEEB04BE9BEB0986B662 /* Support Files */,
 			);
-			name = OAStackView;
-			path = OAStackView;
+			path = FFCircularProgressView;
 			sourceTree = "<group>";
 		};
-		CE66E15CC0C8B383AC84D5C001144AED /* Pods-iOS-RadioPlayer-2 */ = {
+		9897B1001DC18A02244D9C5C49F69082 /* Pods-iOS-RadioPlayer-2 */ = {
 			isa = PBXGroup;
 			children = (
-				93ED0199982F205F67E0DDEC4B40AB2F /* Pods-iOS-RadioPlayer-2.modulemap */,
-				CE308FBF0E1ECF6AE58337BA81E235CB /* Pods-iOS-RadioPlayer-2-acknowledgements.markdown */,
-				B72DE59F16FFBDBEBBC7D26FC33373F8 /* Pods-iOS-RadioPlayer-2-acknowledgements.plist */,
-				13A2459D115A41E8F8E6A1F2C1DE42C3 /* Pods-iOS-RadioPlayer-2-dummy.m */,
-				8B1E374633B2726574FEDA481C9E6D5D /* Pods-iOS-RadioPlayer-2-frameworks.sh */,
-				C89525E9FE684F53BCE598A1BC3D4687 /* Pods-iOS-RadioPlayer-2-Info.plist */,
-				EFEBFF9805B338C56D474806DADAC3E6 /* Pods-iOS-RadioPlayer-2-umbrella.h */,
-				8DC42F5103DDE8BD3E9C542B689F17A8 /* Pods-iOS-RadioPlayer-2.debug.xcconfig */,
-				F0BC9E84AE53D4D1334B1E102DF4FB54 /* Pods-iOS-RadioPlayer-2.release.xcconfig */,
+				6CB5767A92EDDB828C3E77AC6C35BD06 /* Pods-iOS-RadioPlayer-2.modulemap */,
+				FDBDA15E0915E592854B79CE61EB4267 /* Pods-iOS-RadioPlayer-2-acknowledgements.markdown */,
+				FCC6D2002C0B190963E5B133138F5809 /* Pods-iOS-RadioPlayer-2-acknowledgements.plist */,
+				288F64C0B1A294B2837FD290B40F01E7 /* Pods-iOS-RadioPlayer-2-dummy.m */,
+				6F598BA20E09D547BA79F2DE065CB88E /* Pods-iOS-RadioPlayer-2-frameworks.sh */,
+				00EABEDB0961F55792B11FCC60EF1F8B /* Pods-iOS-RadioPlayer-2-Info.plist */,
+				54526E7287C257D82556CDD353752595 /* Pods-iOS-RadioPlayer-2-resources.sh */,
+				94652E8F2578EAB7A8685FE4A34A88A4 /* Pods-iOS-RadioPlayer-2-umbrella.h */,
+				8AA5414D9E27948269B72B7E7602B270 /* Pods-iOS-RadioPlayer-2.debug.xcconfig */,
+				D231F0371EF4FBF55AFFA22EEE86A0BD /* Pods-iOS-RadioPlayer-2.release.xcconfig */,
 			);
 			name = "Pods-iOS-RadioPlayer-2";
 			path = "Target Support Files/Pods-iOS-RadioPlayer-2";
+			sourceTree = "<group>";
+		};
+		B774456CF8F36AAB9279639002FF8F45 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C462DA11ADEDC49828FAB422AAED6494 /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BA113BAD4E7BE950E952E6FA1454F629 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9897B1001DC18A02244D9C5C49F69082 /* Pods-iOS-RadioPlayer-2 */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -343,25 +403,56 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				22274D8C3B64425B8CBFAF7DCA2E1488 /* Pods */,
-				1C134CB45DBF8F89B8DC3F42E48C08FA /* Products */,
-				66CE23B64B9A8052C4668B42A19D39A1 /* Targets Support Files */,
+				196C8A549666A97C4C30B7182878C866 /* Pods */,
+				125AA931700BC30628CA9CA60F7B447E /* Products */,
+				BA113BAD4E7BE950E952E6FA1454F629 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		F2276118FCB9E758028F31F9695F2B5F /* Support Files */ = {
+		E15DF8E429B5A949FAC0638F912CCA40 /* FeedMedia */ = {
 			isa = PBXGroup;
 			children = (
-				8D76DE3DDD8E127ABBD9A22635E11E5C /* FFCircularProgressView.modulemap */,
-				B91D32362CE6C164DDCE47AB32168F53 /* FFCircularProgressView-dummy.m */,
-				4C57686EA405C620DF9E9736EE1A1452 /* FFCircularProgressView-Info.plist */,
-				B3EC454C49577E89185CAF1E02B9D860 /* FFCircularProgressView-prefix.pch */,
-				0BBCA5B4E0C8A6E2FE45D6A9FE2C760C /* FFCircularProgressView-umbrella.h */,
-				4D0A002A5F1488E44D631B0900FC9757 /* FFCircularProgressView.debug.xcconfig */,
-				615FBFD7F80B8781363C6D0A70BFE027 /* FFCircularProgressView.release.xcconfig */,
+				21693C43AAE87E115F8852646699CF99 /* Core */,
+				B774456CF8F36AAB9279639002FF8F45 /* Resources */,
+				91DDD537E2BB4A7A53AFB47125704A70 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/FFCircularProgressView";
+			path = FeedMedia;
+			sourceTree = "<group>";
+		};
+		EDB7E8CDD62AD607FEF0728B5423E046 /* OAStackView */ = {
+			isa = PBXGroup;
+			children = (
+				6E1D1D1E6F814CE98D7F5A8658B087D2 /* _OALayoutGuide.h */,
+				EB5753162172E2D8A41981BACA6F24F7 /* _OALayoutGuide.m */,
+				8E45099B2ED3B0C706D17CBF06ADD43F /* OAStackView.h */,
+				AA829B86EC2EB3D63663A8F559DF87A2 /* OAStackView.m */,
+				D24271D283BBF176621195ED2B74BAF1 /* OAStackView+Constraint.h */,
+				ADB35D03A507903AC218C7FBBFAF9B6D /* OAStackView+Constraint.m */,
+				D54F035E4489FA487F74E233C8EB4603 /* OAStackView+Hiding.h */,
+				771FA71E97F69516F1759EA90E64ACFB /* OAStackView+Hiding.m */,
+				768F6754ED9C72F0CA3670E3DEE3468D /* OAStackView+Traversal.h */,
+				2EB8CCB98C984D42677A5FC0837FDEF5 /* OAStackView+Traversal.m */,
+				3F89613870EA0A49CDF7BB49019D89A4 /* OAStackViewAlignmentStrategy.h */,
+				D11C5F7FDED65BC2EDD00B79770D5784 /* OAStackViewAlignmentStrategy.m */,
+				4153648EFC416E94BD99F09A42703AA1 /* OAStackViewAlignmentStrategyBaseline.h */,
+				5021EF992147439895A74803B4A64319 /* OAStackViewAlignmentStrategyBaseline.m */,
+				5E8C6FB726C06091B6DAA9CC74476D59 /* OAStackViewDistributionStrategy.h */,
+				493574BFC60FD3102ACED8F84BDEE6C1 /* OAStackViewDistributionStrategy.m */,
+				27A79B79868FEF74B942FAB7D4AC39A7 /* OATransformLayer.h */,
+				F549B99E022936990C2FA07FFE9752DF /* OATransformLayer.m */,
+				7BAE23D55FF646564B254E5569D27604 /* Support Files */,
+			);
+			path = OAStackView;
+			sourceTree = "<group>";
+		};
+		FF2B0F77EEAE01E3BFBD7C12A66D82B6 /* FSQCollectionViewAlignedLayout */ = {
+			isa = PBXGroup;
+			children = (
+				33464628302BB7EC923F9DC4CF7EF1A6 /* FSQCollectionViewAlignedLayout.h */,
+				88290CFAB7B26347FA5B0C7F86DCC0E6 /* FSQCollectionViewAlignedLayout.m */,
+				765FBCBCF4183814ADD7D4A5161F8FCA /* Support Files */,
+			);
+			path = FSQCollectionViewAlignedLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +485,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEE933783E34998D041B40E8D950A2CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2420BCBDCBE536016462E7E17BDC37 /* Pods-iOS-RadioPlayer-2-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E21832AC23C71F0DFBFE8A1EF204AAC0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,24 +502,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9FFF04E926C8312D885B36309E7B7CC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A257E47313316FC74130B7D326A2F42 /* Pods-iOS-RadioPlayer-2-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		33C3ECB4DF8C63FE951E9E2EBBE1476B /* OAStackView-OAStackView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F164F4D0505A73D8F80E5D5FAD2B8E6 /* Build configuration list for PBXNativeTarget "OAStackView-OAStackView" */;
+			buildConfigurationList = 35EF07CA6484A3B22A5420745E99E990 /* Build configuration list for PBXNativeTarget "OAStackView-OAStackView" */;
 			buildPhases = (
-				F964E50F049D827B7D0D45376C1586A0 /* Sources */,
-				76969E8E30E1CDC86EA6EA28351E9B56 /* Frameworks */,
-				D4EACE040275A100E0239A727544FB83 /* Resources */,
+				7EF7D3F63650469944259020BA895C59 /* Sources */,
+				2BE7EC0C449A39851487E2319E7B3324 /* Frameworks */,
+				D1195A49CD5A7E09EA8AEF9AE066258C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -428,7 +519,7 @@
 			);
 			name = "OAStackView-OAStackView";
 			productName = OAStackView;
-			productReference = 318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView-OAStackView */;
+			productReference = 318AA7F0D7EBCA83FDDE23D8DD536C57 /* OAStackView.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		778F5CF2E3BA7069832615893C915B6D /* OAStackView */ = {
@@ -443,7 +534,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				7AE81F598AC34C87A25C5A7C9E1A798D /* PBXTargetDependency */,
+				C77B4623BF334D1572DECBDA1F382482 /* PBXTargetDependency */,
 			);
 			name = OAStackView;
 			productName = OAStackView;
@@ -452,24 +543,42 @@
 		};
 		818D403FF4C057F4E75B730E7D98E79B /* Pods-iOS-RadioPlayer-2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4272EC1D306976A2B07F15DDFF61C9F /* Build configuration list for PBXNativeTarget "Pods-iOS-RadioPlayer-2" */;
+			buildConfigurationList = 8E0EAAD17E864F965127DE4CCACF9F74 /* Build configuration list for PBXNativeTarget "Pods-iOS-RadioPlayer-2" */;
 			buildPhases = (
-				E9FFF04E926C8312D885B36309E7B7CC /* Headers */,
-				AFBC3825C467661309F6C25DB490F500 /* Sources */,
-				DD0509F49933B6F86012E1FB18F2E6D0 /* Frameworks */,
-				42D287E6CBCA17B975687A598D408CD3 /* Resources */,
+				BEE933783E34998D041B40E8D950A2CB /* Headers */,
+				8F6C4EB8A9BA44BA0DD84E1C1F9E57B0 /* Sources */,
+				F625FE50A1037C500C0300E74836EAFA /* Frameworks */,
+				9B777E8EF7A28922E5ADAA1D6C033682 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99C9384C5482C0F4DEEDF95F1ADA2DD7 /* PBXTargetDependency */,
-				BDC4BC1815EC182B7D7A5EC416EAD88A /* PBXTargetDependency */,
-				8851159B574FFA05EFB45B8E5506D563 /* PBXTargetDependency */,
+				04256E3F48C19C76707748E9CB280C6E /* PBXTargetDependency */,
+				88509DAEF6ED6E966F61494399F0F792 /* PBXTargetDependency */,
+				4D26EFD35FE7CB1C0D8CBB979061E9BC /* PBXTargetDependency */,
+				7CB2E33F192F1F47E89496A3EE3E56FC /* PBXTargetDependency */,
 			);
 			name = "Pods-iOS-RadioPlayer-2";
 			productName = Pods_iOS_RadioPlayer_2;
 			productReference = 24B7D5B193A7CB63F4BC10DEEA666629 /* Pods-iOS-RadioPlayer-2 */;
 			productType = "com.apple.product-type.framework";
+		};
+		875B5AFC81F2EFF20BD7382E15E03F03 /* FeedMedia-FeedMedia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D0F16CF55215F1A9588748C5FD094D3 /* Build configuration list for PBXNativeTarget "FeedMedia-FeedMedia" */;
+			buildPhases = (
+				8E15F2ADC40B59A596522FFF51F3F17E /* Sources */,
+				64C309445721EB50B00BB2C3BDA05440 /* Frameworks */,
+				7FB5A3E557DA14207B6BEC96C988EBDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FeedMedia-FeedMedia";
+			productName = FeedMedia;
+			productReference = 7F330D25F440AEE3CC2572EC8BCE83DB /* FeedMedia.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 		F43E310316FFC7CEB9B7BFE6503BA90D /* FFCircularProgressView */ = {
 			isa = PBXNativeTarget;
@@ -525,10 +634,12 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 1C134CB45DBF8F89B8DC3F42E48C08FA /* Products */;
+			productRefGroup = 125AA931700BC30628CA9CA60F7B447E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				42E64E32184E344DF83C9F082A9B6EBF /* FeedMedia */,
+				875B5AFC81F2EFF20BD7382E15E03F03 /* FeedMedia-FeedMedia */,
 				F43E310316FFC7CEB9B7BFE6503BA90D /* FFCircularProgressView */,
 				FB2B58E94AC9D7979BB9070588B7C919 /* FSQCollectionViewAlignedLayout */,
 				778F5CF2E3BA7069832615893C915B6D /* OAStackView */,
@@ -539,18 +650,26 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		42D287E6CBCA17B975687A598D408CD3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		76C929C72931169ED89EEBE430DDBD18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAD6A5FFCD886B8BEFD07C76B6F05760 /* OAStackView-OAStackView in Resources */,
+				DAD6A5FFCD886B8BEFD07C76B6F05760 /* OAStackView.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FB5A3E557DA14207B6BEC96C988EBDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05A8DA4226F2263688BB49615401CE1 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B777E8EF7A28922E5ADAA1D6C033682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4EACE040275A100E0239A727544FB83 /* Resources */ = {
+		D1195A49CD5A7E09EA8AEF9AE066258C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -577,6 +696,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		85738C78F2DDFB8486E069BCB0D38000 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/FeedMedia/FeedMedia-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/FeedMedia/FeedMedia-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/FeedMedia/FeedMedia-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49E9F35501616D4089C4A3F059D98F16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -584,6 +723,20 @@
 			files = (
 				DBD33B887F352934773537E024C5B240 /* FSQCollectionViewAlignedLayout.m in Sources */,
 				D011A5FEB00CFA9E80F41F1EB3B09F60 /* FSQCollectionViewAlignedLayout-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF7D3F63650469944259020BA895C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E15F2ADC40B59A596522FFF51F3F17E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,11 +757,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AFBC3825C467661309F6C25DB490F500 /* Sources */ = {
+		8F6C4EB8A9BA44BA0DD84E1C1F9E57B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2C1BACD4BBCF165F1BBDA7A54970CE2 /* Pods-iOS-RadioPlayer-2-dummy.m in Sources */,
+				0D2EF7223B42A74A90E603D696CFB4C9 /* Pods-iOS-RadioPlayer-2-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,46 +775,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F964E50F049D827B7D0D45376C1586A0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7AE81F598AC34C87A25C5A7C9E1A798D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "OAStackView-OAStackView";
-			target = 33C3ECB4DF8C63FE951E9E2EBBE1476B /* OAStackView-OAStackView */;
-			targetProxy = 4D3BD5559DE73BDD9DE60DC4A95F8BBA /* PBXContainerItemProxy */;
-		};
-		8851159B574FFA05EFB45B8E5506D563 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OAStackView;
-			target = 778F5CF2E3BA7069832615893C915B6D /* OAStackView */;
-			targetProxy = 5F224D40BA91BD79E7008F8D47C429C2 /* PBXContainerItemProxy */;
-		};
-		99C9384C5482C0F4DEEDF95F1ADA2DD7 /* PBXTargetDependency */ = {
+		04256E3F48C19C76707748E9CB280C6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FFCircularProgressView;
 			target = F43E310316FFC7CEB9B7BFE6503BA90D /* FFCircularProgressView */;
-			targetProxy = 4CBA0B73CA9EB5EFE1562BFDD7EA7D43 /* PBXContainerItemProxy */;
+			targetProxy = E51D4DA89A03659FE737826840EBCC29 /* PBXContainerItemProxy */;
 		};
-		BDC4BC1815EC182B7D7A5EC416EAD88A /* PBXTargetDependency */ = {
+		4D26EFD35FE7CB1C0D8CBB979061E9BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FeedMedia;
+			target = 42E64E32184E344DF83C9F082A9B6EBF /* FeedMedia */;
+			targetProxy = 0F1E301182760FC80AA91975BE533CEF /* PBXContainerItemProxy */;
+		};
+		7CB2E33F192F1F47E89496A3EE3E56FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAStackView;
+			target = 778F5CF2E3BA7069832615893C915B6D /* OAStackView */;
+			targetProxy = 97046EB990532F858E5A856E43AF2CF6 /* PBXContainerItemProxy */;
+		};
+		80C65E5B752FC941E3BD17120EB594D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "FeedMedia-FeedMedia";
+			target = 875B5AFC81F2EFF20BD7382E15E03F03 /* FeedMedia-FeedMedia */;
+			targetProxy = 8EB81194A789E91A6F5B1DBEE9B9B085 /* PBXContainerItemProxy */;
+		};
+		88509DAEF6ED6E966F61494399F0F792 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FSQCollectionViewAlignedLayout;
 			target = FB2B58E94AC9D7979BB9070588B7C919 /* FSQCollectionViewAlignedLayout */;
-			targetProxy = B96AB9E6D2F0BFAB396FF15FAC94CBA4 /* PBXContainerItemProxy */;
+			targetProxy = F2C5F8B1C50070525A7C54C7798D6DDA /* PBXContainerItemProxy */;
+		};
+		C77B4623BF334D1572DECBDA1F382482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OAStackView-OAStackView";
+			target = 33C3ECB4DF8C63FE951E9E2EBBE1476B /* OAStackView-OAStackView */;
+			targetProxy = 561B8CA3E96270E377AA4435F2BA4DC7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		032A4F195DC5701612F350A0CD023417 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F34DEB2261162CDB322C3B3076318C65 /* FeedMedia.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FeedMedia";
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				IBSC_MODULE = FeedMedia;
+				INFOPLIST_FILE = "Target Support Files/FeedMedia/ResourceBundle-FeedMedia-FeedMedia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_NAME = FeedMedia;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		1D1C5892F02A4B848D44A21AC2224C3B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A048C02CB7CE7D45A033B4875F95B632 /* FSQCollectionViewAlignedLayout.debug.xcconfig */;
+			baseConfigurationReference = DFA2E00EA3E7378E16A1B26366813FE6 /* FSQCollectionViewAlignedLayout.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -692,9 +867,47 @@
 			};
 			name = Debug;
 		};
+		272ABD1FD3F01CAB0541728587BFF3A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D231F0371EF4FBF55AFFA22EEE86A0BD /* Pods-iOS-RadioPlayer-2.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		3D17230AACA10D1028002BFEC89F5721 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A445031354355B23CDF05BFCA207197 /* OAStackView.release.xcconfig */;
+			baseConfigurationReference = E7EF231C6B912078F05AA4C9D877DBA0 /* OAStackView.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -723,6 +936,23 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		63316923F7600D1BD46D177B77B3DAC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7EF231C6B912078F05AA4C9D877DBA0 /* OAStackView.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OAStackView";
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				IBSC_MODULE = OAStackView;
+				INFOPLIST_FILE = "Target Support Files/OAStackView/ResourceBundle-OAStackView-OAStackView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_NAME = OAStackView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -788,96 +1018,40 @@
 			};
 			name = Release;
 		};
-		7EB2936F218E18DB6703C99232636D54 /* Release */ = {
+		6D2F79960CE861D6555CC086FA64C23B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0BC9E84AE53D4D1334B1E102DF4FB54 /* Pods-iOS-RadioPlayer-2.release.xcconfig */;
+			baseConfigurationReference = 3900AA7F71CC75028E6DDB6D7EE5CB06 /* FeedMedia.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FeedMedia";
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				IBSC_MODULE = FeedMedia;
+				INFOPLIST_FILE = "Target Support Files/FeedMedia/ResourceBundle-FeedMedia-FeedMedia-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		847B4120DA8781F1AB1A871CC0BD6B13 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DC42F5103DDE8BD3E9C542B689F17A8 /* Pods-iOS-RadioPlayer-2.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		851C61C8E58777D2ABECDEEF1C1639DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A30EEF58AFBFBE2A8C70A4307095FC65 /* OAStackView.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OAStackView";
-				IBSC_MODULE = OAStackView;
-				INFOPLIST_FILE = "Target Support Files/OAStackView/ResourceBundle-OAStackView-OAStackView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				PRODUCT_NAME = OAStackView;
+				PRODUCT_NAME = FeedMedia;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
+		};
+		709FDAA794CA0B06AE075DDD31DE4C96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F34DEB2261162CDB322C3B3076318C65 /* FeedMedia.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		8E6A8FF58D100B7F9B1943F455C00F02 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -945,25 +1119,26 @@
 			};
 			name = Debug;
 		};
-		B1FA508032B17F53B9AAE4D0D1F96544 /* Release */ = {
+		BB1339151105D1D69173DFC003E9B1B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A445031354355B23CDF05BFCA207197 /* OAStackView.release.xcconfig */;
+			baseConfigurationReference = 3900AA7F71CC75028E6DDB6D7EE5CB06 /* FeedMedia.debug.xcconfig */;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OAStackView";
-				IBSC_MODULE = OAStackView;
-				INFOPLIST_FILE = "Target Support Files/OAStackView/ResourceBundle-OAStackView-OAStackView-Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				PRODUCT_NAME = OAStackView;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 		BD80F5C00399DA5A47D40A56E3186206 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 615FBFD7F80B8781363C6D0A70BFE027 /* FFCircularProgressView.release.xcconfig */;
+			baseConfigurationReference = 0CC60A9F91084E51A274802548E018E4 /* FFCircularProgressView.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -997,7 +1172,7 @@
 		};
 		D2EC36084B4ABCAF1CDAFE7202B17B5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A30EEF58AFBFBE2A8C70A4307095FC65 /* OAStackView.debug.xcconfig */;
+			baseConfigurationReference = 3EEE69246780D3849BD69B4E161EAB20 /* OAStackView.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1030,7 +1205,7 @@
 		};
 		EB55062F72A674699A750DA6EE5319BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D17BE72C4E94F6706D27C3CBB96939F3 /* FSQCollectionViewAlignedLayout.release.xcconfig */;
+			baseConfigurationReference = 43D8DE81905C1CBC6B9CE11C7569258A /* FSQCollectionViewAlignedLayout.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1064,7 +1239,7 @@
 		};
 		F0D1AEDC024FFB693BC010A405808975 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D0A002A5F1488E44D631B0900FC9757 /* FFCircularProgressView.debug.xcconfig */;
+			baseConfigurationReference = 5C476FE8471D1DA590CD1C0C33B28860 /* FFCircularProgressView.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1095,6 +1270,60 @@
 			};
 			name = Debug;
 		};
+		F8FEBF61CC288C3BFB58771DFC3BDCC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AA5414D9E27948269B72B7E7602B270 /* Pods-iOS-RadioPlayer-2.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOS-RadioPlayer-2/Pods-iOS-RadioPlayer-2.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FCD3ECD1D02B36DD4094E1116C685AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EEE69246780D3849BD69B4E161EAB20 /* OAStackView.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OAStackView";
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				IBSC_MODULE = OAStackView;
+				INFOPLIST_FILE = "Target Support Files/OAStackView/ResourceBundle-OAStackView-OAStackView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_NAME = OAStackView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1103,6 +1332,15 @@
 			buildConfigurations = (
 				D2EC36084B4ABCAF1CDAFE7202B17B5D /* Debug */,
 				3D17230AACA10D1028002BFEC89F5721 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35EF07CA6484A3B22A5420745E99E990 /* Build configuration list for PBXNativeTarget "OAStackView-OAStackView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCD3ECD1D02B36DD4094E1116C685AEF /* Debug */,
+				63316923F7600D1BD46D177B77B3DAC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1116,11 +1354,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F164F4D0505A73D8F80E5D5FAD2B8E6 /* Build configuration list for PBXNativeTarget "OAStackView-OAStackView" */ = {
+		7D0F16CF55215F1A9588748C5FD094D3 /* Build configuration list for PBXNativeTarget "FeedMedia-FeedMedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				851C61C8E58777D2ABECDEEF1C1639DA /* Debug */,
-				B1FA508032B17F53B9AAE4D0D1F96544 /* Release */,
+				6D2F79960CE861D6555CC086FA64C23B /* Debug */,
+				032A4F195DC5701612F350A0CD023417 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A8DBCAA9D6433E76C45B85984A95704 /* Build configuration list for PBXAggregateTarget "FeedMedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB1339151105D1D69173DFC003E9B1B2 /* Debug */,
+				709FDAA794CA0B06AE075DDD31DE4C96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E0EAAD17E864F965127DE4CCACF9F74 /* Build configuration list for PBXNativeTarget "Pods-iOS-RadioPlayer-2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8FEBF61CC288C3BFB58771DFC3BDCC2 /* Debug */,
+				272ABD1FD3F01CAB0541728587BFF3A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1139,15 +1395,6 @@
 			buildConfigurations = (
 				1D1C5892F02A4B848D44A21AC2224C3B /* Debug */,
 				EB55062F72A674699A750DA6EE5319BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F4272EC1D306976A2B07F15DDFF61C9F /* Build configuration list for PBXNativeTarget "Pods-iOS-RadioPlayer-2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				847B4120DA8781F1AB1A871CC0BD6B13 /* Debug */,
-				7EB2936F218E18DB6703C99232636D54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
