@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DL8-ox-g8a">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,47 +19,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flt-wn-HH8">
-                                <rect key="frame" x="107" y="498" width="163" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Download Offline Music"/>
-                                <connections>
-                                    <action selector="presentDownloadOfflineStationsViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ae-sh-ige"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsu-90-PwP">
-                                <rect key="frame" x="122" y="176" width="130" height="30"/>
-                                <state key="normal" title="Streaming Stations"/>
-                                <connections>
-                                    <action selector="pushStreamingStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ua-ZN-9NB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpC-N2-5DZ">
-                                <rect key="frame" x="134" y="270" width="106" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpC-N2-5DZ">
+                                <rect key="frame" x="134.5" y="64" width="106" height="30"/>
                                 <state key="normal" title="Offline Stations"/>
                                 <connections>
                                     <action selector="pushOfflineStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QuO-gu-2bx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flt-wn-HH8">
+                                <rect key="frame" x="106" y="102" width="163" height="30"/>
+                                <state key="normal" title="Download Offline Music"/>
+                                <connections>
+                                    <action selector="presentDownloadOfflineStationsViewController" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ae-sh-ige"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-rJ-JrP">
+                                <rect key="frame" x="106" y="270" width="163" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="secret" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-go-Jaz">
+                                <rect key="frame" x="106" y="316" width="163" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="secretEditingEnded:" destination="BYZ-38-t0r" eventType="editingChanged" id="DbE-dQ-eE1"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ww-bV-nNf">
+                                <rect key="frame" x="143" y="381" width="89" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Connect"/>
+                                <connections>
+                                    <action selector="changeTokens:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AET-VL-ci5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Live credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRl-EB-QoJ">
+                                <rect key="frame" x="106" y="226" width="119" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NpC-N2-5DZ" firstAttribute="centerX" secondItem="flt-wn-HH8" secondAttribute="centerX" id="1Rq-Bd-HYK"/>
                             <constraint firstItem="NpC-N2-5DZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Jv-Yv-3We"/>
-                            <constraint firstItem="Bsu-90-PwP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="112" id="Af6-7B-dDD"/>
-                            <constraint firstItem="Bsu-90-PwP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NRq-pt-QzL"/>
-                            <constraint firstItem="NpC-N2-5DZ" firstAttribute="top" secondItem="Bsu-90-PwP" secondAttribute="bottom" constant="64" id="g57-Rr-Cga"/>
+                            <constraint firstItem="NpC-N2-5DZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="GLn-qu-SZf"/>
+                            <constraint firstItem="flt-wn-HH8" firstAttribute="top" secondItem="NpC-N2-5DZ" secondAttribute="bottom" constant="8" id="mHz-xk-YON"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Eai-6C-raF"/>
+                    <navigationItem key="navigationItem" id="Eai-6C-raF">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bsu-90-PwP">
+                            <rect key="frame" x="122.5" y="7" width="130" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Streaming Stations"/>
+                            <connections>
+                                <action selector="pushStreamingStationCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ua-ZN-9NB"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                     <connections>
+                        <outlet property="connect" destination="3Ww-bV-nNf" id="yEE-YZ-Ojw"/>
                         <outlet property="downloadOfflineStations" destination="flt-wn-HH8" id="Dyq-5b-4Xj"/>
                         <outlet property="offlineStations" destination="NpC-N2-5DZ" id="MSO-9T-UDy"/>
+                        <outlet property="secret" destination="AEk-go-Jaz" id="G0r-0u-OcO"/>
                         <outlet property="streamingStations" destination="Bsu-90-PwP" id="AxF-kr-aqE"/>
+                        <outlet property="token" destination="sgz-rJ-JrP" id="ywu-Tc-wBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="-544"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="-544.67766116941539"/>
         </scene>
         <!--Portrait Navigation Controller-->
         <scene sceneID="x4P-Io-llA">

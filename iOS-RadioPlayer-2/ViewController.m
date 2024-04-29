@@ -18,6 +18,9 @@
 @property (nonatomic, strong) IBOutlet UIButton *downloadOfflineStations;
 @property (nonatomic, strong) IBOutlet UIButton *streamingStations;
 @property (nonatomic, strong) IBOutlet UIButton *offlineStations;
+@property (weak, nonatomic) IBOutlet UITextField *token;
+@property (weak, nonatomic) IBOutlet UITextField *secret;
+@property (weak, nonatomic) IBOutlet UIButton *connect;
 
 @end
 
@@ -53,15 +56,44 @@
         }
         
         // if no offline stuff, then just display online player
-        if ((player.localOfflineStationList.count == 0) &&
-            (player.remoteOfflineStationList.count == 0)) {
-            // just display station collection
-            [self pushStreamingStationCollection:nil];
-        }
+//        if ((player.localOfflineStationList.count == 0) &&
+//            (player.remoteOfflineStationList.count == 0)) {
+//            // just display station collection
+//            [self pushStreamingStationCollection:nil];
+//        }
         
     } notAvailable:^{
         NSLog(@"not available!");
         
+    }];
+}
+
+- (IBAction)secretEditingEnded:(id)sender {
+    
+    if (self.secret.text.length > 2 && self.token.text.length > 2) {
+        [self.connect setEnabled:true];
+    } else
+    {
+        [self.connect setEnabled:true];
+    }
+}
+
+- (IBAction)changeTokens:(id)sender {
+    
+    FMAudioPlayer *player = [FMAudioPlayer sharedPlayer];
+    [player destroy];
+    [FMAudioPlayer setClientToken:self.token.text
+                           secret:self.secret.text];
+    
+    player = [FMAudioPlayer sharedPlayer];
+    [player whenAvailable:^{
+        NSLog(@"Available!");
+
+        player.secondsOfCrossfade = 0.0;
+        [self pushStreamingStationCollection:nil];
+
+    } notAvailable:^{
+        NSLog(@"Unavailable!");
     }];
 }
 
