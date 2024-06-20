@@ -20,11 +20,11 @@ variant_for_slice()
   "FeedMedia.xcframework/ios-arm64")
     echo ""
     ;;
-  "FeedMedia.xcframework/tvos-arm64")
-    echo ""
-    ;;
   "FeedMedia.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
+    ;;
+  "FeedMedia.xcframework/tvos-arm64")
+    echo ""
     ;;
   "FeedMedia.xcframework/tvos-arm64_x86_64-simulator")
     echo "simulator"
@@ -38,11 +38,11 @@ archs_for_slice()
   "FeedMedia.xcframework/ios-arm64")
     echo "arm64"
     ;;
-  "FeedMedia.xcframework/tvos-arm64")
-    echo "arm64"
-    ;;
   "FeedMedia.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
+    ;;
+  "FeedMedia.xcframework/tvos-arm64")
+    echo "arm64"
     ;;
   "FeedMedia.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"

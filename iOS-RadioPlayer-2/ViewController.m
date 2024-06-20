@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *token;
 @property (weak, nonatomic) IBOutlet UITextField *secret;
 @property (weak, nonatomic) IBOutlet UIButton *connect;
+@property (weak, nonatomic) IBOutlet UIPickerView *countryPicker;
 
 @end
 
@@ -38,6 +39,12 @@
     self->_offlineStations.enabled = NO;
     self->_streamingStations.enabled = NO;
     self->_downloadOfflineStations.enabled = NO;
+    
+   
+
+    sortedCountries  = @[@"Default",@"US",@"MX", @"CA", @"AU", @"GB"];
+    _countryPicker.delegate = self; // Also, can be done from IB, if you're using
+    _countryPicker.dataSource = self;//
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,6 +73,61 @@
         NSLog(@"not available!");
         
     }];
+}
+
+#pragma pickerView
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;// or the number of vertical "columns" the picker will show...
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (sortedCountries!=nil) {
+        return [sortedCountries count];//this will tell the picker how many rows it has - in this case, the size of your loaded array...
+    }
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    //you can also write code here to descide what data to return depending on the component ("column")
+    if (sortedCountries!=nil) {
+        return [sortedCountries objectAtIndex:row];//assuming the array contains strings..
+    }
+    else
+    {
+        NSLog(@"Register tab empty?");
+    }
+    return @"empty";//or nil, depending how protective you are
+}
+
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component {
+        
+    switch (row) {
+        case 0: // default
+            [FMAudioPlayer setStreamingFor:@""];
+            break;
+        case 1: // US
+            [FMAudioPlayer setStreamingFor:@"65.49.22.66"];
+            break;
+        case 2: // MX
+            [FMAudioPlayer setStreamingFor:@"131.178.0.0"];
+            break;
+        case 3: // CA
+            [FMAudioPlayer setStreamingFor:@"100.42.20.0"];
+            break;
+        case 4: // AU
+            [FMAudioPlayer setStreamingFor:@"1.120.0.0"];
+            break;
+        case 5: // GB
+            [FMAudioPlayer setStreamingFor:@"1.186.0.0"];
+            break;
+        default:
+            
+            [FMAudioPlayer setStreamingFor:@""];
+            break;
+    }
 }
 
 - (IBAction)secretEditingEnded:(id)sender {

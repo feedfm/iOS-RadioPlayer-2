@@ -48,9 +48,8 @@
                                     <action selector="secretEditingEnded:" destination="BYZ-38-t0r" eventType="editingChanged" id="DbE-dQ-eE1"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ww-bV-nNf">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ww-bV-nNf">
                                 <rect key="frame" x="143" y="381" width="89" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Connect"/>
                                 <connections>
@@ -64,18 +63,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Kj-kR-ZXd">
+                                <rect key="frame" x="28" y="443" width="320" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="vyD-Bg-xzb"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nM-6L-vgF">
+                                <rect key="frame" x="40" y="410" width="66" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Oei-Ra-Gpk"/>
+                                    <constraint firstAttribute="width" constant="66" id="gP4-b8-xna"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NpC-N2-5DZ" firstAttribute="centerX" secondItem="flt-wn-HH8" secondAttribute="centerX" id="1Rq-Bd-HYK"/>
                             <constraint firstItem="NpC-N2-5DZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Jv-Yv-3We"/>
                             <constraint firstItem="NpC-N2-5DZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="GLn-qu-SZf"/>
+                            <constraint firstItem="3Ww-bV-nNf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TRi-DP-XUD"/>
+                            <constraint firstItem="3Kj-kR-ZXd" firstAttribute="top" secondItem="3Ww-bV-nNf" secondAttribute="bottom" constant="27" id="jTO-q4-g4u"/>
+                            <constraint firstItem="2nM-6L-vgF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="jrv-Gk-eE7"/>
                             <constraint firstItem="flt-wn-HH8" firstAttribute="top" secondItem="NpC-N2-5DZ" secondAttribute="bottom" constant="8" id="mHz-xk-YON"/>
+                            <constraint firstItem="3Kj-kR-ZXd" firstAttribute="top" secondItem="2nM-6L-vgF" secondAttribute="bottom" constant="12" id="qBZ-el-eRD"/>
+                            <constraint firstItem="3Kj-kR-ZXd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sGF-9L-F3A"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Kj-kR-ZXd" secondAttribute="bottom" constant="167" id="uEz-Na-kjl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Eai-6C-raF">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bsu-90-PwP">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bsu-90-PwP">
                             <rect key="frame" x="122.5" y="7" width="130" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Streaming Stations"/>
@@ -86,6 +107,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="connect" destination="3Ww-bV-nNf" id="yEE-YZ-Ojw"/>
+                        <outlet property="countryPicker" destination="3Kj-kR-ZXd" id="i5u-Nq-EGz"/>
                         <outlet property="downloadOfflineStations" destination="flt-wn-HH8" id="Dyq-5b-4Xj"/>
                         <outlet property="offlineStations" destination="NpC-N2-5DZ" id="MSO-9T-UDy"/>
                         <outlet property="secret" destination="AEk-go-Jaz" id="G0r-0u-OcO"/>
@@ -95,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085.5999999999999" y="-544.67766116941539"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="-545.57721139430294"/>
         </scene>
         <!--Portrait Navigation Controller-->
         <scene sceneID="x4P-Io-llA">
