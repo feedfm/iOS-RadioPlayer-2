@@ -5,7 +5,7 @@ target 'iOS-RadioPlayer-2' do
   pod 'OAStackView'
   pod 'FSQCollectionViewAlignedLayout'
   pod 'FFCircularProgressView'
-  pod 'FeedMedia', '~> 5.5.7'
+  pod 'FeedMedia', '~> 5.6.0'
 end
 
 post_install do |installer|
