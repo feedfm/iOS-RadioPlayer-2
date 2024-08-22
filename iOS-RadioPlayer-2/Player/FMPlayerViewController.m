@@ -79,6 +79,14 @@
     
     // make sure the lock screen is synced with the active station
     [self setupLockScreen];
+    
+    _playPausebutton.accessibilityIdentifier = @"playPauseButton";
+    _skipButton.accessibilityIdentifier = @"skipButton";
+    _likeButton.accessibilityIdentifier = @"likeButton";
+    _dislikeButton.accessibilityIdentifier = @"dislikeButton";
+    
+    _trackLineOneLabel.accessibilityIdentifier = @"trackTitle";
+    _trackLineTwoLabel.accessibilityIdentifier = @"trackArtistAlbum";
 }
 
 /**
