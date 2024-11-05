@@ -28,6 +28,11 @@
     [player whenAvailable:^{
         NSLog(@"Available!");
 
+        // By default, the player sets the `AVAudioSessionCategoryOptions` to `AVAudioSessionCategoryOptionMixWithOthers`, which
+        // prevents us from becoming the 'Now Playing' app in the lock screen. The following removes that option, so this
+        // app will show up and be controllable on the lock screen.
+        [player setAVAudioSessionCategory:AVAudioSessionCategoryPlayback mode:AVAudioSessionModeDefault options:  0 ];
+
         player.secondsOfCrossfade = 0.0;
 
     } notAvailable:^{
